@@ -1,0 +1,227 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.0.dtd" >
+   <PATCH nodename="G:\vvvv\app\vvvv_45beta32_x86\packs\mcropack\nodes\Plugins\YoutubeUploader\Uploader (Youtube) help.v4p" systemname="Uploader (Youtube) help" filename="G:\vvvv\app\vvvv_45beta32_x86\packs\mcropack\nodes\Plugins\YoutubeUploader\Uploader (Youtube) help.v4p">
+   <BOUNDS type="Window" left="3210" top="4425" width="9000" height="6000">
+   </BOUNDS>
+   <PACK Name="ImagePack" Version="0.1.0">
+   </PACK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
+   <NODE systemname="Template (Enumerations Static)" filename="%VVVV%\lib\nodes\plugins\TemplateEnumerationsStatic\TemplateEnumerationsStatic.csproj" nodename="Template (Enumerations Static)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="6915" top="2865" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="1410" top="2835" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1410" top="2835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="..\..\..\..\..\addonpack\lib\nodes\plugins\FileStreamVLCHelp\click_blue.avi">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="7" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="3195" top="3090" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3195" top="3090" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="..\..\..\..\..\..\..\Uberact\YoutubeUpload\YoutubeUploadUtility\client_secrets.json">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="3315" top="2655" width="1185" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3315" top="2655" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|Penalty Click|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="9" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2235" top="2220" width="2505" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2235" top="2220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|Youtube Upload VVVV Plugin Test|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5055" top="2835" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5055" top="2835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2850" top="2715" width="285" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2850" top="2715" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="17">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2445" top="930" width="855" height="855">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2445" top="930" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="3" values="vvvv,plugin,test">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Uploader (Youtube)" filename="..\..\..\..\..\..\..\Uberact\YoutubeUpload\YoutubeUploader\bin\x86\Debug\YoutubeUploader.dll" nodename="Uploader (Youtube)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="2250" top="4050" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Secret JSON" visible="1">
+   </PIN>
+   <PIN pinname="Application Name" visible="1">
+   </PIN>
+   <PIN pinname="Upload" visible="1">
+   </PIN>
+   <PIN pinname="Category ID" visible="1">
+   </PIN>
+   <PIN pinname="Tags" visible="1">
+   </PIN>
+   <PIN pinname="Description" visible="1">
+   </PIN>
+   <PIN pinname="Title" visible="1" slicecount="1" values="G:\vvvv\app\vvvv_45beta32_x86\addonpack\lib\nodes\plugins\FileStreamVLCHelp\click_blue.avi">
+   </PIN>
+   <PIN pinname="Video File" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output String" dstnodeid="14" dstpinname="Secret JSON">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="14" dstpinname="Application Name">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Upload">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Category ID">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Output String" dstnodeid="14" dstpinname="Tags">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="14" dstpinname="Video File">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="15" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="1500" top="1200" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1500" top="1200" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|Test Description|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Output String" dstnodeid="14" dstpinname="Description">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Output String" dstnodeid="14" dstpinname="Title">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="16" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2175" top="4500" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2175" top="4500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Status" dstnodeid="16" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2835" top="4965" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2835" top="4965" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Uploaded Kb" dstnodeid="17" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="18" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="4485" top="4935" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4485" top="4935" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Video ID" dstnodeid="18" dstpinname="Input String">
+   </LINK>
+   </PATCH>
