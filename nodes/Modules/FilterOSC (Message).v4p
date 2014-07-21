@@ -1,0 +1,83 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.2.dtd" >
+   <PATCH nodename="C:\DM\DigitalMirror\Nodes\Modules\FilterOSC (Message).v4p" systemname="FilterOSC (Message)" filename="C:\DM\DigitalMirror\Nodes\Modules\FilterOSC (Message).v4p">
+   <BOUNDS type="Window" left="10830" top="9960" width="9000" height="6000">
+   </BOUNDS>
+   <NODE systemname="AsMessage (Message)" filename="..\plugins\GUIObjectServer\GUIObjectServer.csproj" nodename="AsMessage (Message)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1425" top="1320" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1425" top="315" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1425" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="OSC">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="0" dstpinname="OSC">
+   </LINK>
+   <NODE systemname="Info (Message)" filename="..\plugins\GUIObjectServer\GUIObjectServer.csproj" nodename="Info (Message)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="1425" top="2010" width="600" height="270">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="2" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Sift (String)" nodename="Sift (String)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="1410" top="2520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Input Index" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="4" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="3300" top="765" width="795" height="255">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3300" top="765" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Address">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output String" dstnodeid="3" dstpinname="Filter">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Address" dstnodeid="3" dstpinname="Input">
+   </LINK>
+   <NODE systemname="GetSlice (Message)" filename="..\plugins\GUIObjectServer\GUIObjectServer.csproj" nodename="GetSlice (Message)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="780" top="3045" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Input Index" dstnodeid="5" dstpinname="Index">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="5" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="6" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="795" top="3840" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="795" top="3840" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Input Node">
+   </LINK>
+   </PATCH>
