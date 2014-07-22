@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
-   <PATCH nodename="E:\vvvv\app\vvvv_45beta32.1_x86\packs\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p">
+   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p">
    <BOUNDS type="Window" left="9555" top="1275" width="9060" height="9165">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
@@ -1091,7 +1091,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11295" top="11775" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="15">
+   <PIN pinname="Y Input Value" slicecount="1" values="10.96">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1678,24 +1678,16 @@
    </LINK>
    <LINK srcnodeid="241" srcpinname="Output" dstnodeid="178" dstpinname="Y">
    </LINK>
-   <NODE systemname="HandleFromPoint (Windows)" filename="%VVVV%\packs\mcropack\nodes\plugins\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="HandleFromPoint (Windows)" componentmode="Hidden" id="247">
-   <BOUNDS type="Node" left="9750" top="4185" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Cursor Pos" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="245">
    <BOUNDS type="Node" left="10470" top="6285" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Set" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="247" srcpinname="Cursor Pos" dstnodeid="245" dstpinname="Input">
-   </LINK>
    <NODE systemname="SetCursorPos (Windows)" filename="%VVVV%\packs\mcropack\nodes\plugins\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="SetCursorPos (Windows)" componentmode="Hidden" id="243">
    <BOUNDS type="Node" left="10455" top="6765" width="100" height="100">
    </BOUNDS>
@@ -2168,4 +2160,12 @@
    </LINK>
    <PACK Name="ImagePack" Version="0.1.0">
    </PACK>
+   <NODE systemname="HandleFromPoint (Windows)" filename="..\plugins\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="HandleFromPoint (Windows)" componentmode="Hidden" id="247">
+   <BOUNDS type="Node" left="9750" top="4185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Cursor Pos" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="247" srcpinname="Cursor Pos" dstnodeid="245" dstpinname="Input">
+   </LINK>
    </PATCH>
