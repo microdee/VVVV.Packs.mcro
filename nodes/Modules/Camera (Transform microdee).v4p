@@ -360,14 +360,6 @@
    <PIN pinname="Ord Value" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="DirectInput (Devices)" filename="%VVVV%\packs\mcropack\nodes\plugins\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="95">
-   <BOUNDS type="Node" left="3330" top="6015" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mouse Buttons" visible="1">
-   </PIN>
-   <PIN pinname="Mouse Position XYW" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="99">
    <BOUNDS type="Node" left="5550" top="4920" width="100" height="100">
    </BOUNDS>
@@ -519,27 +511,23 @@
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="111">
    <BOUNDS type="Node" left="2445" top="7290" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Input 2" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="95" srcpinname="Mouse Position XYW" dstnodeid="111" dstpinname="Input 1">
-   </LINK>
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="115">
    <BOUNDS type="Node" left="6150" top="9210" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="1">
+   <PIN pinname="Input 1" visible="1" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Input 2" slicecount="3" values="1,1,1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="95" srcpinname="Mouse Position XYW" dstnodeid="115" dstpinname="Input 1">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="116" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="27345" top="3330" width="795" height="240">
    </BOUNDS>
@@ -805,7 +793,7 @@
    <NODE systemname="GetSpread (Spreads)" nodename="GetSpread (Spreads)" componentmode="Hidden" id="136">
    <BOUNDS type="Node" left="7425" top="6255" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="3" values="0">
+   <PIN pinname="Input" visible="1" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Count" slicecount="1" values="2">
    </PIN>
@@ -841,8 +829,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="152" srcpinname="Y Output Value" dstnodeid="139" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="95" srcpinname="Mouse Position XYW" dstnodeid="136" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="111" srcpinname="Output" dstnodeid="118" dstpinname="XYZ">
    </LINK>
@@ -1349,13 +1335,11 @@
    <NODE systemname="Vector (3d Split)" nodename="Vector (3d Split)" componentmode="Hidden" id="216">
    <BOUNDS type="Node" left="12990" top="11550" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="XYZ" visible="1">
+   <PIN pinname="XYZ" visible="1" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Y" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="95" srcpinname="Mouse Position XYW" dstnodeid="216" dstpinname="XYZ">
-   </LINK>
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="217">
    <BOUNDS type="Node" left="13260" top="12135" width="100" height="100">
    </BOUNDS>
@@ -1475,7 +1459,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="14385" top="14250" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.25">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.17">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -2131,7 +2115,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="14655" top="16320" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.0500000007450581">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -2167,5 +2151,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="247" srcpinname="Cursor Pos" dstnodeid="245" dstpinname="Input">
+   </LINK>
+   <NODE systemname="DirectInput (Devices)" filename="%VVVV%\packs\mcropack\nodes\plugins\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="287">
+   <BOUNDS type="Node" left="3330" top="6015" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="111" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="115" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="136" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="216" dstpinname="XYZ">
    </LINK>
    </PATCH>
