@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.Composition;
+using System.IO;
+using System.IO.MemoryMappedFiles;
 
 using VVVV.Core;
 using VVVV.PluginInterfaces.V1;
 using VVVV.PluginInterfaces.V2;
 using VVVV.Utils.VMath;
 using VVVV.Utils.VColor;
+using VVVV.Utils.SharedMemory;
 
 using Leap;
+using MemoryMappedFileHelper;
 
 namespace VVVV.Nodes
 {
-    [PluginInfo(Name = "Device", Category = "Leap", Tags = "")]
+    [PluginInfo(Name = "Device", Category = "Leap", Tags = "", AutoEvaluate=true)]
     public class LeapDeviceNode : IPluginEvaluate
     {
+        [Input("Scale", DefaultValue=0.01)]
+        public Pin<float> FScale;
+        
         [Output("Device")]
         public ISpread<Leap.Device> FDevice;
 
@@ -25,6 +32,8 @@ namespace VVVV.Nodes
 
         Leap.Device leapdevice;
         Leap.Controller leapcontroller = new Controller();
+
+        MemoryMappedFile ScaleProp = MemoryMappedFile.CreateNew("VVVV.LeapWorldScale", 4);
 
         [ImportingConstructor]
         LeapDeviceNode()
@@ -56,6 +65,8 @@ namespace VVVV.Nodes
                 FDevice.SliceCount = 0;
                 FController.SliceCount = 0;
             }
+
+            ScaleProp.WriteFloat(FScale[0]);
         }
     }
     
@@ -125,8 +136,13 @@ namespace VVVV.Nodes
         [Output("Streaming")]
         public ISpread<bool> FStreaming;
 
+        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
+
         public void Evaluate(int SpreadMax)
         {
+            float ScaleVal = ScaleProp.ReadFloat();
+            if (ScaleVal == 0) ScaleVal = 1;
+
             if (!FDevice.IsConnected || FDevice.SliceCount == 0)
             {
                 FViewAngle.SliceCount = 0;
@@ -142,13 +158,13 @@ namespace VVVV.Nodes
                 FDtB.SliceCount = FBoundPos.SliceCount;
 
                 FViewAngle[0] = new Vector2D(FDevice[0].HorizontalViewAngle, FDevice[0].VerticalViewAngle);
-                FRange[0] = FDevice[0].Range;
+                FRange[0] = FDevice[0].Range * (float)ScaleVal;
                 FStreaming[0] = FDevice[0].IsStreaming;
 
                 for(int i=0; i<FBoundPos.SliceCount; i++)
                 {
-                    Leap.Vector V = new Vector((float)FBoundPos[i].x, (float)FBoundPos[i].y, (float)FBoundPos[i].z);
-                    FDtB[i] = FDevice[0].DistanceToBoundary(V);
+                    Leap.Vector V = new Vector((float)FBoundPos[i].x / ScaleVal, (float)FBoundPos[i].y / ScaleVal, (float)FBoundPos[i].z / ScaleVal);
+                    FDtB[i] = FDevice[0].DistanceToBoundary(V) * ScaleVal;
                 }
             }
         }
