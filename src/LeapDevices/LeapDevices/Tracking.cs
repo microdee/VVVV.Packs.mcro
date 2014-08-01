@@ -13,33 +13,9 @@ using VVVV.Utils.VColor;
 using VVVV.Utils.SharedMemory;
 
 using Leap;
-using MemoryMappedFileHelper;
 
 namespace VVVV.Nodes
 {
-    public static class TrackingHelper
-    {
-        public static Matrix4x4 ToMatrix4x4(this Matrix m)
-        {
-            Matrix4x4 tmp = new Matrix4x4();
-            tmp.m11 = m.xBasis.x;
-            tmp.m12 = m.yBasis.x;
-            tmp.m13 = m.zBasis.x;
-            tmp.m21 = m.xBasis.y;
-            tmp.m22 = m.yBasis.y;
-            tmp.m23 = m.zBasis.y;
-            tmp.m31 = m.xBasis.z;
-            tmp.m32 = m.yBasis.z;
-            tmp.m33 = m.zBasis.z;
-            tmp.m44 = 1;
-            return tmp;
-        }
-        public static Vector3D ToVector3D(this Leap.Vector V)
-        {
-            Vector3D tmp = new Vector3D((double)V.x, (double)V.y, (double)V.z);
-            return tmp;
-        }
-    }
 
     [PluginInfo(Name = "Hand", Category = "Leap", Tags = "")]
     public class LeapHandNode : IPluginEvaluate
@@ -90,17 +66,25 @@ namespace VVVV.Nodes
         [Output("Side")]
         public ISpread<bool> FSide;
         [Output("Age")]
-        public ISpread<float> FAge;
-
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
+        public ISpread<double> FAge;
 
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
-
             if (FHand.IsConnected)
             {
+                float gs;
+                double zm;
+                try
+                {
+                    gs = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    gs = 1;
+                    zm = 1;
+                }
+
                 FBasis.SliceCount = FHand.SliceCount;
                 FPos.SliceCount = FHand.SliceCount;
                 FStabilPos.SliceCount = FHand.SliceCount;
@@ -124,22 +108,22 @@ namespace VVVV.Nodes
 
                 for(int i=0; i<FHand.SliceCount; i++)
                 {
-                    FBasis[i] = FHand[i].Basis.ToMatrix4x4().Transpose();
-                    FPos[i] = FHand[i].PalmPosition.ToVector3D() * ScaleVal;
-                    FStabilPos[i] = FHand[i].StabilizedPalmPosition.ToVector3D() * ScaleVal;
-                    FDirection[i] = FHand[i].Direction.ToVector3D();
-                    FNormal[i] = FHand[i].PalmNormal.ToVector3D();
-                    FVel[i] = FHand[i].PalmVelocity.ToVector3D() * ScaleVal;
-                    FWristPos[i] = FHand[i].WristPosition.ToVector3D() * ScaleVal;
-                    FSphereC[i] = FHand[i].SphereCenter.ToVector3D() * ScaleVal;
+                    FBasis[i] = FHand[i].Basis.ToMatrix4x4().Transpose().mulz(zm);
+                    FPos[i] = FHand[i].PalmPosition.ToVector3D().mulz(zm) * gs;
+                    FStabilPos[i] = FHand[i].StabilizedPalmPosition.ToVector3D().mulz(zm) * gs;
+                    FDirection[i] = FHand[i].Direction.ToVector3D().mulz(zm);
+                    FNormal[i] = FHand[i].PalmNormal.ToVector3D().mulz(zm);
+                    FVel[i] = FHand[i].PalmVelocity.ToVector3D().mulz(zm) * gs;
+                    FWristPos[i] = FHand[i].WristPosition.ToVector3D().mulz(zm) * gs;
+                    FSphereC[i] = FHand[i].SphereCenter.ToVector3D().mulz(zm) * gs;
 
-                    FSphereR[i] = FHand[i].SphereRadius * ScaleVal;
+                    FSphereR[i] = FHand[i].SphereRadius * gs;
                     FConfidence[i] = FHand[i].Confidence;
                     FGrab[i] = FHand[i].GrabStrength;
                     FPinch[i] = FHand[i].PinchStrength;
-                    FWidth[i] = FHand[i].PalmWidth * ScaleVal;
+                    FWidth[i] = FHand[i].PalmWidth * gs;
 
-                    FAge[i] = FHand[i].TimeVisible;
+                    if (FHand[i].TimeVisible < 5000) FAge[i] = FHand[i].TimeVisible;
                     FID[i] = FHand[i].Id;
                     FSide[i] = FHand[i].IsRight;
 
@@ -209,17 +193,26 @@ namespace VVVV.Nodes
         [Output("ID")]
         public ISpread<int> FID;
         [Output("Age")]
-        public ISpread<float> FAge;
-
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
+        public ISpread<double> FAge;
 
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
 
             if (FPointable.IsConnected)
             {
+                float ScaleVal;
+                double zm;
+                try
+                {
+                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    ScaleVal = 1;
+                    zm = 1;
+                }
+
                 FPos.SliceCount = FPointable.SliceCount;
                 FStabilPos.SliceCount = FPointable.SliceCount;
                 FDirection.SliceCount = FPointable.SliceCount;
@@ -234,10 +227,10 @@ namespace VVVV.Nodes
 
                 for (int i = 0; i < FPointable.SliceCount; i++)
                 {
-                    FPos[i] = FPointable[i].TipPosition.ToVector3D() * ScaleVal;
-                    FStabilPos[i] = FPointable[i].StabilizedTipPosition.ToVector3D() * ScaleVal;
-                    FDirection[i] = FPointable[i].Direction.ToVector3D();
-                    FVel[i] = FPointable[i].TipVelocity.ToVector3D() * ScaleVal;
+                    FPos[i] = FPointable[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FStabilPos[i] = FPointable[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FDirection[i] = FPointable[i].Direction.ToVector3D().mulz(zm);
+                    FVel[i] = FPointable[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
                     FWidth[i] = FPointable[i].Width * ScaleVal;
                     FLength[i] = FPointable[i].Length * ScaleVal;
 
@@ -245,7 +238,7 @@ namespace VVVV.Nodes
                     FExtended[i] = FPointable[i].IsExtended;
                     FIsTool[i] = FPointable[i].IsTool;
 
-                    FAge[i] = FPointable[i].TimeVisible;
+                    if (FPointable[i].TimeVisible < 5000) FAge[i] = FPointable[i].TimeVisible;
                     FID[i] = FPointable[i].Id;
                 }
             }
@@ -298,17 +291,26 @@ namespace VVVV.Nodes
         [Output("ID")]
         public ISpread<int> FID;
         [Output("Age")]
-        public ISpread<float> FAge;
-
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
+        public ISpread<double> FAge;
 
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
 
             if (FTool.IsConnected)
             {
+                float ScaleVal;
+                double zm;
+                try
+                {
+                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    ScaleVal = 1;
+                    zm = 1;
+                }
+
                 FPos.SliceCount = FTool.SliceCount;
                 FStabilPos.SliceCount = FTool.SliceCount;
                 FDirection.SliceCount = FTool.SliceCount;
@@ -323,10 +325,10 @@ namespace VVVV.Nodes
 
                 for (int i = 0; i < FTool.SliceCount; i++)
                 {
-                    FPos[i] = FTool[i].TipPosition.ToVector3D() * ScaleVal;
-                    FStabilPos[i] = FTool[i].StabilizedTipPosition.ToVector3D() * ScaleVal;
-                    FDirection[i] = FTool[i].Direction.ToVector3D();
-                    FVel[i] = FTool[i].TipVelocity.ToVector3D() * ScaleVal;
+                    FPos[i] = FTool[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FStabilPos[i] = FTool[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FDirection[i] = FTool[i].Direction.ToVector3D().mulz(zm);
+                    FVel[i] = FTool[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
                     FWidth[i] = FTool[i].Width * ScaleVal;
                     FLength[i] = FTool[i].Length * ScaleVal;
 
@@ -334,7 +336,7 @@ namespace VVVV.Nodes
                     FExtended[i] = FTool[i].IsExtended;
                     FIsTool[i] = FTool[i].IsTool;
 
-                    FAge[i] = FTool[i].TimeVisible;
+                    if (FTool[i].TimeVisible < 5000) FAge[i] = FTool[i].TimeVisible;
                     FID[i] = FTool[i].Id;
                 }
             }
@@ -392,17 +394,26 @@ namespace VVVV.Nodes
         [Output("ID")]
         public ISpread<int> FID;
         [Output("Age")]
-        public ISpread<float> FAge;
-
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
+        public ISpread<double> FAge;
 
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
 
             if (FFinger.IsConnected)
             {
+                float ScaleVal;
+                double zm;
+                try
+                {
+                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    ScaleVal = 1;
+                    zm = 1;
+                }
+
                 FPos.SliceCount = FFinger.SliceCount;
                 FStabilPos.SliceCount = FFinger.SliceCount;
                 FDirection.SliceCount = FFinger.SliceCount;
@@ -419,10 +430,10 @@ namespace VVVV.Nodes
 
                 for (int i = 0; i < FFinger.SliceCount; i++)
                 {
-                    FPos[i] = FFinger[i].TipPosition.ToVector3D() * ScaleVal;
-                    FStabilPos[i] = FFinger[i].StabilizedTipPosition.ToVector3D() * ScaleVal;
-                    FDirection[i] = FFinger[i].Direction.ToVector3D();
-                    FVel[i] = FFinger[i].TipVelocity.ToVector3D() * ScaleVal;
+                    FPos[i] = FFinger[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FStabilPos[i] = FFinger[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FDirection[i] = FFinger[i].Direction.ToVector3D().mulz(zm);
+                    FVel[i] = FFinger[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
                     FWidth[i] = FFinger[i].Width * ScaleVal;
                     FLength[i] = FFinger[i].Length * ScaleVal;
 
@@ -431,7 +442,7 @@ namespace VVVV.Nodes
                     FIsTool[i] = FFinger[i].IsTool;
 
                     FType[i] = FFinger[i].Type().ToString();
-                    FAge[i] = FFinger[i].TimeVisible;
+                    if (FFinger[i].TimeVisible < 5000) FAge[i] = FFinger[i].TimeVisible;
                     FID[i] = FFinger[i].Id;
                     FBone[i].SliceCount = 0;
 
@@ -486,15 +497,23 @@ namespace VVVV.Nodes
         [Output("Type")]
         public ISpread<string> FType;
 
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
-
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
-
             if (FBone.IsConnected)
             {
+                float ScaleVal;
+                double zm;
+                try
+                {
+                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    ScaleVal = 1;
+                    zm = 1;
+                }
+
                 FProx.SliceCount = FBone.SliceCount;
                 FDistal.SliceCount = FBone.SliceCount;
                 FDirection.SliceCount = FBone.SliceCount;
@@ -506,14 +525,14 @@ namespace VVVV.Nodes
 
                 for (int i = 0; i < FBone.SliceCount; i++)
                 {
-                    FProx[i] = FBone[i].PrevJoint.ToVector3D() * ScaleVal;
-                    FDistal[i] = FBone[i].NextJoint.ToVector3D() * ScaleVal;
-                    FDirection[i] = FBone[i].Direction.ToVector3D();
-                    FCenter[i] = FBone[i].Center.ToVector3D() * ScaleVal;
+                    FProx[i] = FBone[i].PrevJoint.ToVector3D().mulz(zm) * ScaleVal;
+                    FDistal[i] = FBone[i].NextJoint.ToVector3D().mulz(zm) * ScaleVal;
+                    FDirection[i] = FBone[i].Direction.ToVector3D().mulz(zm);
+                    FCenter[i] = FBone[i].Center.ToVector3D().mulz(zm) * ScaleVal;
                     FWidth[i] = FBone[i].Width * ScaleVal;
                     FLength[i] = FBone[i].Length * ScaleVal;
 
-                    FBasis[i] = FBone[i].Basis.ToMatrix4x4().Transpose();
+                    FBasis[i] = FBone[i].Basis.ToMatrix4x4().Transpose().mulz(zm);
                     FType[i] = FBone[i].Type.ToString();
                 }
             }
@@ -549,15 +568,23 @@ namespace VVVV.Nodes
         [Output("Width")]
         public ISpread<float> FWidth;
 
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
-
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
-
             if (FArm.IsConnected)
             {
+                float ScaleVal;
+                double zm;
+                try
+                {
+                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    ScaleVal = 1;
+                    zm = 1;
+                }
+
                 FElbow.SliceCount = FArm.SliceCount;
                 FDirection.SliceCount = FArm.SliceCount;
                 FWrist.SliceCount = FArm.SliceCount;
@@ -566,12 +593,12 @@ namespace VVVV.Nodes
 
                 for (int i = 0; i < FArm.SliceCount; i++)
                 {
-                    FElbow[i] = FArm[i].ElbowPosition.ToVector3D() * ScaleVal;
-                    FDirection[i] = FArm[i].Direction.ToVector3D();
-                    FWrist[i] = FArm[i].WristPosition.ToVector3D() * ScaleVal;
+                    FElbow[i] = FArm[i].ElbowPosition.ToVector3D().mulz(zm) * ScaleVal;
+                    FDirection[i] = FArm[i].Direction.ToVector3D().mulz(zm);
+                    FWrist[i] = FArm[i].WristPosition.ToVector3D().mulz(zm) * ScaleVal;
                     FWidth[i] = FArm[i].Width * ScaleVal;
 
-                    FBasis[i] = FArm[i].Basis.ToMatrix4x4().Transpose();
+                    FBasis[i] = FArm[i].Basis.ToMatrix4x4().Transpose().mulz(zm);
                 }
             }
             else

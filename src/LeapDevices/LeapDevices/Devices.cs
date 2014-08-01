@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.IO.MemoryMappedFiles;
+using SlimDX;
 
 using VVVV.Core;
 using VVVV.PluginInterfaces.V1;
@@ -14,15 +15,67 @@ using VVVV.Utils.VColor;
 using VVVV.Utils.SharedMemory;
 
 using Leap;
-using MemoryMappedFileHelper;
 
 namespace VVVV.Nodes
 {
+    public static class TrackingHelper
+    {
+        public static Matrix4x4 ToMatrix4x4(this Leap.Matrix m)
+        {
+            Matrix4x4 tmp = new Matrix4x4();
+            tmp.m11 = m.xBasis.x;
+            tmp.m12 = m.yBasis.x;
+            tmp.m13 = m.zBasis.x;
+            tmp.m21 = m.xBasis.y;
+            tmp.m22 = m.yBasis.y;
+            tmp.m23 = m.zBasis.y;
+            tmp.m31 = m.xBasis.z;
+            tmp.m32 = m.yBasis.z;
+            tmp.m33 = m.zBasis.z;
+            tmp.m44 = 1;
+            return tmp;
+        }
+        public static Vector3D ToVector3D(this Leap.Vector V)
+        {
+            Vector3D tmp = new Vector3D((double)V.x, (double)V.y, (double)V.z);
+            return tmp;
+        }
+        public static Vector ToLeapVector(this Vector3D V)
+        {
+            Vector tmp = new Vector((float)V.x, (float)V.y, (float)V.z);
+            return tmp;
+        }
+        public static Vector3D mul(this Vector3D V, Matrix4x4 m)
+        {
+            Vector4 tmpv = SlimDX.Vector3.Transform(V.ToSlimDXVector(), m.ToSlimDXMatrix());
+            Vector3D tmp = new Vector3D(tmpv.X, tmpv.Y, tmpv.Z);
+            return tmp;
+        }
+        public static Vector3D mulz(this Vector3D V, double m)
+        {
+            V.z *= m;
+            return V;
+        }
+        public static Matrix4x4 mulz(this Matrix4x4 m, double zm)
+        {
+            m.col3 *= zm;
+            return m;
+        }
+    }
+
     [PluginInfo(Name = "Device", Category = "Leap", Tags = "", AutoEvaluate=true)]
     public class LeapDeviceNode : IPluginEvaluate
     {
-        [Input("Scale", DefaultValue=0.01)]
+        [Input("Scale")]
         public Pin<float> FScale;
+        [Input("Mirror Z")]
+        public Pin<bool> FMirror;
+
+        [Input("Reinitialize", IsBang=true)]
+        public ISpread<bool> FReinit;
+
+        [Input("Device ID", DefaultValue=-1)]
+        public ISpread<int> FDID;
         
         [Output("Device")]
         public ISpread<Leap.Device> FDevice;
@@ -31,42 +84,48 @@ namespace VVVV.Nodes
         public ISpread<Leap.Controller> FController;
 
         Leap.Device leapdevice;
-        Leap.Controller leapcontroller = new Controller();
+        Leap.Controller leapcontroller;
 
-        MemoryMappedFile ScaleProp = MemoryMappedFile.CreateNew("VVVV.LeapWorldScale", 4);
+        public static float GlobalScale = (float)0.01;
+        public static double GlobalZMul = 1;
 
-        [ImportingConstructor]
-        LeapDeviceNode()
+        private void leapinit()
         {
+            leapcontroller = new Controller();
             leapcontroller.SetPolicyFlags(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
-            for(int i=0; i<leapcontroller.Devices.Count; i++)
-            {
-                if(leapcontroller.Devices[i].IsValid)
-                {
-                    leapdevice = leapcontroller.Devices[i];
-                    break;
-                }
-            }
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_KEY_TAP);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_SCREEN_TAP);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
+
+            leapdevice = leapcontroller.Devices[0];
+        }
+
+        public LeapDeviceNode()
+        {
+            leapinit();
         }
 
         public void Evaluate(int SpreadMax)
         {
-            if(leapdevice!=null)
+            if(leapcontroller!=null)
             {
                 FDevice[0] = leapdevice;
                 FController[0] = leapcontroller;
+                leapdevice = leapcontroller.Devices[FDID[0]];
             }
             else
             {
                 FDevice.SliceCount = 0;
                 FController.SliceCount = 0;
+                if (FReinit[0])
+                {
+                    leapcontroller.Dispose();
+                    leapinit();
+                }
             }
-
-            ScaleProp.WriteFloat(FScale[0]);
+            GlobalScale = FScale[0];
+            GlobalZMul = (FMirror[0]) ? -1 : 1;
         }
     }
     
@@ -136,12 +195,8 @@ namespace VVVV.Nodes
         [Output("Streaming")]
         public ISpread<bool> FStreaming;
 
-        MemoryMappedFile ScaleProp = MemoryMappedFile.OpenExisting("VVVV.LeapWorldScale");
-
         public void Evaluate(int SpreadMax)
         {
-            float ScaleVal = ScaleProp.ReadFloat();
-            if (ScaleVal == 0) ScaleVal = 1;
 
             if (!FDevice.IsConnected || FDevice.SliceCount == 0)
             {
@@ -152,19 +207,32 @@ namespace VVVV.Nodes
             }
             else
             {
+                float gs;
+                double zm;
+                try {
+                    gs = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch {
+                    gs = 1;
+                    zm = 1;
+                }
+
                 FViewAngle.SliceCount = 1;
                 FRange.SliceCount = 1;
                 FStreaming.SliceCount = 1;
                 FDtB.SliceCount = FBoundPos.SliceCount;
 
                 FViewAngle[0] = new Vector2D(FDevice[0].HorizontalViewAngle, FDevice[0].VerticalViewAngle);
-                FRange[0] = FDevice[0].Range * (float)ScaleVal;
+                FRange[0] = FDevice[0].Range * gs;
                 FStreaming[0] = FDevice[0].IsStreaming;
 
                 for(int i=0; i<FBoundPos.SliceCount; i++)
                 {
-                    Leap.Vector V = new Vector((float)FBoundPos[i].x / ScaleVal, (float)FBoundPos[i].y / ScaleVal, (float)FBoundPos[i].z / ScaleVal);
-                    FDtB[i] = FDevice[0].DistanceToBoundary(V) * ScaleVal;
+                    Vector3D tpos = FBoundPos[i] / gs;
+                    tpos.z *= zm;
+                    Leap.Vector V = tpos.ToLeapVector();
+                    FDtB[i] = FDevice[0].DistanceToBoundary(V) * gs;
                 }
             }
         }
