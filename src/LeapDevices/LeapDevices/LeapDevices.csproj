@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Devices.cs" />
+    <Compile Include="Gestures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tracking.cs" />
   </ItemGroup>

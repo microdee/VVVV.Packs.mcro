@@ -83,8 +83,8 @@ namespace VVVV.Nodes
         [Output("Controller")]
         public ISpread<Leap.Controller> FController;
 
-        Leap.Device leapdevice;
-        Leap.Controller leapcontroller;
+        public static Leap.Device leapdevice;
+        public static Leap.Controller leapcontroller;
 
         public static float GlobalScale = (float)0.01;
         public static double GlobalZMul = 1;
