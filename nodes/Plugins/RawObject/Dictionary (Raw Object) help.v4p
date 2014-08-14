@@ -1,0 +1,145 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\Dictionary (Raw Object) help.v4p" systemname="SetObject (Raw Object) help" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\SetObject (Raw Object) help.v4p">
+   <BOUNDS type="Window" left="13515" top="1245" width="11145" height="13200">
+   </BOUNDS>
+   <PACK Name="ImagePack" Version="0.1.0">
+   </PACK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
+   <NODE systemname="S (Node)" nodename="S (Node)" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="720" top="1815" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Send String" slicecount="1" values="ObjectServer">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetObject (Raw Object)" filename="RawObject.dll" nodename="GetObject (Raw Object)" componentmode="Hidden" id="53">
+   <BOUNDS type="Node" left="705" top="2310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="2310">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SetObject (Raw Object)" filename="RawObject.dll" nodename="SetObject (Raw Object)" componentmode="Hidden" id="54">
+   <BOUNDS type="Node" left="705" top="2760" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="2760">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="UpdateObject (Raw Object)" filename="RawObject.dll" nodename="UpdateObject (Raw Object)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="705" top="3180" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="3180">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Info (Raw Object)" filename="RawObject.dll" nodename="Info (Raw Object)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="705" top="3705" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="3705">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetKey (Raw Object)" filename="RawObject.dll" nodename="GetKey (Raw Object)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="705" top="4305" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="4305">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Remove (Raw Object)" filename="RawObject.dll" nodename="Remove (Raw Object)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="705" top="4755" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="4755">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="ToSpread (Raw Object)" filename="RawObject.dll" nodename="ToSpread (Raw Object)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="705" top="5190" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="5190">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Serialize (Raw Object)" filename="RawObject.dll" nodename="Serialize (Raw Object)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="705" top="5670" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="5670">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="DeSerialize (Raw Object)" filename="RawObject.dll" nodename="DeSerialize (Raw Object)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="705" top="6090" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="6090">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="63" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3225" top="1560" width="6765" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3225" top="1560" width="3660" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Open help patches to demonstrate cross-patch or even multi-vvvv object management|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="64" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2850" top="390" width="5505" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2850" top="390" width="4680" height="1005">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Raw Object Dictionary system (ROD) for intelligent data management in vvvv.&cr;&lf;In a nutshell ROD is good where Velcrome&apos;s Messages are bad and vice-versa: where Velcrome&apos;s Messages are good ROD is bad|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="720" top="555" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="720" top="555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="ToSpread (Raw Object)" filename="RawObject.dll" nodename="ToSpread (Raw Object)" componentmode="Hidden" id="66">
+   <BOUNDS type="Node" left="3120" top="4560" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Dictionary" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Info (Raw Object)" filename="RawObject.dll" nodename="Info (Raw Object)" componentmode="Hidden" id="67">
+   <BOUNDS type="Node" left="3105" top="5010" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Object" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Spread" dstnodeid="67" dstpinname="Object">
+   </LINK>
+   <NODE systemname="Dictionary (Raw Object)" filename="RawObject.dll" nodename="Dictionary (Raw Object)" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="705" top="1275" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Output" dstnodeid="52" dstpinname="Input Value">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Y Output Value" dstnodeid="51" dstpinname="Clear">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Output" dstnodeid="66" dstpinname="Dictionary">
+   </LINK>
+   </PATCH>

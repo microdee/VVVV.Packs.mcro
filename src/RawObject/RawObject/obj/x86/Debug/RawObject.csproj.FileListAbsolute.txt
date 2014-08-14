@@ -1,0 +1,5 @@
+E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\RawObject.dll
+E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\RawObject.pdb
+E:\vvvv\mcropack\VVVV.Packs.mcro\src\RawObject\RawObject\obj\x86\Debug\RawObject.csprojResolveAssemblyReference.cache
+E:\vvvv\mcropack\VVVV.Packs.mcro\src\RawObject\RawObject\obj\x86\Debug\RawObject.dll
+E:\vvvv\mcropack\VVVV.Packs.mcro\src\RawObject\RawObject\obj\x86\Debug\RawObject.pdb
