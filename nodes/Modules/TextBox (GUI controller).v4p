@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="G:\vvvv\app\nodes\modules\TextBox (GUI controller).v4p" systemname="TextBox (GUI controller)" filename="D:\vvvv\md.bot\nodes\modules\TextBox (GUI controller).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\modules\TextBox (GUI controller).v4p" systemname="TextBox (GUI controller)" filename="D:\vvvv\md.bot\nodes\modules\TextBox (GUI controller).v4p">
    <BOUNDS type="Window" left="7590" top="3840" width="9000" height="6000">
    </BOUNDS>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="11">
@@ -125,7 +125,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="9450" top="465" width="480" height="480">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="16" values="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -422,7 +422,7 @@
    </LINK>
    <LINK srcnodeid="41" srcpinname="Output" dstnodeid="25" dstpinname="Input">
    </LINK>
-   <NODE systemname="FrameDelay (Animation)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="42">
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="42">
    <BOUNDS type="Node" left="9015" top="3255" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
@@ -492,7 +492,7 @@
    </LINK>
    <LINK srcnodeid="38" srcpinname="Output" dstnodeid="34" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Mouse (System Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (System Window)" componentmode="Hidden" id="46">
+   <NODE systemname="Mouse (System Window Legacy2)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (System Window)" componentmode="Hidden" id="46">
    <BOUNDS type="Node" left="13050" top="1200" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Left Button" visible="1">
@@ -640,4 +640,8 @@
    </LINK>
    <LINK srcnodeid="11" srcpinname="XYZW" dstnodeid="13" dstpinname="bounds">
    </LINK>
+   <PACK Name="ImagePack" Version="0.1.0">
+   </PACK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
    </PATCH>

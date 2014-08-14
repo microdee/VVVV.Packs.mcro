@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.7.dtd" >
-   <PATCH nodename="G:\vvvv\app\nodes\modules\AxisAndGrid (DX11).v4p" systemname="AxisAndGrid (DX11)" filename="D:\vvvv\KIBU.ECTK\prealpha\nodes\modules\AxisAndGrid (DX11).v4p">
-   <BOUNDS type="Window" left="-28875" top="-1935" width="15060" height="13725">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\modules\AxisAndGrid (DX11).v4p" systemname="AxisAndGrid (DX11)" filename="D:\vvvv\KIBU.ECTK\prealpha\nodes\modules\AxisAndGrid (DX11).v4p">
+   <BOUNDS type="Window" left="11070" top="645" width="14985" height="13725">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="2">
    <BOUNDS type="Node" left="1935" top="405" width="100" height="100">
@@ -90,8 +90,6 @@
    <PIN pinname="Color" slicecount="1" visible="1" values="|0.09917,0.09917,0.09917,1.00000|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="40" dstpinname="Render State">
-   </LINK>
    <NODE systemname="PeakSpread (Spreads)" nodename="PeakSpread (Spreads)" componentmode="Hidden" id="44">
    <BOUNDS type="Node" left="8475" top="2970" width="100" height="100">
    </BOUNDS>
@@ -190,8 +188,6 @@
    <PIN pinname="Color" slicecount="3" visible="1" values="|1.00000,0.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,0.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="51" dstpinname="Render State">
-   </LINK>
    <LINK srcnodeid="51" srcpinname="Layer" dstnodeid="23" dstpinname="Layer 3">
    </LINK>
    <NODE systemname="Multiply (Color)" nodename="Multiply (Color)" componentmode="Hidden" id="53">
@@ -398,8 +394,6 @@
    <PIN pinname="Enable Stencil" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="73" srcpinname="Render State" dstnodeid="36" dstpinname="Render State">
-   </LINK>
    <NODE systemname="NullGeometry (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="NullGeometry (DX11.Drawer)" componentmode="Hidden" id="75">
    <BOUNDS type="Node" left="675" top="2580" width="100" height="100">
    </BOUNDS>
@@ -538,4 +532,22 @@
    </LINK>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="54" dstpinname="Input 1">
    </LINK>
+   <LINK srcnodeid="73" srcpinname="Render State" dstnodeid="36" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="3795" top="6915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Add">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="98" srcpinname="Render State" dstnodeid="40" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="51" dstpinname="Render State">
+   </LINK>
+   <PACK Name="ImagePack" Version="0.1.0">
+   </PACK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
    </PATCH>

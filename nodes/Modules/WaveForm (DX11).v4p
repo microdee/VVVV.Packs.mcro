@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
-   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Modules\WaveForm (DX11).v4p" systemname="WaveForm (DX11)" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Modules\WaveForm (DX11).v4p">
+   <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\modules\WaveForm (DX11).v4p" systemname="WaveForm (DX11)" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Modules\WaveForm (DX11).v4p">
    <BOUNDS type="Window" left="19455" top="6840" width="9000" height="6495">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.1.0">
@@ -20,6 +20,8 @@
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="bright">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="NullGeometry (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="NullGeometry (DX11.Drawer)" componentmode="Hidden" id="2">
@@ -51,7 +53,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3825" top="1320" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="3">
+   <PIN pinname="Y Input Value" slicecount="1" values="11">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>

@@ -112,12 +112,12 @@ namespace VVVV.Nodes
 					j++;
 				}
 			}
-			pDragEnter = false;
 			FDragLeave[0] = pDragLeave;
-			pDragLeave = false;
 			FDragDrop[0] = pDragDrop;
-			pDragDrop = false;
 			FDragInside[0] = pDragInside;
+			pDragEnter = false;
+			pDragLeave = false;
+			pDragDrop = false;
 			//this.Location = new Point(FPos[0],FPos[1]);
 			fcr++;
 		}
