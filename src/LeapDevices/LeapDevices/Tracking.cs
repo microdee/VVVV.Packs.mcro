@@ -54,10 +54,6 @@ namespace VVVV.Nodes
 
         [Output("Arm")]
         public ISpread<Arm> FArm;
-        [Output("Fingers")]
-        public ISpread<ISpread<Finger>> FFinger;
-        [Output("Tools")]
-        public ISpread<ISpread<Tool>> FTool;
         [Output("Pointables")]
         public ISpread<ISpread<Pointable>> FPointable;
 
@@ -74,15 +70,18 @@ namespace VVVV.Nodes
             {
                 float gs;
                 double zm;
+                float AgeCorrection;
                 try
                 {
                     gs = VVVV.Nodes.LeapDeviceNode.GlobalScale;
                     zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                    AgeCorrection = VVVV.Nodes.LeapDeviceNode.AgeCorrectionThreshold;
                 }
                 catch
                 {
                     gs = 1;
                     zm = 1;
+                    AgeCorrection = 1500;
                 }
 
                 FBasis.SliceCount = FHand.SliceCount;
@@ -99,8 +98,6 @@ namespace VVVV.Nodes
                 FGrab.SliceCount = FHand.SliceCount;
                 FPinch.SliceCount = FHand.SliceCount;
                 FArm.SliceCount = FHand.SliceCount;
-                FFinger.SliceCount = FHand.SliceCount;
-                FTool.SliceCount = FHand.SliceCount;
                 FPointable.SliceCount = FHand.SliceCount;
                 FID.SliceCount = FHand.SliceCount;
                 FSide.SliceCount = FHand.SliceCount;
@@ -123,16 +120,12 @@ namespace VVVV.Nodes
                     FPinch[i] = FHand[i].PinchStrength;
                     FWidth[i] = FHand[i].PalmWidth * gs;
 
-                    if (FHand[i].TimeVisible < 5000) FAge[i] = FHand[i].TimeVisible;
+                    if (FHand[i].TimeVisible < AgeCorrection) FAge[i] = FHand[i].TimeVisible;
                     FID[i] = FHand[i].Id;
                     FSide[i] = FHand[i].IsRight;
 
                     FArm[i] = FHand[i].Arm;
-                    FFinger[i].SliceCount = 0;
-                    FTool[i].SliceCount = 0;
                     FPointable[i].SliceCount = 0;
-                    foreach (Finger f in FHand[i].Fingers) FFinger[i].Add(f);
-                    foreach (Tool f in FHand[i].Tools) FTool[i].Add(f);
                     foreach (Pointable f in FHand[i].Pointables) FPointable[i].Add(f);
                 }
             }
@@ -152,321 +145,9 @@ namespace VVVV.Nodes
                 FGrab.SliceCount = 0;
                 FPinch.SliceCount = 0;
                 FArm.SliceCount = 0;
-                FFinger.SliceCount = 0;
-                FTool.SliceCount = 0;
                 FPointable.SliceCount = 0;
                 FID.SliceCount = 0;
                 FSide.SliceCount = 0;
-                FAge.SliceCount = 0;
-            }
-        }
-    }
-
-    [PluginInfo(Name = "Pointable", Category = "Leap", Tags = "")]
-    public class LeapPointableNode : IPluginEvaluate
-    {
-        [Input("Pointables")]
-        public Pin<Pointable> FPointable;
-
-        [Output("Tip Position")]
-        public ISpread<Vector3D> FPos;
-        [Output("Stabilized Tip Position")]
-        public ISpread<Vector3D> FStabilPos;
-        [Output("Direction")]
-        public ISpread<Vector3D> FDirection;
-        [Output("Tip Velocity")]
-        public ISpread<Vector3D> FVel;
-
-        [Output("Width")]
-        public ISpread<float> FWidth;
-        [Output("Length")]
-        public ISpread<float> FLength;
-
-        [Output("Touch Distance")]
-        public ISpread<float> FTouchDist;
-
-        [Output("Extended")]
-        public ISpread<bool> FExtended;
-        [Output("Tool")]
-        public ISpread<bool> FIsTool;
-
-        [Output("ID")]
-        public ISpread<int> FID;
-        [Output("Age")]
-        public ISpread<double> FAge;
-
-        public void Evaluate(int SpreadMax)
-        {
-
-            if (FPointable.IsConnected)
-            {
-                float ScaleVal;
-                double zm;
-                try
-                {
-                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
-                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
-                }
-                catch
-                {
-                    ScaleVal = 1;
-                    zm = 1;
-                }
-
-                FPos.SliceCount = FPointable.SliceCount;
-                FStabilPos.SliceCount = FPointable.SliceCount;
-                FDirection.SliceCount = FPointable.SliceCount;
-                FVel.SliceCount = FPointable.SliceCount;
-                FWidth.SliceCount = FPointable.SliceCount;
-                FLength.SliceCount = FPointable.SliceCount;
-                FTouchDist.SliceCount = FPointable.SliceCount;
-                FExtended.SliceCount = FPointable.SliceCount;
-                FIsTool.SliceCount = FPointable.SliceCount;
-                FID.SliceCount = FPointable.SliceCount;
-                FAge.SliceCount = FPointable.SliceCount;
-
-                for (int i = 0; i < FPointable.SliceCount; i++)
-                {
-                    FPos[i] = FPointable[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FStabilPos[i] = FPointable[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FDirection[i] = FPointable[i].Direction.ToVector3D().mulz(zm);
-                    FVel[i] = FPointable[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
-                    FWidth[i] = FPointable[i].Width * ScaleVal;
-                    FLength[i] = FPointable[i].Length * ScaleVal;
-
-                    FTouchDist[i] = FPointable[i].TouchDistance;
-                    FExtended[i] = FPointable[i].IsExtended;
-                    FIsTool[i] = FPointable[i].IsTool;
-
-                    if (FPointable[i].TimeVisible < 5000) FAge[i] = FPointable[i].TimeVisible;
-                    FID[i] = FPointable[i].Id;
-                }
-            }
-            else
-            {
-                FPos.SliceCount = 0;
-                FStabilPos.SliceCount = 0;
-                FDirection.SliceCount = 0;
-                FVel.SliceCount = 0;
-                FWidth.SliceCount = 0;
-                FLength.SliceCount = 0;
-                FTouchDist.SliceCount = 0;
-                FExtended.SliceCount = 0;
-                FIsTool.SliceCount = 0;
-                FPointable.SliceCount = 0;
-                FID.SliceCount = 0;
-                FAge.SliceCount = 0;
-            }
-        }
-    }
-
-    [PluginInfo(Name = "Tool", Category = "Leap", Tags = "")]
-    public class LeapToolNode : IPluginEvaluate
-    {
-        [Input("Tools")]
-        public Pin<Tool> FTool;
-
-        [Output("Tip Position")]
-        public ISpread<Vector3D> FPos;
-        [Output("Stabilized Tip Position")]
-        public ISpread<Vector3D> FStabilPos;
-        [Output("Direction")]
-        public ISpread<Vector3D> FDirection;
-        [Output("Tip Velocity")]
-        public ISpread<Vector3D> FVel;
-
-        [Output("Width")]
-        public ISpread<float> FWidth;
-        [Output("Length")]
-        public ISpread<float> FLength;
-
-        [Output("Touch Distance")]
-        public ISpread<float> FTouchDist;
-
-        [Output("Extended")]
-        public ISpread<bool> FExtended;
-        [Output("Tool")]
-        public ISpread<bool> FIsTool;
-
-        [Output("ID")]
-        public ISpread<int> FID;
-        [Output("Age")]
-        public ISpread<double> FAge;
-
-        public void Evaluate(int SpreadMax)
-        {
-
-            if (FTool.IsConnected)
-            {
-                float ScaleVal;
-                double zm;
-                try
-                {
-                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
-                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
-                }
-                catch
-                {
-                    ScaleVal = 1;
-                    zm = 1;
-                }
-
-                FPos.SliceCount = FTool.SliceCount;
-                FStabilPos.SliceCount = FTool.SliceCount;
-                FDirection.SliceCount = FTool.SliceCount;
-                FVel.SliceCount = FTool.SliceCount;
-                FWidth.SliceCount = FTool.SliceCount;
-                FLength.SliceCount = FTool.SliceCount;
-                FTouchDist.SliceCount = FTool.SliceCount;
-                FExtended.SliceCount = FTool.SliceCount;
-                FIsTool.SliceCount = FTool.SliceCount;
-                FID.SliceCount = FTool.SliceCount;
-                FAge.SliceCount = FTool.SliceCount;
-
-                for (int i = 0; i < FTool.SliceCount; i++)
-                {
-                    FPos[i] = FTool[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FStabilPos[i] = FTool[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FDirection[i] = FTool[i].Direction.ToVector3D().mulz(zm);
-                    FVel[i] = FTool[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
-                    FWidth[i] = FTool[i].Width * ScaleVal;
-                    FLength[i] = FTool[i].Length * ScaleVal;
-
-                    FTouchDist[i] = FTool[i].TouchDistance;
-                    FExtended[i] = FTool[i].IsExtended;
-                    FIsTool[i] = FTool[i].IsTool;
-
-                    if (FTool[i].TimeVisible < 5000) FAge[i] = FTool[i].TimeVisible;
-                    FID[i] = FTool[i].Id;
-                }
-            }
-            else
-            {
-                FPos.SliceCount = 0;
-                FStabilPos.SliceCount = 0;
-                FDirection.SliceCount = 0;
-                FVel.SliceCount = 0;
-                FWidth.SliceCount = 0;
-                FLength.SliceCount = 0;
-                FTouchDist.SliceCount = 0;
-                FExtended.SliceCount = 0;
-                FIsTool.SliceCount = 0;
-                FTool.SliceCount = 0;
-                FID.SliceCount = 0;
-                FAge.SliceCount = 0;
-            }
-        }
-    }
-
-    [PluginInfo(Name = "Finger", Category = "Leap", Tags = "")]
-    public class LeapFingerNode : IPluginEvaluate
-    {
-        [Input("Fingers")]
-        public Pin<Finger> FFinger;
-
-        [Output("Tip Position")]
-        public ISpread<Vector3D> FPos;
-        [Output("Stabilized Tip Position")]
-        public ISpread<Vector3D> FStabilPos;
-        [Output("Direction")]
-        public ISpread<Vector3D> FDirection;
-        [Output("Tip Velocity")]
-        public ISpread<Vector3D> FVel;
-
-        [Output("Width")]
-        public ISpread<float> FWidth;
-        [Output("Length")]
-        public ISpread<float> FLength;
-
-        [Output("Touch Distance")]
-        public ISpread<float> FTouchDist;
-
-        [Output("Extended")]
-        public ISpread<bool> FExtended;
-        [Output("Tool")]
-        public ISpread<bool> FIsTool;
-
-        [Output("Bones")]
-        public ISpread<ISpread<Bone>> FBone;
-
-        [Output("Type")]
-        public ISpread<string> FType;
-        [Output("ID")]
-        public ISpread<int> FID;
-        [Output("Age")]
-        public ISpread<double> FAge;
-
-        public void Evaluate(int SpreadMax)
-        {
-
-            if (FFinger.IsConnected)
-            {
-                float ScaleVal;
-                double zm;
-                try
-                {
-                    ScaleVal = VVVV.Nodes.LeapDeviceNode.GlobalScale;
-                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
-                }
-                catch
-                {
-                    ScaleVal = 1;
-                    zm = 1;
-                }
-
-                FPos.SliceCount = FFinger.SliceCount;
-                FStabilPos.SliceCount = FFinger.SliceCount;
-                FDirection.SliceCount = FFinger.SliceCount;
-                FVel.SliceCount = FFinger.SliceCount;
-                FWidth.SliceCount = FFinger.SliceCount;
-                FLength.SliceCount = FFinger.SliceCount;
-                FTouchDist.SliceCount = FFinger.SliceCount;
-                FExtended.SliceCount = FFinger.SliceCount;
-                FIsTool.SliceCount = FFinger.SliceCount;
-                FBone.SliceCount = FFinger.SliceCount;
-                FType.SliceCount = FFinger.SliceCount;
-                FID.SliceCount = FFinger.SliceCount;
-                FAge.SliceCount = FFinger.SliceCount;
-
-                for (int i = 0; i < FFinger.SliceCount; i++)
-                {
-                    FPos[i] = FFinger[i].TipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FStabilPos[i] = FFinger[i].StabilizedTipPosition.ToVector3D().mulz(zm) * ScaleVal;
-                    FDirection[i] = FFinger[i].Direction.ToVector3D().mulz(zm);
-                    FVel[i] = FFinger[i].TipVelocity.ToVector3D().mulz(zm) * ScaleVal;
-                    FWidth[i] = FFinger[i].Width * ScaleVal;
-                    FLength[i] = FFinger[i].Length * ScaleVal;
-
-                    FTouchDist[i] = FFinger[i].TouchDistance;
-                    FExtended[i] = FFinger[i].IsExtended;
-                    FIsTool[i] = FFinger[i].IsTool;
-
-                    FType[i] = FFinger[i].Type().ToString();
-                    if (FFinger[i].TimeVisible < 5000) FAge[i] = FFinger[i].TimeVisible;
-                    FID[i] = FFinger[i].Id;
-                    FBone[i].SliceCount = 0;
-
-                    foreach (Bone.BoneType boneType in (Bone.BoneType[])Enum.GetValues(typeof(Bone.BoneType)))
-                    {
-                        FBone[i].Add(FFinger[i].Bone(boneType));
-                    }
-                }
-            }
-            else
-            {
-                FPos.SliceCount = 0;
-                FStabilPos.SliceCount = 0;
-                FDirection.SliceCount = 0;
-                FVel.SliceCount = 0;
-                FWidth.SliceCount = 0;
-                FLength.SliceCount = 0;
-                FTouchDist.SliceCount = 0;
-                FExtended.SliceCount = 0;
-                FIsTool.SliceCount = 0;
-                FFinger.SliceCount = 0;
-                FBone.SliceCount = 0;
-                FType.SliceCount = 0;
-                FID.SliceCount = 0;
                 FAge.SliceCount = 0;
             }
         }
@@ -609,6 +290,45 @@ namespace VVVV.Nodes
                 FWidth.SliceCount = 0;
                 FBasis.SliceCount = 0;
             }
+        }
+    }
+
+    [PluginInfo(Name = "Pointable", Category = "Leap", Tags = "")]
+    public class LeapPointableNode : LeapPointable<Pointable>
+    {
+        public override void SpecificEvaluate()
+        { }
+        public override void SpecificOff()
+        { }
+    }
+
+    [PluginInfo(Name = "Finger", Category = "Leap", Tags = "")]
+    public class LeapFingerNode : LeapPointable<Finger>
+    {
+        [Output("Bones")]
+        public ISpread<ISpread<Bone>> FBone;
+        [Output("Type")]
+        public ISpread<string> FType;
+
+        public override void SpecificEvaluate()
+        {
+            FBone.SliceCount = FPointable.SliceCount;
+            FType.SliceCount = FPointable.SliceCount;
+            for (int i = 0; i < FPointable.SliceCount; i++)
+            {
+                FType[i] = FPointable[i].Type().ToString();
+
+                FBone[i].SliceCount = 0;
+                foreach (Bone.BoneType boneType in (Bone.BoneType[])Enum.GetValues(typeof(Bone.BoneType)))
+                {
+                    FBone[i].Add(FPointable[i].Bone(boneType));
+                }
+            }
+        }
+        public override void SpecificOff()
+        {
+            FBone.SliceCount = 0;
+            FType.SliceCount = 0;
         }
     }
 }

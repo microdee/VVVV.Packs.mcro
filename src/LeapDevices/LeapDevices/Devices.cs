@@ -68,14 +68,16 @@ namespace VVVV.Nodes
     {
         [Input("Scale")]
         public Pin<float> FScale;
-        [Input("Mirror Z")]
+        [Input("Mirror Z", DefaultValue = 1.0)]
         public Pin<bool> FMirror;
 
         [Input("Reinitialize", IsBang=true)]
         public ISpread<bool> FReinit;
-
         [Input("Device ID", DefaultValue=-1)]
         public ISpread<int> FDID;
+
+        [Input("Age Filtering Threshold", Visibility = PinVisibility.OnlyInspector, DefaultValue=1500)]
+        public Pin<float> FAgeThreshold;
         
         [Output("Device")]
         public ISpread<Leap.Device> FDevice;
@@ -87,6 +89,7 @@ namespace VVVV.Nodes
         public static Leap.Controller leapcontroller;
 
         public static float GlobalScale = (float)0.01;
+        public static float AgeCorrectionThreshold = (float)1500;
         public static double GlobalZMul = 1;
 
         private void leapinit()
@@ -126,6 +129,7 @@ namespace VVVV.Nodes
             }
             GlobalScale = FScale[0];
             GlobalZMul = (FMirror[0]) ? -1 : 1;
+            AgeCorrectionThreshold = FAgeThreshold[0];
         }
     }
     
@@ -224,6 +228,7 @@ namespace VVVV.Nodes
                 FDtB.SliceCount = FBoundPos.SliceCount;
 
                 FViewAngle[0] = new Vector2D(FDevice[0].HorizontalViewAngle, FDevice[0].VerticalViewAngle);
+                FViewAngle[0] /= 2 * Math.PI;
                 FRange[0] = FDevice[0].Range * gs;
                 FStreaming[0] = FDevice[0].IsStreaming;
 
@@ -233,6 +238,67 @@ namespace VVVV.Nodes
                     tpos.z *= zm;
                     Leap.Vector V = tpos.ToLeapVector();
                     FDtB[i] = FDevice[0].DistanceToBoundary(V) * gs;
+                }
+            }
+        }
+    }
+
+    [PluginInfo(Name = "InteractionBox", Category = "Leap", Tags = "")]
+    public class LeapInteractionBoxNode : IPluginEvaluate
+    {
+        [Input("Controller")]
+        public Pin<Leap.Controller> FController;
+        [Input("World Position")]
+        public ISpread<Vector3D> FWorldPos;
+
+        [Output("Dimensions")]
+        public ISpread<Vector3D> FDimensions;
+        [Output("Center")]
+        public ISpread<Vector3D> FCenter;
+        [Output("Normalized Position")]
+        public ISpread<Vector3D> FNormPos;
+
+        public void Evaluate(int SpreadMax)
+        {
+
+            if (!FController.IsConnected || FController.SliceCount == 0)
+            {
+                FDimensions.SliceCount = 0;
+                FNormPos.SliceCount = 0;
+                FCenter.SliceCount = 0;
+            }
+            else
+            {
+                float gs;
+                double zm;
+                try
+                {
+                    gs = VVVV.Nodes.LeapDeviceNode.GlobalScale;
+                    zm = VVVV.Nodes.LeapDeviceNode.GlobalZMul;
+                }
+                catch
+                {
+                    gs = 1;
+                    zm = 1;
+                }
+
+                FDimensions.SliceCount = 1;
+                FCenter.SliceCount = 1;
+                FNormPos.SliceCount = FWorldPos.SliceCount;
+
+                FDimensions[0] = new Vector3D(
+                    FController[0].Frame(0).InteractionBox.Width,
+                    FController[0].Frame(0).InteractionBox.Height,
+                    FController[0].Frame(0).InteractionBox.Depth);
+                FDimensions[0] = FDimensions[0] * gs;
+
+                FCenter[0] = FController[0].Frame(0).InteractionBox.Center.ToVector3D().mulz(zm) * gs;
+
+                for (int i = 0; i < FWorldPos.SliceCount; i++)
+                {
+                    Vector3D tpos = FWorldPos[i].mulz(zm) / gs;
+                    Leap.Vector V = tpos.ToLeapVector();
+                    FNormPos[i] = FController[0].Frame(0).InteractionBox.NormalizePoint(V).ToVector3D().mulz(zm);
                 }
             }
         }

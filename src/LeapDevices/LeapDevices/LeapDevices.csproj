@@ -96,7 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Devices.cs" />
+    <Compile Include="GestureAbstract.cs" />
     <Compile Include="Gestures.cs" />
+    <Compile Include="Organizer.cs" />
+    <Compile Include="PointableAbstract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tracking.cs" />
   </ItemGroup>
