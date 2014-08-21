@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generics.cs" />
     <Compile Include="ObjectManagement.cs" />
     <Compile Include="RawObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

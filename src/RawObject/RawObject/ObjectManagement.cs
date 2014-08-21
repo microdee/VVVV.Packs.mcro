@@ -39,7 +39,7 @@ namespace VVVV.Nodes
     public class RawSetObjectNode : IPluginEvaluate
     {
         [Input("Dictionary")]
-        public ISpread<RodWrap> FDictionary;
+        public Pin<RodWrap> FDictionary;
 
         [Input("Streams")]
         public ISpread<ISpread<Stream>> FStreamIn;
@@ -167,26 +167,29 @@ namespace VVVV.Nodes
         }
         public void Evaluate(int spreadMax)
         {
-            for (int i = 0; i < FName.SliceCount; i++)
+            if (FDictionary.IsConnected)
             {
-                if (FSet[i])
+                for (int i = 0; i < FName.SliceCount; i++)
                 {
-                    int currSpreadMax = Math.Max(FStreamIn[i].SliceCount, FKey[i].SliceCount);
-                    switch(FExistObjMan[i])
+                    if (FSet[i])
                     {
-                        case ManageExistingObject.Ignore:
-                            if (!FDictionary[0].Objects.ContainsKey(FName[i])) Create(i, currSpreadMax);
-                            break;
+                        int currSpreadMax = Math.Max(FStreamIn[i].SliceCount, FKey[i].SliceCount);
+                        switch (FExistObjMan[i])
+                        {
+                            case ManageExistingObject.Ignore:
+                                if (!FDictionary[0].Objects.ContainsKey(FName[i])) Create(i, currSpreadMax);
+                                break;
 
-                        case ManageExistingObject.Extend:
-                            if (FDictionary[0].Objects.ContainsKey(FName[i])) Extend(i, currSpreadMax);
-                            else if(FNotExistObjMan[i] == ManageNotExistingKey.Create) Create(i, currSpreadMax);
-                            break;
+                            case ManageExistingObject.Extend:
+                                if (FDictionary[0].Objects.ContainsKey(FName[i])) Extend(i, currSpreadMax);
+                                else if (FNotExistObjMan[i] == ManageNotExistingKey.Create) Create(i, currSpreadMax);
+                                break;
 
-                        case ManageExistingObject.Overwrite:
-                            if (FDictionary[0].Objects.ContainsKey(FName[i])) Overwrite(i, currSpreadMax);
-                            else if (FNotExistObjMan[i] == ManageNotExistingKey.Create) Create(i, currSpreadMax);
-                            break;
+                            case ManageExistingObject.Overwrite:
+                                if (FDictionary[0].Objects.ContainsKey(FName[i])) Overwrite(i, currSpreadMax);
+                                else if (FNotExistObjMan[i] == ManageNotExistingKey.Create) Create(i, currSpreadMax);
+                                break;
+                        }
                     }
                 }
             }
@@ -197,7 +200,7 @@ namespace VVVV.Nodes
     public class RawUpdateObjectNode : IPluginEvaluate
     {
         [Input("Object")]
-        public ISpread<RawObject> FObject;
+        public Pin<RawObject> FObject;
 
         [Input("Streams")]
         public ISpread<ISpread<Stream>> FStreamIn;
@@ -224,50 +227,52 @@ namespace VVVV.Nodes
                 Math.Max(FStreamIn.SliceCount,
                 Math.Max(FFrom.SliceCount, FKey.SliceCount)
             );
-
-            for (int i = 0; i < sprmx; i++)
+            if (FObject.IsConnected)
             {
-                if (FSet[i])
+                for (int i = 0; i < sprmx; i++)
                 {
-                    RawObject temp = FObject[i];
-                    if (FAgeReset[i]) temp.Age.Restart();
-                    int csprmx =
-                        Math.Max(FStreamIn[i].SliceCount,
-                        Math.Max(FFrom[i].SliceCount, FKey[i].SliceCount)
-                    );
-                    for (int j = 0; j < csprmx; j++)
+                    if (FSet[i])
                     {
-                        FStreamIn[i][j].Position = 0;
-                        bool contains = temp.Fields.ContainsKey(FKey[i][j]);
-                        if (contains)
+                        RawObject temp = FObject[i];
+                        if (FAgeReset[i]) temp.Age.Restart();
+                        int csprmx =
+                            Math.Max(FStreamIn[i].SliceCount,
+                            Math.Max(FFrom[i].SliceCount, FKey[i].SliceCount)
+                        );
+                        for (int j = 0; j < csprmx; j++)
                         {
-                            FBuffer.SetLength(FStreamIn[i][j].Length);
-                            FBuffer.Position = 0;
-                            FStreamIn[i][j].CopyTo(FBuffer);
-                            FBuffer.Position = 0;
+                            FStreamIn[i][j].Position = 0;
+                            bool contains = temp.Fields.ContainsKey(FKey[i][j]);
+                            if (contains)
+                            {
+                                FBuffer.SetLength(FStreamIn[i][j].Length);
+                                FBuffer.Position = 0;
+                                FStreamIn[i][j].CopyTo(FBuffer);
+                                FBuffer.Position = 0;
 
-                            temp.Fields[FKey[i][j]].Position = FFrom[i][j];
-                            for (int k = 0; k < FStreamIn[i][j].Length; k++)
-                            {
-                                FBuffer.Read(FBBuffer, 0, 1);
-                                temp.Fields[FKey[i][j]].WriteByte(FBBuffer[0]);
-                            }
+                                temp.Fields[FKey[i][j]].Position = FFrom[i][j];
+                                for (int k = 0; k < FStreamIn[i][j].Length; k++)
+                                {
+                                    FBuffer.Read(FBBuffer, 0, 1);
+                                    temp.Fields[FKey[i][j]].WriteByte(FBBuffer[0]);
+                                }
 
-                            if (FShrink[i] && ((FStreamIn[i][j].Length + FFrom[i][j]) <  temp.Fields[FKey[i][j]].Length))
-                            {
-                                temp.Fields[FKey[i][j]].SetLength( FStreamIn[i][j].Length + FFrom[i][j] );
+                                if (FShrink[i] && ((FStreamIn[i][j].Length + FFrom[i][j]) < temp.Fields[FKey[i][j]].Length))
+                                {
+                                    temp.Fields[FKey[i][j]].SetLength(FStreamIn[i][j].Length + FFrom[i][j]);
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (FNotExistMan[i] == ManageNotExistingKey.Create)
+                            else
                             {
-                                Stream newstream = new MemoryStream();
-                                newstream.SetLength(FStreamIn[i][j].Length);
-                                newstream.Position = 0;
-                                FStreamIn[i][j].CopyTo(newstream);
-                                newstream.Position = 0;
-                                temp.Fields.Add(FKey[i][j], newstream);
+                                if (FNotExistMan[i] == ManageNotExistingKey.Create)
+                                {
+                                    Stream newstream = new MemoryStream();
+                                    newstream.SetLength(FStreamIn[i][j].Length);
+                                    newstream.Position = 0;
+                                    FStreamIn[i][j].CopyTo(newstream);
+                                    newstream.Position = 0;
+                                    temp.Fields.Add(FKey[i][j], newstream);
+                                }
                             }
                         }
                     }
@@ -281,7 +286,7 @@ namespace VVVV.Nodes
     {
         #region fields & pins
         [Input("Object")]
-        public ISpread<RawObject> FObject;
+        public Pin<RawObject> FObject;
         [Input("Key")]
         public ISpread<ISpread<string>> FKey;
 
@@ -293,20 +298,24 @@ namespace VVVV.Nodes
 
         public void Evaluate(int spreadMax)
         {
-            FStream.SliceCount = FObject.SliceCount;
-            for (int i = 0; i < FObject.SliceCount; i++)
+            if (FObject.IsConnected)
             {
-                RawObject temp = FObject[i];
-                FStream[i].SliceCount = 0;
-                for (int j = 0; j < FKey[i].SliceCount; j++)
+                FStream.SliceCount = FObject.SliceCount;
+                for (int i = 0; i < FObject.SliceCount; i++)
                 {
-                    bool contains = temp.Fields.ContainsKey(FKey[i][j]);
-                    if (contains)
+                    RawObject temp = FObject[i];
+                    FStream[i].SliceCount = 0;
+                    for (int j = 0; j < FKey[i].SliceCount; j++)
                     {
-                        FStream[i].Add(temp.Fields[FKey[i][j]]);
+                        bool contains = temp.Fields.ContainsKey(FKey[i][j]);
+                        if (contains)
+                        {
+                            FStream[i].Add(temp.Fields[FKey[i][j]]);
+                        }
                     }
                 }
             }
+            else FStream.SliceCount = 0;
         }
     }
 
@@ -315,7 +324,7 @@ namespace VVVV.Nodes
     {
         #region fields & pins
         [Input("Object")]
-        public ISpread<RawObject> FObject;
+        public Pin<RawObject> FObject;
 
         [Output("Streams")]
         public ISpread<ISpread<Stream>> FStream;
@@ -335,29 +344,41 @@ namespace VVVV.Nodes
 
         public void Evaluate(int spreadMax)
         {
-            FStream.SliceCount = FObject.SliceCount;
-            FKeys.SliceCount = FObject.SliceCount;
-            FName.SliceCount = FObject.SliceCount;
-            FDebug.SliceCount = FObject.SliceCount;
-            FRemove.SliceCount = FObject.SliceCount;
-            FAge.SliceCount = FObject.SliceCount;
-
-            for (int i = 0; i < FObject.SliceCount; i++)
+            if (FObject.IsConnected)
             {
-                RawObject temp = FObject[i];
-                FStream[i].SliceCount = 0;
-                FKeys[i].SliceCount = 0;
+                FStream.SliceCount = FObject.SliceCount;
+                FKeys.SliceCount = FObject.SliceCount;
+                FName.SliceCount = FObject.SliceCount;
+                FDebug.SliceCount = FObject.SliceCount;
+                FRemove.SliceCount = FObject.SliceCount;
+                FAge.SliceCount = FObject.SliceCount;
 
-                FName[i] = temp.Name;
-                FDebug[i] = temp.Debug;
-                FAge[i] = temp.Age.Elapsed.TotalSeconds;
-                FRemove[i] = temp.Remove;
-
-                foreach(KeyValuePair<string, Stream> kvp in temp.Fields)
+                for (int i = 0; i < FObject.SliceCount; i++)
                 {
-                    FStream[i].Add(kvp.Value);
-                    FKeys[i].Add(kvp.Key);
+                    RawObject temp = FObject[i];
+                    FStream[i].SliceCount = 0;
+                    FKeys[i].SliceCount = 0;
+
+                    FName[i] = temp.Name;
+                    FDebug[i] = temp.Debug;
+                    FAge[i] = temp.Age.Elapsed.TotalSeconds;
+                    FRemove[i] = temp.Remove;
+
+                    foreach (KeyValuePair<string, Stream> kvp in temp.Fields)
+                    {
+                        FStream[i].Add(kvp.Value);
+                        FKeys[i].Add(kvp.Key);
+                    }
                 }
+            }
+            else
+            {
+                FStream.SliceCount = 0;
+                FKeys.SliceCount = 0;
+                FName.SliceCount = 0;
+                FDebug.SliceCount = 0;
+                FRemove.SliceCount = 0;
+                FAge.SliceCount = 0;
             }
         }
     }
@@ -381,6 +402,30 @@ namespace VVVV.Nodes
             {
                 if (FRemove[i]) FObject[i].Remove = true;
                 if (FAuto[i] && (FObject[i].Age.Elapsed.TotalSeconds > FAge[i])) FObject[i].Remove = true;
+            }
+        }
+    }
+
+    [PluginInfo(Name = "RemoveKey", Category = "Raw", Version = "Object", AutoEvaluate = true)]
+    public class ObjectRawRemoveKeyNode : IPluginEvaluate
+    {
+        [Input("Object")]
+        public ISpread<RawObject> FObject;
+
+        [Input("Key")]
+        public ISpread<ISpread<string>> FKey;
+        [Input("Remove", IsBang = true)]
+        public ISpread<ISpread<bool>> FRemove;
+
+        public void Evaluate(int spreadMax)
+        {
+            for (int i = 0; i < FObject.SliceCount; i++)
+            {
+                for(int j=0; j<FKey[i].SliceCount; j++)
+                {
+                    if (FRemove[i][j] && FObject[i].Fields.ContainsKey(FKey[i][j]))
+                        FObject[i].DisposeKey(FKey[i][j]);
+                }
             }
         }
     }

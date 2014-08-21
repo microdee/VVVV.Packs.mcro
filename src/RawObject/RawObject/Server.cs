@@ -50,7 +50,7 @@ namespace VVVV.Nodes
     public class ObjectRawToSpreadNode : IPluginEvaluate
     {
         [Input("Dictionary")]
-        public ISpread<RodWrap> FDict;
+        public Pin<RodWrap> FDict;
 
         [Output("Spread")]
         public ISpread<RawObject> FSpread;
@@ -58,7 +58,8 @@ namespace VVVV.Nodes
         public void Evaluate(int spreadMax)
         {
             FSpread.SliceCount = 0;
-            foreach (KeyValuePair<string, RawObject> kvp in FDict[0].Objects) FSpread.Add(kvp.Value);
+            if(FDict.IsConnected)
+                foreach (KeyValuePair<string, RawObject> kvp in FDict[0].Objects) FSpread.Add(kvp.Value);
         }
     }
 
@@ -66,7 +67,7 @@ namespace VVVV.Nodes
     public class ObjectRawGetObjectNode : IPluginEvaluate
     {
         [Input("Dictionary")]
-        public ISpread<RodWrap> FDict;
+        public Pin<RodWrap> FDict;
         [Input("Name")]
         public ISpread<string> FName;
         [Input("Match", DefaultValue=1.0)]
@@ -78,20 +79,23 @@ namespace VVVV.Nodes
         public void Evaluate(int spreadMax)
         {
             FSpread.SliceCount = 0;
-            if(FMatch[0])
+            if (FDict.IsConnected)
             {
-                for (int i = 0; i < FName.SliceCount; i++)
+                if (FMatch[0])
                 {
-                    if (FDict[0].Objects.ContainsKey(FName[i])) FSpread.Add(FDict[0].Objects[FName[i]]);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < FName.SliceCount; i++)
-                {
-                    foreach (KeyValuePair<string, RawObject> kvp in FDict[0].Objects)
+                    for (int i = 0; i < FName.SliceCount; i++)
                     {
-                        if (kvp.Key.Contains(FName[i])) FSpread.Add(kvp.Value);
+                        if (FDict[0].Objects.ContainsKey(FName[i])) FSpread.Add(FDict[0].Objects[FName[i]]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < FName.SliceCount; i++)
+                    {
+                        foreach (KeyValuePair<string, RawObject> kvp in FDict[0].Objects)
+                        {
+                            if (kvp.Key.Contains(FName[i])) FSpread.Add(kvp.Value);
+                        }
                     }
                 }
             }

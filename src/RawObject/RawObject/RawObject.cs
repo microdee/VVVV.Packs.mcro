@@ -23,7 +23,6 @@ namespace VVVV.ROD
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-
         }
 
         protected virtual void Dispose(bool disposing)
@@ -43,6 +42,11 @@ namespace VVVV.ROD
             // Free any unmanaged objects here. 
             //
             disposed = true;
+        }
+        public void DisposeKey(string key)
+        {
+            this.Fields[key].Dispose();
+            this.Fields.Remove(key);
         }
 
         public RawObject(RodWrap container)
