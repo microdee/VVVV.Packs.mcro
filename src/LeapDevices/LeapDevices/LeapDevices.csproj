@@ -40,6 +40,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -51,6 +52,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FeralTic">
+      <HintPath>dependecies\FeralTic.dll</HintPath>
+    </Reference>
     <Reference Include="LeapCSharp.NET4.0">
       <HintPath>LeapSDK\lib\LeapCSharp.NET4.0.dll</HintPath>
     </Reference>
@@ -68,6 +72,12 @@
     <Reference Include="VVVV.Core">
       <HintPath>..\packages\VVVV.Core.32.2.0-develop-340\lib\net40\VVVV.Core.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.DX11.Core">
+      <HintPath>dependecies\VVVV.DX11.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VVVV.DX11.Lib">
+      <HintPath>dependecies\VVVV.DX11.Lib.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Hosting, Version=32.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -96,8 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Devices.cs" />
+    <Compile Include="Generics.cs" />
     <Compile Include="GestureAbstract.cs" />
     <Compile Include="Gestures.cs" />
+    <Compile Include="Images.cs" />
     <Compile Include="Organizer.cs" />
     <Compile Include="PointableAbstract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

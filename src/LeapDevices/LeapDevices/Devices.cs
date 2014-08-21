@@ -96,6 +96,7 @@ namespace VVVV.Nodes
         {
             leapcontroller = new Controller();
             leapcontroller.SetPolicyFlags(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
+            leapcontroller.SetPolicyFlags(Controller.PolicyFlag.POLICY_IMAGES);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_KEY_TAP);
             leapcontroller.EnableGesture(Gesture.GestureType.TYPE_SCREEN_TAP);
