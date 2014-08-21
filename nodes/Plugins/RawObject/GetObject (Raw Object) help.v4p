@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\GetObject (Raw Object) help.v4p" systemname="GetObject (Raw Object) help" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\GetObject (Raw Object) help.v4p">
-   <BOUNDS type="Window" left="6645" top="435" width="11385" height="8985">
+   <BOUNDS type="Window" left="480" top="0" width="11385" height="8985">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.1.0">
    </PACK>
@@ -11,7 +11,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2130" top="11490" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="1980" top="6960" width="7875" height="7530">
+   <BOUNDS type="Window" left="18825" top="6330" width="8325" height="7530">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -241,9 +241,9 @@
    <LINK srcnodeid="27" srcpinname="Transform Out" dstnodeid="23" dstpinname="Transform In 1">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="31" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="5055" top="2715" width="1500" height="270">
+   <BOUNDS type="Node" left="1395" top="2715" width="1500" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="5055" top="2715" width="2700" height="270">
+   <BOUNDS type="Box" left="1395" top="2715" width="2700" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Get object by name from dictionary|">
    </PIN>
@@ -444,4 +444,18 @@
    </LINK>
    <LINK srcnodeid="10" srcpinname="Output" dstnodeid="18" dstpinname="Object">
    </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="45" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="720" top="600" width="7200" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="720" top="600" width="7200" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Convert objects to spreads and vvvv readable format with GetObject or ToSpread and Getkey or Info|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>

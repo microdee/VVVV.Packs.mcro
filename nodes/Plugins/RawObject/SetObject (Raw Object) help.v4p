@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\SetObject (Raw Object) help.v4p" systemname="SetObject (Raw Object) help" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\SetObject (Raw Object) help.v4p">
-   <BOUNDS type="Window" left="2265" top="4215" width="10035" height="9660">
+   <BOUNDS type="Window" left="10320" top="3795" width="10035" height="9660">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.1.0">
    </PACK>

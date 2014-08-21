@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\UpdateObject (Raw Object) help.v4p" systemname="UpdateObject (Raw Object) help" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Plugins\RawObject\UpdateObject (Raw Object) help.v4p">
-   <BOUNDS type="Window" left="3660" top="2160" width="11805" height="12405">
+   <BOUNDS type="Window" left="10920" top="2625" width="11805" height="12405">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.1.0">
    </PACK>
@@ -29,15 +29,15 @@
    </PIN>
    </NODE>
    <NODE systemname="R (Node)" nodename="R (Node)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="1530" top="3360" width="100" height="100">
+   <BOUNDS type="Node" left="2085" top="3360" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Value" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="5" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="1530" top="2835" width="1590" height="270">
+   <BOUNDS type="Box" left="2085" top="2835" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="1530" top="2835" width="0" height="0">
+   <BOUNDS type="Node" left="2085" top="2835" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="ObjectServer">
    </PIN>
@@ -320,38 +320,6 @@
    </LINK>
    <LINK srcnodeid="12" srcpinname="Output" dstnodeid="20" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="Select (Node)" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" nodename="Select (Node)" componentmode="Hidden" id="48">
-   <BOUNDS type="Node" left="2070" top="5430" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Select" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="Streams" dstnodeid="48" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="Streams Bin Size" dstnodeid="48" dstpinname="Select">
-   </LINK>
-   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="29" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="30" dstpinname="Input">
-   </LINK>
-   <NODE systemname="Select (Node)" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" nodename="Select (Node)" componentmode="Hidden" id="49">
-   <BOUNDS type="Node" left="1260" top="5430" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Select" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="Streams Bin Size" dstnodeid="49" dstpinname="Select">
-   </LINK>
-   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="0" dstpinname="Object">
-   </LINK>
    <NODE systemname="AsRaw (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsRaw (Value)" componentmode="Hidden" id="50">
    <BOUNDS type="Node" left="1425" top="9615" width="100" height="100">
    </BOUNDS>
@@ -480,8 +448,6 @@
    </LINK>
    <LINK srcnodeid="60" srcpinname="Name" dstnodeid="52" dstpinname="Name">
    </LINK>
-   <LINK srcnodeid="60" srcpinname="Debug" dstnodeid="52" dstpinname="Debug">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="61" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="9540" top="9015" width="825" height="240">
    </BOUNDS>
@@ -550,28 +516,6 @@
    </LINK>
    <LINK srcnodeid="67" srcpinname="Output" dstnodeid="0" dstpinname="Update">
    </LINK>
-   <NODE id="47" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4455" top="9780" width="795" height="960">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4455" top="9780" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Y Input Value">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="29" srcpinname="Count" dstnodeid="47" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="69" systemname="IOBox (String)">
    <BOUNDS type="Node" left="690" top="300" width="1650" height="270">
    </BOUNDS>
@@ -630,10 +574,60 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="Input Value" dstnodeid="72" dstpinname="Dictionary">
    </LINK>
-   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="49" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="72" srcpinname="Output" dstnodeid="7" dstpinname="Object">
    </LINK>
    <LINK srcnodeid="72" srcpinname="Output" dstnodeid="51" dstpinname="Input">
+   </LINK>
+   <NODE id="49" systemname="Select (Node)" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" nodename="Select (Node)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1260" top="5430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="49" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="0" dstpinname="Object">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Streams Bin Size" dstnodeid="49" dstpinname="Select">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="73" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="9000" top="8490" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9000" top="8490" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Output String" dstnodeid="52" dstpinname="Debug">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Streams" dstnodeid="30" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Streams" dstnodeid="29" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="76" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4335" top="8535" width="675" height="1020">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4335" top="8535" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Count" dstnodeid="76" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
