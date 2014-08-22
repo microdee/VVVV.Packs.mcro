@@ -84,6 +84,8 @@ namespace VVVV.Nodes
 
         [Output("Controller")]
         public ISpread<Leap.Controller> FController;
+        [Output("Last Frame")]
+        public ISpread<Frame> FFrame;
 
         public static Leap.Device leapdevice;
         public static Leap.Controller leapcontroller;
@@ -114,14 +116,20 @@ namespace VVVV.Nodes
         {
             if(leapcontroller!=null)
             {
+                FDevice.SliceCount = 1;
+                FController.SliceCount = 1;
+                FFrame.SliceCount = 1;
+
                 FDevice[0] = leapdevice;
                 FController[0] = leapcontroller;
+                FFrame[0] = leapcontroller.Frame(0);
                 leapdevice = leapcontroller.Devices[FDID[0]];
             }
             else
             {
                 FDevice.SliceCount = 0;
                 FController.SliceCount = 0;
+                FFrame.SliceCount = 0;
                 if (FReinit[0])
                 {
                     leapcontroller.Dispose();
@@ -131,55 +139,6 @@ namespace VVVV.Nodes
             GlobalScale = FScale[0];
             GlobalZMul = (FMirror[0]) ? -1 : 1;
             AgeCorrectionThreshold = FAgeThreshold[0];
-        }
-    }
-    
-    [PluginInfo(Name = "Frame", Category = "Leap", Tags = "")]
-    public class LeapFrameNode : IPluginEvaluate
-    {
-        [Input("Controller")]
-        public Pin<Leap.Controller> FController;
-
-        [Output("FPS")]
-        public ISpread<float> FFPS;
-        [Output("Timestamp")]
-        public ISpread<float> FTimestamp;
-        [Output("Interaction Box")]
-        public ISpread<InteractionBox> FInteractBox;
-
-        [Output("Hands")]
-        public ISpread<Hand> FHand;
-        [Output("Gestures")]
-        public ISpread<Gesture> FGesture;
-
-        public void Evaluate(int SpreadMax)
-        {
-            if(!FController.IsConnected || FController.SliceCount == 0)
-            {
-                FFPS.SliceCount = 0;
-                FTimestamp.SliceCount = 0;
-                FInteractBox.SliceCount = 0;
-                FHand.SliceCount = 0;
-                FGesture.SliceCount = 0;
-            }
-            else
-            {
-                Frame frame = FController[0].Frame(0);
-                FFPS.SliceCount = 1;
-                FTimestamp.SliceCount = 1;
-                FInteractBox.SliceCount = 1;
-
-                FFPS[0] = frame.CurrentFramesPerSecond;
-                FTimestamp[0] = frame.Timestamp;
-                FInteractBox[0] = frame.InteractionBox;
-
-                FHand.SliceCount = 0;
-                FGesture.SliceCount = 0;
-                foreach (Hand h in frame.Hands) FHand.Add(h);
-
-                GestureList gests = frame.Gestures();
-                foreach (Gesture g in gests) FGesture.Add(g);
-            }
         }
     }
 
@@ -247,22 +206,22 @@ namespace VVVV.Nodes
     [PluginInfo(Name = "InteractionBox", Category = "Leap", Tags = "")]
     public class LeapInteractionBoxNode : IPluginEvaluate
     {
-        [Input("Controller")]
-        public Pin<Leap.Controller> FController;
+        [Input("Frame")]
+        public Pin<InteractionBox> FInteractionBox;
         [Input("World Position")]
-        public ISpread<Vector3D> FWorldPos;
+        public ISpread<ISpread<Vector3D>> FWorldPos;
 
         [Output("Dimensions")]
         public ISpread<Vector3D> FDimensions;
         [Output("Center")]
         public ISpread<Vector3D> FCenter;
         [Output("Normalized Position")]
-        public ISpread<Vector3D> FNormPos;
+        public ISpread<ISpread<Vector3D>> FNormPos;
 
         public void Evaluate(int SpreadMax)
         {
 
-            if (!FController.IsConnected || FController.SliceCount == 0)
+            if (!FInteractionBox.IsConnected || FInteractionBox.SliceCount == 0)
             {
                 FDimensions.SliceCount = 0;
                 FNormPos.SliceCount = 0;
@@ -283,23 +242,27 @@ namespace VVVV.Nodes
                     zm = 1;
                 }
 
-                FDimensions.SliceCount = 1;
-                FCenter.SliceCount = 1;
-                FNormPos.SliceCount = FWorldPos.SliceCount;
+                FDimensions.SliceCount = FInteractionBox.SliceCount;
+                FCenter.SliceCount = FInteractionBox.SliceCount;
+                FNormPos.SliceCount = FInteractionBox.SliceCount;
 
-                FDimensions[0] = new Vector3D(
-                    FController[0].Frame(0).InteractionBox.Width,
-                    FController[0].Frame(0).InteractionBox.Height,
-                    FController[0].Frame(0).InteractionBox.Depth);
-                FDimensions[0] = FDimensions[0] * gs;
-
-                FCenter[0] = FController[0].Frame(0).InteractionBox.Center.ToVector3D().mulz(zm) * gs;
-
-                for (int i = 0; i < FWorldPos.SliceCount; i++)
+                for (int i = 0; i < FInteractionBox.SliceCount; i++)
                 {
-                    Vector3D tpos = FWorldPos[i].mulz(zm) / gs;
-                    Leap.Vector V = tpos.ToLeapVector();
-                    FNormPos[i] = FController[0].Frame(0).InteractionBox.NormalizePoint(V).ToVector3D().mulz(zm);
+                    FDimensions[i] = new Vector3D(
+                        FInteractionBox[i].Width,
+                        FInteractionBox[i].Height,
+                        FInteractionBox[i].Depth);
+                    FDimensions[i] = FDimensions[i] * gs;
+
+                    FCenter[i] = FInteractionBox[i].Center.ToVector3D().mulz(zm) * gs;
+
+                    FNormPos[i].SliceCount = FWorldPos[i].SliceCount;
+                    for (int j = 0; j < FWorldPos.SliceCount; j++)
+                    {
+                        Vector3D tpos = FWorldPos[i][j].mulz(zm) / gs;
+                        Leap.Vector V = tpos.ToLeapVector();
+                        FNormPos[i][j] = FInteractionBox[i].NormalizePoint(V).ToVector3D().mulz(zm);
+                    }
                 }
             }
         }

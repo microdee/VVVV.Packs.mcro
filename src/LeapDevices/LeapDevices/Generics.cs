@@ -104,4 +104,26 @@ namespace VVVV.Nodes
 
     [PluginInfo(Name = "Queue", Category = "Leap", Version = "Gesture")]
     public class GestureLeapQueueNode : Queue<Gesture> { }
+
+    // Frame
+    [PluginInfo(Name = "Cons", Category = "Leap", Version = "Frame")]
+    public class FrameLeapConsNode : Cons<Frame> { }
+
+    [PluginInfo(Name = "Zip", Category = "Leap", Version = "Frame")]
+    public class FrameLeapZipNode : Zip<Frame> { }
+
+    [PluginInfo(Name = "Unzip", Category = "Leap", Version = "Frame")]
+    public class FrameLeapUnzipNode : Unzip<Frame> { }
+
+    [PluginInfo(Name = "CAR", Category = "Leap", Version = "Frame")]
+    public class FrameLeapCARNode : CARBin<Frame> { }
+
+    [PluginInfo(Name = "CDR", Category = "Leap", Version = "Frame")]
+    public class FrameLeapCDRNode : CDRBin<Frame> { }
+
+    [PluginInfo(Name = "Select", Category = "Leap", Version = "Frame")]
+    public class FrameLeapSelectNode : SelectBin<Frame> { }
+
+    [PluginInfo(Name = "Queue", Category = "Leap", Version = "Frame")]
+    public class FrameLeapQueueNode : Queue<Frame> { }
 }

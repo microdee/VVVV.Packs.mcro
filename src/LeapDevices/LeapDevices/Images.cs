@@ -26,8 +26,8 @@ namespace VVVV.Nodes
     [PluginInfo(Name = "Images", Category = "Leap")]
     public unsafe class LeapImagesNode : IPluginEvaluate, IDX11ResourceProvider, IDisposable
     {
-        [Input("Controller")]
-        public Pin<Leap.Controller> FController;
+        [Input("Frame")]
+        public Pin<Frame> FFrame;
         [Input("Enabled")]
         public ISpread<bool> FEnabled;
 
@@ -40,108 +40,130 @@ namespace VVVV.Nodes
         protected ISpread<bool> FValid;
 
         private bool FInvalidate;
-        private Frame frame;
-        private ImageList images;
+        private List<ImageList> images = new List<ImageList>();
+        private int fcr = 0;
 
         public void Evaluate(int SpreadMax)
         {
-            frame = FController[0].Frame(0);
-            images = frame.Images;
-
-            if (FController.IsConnected && this.FEnabled[0])
+            if (FFrame.IsConnected && this.FEnabled[0])
             {
+                if(fcr == 0)
+                {
+                    this.FLeft.SliceCount = FFrame.SliceCount;
+                    this.FRight.SliceCount = FFrame.SliceCount;
+                }
                 this.FInvalidate = true;
-            }
-
-            if ((!FController.IsConnected) || FEnabled.SliceCount == 0)
-            {
-                if (this.FLeft.SliceCount == 1)
+                images.Clear();
+                for (int i = 0; i < FFrame.SliceCount; i++)
                 {
-                    if (this.FLeft[0] != null) { this.FLeft[0].Dispose(); }
-                    this.FLeft.SliceCount = 0;
+                    images.Add(FFrame[i].Images);
                 }
-                if (this.FRight.SliceCount == 1)
+                
+                for (int i = 0; i < FLeft.SliceCount; i++)
                 {
-                    if (this.FRight[0] != null) { this.FRight[0].Dispose(); }
-                    this.FRight.SliceCount = 0;
+                    if (this.FLeft[i] == null) { this.FLeft[i] = new DX11Resource<DX11DynamicTexture2D>(); }
+                    if (this.FRight[i] == null) { this.FRight[i] = new DX11Resource<DX11DynamicTexture2D>(); }
                 }
+                if(FLeft.SliceCount > FFrame.SliceCount)
+                {
+                    for(int i=FFrame.SliceCount; i<(FLeft.SliceCount-FFrame.SliceCount); i++)
+                    {
+                        if (this.FLeft[i] != null) { this.FLeft[i].Dispose(); }
+                        if (this.FRight[i] != null) { this.FRight[i].Dispose(); }
+                    }
+                }
+                this.FLeft.SliceCount = FFrame.SliceCount;
+                this.FRight.SliceCount = FFrame.SliceCount;
+                fcr++;
             }
             else
             {
-                this.FLeft.SliceCount = 1;
-                this.FRight.SliceCount = 1;
-                if (this.FLeft[0] == null) { this.FLeft[0] = new DX11Resource<DX11DynamicTexture2D>(); }
-                if (this.FRight[0] == null) { this.FRight[0] = new DX11Resource<DX11DynamicTexture2D>(); }
+                if ((this.FLeft.SliceCount > 0) || (this.FRight.SliceCount > 0))
+                {
+                    for (int i = 0; i < FLeft.SliceCount; i++)
+                    {
+                        if (this.FLeft[i] != null) { this.FLeft[i].Dispose(); }
+                        if (this.FRight[i] != null) { this.FRight[i].Dispose(); }
+                    }
+                    this.FLeft.SliceCount = 0;
+                    this.FRight.SliceCount = 0;
+                }
+                fcr = 0;
             }
+
         }
 
         public void Update(IPluginIO pin, DX11RenderContext context)
         {
             if ((this.FLeft.SliceCount == 0) || (this.FRight.SliceCount == 0)) { return; }
-
-            if (this.FInvalidate || !this.FLeft[0].Contains(context))
+            for (int i = 0; i < FLeft.SliceCount; i++)
             {
-
-                SlimDX.DXGI.Format fmt = SlimDX.DXGI.Format.R8_UNorm;
-
-                Texture2DDescription LeftDesc;
-
-                if (this.FLeft[0].Contains(context))
+                if (this.FInvalidate || !this.FLeft[i].Contains(context))
                 {
-                    LeftDesc = this.FLeft[0][context].Resource.Description;
 
-                    if (LeftDesc.Width != images[0].Width || LeftDesc.Height != images[0].Height || LeftDesc.Format != fmt)
+                    SlimDX.DXGI.Format fmt = SlimDX.DXGI.Format.R8_UNorm;
+
+                    Texture2DDescription LeftDesc;
+
+                    if (this.FLeft[i].Contains(context))
                     {
-                        this.FLeft[0].Dispose(context);
-                        this.FLeft[0][context] = new DX11DynamicTexture2D(context, images[0].Width, images[0].Height, fmt);
+                        LeftDesc = this.FLeft[i][context].Resource.Description;
+
+                        if (LeftDesc.Width != images[i][0].Width || LeftDesc.Height != images[i][0].Height || LeftDesc.Format != fmt)
+                        {
+                            this.FLeft[i].Dispose(context);
+                            this.FLeft[i][context] = new DX11DynamicTexture2D(context, images[i][0].Width, images[i][0].Height, fmt);
+                        }
                     }
-                }
-                else
-                {
-                    this.FLeft[0][context] = new DX11DynamicTexture2D(context, images[0].Width, images[0].Height, fmt);
+                    else
+                    {
+                        this.FLeft[i][context] = new DX11DynamicTexture2D(context, images[i][0].Width, images[i][0].Height, fmt);
 
 #if DEBUG
-                    this.FLeft[0][context].Resource.DebugName = "DynamicTexture";
+                        this.FLeft[i][context].Resource.DebugName = "DynamicTexture";
 #endif
-                }
-
-                LeftDesc = this.FLeft[0][context].Resource.Description;
-
-                Texture2DDescription RightDesc;
-
-                if (this.FRight[0].Contains(context))
-                {
-                    RightDesc = this.FRight[0][context].Resource.Description;
-
-                    if (RightDesc.Width != images[1].Width || RightDesc.Height != images[1].Height || RightDesc.Format != fmt)
-                    {
-                        this.FRight[0].Dispose(context);
-                        this.FRight[0][context] = new DX11DynamicTexture2D(context, images[1].Width, images[1].Height, fmt);
                     }
-                }
-                else
-                {
-                    this.FRight[0][context] = new DX11DynamicTexture2D(context, images[1].Width, images[1].Height, fmt);
+
+                    LeftDesc = this.FLeft[i][context].Resource.Description;
+
+                    Texture2DDescription RightDesc;
+
+                    if (this.FRight[i].Contains(context))
+                    {
+                        RightDesc = this.FRight[i][context].Resource.Description;
+
+                        if (RightDesc.Width != images[i][1].Width || RightDesc.Height != images[i][1].Height || RightDesc.Format != fmt)
+                        {
+                            this.FRight[i].Dispose(context);
+                            this.FRight[i][context] = new DX11DynamicTexture2D(context, images[i][1].Width, images[i][1].Height, fmt);
+                        }
+                    }
+                    else
+                    {
+                        this.FRight[i][context] = new DX11DynamicTexture2D(context, images[i][1].Width, images[i][1].Height, fmt);
 
 #if DEBUG
-                    this.FRight[0][context].Resource.DebugName = "DynamicTexture";
+                        this.FRight[i][context].Resource.DebugName = "DynamicTexture";
 #endif
+                    }
+
+                    RightDesc = this.FRight[i][context].Resource.Description;
+
+                    this.FLeft[i][context].WriteData(images[i][0].Data);
+                    this.FRight[i][context].WriteData(images[i][1].Data);
+                    this.FInvalidate = false;
                 }
-
-                RightDesc = this.FRight[0][context].Resource.Description;
-
-                this.FLeft[0][context].WriteData(images[0].Data);
-                this.FRight[0][context].WriteData(images[1].Data);
-                this.FInvalidate = false;
             }
-
         }
 
         public void Destroy(IPluginIO pin, DX11RenderContext context, bool force)
         {
 
-            this.FLeft[0].Dispose(context);
-            this.FRight[0].Dispose(context);
+            for (int i = 0; i < FLeft.SliceCount; i++)
+            {
+                this.FLeft[i].Dispose(context);
+                this.FRight[i].Dispose(context);
+            }
         }
 
 
@@ -150,20 +172,19 @@ namespace VVVV.Nodes
         {
             if (this.FLeft.SliceCount > 0)
             {
-                if (this.FLeft[0] != null)
+                for (int i = 0; i < FLeft.SliceCount; i++)
                 {
-                    this.FLeft[0].Dispose();
+                    if (this.FLeft[i] != null)
+                    {
+                        this.FLeft[i].Dispose();
+                    }
+
+                    if (this.FRight[i] != null)
+                    {
+                        this.FRight[i].Dispose();
+                    }
                 }
             }
-
-            if (this.FRight.SliceCount > 0)
-            {
-                if (this.FRight[0] != null)
-                {
-                    this.FRight[0].Dispose();
-                }
-            }
-
         }
         #endregion
     }
