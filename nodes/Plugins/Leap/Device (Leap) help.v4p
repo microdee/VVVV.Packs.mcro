@@ -1704,12 +1704,6 @@
    <PIN pinname="Fingers" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="3" srcpinname="Hands" dstnodeid="238" dstpinname="Hands" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="3870" y="12548">
-   </LINKPOINT>
-   <LINKPOINT x="12630" y="12548">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="239" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="13335" top="21030" width="885" height="495">
    </BOUNDS>
@@ -2606,10 +2600,12 @@
    </LINK>
    <LINK srcnodeid="316" srcpinname="Output" dstnodeid="313" dstpinname="Frame ID in history">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="Hands" dstnodeid="2" dstpinname="Hands">
+   <LINK srcnodeid="315" srcpinname="Hands" dstnodeid="2" dstpinname="Hands">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="Hands" dstnodeid="250" dstpinname="Hands">
+   <LINK srcnodeid="315" srcpinname="Hands" dstnodeid="250" dstpinname="Hands">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="Hands" dstnodeid="245" dstpinname="Hands">
+   <LINK srcnodeid="315" srcpinname="Hands" dstnodeid="245" dstpinname="Hands">
+   </LINK>
+   <LINK srcnodeid="315" srcpinname="Hands" dstnodeid="238" dstpinname="Hands">
    </LINK>
    </PATCH>
