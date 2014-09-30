@@ -7,13 +7,15 @@ cbuffer controls:register(b0){
 	float width;
 	float2 AFpoint;
 	float MFtoAF;
+	float maxdist = 20;
 	bool foreground = false;
 };
 SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
-float4 pADD(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
+float4 pADD(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target
+{
 	float autofocus = svpos.Sample(s0,AFpoint/2+0.5).z;
 	float focus = lerp(Focus,autofocus,MFtoAF);
-	float depth=vpos.Sample(s0,x).z;
+	float depth = min(vpos.Sample(s0,x).z, maxdist);
 	float bckg = max(depth-focus-width/2,0);
 	float frg = -min(depth-focus+width/2,0);
 	if(foreground) return float4(frg.xxx,1);
