@@ -63,7 +63,7 @@ gsIn VS_RGB(vsIn input)
 {
 	//Here we just pass trough, gs, with expand the point
     gsIn output;
-	float2 uv = float2(input.vid/R.x, input.iid/R.y);
+	float2 uv = float2(input.vid/R.x, input.iid/R.y)+.5/R;
 	float3 pos = tex.SampleLevel(g_samLinear,uv,0).xyz;
 	output.col = coltex.SampleLevel(g_samLinear,uv,0);
 	output.pos = lerp(float4(pos,1),float4(uv.x,1-uv.y,0,1),lerpuv);
@@ -85,7 +85,7 @@ gsIn VS_HSLc(vsIn input)
 {
 	//Here we just pass trough, gs, with expand the point
     gsIn output;
-	float2 uv = float2(input.vid/R.x, input.iid/R.y);
+	float2 uv = float2(input.vid/R.x, input.iid/R.y)+.5/R;
 	float3 pos = tex.SampleLevel(g_samLinear,uv,0).xyz;
 	output.col = coltex.SampleLevel(g_samLinear,uv,0);
 	float3 cubic = pows(RGBtoHSL(pos),power);

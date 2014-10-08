@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.7.dtd" >
-   <PATCH nodename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\GetFactorMultiplier (Value).v4p" systemname="GetFactorMultiplier (Value)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\GetFactorMultiplier (Value).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\GetFactorMultiplier (Value).v4p" systemname="GetFactorMultiplier (Value)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\GetFactorMultiplier (Value).v4p" scrollx="0" scrolly="2205">
    <BOUNDS type="Window" left="3720" top="9210" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="testPack" Version="0.1.0">
@@ -184,4 +184,8 @@
    </NODE>
    <LINK srcnodeid="14" srcpinname="Last Slice" dstnodeid="15" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.0.0">
+   </PACK>
    </PATCH>
