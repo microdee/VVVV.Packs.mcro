@@ -27,7 +27,7 @@ float4 pMIX(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET
 				hitcount++;
 		}
 	}
-	if(hitcount > skpthrs) c0.rgb = 0;
+	if((hitcount > skpthrs) || (c0.z<0)) c0 = 0;
     return c0;
 }
 

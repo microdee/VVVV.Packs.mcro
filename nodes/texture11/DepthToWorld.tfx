@@ -29,7 +29,15 @@ SamplerState s0 <bool visible=false;string uiname="Sampler";>
 float4 PosV(Texture2D tex, SamplerState s, float2 uv)
 {
 	float4 p = float4(0,0,0,1);
-	if(ViewDepth) p = float4(tex.Sample(s,uv).xyz,1);
+	if(ViewDepth)
+	{
+		p = float4(tex.Sample(s,uv).xyz,1);
+		if(p.z <= 0)
+		{
+			p.xy = uv*2-1;
+			p.z = 1;
+		}
+	}
 	else
 	{
 		p=float4(-1.0+2.0*uv.x,-1.0+2.0*uv.y,-1.0+2.0*tex.Sample(s,uv).x,1.0);
@@ -51,7 +59,11 @@ float4 NorW(Texture2D tex, SamplerState s,float2 uv)
 	float3 w0=PosW(tex,s0,uv).xyz;
 	float3 w1=PosW(tex,s0,uv-float2(1,0)/R).xyz;
 	float3 w2=PosW(tex,s0,uv-float2(0,1)/R).xyz;
-	float3 NorW=normalize(cross(normalize(w1-w0),normalize(w2-w0)));
+	float3 NorW = 0;
+	if((distance(w0,w1) == 0) || (distance(w0,w2) == 0))
+		NorW = float3(0,0,1);
+	else
+		NorW=normalize(cross(normalize(w1-w0),normalize(w2-w0)));
 	return float4(NorW,1);
 }
 float4 PS_NORW_fix(VS_OUT In): SV_Target{
