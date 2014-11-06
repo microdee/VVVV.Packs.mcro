@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
    <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="555" scrolly="-360">
+=======
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="0" scrolly="0">
+>>>>>>> a5229a4b505e51d7c965857f82502b1b875da5cc
    <BOUNDS type="Window" left="2130" top="1275" width="16485" height="13800">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.3.0">
@@ -2164,18 +2169,6 @@
    </NODE>
    <LINK srcnodeid="247" srcpinname="Cursor Pos" dstnodeid="245" dstpinname="Input">
    </LINK>
-   <NODE systemname="DirectInput (Devices)" filename="%VVVV%\packs\mcropack\nodes\plugins\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="287">
-   <BOUNDS type="Node" left="3330" top="6015" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="111" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="115" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="136" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="287" srcpinname="Mouse Position XYW" dstnodeid="216" dstpinname="XYZ">
-   </LINK>
    <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="288">
    <BOUNDS type="Node" left="7965" top="2925" width="100" height="100">
    </BOUNDS>
@@ -2243,5 +2236,41 @@
    <LINK srcnodeid="226" srcpinname="Y Output Value" dstnodeid="293" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="293" srcpinname="OnChange" dstnodeid="280" dstpinname="Input 6">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="294" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1260" top="6180" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1260" top="6180" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   </NODE>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="DirectInput (Devices)" filename="%VVVV%\packs\mcropack\nodes\plugins\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="296">
+   <BOUNDS type="Node" left="3330" top="6015" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="296" srcpinname="Mouse Position XYW" dstnodeid="111" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="296" srcpinname="Mouse Position XYW" dstnodeid="115" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="296" srcpinname="Mouse Position XYW" dstnodeid="136" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="296" srcpinname="Mouse Position XYW" dstnodeid="216" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="296" srcpinname="Mouse Position XYW" dstnodeid="294" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
