@@ -1,0 +1,5 @@
+C:\vvvv\libs\mcropack\nodes\Plugins\Leap\x64\LeapDevices.dll
+C:\vvvv\libs\mcropack\nodes\Plugins\Leap\x64\LeapDevices.pdb
+C:\vvvv\libs\mcropack\src\LeapDevices\LeapDevices\obj\x64\Debug\LeapDevices.csprojResolveAssemblyReference.cache
+C:\vvvv\libs\mcropack\src\LeapDevices\LeapDevices\obj\x64\Debug\LeapDevices.dll
+C:\vvvv\libs\mcropack\src\LeapDevices\LeapDevices\obj\x64\Debug\LeapDevices.pdb

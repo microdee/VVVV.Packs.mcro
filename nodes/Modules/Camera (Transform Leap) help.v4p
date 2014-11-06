@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.1.dtd" >
-   <PATCH nodename="F:\vvvv\sandbox\Camera (Transform Leap) help.v4p" systemname="Camera (Transform Leap) help" filename="F:\vvvv\sandbox\Camera (Transform Leap) help.v4p">
-   <BOUNDS type="Window" left="14610" top="795" width="11355" height="12150">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform Leap) help.v4p" systemname="Camera (Transform Leap) help" filename="F:\vvvv\sandbox\Camera (Transform Leap) help.v4p">
+   <BOUNDS type="Window" left="29835" top="5145" width="11355" height="12150">
    </BOUNDS>
    <NODE systemname="Camera (Transform Leap)" filename="Camera (Transform Leap).v4p" nodename="Camera (Transform Leap)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="4275" top="2895" width="1950" height="270">
@@ -39,6 +39,8 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
+   <PIN pinname="Leap" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="29">
    <BOUNDS type="Node" left="2745" top="8730" width="810" height="270">
@@ -52,10 +54,12 @@
    <PIN pinname="Scale XYZ" visible="1" slicecount="3000" values="1,1,1">
    </PIN>
    </NODE>
-   <NODE systemname="S (Value Advanced)" filename="%VVVV%\addonpack\lib\nodes\plugins\RSNodes.dll" nodename="S (Value Advanced)" componentmode="Hidden" id="31">
+   <NODE systemname="S (VALUE ADVANCED)" filename="%VVVV%\addonpack\lib\nodes\plugins\RSNodes.dll" nodename="S (Value Advanced)" componentmode="Hidden" id="31">
    <BOUNDS type="Node" left="3075" top="15840" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="2" values="867,581">
+   </PIN>
+   <PIN pinname="Display Channel" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="32" systemname="IOBox (String)">
@@ -73,32 +77,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="32" srcpinname="Output String" dstnodeid="31" dstpinname="Send String">
-   </LINK>
-   <NODE systemname="Euler (Quaternion Set Vector)" nodename="Euler (Quaternion Set Vector)" componentmode="Hidden" id="35">
-   <BOUNDS type="Node" left="4755" top="2415" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Quaternion XYZW" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="35" srcpinname="Quaternion XYZW" dstnodeid="25" dstpinname="Initial Rotation XYZW">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4755" top="1515" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4755" top="1515" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="Y Output Value" dstnodeid="35" dstpinname="Rotate XYZ">
    </LINK>
    <NODE systemname="Perlin (3d)" nodename="Perlin (3d)" componentmode="Hidden" id="48">
    <BOUNDS type="Node" left="3180" top="7320" width="100" height="100">
@@ -223,9 +201,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="111" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5235" top="3660" width="795" height="720">
+   <BOUNDS type="Box" left="5430" top="3690" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="5235" top="3660" width="0" height="0">
+   <BOUNDS type="Node" left="5430" top="3690" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -364,10 +342,12 @@
    </LINK>
    <LINK srcnodeid="123" srcpinname="Absolute Part" dstnodeid="29" dstpinname="Scale XYZ">
    </LINK>
-   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
+   <NODE systemname="MAINLOOP (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
    <BOUNDS type="Node" left="1410" top="2895" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Maximum background fpsS" visible="1">
+   </PIN>
+   <PIN pinname="Increase Timing Precision" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="134" systemname="IOBox (Value Advanced)">
@@ -480,7 +460,7 @@
    </LINK>
    <LINK srcnodeid="25" srcpinname="Projection" dstnodeid="141" dstpinname="Projection">
    </LINK>
-   <NODE systemname="Keyboard (System Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Keyboard (System Window)" componentmode="Hidden" id="144">
+   <NODE systemname="Keyboard (System Window Legacy2)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Keyboard (System Window)" componentmode="Hidden" id="144">
    <BOUNDS type="Node" left="4290" top="1065" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Keyboard" visible="1">
@@ -511,11 +491,11 @@
    <LINK srcnodeid="145" srcpinname="Transform Out" dstnodeid="141" dstpinname="Aspect Ratio">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="146" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="4845" top="4815" width="5040" height="270">
+   <BOUNDS type="Node" left="2115" top="375" width="5040" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="4845" top="4815" width="5040" height="270">
+   <BOUNDS type="Box" left="2115" top="375" width="1470" height="240">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|Instructions here: https://www.youtube.com/watch?v=7RpAa9QqxO8|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Instructions here:|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -542,4 +522,44 @@
    </NODE>
    <LINK srcnodeid="147" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Initial Position XYZ">
    </LINK>
+   <NODE systemname="Device (Leap)" filename="..\plugins\Leap\x64\LeapDevices.dll" nodename="Device (Leap)" componentmode="Hidden" id="148">
+   <BOUNDS type="Node" left="3900" top="2025" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scale" slicecount="1" values="0.01">
+   </PIN>
+   <PIN pinname="Last Frame" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="148" srcpinname="Last Frame" dstnodeid="25" dstpinname="Leap">
+   </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="149" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2100" top="630" width="3720" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2100" top="630" width="3720" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="https://www.youtube.com/watch?v=7RpAa9QqxO8">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="URL">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="150" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6465" top="2835" width="5295" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6465" top="2835" width="2775" height="480">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|If you don&apos;t like the keyboard bindings you can change it in the inspektor|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>

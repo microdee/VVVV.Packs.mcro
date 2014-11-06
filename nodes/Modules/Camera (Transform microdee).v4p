@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="4905" scrolly="2160">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="555" scrolly="-360">
    <BOUNDS type="Window" left="2130" top="1275" width="16485" height="13800">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE systemname="KeyStates (Keyboard Split)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="KeyStates (Keyboard Split)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="5910" top="1170" width="100" height="100">
@@ -1077,7 +1077,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10155" top="2250" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="2.26">
+   <PIN pinname="Y Input Value" slicecount="1" values="11.29">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1459,7 +1459,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11820" top="2370" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.17">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.14">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>

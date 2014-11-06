@@ -8,4 +8,8 @@
     <StartProgram>E:\vvvv\app\vvvv_45beta32.1_x86\vvvv.exe</StartProgram>
     <StartAction>Program</StartAction>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartProgram>E:\vvvv\app\vvvv_45beta32.1_x86\vvvv.exe</StartProgram>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 </Project>
