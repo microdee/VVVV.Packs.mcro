@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Library</OutputType>
     <RootNamespace>VVVV.Nodes</RootNamespace>
-    <AssemblyName>HwndObjectWindowsWindow</AssemblyName>
+    <AssemblyName>WindowsWindowPos</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <ReferencePath>..\..\..\vvvv45alpha29.3_x86_dx11\lib\core\;..\..\..\vvvv45alpha29.3_x86_dx11\lib\nodes\plugins\;..\..\..\vvvv_45alpha28.3\bin\managed\</ReferencePath>
+    <ReferencePath>..\..\..\..\..\app\vvvv_45beta33.3_x64\lib\core\;..\..\..\..\..\app\vvvv_45beta33.3_x64\lib\nodes\plugins\</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -46,13 +46,10 @@
     <Reference Include="VVVV.PluginInterfaces" />
     <Reference Include="VVVV.Utils" />
     <Reference Include="VVVV.Utils3rdParty" />
-    <Reference Include="WindowScrape">
-      <HintPath>bin\Dynamic\WindowScrape.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HwndObjectWindowsWindowNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsWindowPosNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

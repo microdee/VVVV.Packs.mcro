@@ -1,11 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="C:\vvvv\github\mcropack\nodes\Modules\GetSpread (Node).v4p" systemname="GetSpread (Node)" filename="C:\vvvv\github\mcropack\nodes\Modules\GetSpread (Node).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\GetSpread (Node).v4p" systemname="GetSpread (Node)" filename="C:\vvvv\github\mcropack\nodes\Modules\GetSpread (Node).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="17340" top="5175" width="9000" height="6000">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="1515" top="1950" width="100" height="100">
+   <BOUNDS type="Node" left="1155" top="2595" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
@@ -27,9 +27,9 @@
    <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="0" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="2" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1500" top="2550" width="795" height="240">
+   <BOUNDS type="Box" left="1140" top="3195" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1500" top="2550" width="0" height="0">
+   <BOUNDS type="Node" left="1140" top="3195" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Output Node|">
    </PIN>
@@ -67,9 +67,9 @@
    <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="[ From ..">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3930" top="330" width="795" height="240">
+   <BOUNDS type="Box" left="3465" top="495" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3930" top="330" width="0" height="0">
+   <BOUNDS type="Node" left="3465" top="495" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
