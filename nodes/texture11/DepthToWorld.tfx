@@ -11,6 +11,7 @@ cbuffer controls:register(b0)
 	float4x4 PostViewNormalTr;
 	float3 posCam;
 	bool ViewDepth;
+	bool KeepAspectRatio;
 };
 
 struct VS_OUT
@@ -52,6 +53,9 @@ float4 PosV(Texture2D tex, SamplerState s, float2 uv)
 }
 float4 PosW(Texture2D tex, SamplerState s,float2 uv)
 {
+		float2 asp = 0;
+		asp.x = max(R.x/R.y, 1);
+		asp.y = max(R.x/R.y, 1);
 	return mul(PosV(tex,s0,uv),ViewInverse);
 }
 float4 NorW(Texture2D tex, SamplerState s,float2 uv)
