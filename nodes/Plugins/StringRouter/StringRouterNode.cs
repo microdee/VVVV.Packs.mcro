@@ -45,7 +45,9 @@ namespace VVVV.Nodes
 					for(int k=0; k<FType[i].SliceCount; k++)
 					{
 						if(FType[i][k] == FUType[j])
+						{
 							FOutput[i][j] = FInput[i][k];
+						}
 					}
 				}
 			}
