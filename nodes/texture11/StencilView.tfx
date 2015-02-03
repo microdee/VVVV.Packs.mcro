@@ -13,7 +13,15 @@ struct psInput
 
 float scale = 1.0f;
 
-float4 PS(psInput input) : SV_Target
+float4 PS_R(psInput input) : SV_Target
+{
+	//Stencil value is green channel
+	float stencilvalue = texture2d.Load(int3(input.p.xy,0)).r;	
+	
+	//Downscale since stencil value is 0->255
+	return stencilvalue *scale;
+}
+float4 PS_G(psInput input) : SV_Target
 {
 	//Stencil value is green channel
 	float stencilvalue = texture2d.Load(int3(input.p.xy,0)).g;	
@@ -22,13 +30,19 @@ float4 PS(psInput input) : SV_Target
 	return stencilvalue *scale;
 }
 
-technique10 Process
+technique10 G
 {
-	pass P0
+	pass P0 <string format="R16G16B16A16_Float";>
 	{
-		SetPixelShader(CompileShader(ps_4_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS_G()));
 	}
 }
-
+technique10 R
+{
+	pass P0 <string format="R16G16B16A16_Float";>
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_R()));
+	}
+}
 
 
