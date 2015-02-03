@@ -3,6 +3,8 @@ float4x4 tVP : VIEWPROJECTION;
 float4x4 tWVP : WORLDVIEWPROJECTION;
 float4x4 tWV : WORLDVIEW;
 
+float4 col <bool color=true;> = 1;
+
 struct vsin
 {
 	float4 pos : POSITION;
@@ -109,7 +111,7 @@ void GS_Diag(triangle vs2gs input[3], inout LineStream<psIn> gsout)
 
 float4 PS(psIn input): SV_Target
 {
-    return 1;
+    return col;
 }
 
 technique10 Render

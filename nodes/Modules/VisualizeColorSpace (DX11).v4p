@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\VisualizeColorSpace (DX11).v4p" systemname="VisualizeColorSpace (DX11)" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Modules\VisualizeColorSpace (DX11).v4p" scrollx="0" scrolly="3600">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha33.5.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\VisualizeColorSpace (DX11).v4p" systemname="VisualizeColorSpace (DX11)" filename="E:\vvvv\mcropack\VVVV.Packs.mcro\nodes\Modules\VisualizeColorSpace (DX11).v4p" scrollx="2220" scrolly="0">
    <BOUNDS type="Window" left="15000" top="2595" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE systemname="NullGeometry (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="NullGeometry (DX11.Drawer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="3600" top="3765" width="100" height="100">
@@ -29,7 +29,7 @@
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="3660" top="2235" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="1454">
+   <PIN pinname="Input" visible="1" slicecount="2" values="640,480">
    </PIN>
    <PIN pinname="Input 2" slicecount="1" values="2">
    </PIN>
@@ -83,7 +83,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4230" top="1350" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -96,14 +96,6 @@
    </NODE>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="3300" top="1005" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Width" visible="1">
-   </PIN>
-   <PIN pinname="Height" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="11" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="3405" top="375" width="795" height="240">
    </BOUNDS>
@@ -116,8 +108,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="11" srcpinname="Output Node" dstnodeid="10" dstpinname="Texture In">
-   </LINK>
    <LINK srcnodeid="11" srcpinname="Output Node" dstnodeid="3" dstpinname="Texture">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
@@ -155,22 +145,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="Output Enum" dstnodeid="3" dstpinname="Technique">
-   </LINK>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="15">
-   <BOUNDS type="Node" left="3240" top="1620" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="10" srcpinname="Width" dstnodeid="15" dstpinname="X">
-   </LINK>
-   <LINK srcnodeid="10" srcpinname="Height" dstnodeid="15" dstpinname="Y">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="XY" dstnodeid="4" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4365" top="1950" width="795" height="240">
@@ -341,5 +315,29 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Output Node" dstnodeid="3" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3015" top="1125" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3015" top="1125" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="640,480">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Resolution">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Input">
    </LINK>
    </PATCH>

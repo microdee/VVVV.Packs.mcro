@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="0" scrolly="1080">
-   <BOUNDS type="Window" left="2130" top="1275" width="16485" height="13800">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha33.5.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform microdee).v4p" systemname="Camera (Transform microdee)" filename="G:\vvvv\app\vvvv_45beta32_x64\packs\mcropack\nodes\Modules\Camera (Transform microdee).v4p" scrollx="1800" scrolly="4680">
+   <BOUNDS type="Window" left="1620" top="2085" width="18990" height="13170">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
