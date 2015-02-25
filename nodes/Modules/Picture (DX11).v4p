@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Picture (DX11).v4p" systemname="Picture (DX11)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Picture (DX11).v4p" scrollx="0" scrolly="810">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Picture (DX11).v4p" systemname="Picture (DX11)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Picture (DX11).v4p" scrollx="0" scrolly="1080">
    <BOUNDS type="Window" left="9390" top="4440" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -81,7 +81,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3330" top="1290" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.5,-0.5">
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -317,6 +317,8 @@
    </PIN>
    <PIN pinname="Keep In Memory" visible="1">
    </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="7" dstpinname="Filename">
    </LINK>
@@ -375,5 +377,23 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Resolution">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="26" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7215" top="3510" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7215" top="3510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Is Valid|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Is Valid" dstnodeid="26" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
