@@ -1,11 +1,11 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FakeFullscreen (VVVV).v4p" systemname="FakeFullscreen (VVVV)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FakeFullscreen (VVVV).v4p" scrollx="105" scrolly="1260">
+   <PATCH nodename="C:\vvvv\projects\CA-2-MAX\Libraries\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\FakeFullscreen (VVVV).v4p" systemname="FakeFullscreen (VVVV)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FakeFullscreen (VVVV).v4p" scrollx="1260" scrolly="1770">
    <BOUNDS type="Window" left="15870" top="7425" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="componentmode (VVVV bounds)" filename="componentmode (VVVV bounds).v4p" nodename="componentmode (VVVV bounds)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="2145" top="6060" width="100" height="100">
+   <BOUNDS type="Node" left="2445" top="6660" width="100" height="100">
    </BOUNDS>
    <PIN pinname="id" visible="1">
    </PIN>
@@ -13,11 +13,13 @@
    </PIN>
    <PIN pinname="InAWindow?" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="bounds" visible="1" slicecount="4" values="0,0,0,0">
+   <PIN pinname="bounds" visible="1" slicecount="4" values="28800,0,16200,28800">
    </PIN>
    <BOUNDS type="Window" left="39315" top="3465" width="15825" height="10290">
    </BOUNDS>
    <PIN pinname="Force Update" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="border" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
@@ -135,9 +137,9 @@
    <LINK srcnodeid="24" srcpinname="Output" dstnodeid="22" dstpinname="Input 1XY">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="8955" top="2955" width="480" height="480">
+   <BOUNDS type="Box" left="10785" top="3240" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="8955" top="2955" width="0" height="0">
+   <BOUNDS type="Node" left="10785" top="3240" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -213,8 +215,6 @@
    <LINK srcnodeid="19" srcpinname="Output" dstnodeid="30" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="26" srcpinname="XYZW" dstnodeid="30" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="9" dstpinname="bounds">
    </LINK>
    <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="4440" top="3165" width="100" height="100">
@@ -292,4 +292,82 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="37">
+   <BOUNDS type="Node" left="8535" top="2130" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8535" top="2130" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Windowed">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="2895" top="6075" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="39" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Output" dstnodeid="9" dstpinname="bounds">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="9" dstpinname="border">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="40">
+   <BOUNDS type="Node" left="5955" top="4440" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5955" top="4440" width="795" height="960">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="50,50,-100,-100">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="3405" top="5415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="41" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="5325" top="6000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="41" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Output" dstnodeid="39" dstpinname="Input 2">
+   </LINK>
    </PATCH>

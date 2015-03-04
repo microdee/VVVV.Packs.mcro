@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\app\vvvv_45beta29_x86\mdtk\componentmode (md.vis alias).v4p" systemname="componentmode (md.vis alias)" filename="D:\vvvv\md.vis\md.vis 1.1.beta.2\common\nodes\modules\componentmode (md.vis alias).v4p">
-   <BOUNDS type="Window" left="10050" top="3615" width="10455" height="6510">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\CA-2-MAX\Libraries\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\ComponentMode (VVVV alias).v4p" systemname="componentmode (md.vis alias)" filename="D:\vvvv\md.vis\md.vis 1.1.beta.2\common\nodes\modules\componentmode (md.vis alias).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="-15075" top="20100" width="10455" height="6510">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="930" top="870" width="0" height="0">
@@ -44,6 +44,8 @@
    <PIN pinname="Add to UNDO history" slicecount="1" values="0">
    </PIN>
    <PIN pinname="XML Input" visible="1" slicecount="1" values="|&lt;PATCH&gt;&lt;NODE id=&quot;0&quot; componentmode=&quot;Hidden&quot;&gt;&lt;/NODE&gt;&lt;/PATCH&gt;|">
+   </PIN>
+   <PIN pinname="Force Update" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
@@ -224,4 +226,28 @@
    </NODE>
    <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Input">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5490" top="1365" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5490" top="1365" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Force Update|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Force Update">
+   </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>

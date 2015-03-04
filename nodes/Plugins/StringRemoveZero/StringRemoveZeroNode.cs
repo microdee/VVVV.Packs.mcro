@@ -20,8 +20,6 @@ namespace VVVV.Nodes
 		#region fields & pins
 		[Input("Input", DefaultString = "1.0000000")]
 		ISpread<string> FInput;
-		//[Input("MaxZero")]
-		//ISpread<int> FMaxZ;
 
 		[Output("Output")]
 		ISpread<string> FOutput;
@@ -37,8 +35,8 @@ namespace VVVV.Nodes
 
 			for(int i = 0; i < SpreadMax; i++)
 			{
-				if(FInput[i]!="0") FOutput[i] = FInput[i].TrimEnd('0').TrimEnd('.');
-				else FOutput[i] = "0";
+				if(FInput[i].Contains(".")) FOutput[i] = FInput[i].TrimEnd('0').TrimEnd('.');
+				else FOutput[i] = FInput[i];
 			}
 			//FLogger.Log(LogType.Debug, "Logging to Renderer (TTY)");
 		}
