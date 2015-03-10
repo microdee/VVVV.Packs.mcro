@@ -38,7 +38,7 @@ namespace VVVV.Nodes
 		public ISpread<Vector2D> FPoints;
 		[Input("ID's")]
 		public ISpread<int> FID;
-		[Input("Keep for Frames")]
+		[Input("Keep for Frames", DefaultValue = 1)]
 		public ISpread<int> FExpire;
 
 		[Output("Container")]

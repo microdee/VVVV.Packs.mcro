@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Dragging (Animation).v4p" systemname="dragging (md.vis)" filename="D:\vvvv\md.vis\md.vis 1.2.alpha\common\nodes\modules\dragging (md.vis).v4p" scrollx="0" scrolly="360">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Dragging (Animation).v4p" systemname="dragging (md.vis)" filename="D:\vvvv\md.vis\md.vis 1.2.alpha\common\nodes\modules\dragging (md.vis).v4p" scrollx="0" scrolly="720">
    <BOUNDS type="Window" left="10065" top="7005" width="5925" height="5595">
    </BOUNDS>
    <NODE systemname="MonoFlop (Animation)" nodename="MonoFlop (Animation)" componentmode="Hidden" id="0">

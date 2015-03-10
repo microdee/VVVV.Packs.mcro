@@ -14,7 +14,7 @@ using VVVV.Core.Logging;
 namespace VVVV.Nodes
 {
 	#region PluginInfo
-	[PluginInfo(Name = "Regex", Category = "String", Help = "Basic template with one string in/out", Tags = "")]
+	[PluginInfo(Name = "Regex", Category = "String", Tags = "")]
 	#endregion PluginInfo
 	public class StringRegexNode : IPluginEvaluate
 	{
