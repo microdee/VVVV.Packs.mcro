@@ -1,0 +1,61 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="C:\vvvv\CA-1-WXHM\InverterRenderState.v4p" systemname="InverterRenderState" filename="C:\vvvv\CA-1-WXHM\InverterRenderState.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="12990" top="3255" width="5220" height="4185">
+   </BOUNDS>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
+   <NODE systemname="Blend (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState Advanced)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="660" top="1560" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Operation" slicecount="1" values="Subtract">
+   </PIN>
+   <PIN pinname="Alpha Operation" slicecount="1" values="Maximum">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Source Blend" visible="1">
+   </PIN>
+   <PIN pinname="Source Alpha Blend" slicecount="1" values="One">
+   </PIN>
+   <PIN pinname="Destination Blend" visible="1">
+   </PIN>
+   <PIN pinname="Destination Alpha Blend" slicecount="1" values="One">
+   </PIN>
+   <PIN pinname="Alpha To Coverage" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="1" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2250" top="900" width="1995" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2250" top="900" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="InverseSourceAlpha">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output Enum" dstnodeid="2" dstpinname="Destination Blend">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="0" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2400" top="360" width="2085" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2400" top="360" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="InverseDestinationColor">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output Enum" dstnodeid="2" dstpinname="Source Blend">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="3" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="570" top="2700" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="570" top="2700" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Render State" dstnodeid="3" dstpinname="Input Node">
+   </LINK>
+   </PATCH>
