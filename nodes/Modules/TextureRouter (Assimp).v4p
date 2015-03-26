@@ -358,4 +358,6 @@
    </LINK>
    <LINK srcnodeid="27" srcpinname="ID" dstnodeid="29" dstpinname="Node ID">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>
