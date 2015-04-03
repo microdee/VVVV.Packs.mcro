@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.7.dtd" >
-   <PATCH nodename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\Writer (DX11.RawBuffer STL).v4p" systemname="Writer (DX11.RawBuffer STL)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\Writer (DX11.RawBuffer STL).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Writer (DX11.RawBuffer STL).v4p" systemname="Writer (DX11.RawBuffer STL)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\Writer (DX11.RawBuffer STL).v4p" scrollx="0" scrolly="1440">
    <BOUNDS type="Window" left="17250" top="4575" width="12750" height="8760">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="2" systemname="IOBox (Node)">
@@ -494,4 +494,8 @@
    </NODE>
    <LINK srcnodeid="35" srcpinname="Count" dstnodeid="42" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>

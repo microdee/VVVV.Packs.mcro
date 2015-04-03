@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.7.dtd" >
-   <PATCH nodename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\modules\Writer (DX11.Geometry STL).v4p" systemname="Writer (DX11.Geometry STL)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\Writer (DX11.Geometry STL).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Writer (DX11.Geometry STL).v4p" systemname="Writer (DX11.Geometry STL)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\Writer (DX11.Geometry STL).v4p" scrollx="0" scrolly="4320">
    <BOUNDS type="Window" left="14265" top="4260" width="12750" height="8760">
    </BOUNDS>
    <PACK Name="testPack" Version="0.1.0">
@@ -375,9 +375,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3045" top="9660" width="795" height="240">
+   <BOUNDS type="Box" left="2970" top="9660" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3045" top="9660" width="0" height="0">
+   <BOUNDS type="Node" left="2970" top="9660" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -484,4 +484,8 @@
    </NODE>
    <LINK srcnodeid="49" srcpinname="Output Enum" dstnodeid="43" dstpinname="Technique">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>
