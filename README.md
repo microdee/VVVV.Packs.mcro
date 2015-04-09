@@ -172,6 +172,9 @@ DX11 Modules
  - **RoundRect (DX11)**
 
    Aspect ratio and size maintaining RoundRect
+ - **SetSlice (DX11.Texture2DArray)**
+
+   Better "SetSlice" for Texture2DArrays because current one is a little bit limiting
  - **STLFile (DX11.Geometry)**
 
    Read STL's in vvvv
