@@ -8,6 +8,7 @@ cbuffer controls:register(b0){
 	float2 AFpoint;
 	float MFtoAF;
 	float maxdist = 20;
+	float2 ForeBackGroundRat = 1;
 	bool foreground = false;
 };
 SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
@@ -16,10 +17,11 @@ float4 pADD(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target
 	float autofocus = svpos.Sample(s0,AFpoint/2+0.5).z;
 	float focus = lerp(Focus,autofocus,MFtoAF);
 	float depth = min(vpos.Sample(s0,x).z, maxdist);
-	float bckg = max(depth-focus-width/2,0);
+	float bckgmul = lerp(100/focus,1,saturate(focus/4-0.1));
+	float bckg = max(depth-focus-width/2,0)*bckgmul;
 	float frg = -min(depth-focus+width/2,0);
-	if(foreground) return float4(frg.xxx,1);
-	else return float4(bckg.xxx,1);
+	if(foreground) return float4(pow(frg.xxx * ForeBackGroundRat.x, 0.75),1);
+	else return float4(pow(bckg.xxx * ForeBackGroundRat.y, 0.5),1);
 }
 
 technique10 Scalar{
