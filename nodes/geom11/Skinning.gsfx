@@ -1,52 +1,56 @@
 
+#if !defined(BLENDWEIGHTS_IN)
+#define BLENDWEIGHTS_IN 1
+#endif
+#if !defined(BLENDWEIGHTS_OUT)
+#define BLENDWEIGHTS_OUT 1
+#endif
+#if !defined(PREVPOS_OUT)
+#define PREVPOS_OUT 1
+#endif
+
+#include "../fxh/MREInputElements.fxh"
+
 StructuredBuffer<float4x4> SkinningMatrices;
 StructuredBuffer<float4x4> PrevSkinningMatrices;
 float BoneCount = 60;
+float4x4 PreTr;
 
-struct VS_IN
-{   
-	float3 cpoint : POSITION;
-	float3 norm : NORMAL;
-	float4 BlendId : BLENDINDICES;
-	float4 BlendWeight : BLENDWEIGHT;
-	float4 TexCd : TEXCOORD0;
-	uint ii : SV_InstanceID;
-};
-
-struct VS_OUTPUT
+GSin VS(VSin input)
 {
-	float4 cpoint : SV_Position;
-	float3 norm : NORMAL;
-	nointerpolation float4 BlendId : BLENDINDICES;
-	nointerpolation float4 BlendWeight : BLENDWEIGHT;
-	float4 TexCd : TEXCOORD0;
-	float4 velocity : COLOR0;
-};
-
-
-
-VS_OUTPUT VS(VS_IN input)
-{
-    VS_OUTPUT output;
+    GSin output = (GSin)0;
 	float4 bldw = input.BlendWeight;
-	float4 bldi = input.BlendId+input.ii*BoneCount;
+	float4 bldi = input.BlendId+input.iid*BoneCount;
+	float3 opos = mul(input.cpoint, PreTr).xyz;
 	float4 pos = float4(0,0,0,1);
 	float4 ppos = float4(0,0,0,1);
 	float3 norm = 0;
 	for (int i = 0; i < 4; i++)
 	{
-		pos = pos + mul(float4(input.cpoint.xyz,1), SkinningMatrices[bldi[i]]) * bldw[i];
-		ppos = ppos + mul(float4(input.cpoint.xyz,1), PrevSkinningMatrices[bldi[i]]) * bldw[i];
-		norm = norm + mul(input.norm, SkinningMatrices[bldi[i]]) * bldw[i];
+		pos = pos + mul(float4(opos,1), SkinningMatrices[bldi[i]]) * bldw[i];
+		ppos = ppos + mul(float4(opos,1), PrevSkinningMatrices[bldi[i]]) * bldw[i];
+		norm = norm + mul(float4(input.norm,0), SkinningMatrices[bldi[i]]) * bldw[i];
+		
+		#if defined(TANGENTS_IN) && defined(TANGENTS_OUT)
+			output.Tangent += mul(float4(input.Tangent,0), SkinningMatrices[bldi[i]]) * bldw[i];
+			output.Binormal += mul(float4(input.Binormal,0), SkinningMatrices[bldi[i]]) * bldw[i];
+		#endif
 	}
+	#if defined(TANGENTS_IN) && defined(TANGENTS_OUT)
+		output.Tangent = normalize(output.Tangent);
+		output.Binormal = normalize(output.Binormal);
+	#endif
 	// input.cpoint+
     output.cpoint = pos;
-	output.velocity = ppos;
+	output.PrevPos = ppos;
 	//output.cpoint = float4(input.cpoint,1);
 	output.norm = normalize(norm);
-	output.TexCd = input.TexCd;
+
+	#if defined(TEXCOORD_IN) && defined(TEXCOORD_OUT)
+		output.TexCd = input.TexCd;
+	#endif
 	output.BlendId = bldi;
-	output.velocity.w = input.ii;
+	output.PrevPos.w = input.iid;
 	output.BlendWeight = bldw;
 	
     return output;
@@ -55,23 +59,34 @@ VS_OUTPUT VS(VS_IN input)
 
 
 [maxvertexcount(3)]
-void GS(triangle VS_OUTPUT input[3], inout TriangleStream<VS_OUTPUT>GSOut)
+void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 {
-	VS_OUTPUT v;
+	GSin v;
 
 	for(uint i=0;i<3;i++)
 	{
 		v=input[i];
-		//v.position=v.position;
-        //v.TexCd=v.TexCd;
-		//v.normV=v.normV;
 		GSOut.Append(v);
 	}
 }
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
-	"SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;BLENDINDICES;BLENDWEIGHT;COLOR0"
-	// 80
+	"SV_Position.xyz;"
+	"NORMAL.xyz"
+	#if defined(TEXCOORD_OUT)
+		";TEXCOORD0.xy"
+	#endif
+	#if defined(TANGENTS_OUT)
+		";TANGENT.xyz"
+		";BINORMAL.xyz"
+	#endif
+	#if defined(BLENDWEIGHTS_OUT)
+		";BLENDINDICES.xyzw"
+		";BLENDWEIGHT.xyzw"
+	#endif
+	#if defined(PREVPOS_OUT)
+		";COLOR0.xyzw"
+	#endif
 );
 
 technique11 MeshJoin

@@ -1,165 +1,67 @@
 
-#define USUAL "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy"
-#define GEOMVEL "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;COLOR0"
-#define SKINNING "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;BLENDINDICES;BLENDWEIGHT;COLOR0"
+#include "../fxh/MREInputElements.fxh"
 
-struct VsInUsual
+GSin VS(VSin input)
 {
-	float4 cpoint : POSITION;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-};
-struct VsOutUsual
-{
-	float4 cpoint : SV_Position;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-};
-VsOutUsual VsUsual(VsInUsual input)
-{
-    VsOutUsual output;
-	
+    GSin output;
     output.cpoint = input.cpoint;
 	output.norm = input.norm;
-	output.TexCd = input.TexCd;
+	#if defined(TEXCOORD_IN) && defined(TEXCOORD_OUT)
+		output.TexCd = input.TexCd;
+	#endif
+	#if defined(TANGENTS_IN) && defined(TANGENTS_OUT)
+		output.Tangent = input.Tangent;
+		output.Binormal = input.Binormal;
+	#endif
+	#if defined(BLENDWEIGHTS_IN) && defined(BLENDWEIGHTS_OUT)
+		output.BlendId = input.BlendId;
+		output.BlendWeight = input.BlendWeight;
+	#endif
+	#if defined(GEOMVELOCITY_IN) && defined(GEOMVELOCITY_OUT)
+		output.velocity = input.velocity;
+	#endif
 	
     return output;
 }
 [maxvertexcount(3)]
-void GsUsual(triangle VsOutUsual input[3], inout TriangleStream<VsOutUsual>GSOut)
+void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 {
-	VsOutUsual v;
+	GSin v = (GSin)0;
 
 	for(uint i=0;i<3;i++)
 	{
 		v=input[i];
-		//v.position=v.position;
-        //v.TexCd=v.TexCd;
-		//v.normV=v.normV;
 		GSOut.Append(v);
 	}
 }
-GeometryShader StreamUsual = ConstructGSWithSO( CompileShader( gs_5_0, GsUsual() ), USUAL );
-technique11 UsualLayout
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
+	"SV_Position.xyz;"
+	"NORMAL.xyz"
+	#if defined(TEXCOORD_OUT)
+		";TEXCOORD0.xy"
+	#endif
+	#if defined(TANGENTS_OUT)
+		";TANGENT.xyz"
+		";BINORMAL.xyz"
+	#endif
+	#if defined(BLENDWEIGHTS_OUT)
+		";BLENDINDICES"
+		";BLENDWEIGHT"
+	#endif
+	#if defined(PREVPOS_OUT)
+		";COLOR0"
+	#endif
+);
+
+technique11 Layout
 {
 	pass P0
 	{
 		
-		SetVertexShader( CompileShader( vs_5_0, VsUsual() ) );
-		SetGeometryShader( CompileShader( gs_5_0, GsUsual() ) );
-	    SetGeometryShader( StreamUsual );
-
-	}
-}
-
-////////////////////////////////////////////
-
-struct VsInGeomvel
-{
-	float4 cpoint : POSITION;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-	float4 ppos : COLOR0;
-};
-struct VsOutGeomvel
-{
-	float4 cpoint : SV_Position;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-	float4 ppos : COLOR0;
-};
-VsOutGeomvel VsGeomvel(VsInGeomvel input)
-{
-    VsOutGeomvel output;
-    output.cpoint = input.cpoint;
-	output.norm = input.norm;
-	output.TexCd = input.TexCd;
-	output.ppos = input.ppos;
-	
-    return output;
-}
-[maxvertexcount(3)]
-void GsGeomvel(triangle VsOutGeomvel input[3], inout TriangleStream<VsOutGeomvel>GSOut)
-{
-	VsOutGeomvel v;
-
-	for(uint i=0;i<3;i++)
-	{
-		v=input[i];
-		//v.position=v.position;
-        //v.TexCd=v.TexCd;
-		//v.normV=v.normV;
-		GSOut.Append(v);
-	}
-}
-GeometryShader StreamGeomvel = ConstructGSWithSO( CompileShader( gs_5_0, GsGeomvel() ), GEOMVEL );
-technique11 GeomvelLayout
-{
-	pass P0
-	{
-		
-		SetVertexShader( CompileShader( vs_5_0, VsGeomvel() ) );
-		SetGeometryShader( CompileShader( gs_5_0, GsGeomvel() ) );
-	    SetGeometryShader( StreamGeomvel );
-
-	}
-}
-
-////////////////////////////////////////////
-
-struct VsInSkinning
-{
-	float4 cpoint : POSITION;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-	float4 blendid : BLENDINDICES;
-	float4 blendw : BLENDWEIGHT;
-	float4 ppos : COLOR0;
-};
-struct VsOutSkinning
-{
-	float4 cpoint : SV_Position;
-	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
-	float4 blendid : BLENDINDICES;
-	float4 blendw : BLENDWEIGHT;
-	float4 ppos : COLOR0;
-};
-VsOutSkinning VsSkinning(VsInSkinning input)
-{
-    VsOutSkinning output;
-    output.cpoint = input.cpoint;
-	output.norm = input.norm;
-	output.TexCd = input.TexCd;
-	output.blendid = input.blendid;
-	output.blendw = input.blendw;
-	output.ppos = input.ppos;
-	
-    return output;
-}
-[maxvertexcount(3)]
-void GsSkinning(triangle VsOutSkinning input[3], inout TriangleStream<VsOutSkinning>GSOut)
-{
-	VsOutSkinning v;
-
-	for(uint i=0;i<3;i++)
-	{
-		v=input[i];
-		//v.position=v.position;
-        //v.TexCd=v.TexCd;
-		//v.normV=v.normV;
-		GSOut.Append(v);
-	}
-}
-GeometryShader StreamSkinning = ConstructGSWithSO( CompileShader( gs_5_0, GsSkinning() ), SKINNING );
-technique11 SkinningLayout
-{
-	pass P0
-	{
-		
-		SetVertexShader( CompileShader( vs_5_0, VsSkinning() ) );
-		SetGeometryShader( CompileShader( gs_5_0, GsSkinning() ) );
-	    SetGeometryShader( StreamSkinning );
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
 
 	}
 }
