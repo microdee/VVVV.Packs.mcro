@@ -1,97 +1,9 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\SkinningSimple (DX11 Assimp).v4p" systemname="SkinningSimple (DX11 Assimp)" filename="D:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\SkinningSimple (DX11 Assimp).v4p" scrollx="0" scrolly="1800">
-   <BOUNDS type="Window" left="10260" top="2505" width="12255" height="9495">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkinningSimple (DX11 Assimp).v4p" systemname="SkinningSimple (DX11 Assimp)" filename="D:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\SkinningSimple (DX11 Assimp).v4p" scrollx="0" scrolly="1500">
+   <BOUNDS type="Window" left="4230" top="2310" width="12255" height="9495">
    </BOUNDS>
    <PACK Name="testPack" Version="0.1.0">
    </PACK>
-   <NODE systemname="Animation (Assimp)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Animation (Assimp)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="6825" top="1740" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Scene" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Channels" visible="1">
-   </PIN>
-   <PIN pinname="Duration" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="AnimationChannels (Assimp Animation)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="AnimationChannels (Assimp Animation)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="6615" top="2970" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Channels" visible="1">
-   </PIN>
-   <PIN pinname="PositionXYZ" visible="1">
-   </PIN>
-   <PIN pinname="ScaleXYZ" visible="1">
-   </PIN>
-   <PIN pinname="RotationXYZW" visible="1">
-   </PIN>
-   <PIN pinname="Duration" visible="1">
-   </PIN>
-   <PIN pinname="Time" slicecount="1" visible="1" values="0.70049182131188">
-   </PIN>
-   <PIN pinname="Node Name" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="6" srcpinname="Channels" dstnodeid="5" dstpinname="Channels" linkstyle="PolyLine">
-   </LINK>
-   <NODE systemname="Translate (Transform Vector)" nodename="Translate (Transform Vector)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="6420" top="3555" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="XYZ" visible="1">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="PositionXYZ" dstnodeid="4" dstpinname="XYZ">
-   </LINK>
-   <NODE systemname="Scale (Transform Vector)" nodename="Scale (Transform Vector)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="7065" top="4170" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="XYZ" visible="1">
-   </PIN>
-   <PIN pinname="Transform In" visible="1">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="ScaleXYZ" dstnodeid="3" dstpinname="XYZ">
-   </LINK>
-   <LINK srcnodeid="4" srcpinname="Transform Out" dstnodeid="3" dstpinname="Transform In" linkstyle="PolyLine">
-   </LINK>
-   <NODE systemname="Rotate (Quaternion Vector)" nodename="Rotate (Quaternion Vector)" componentmode="Hidden" id="2">
-   <BOUNDS type="Node" left="7050" top="4860" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Quaternion XYZW" visible="1">
-   </PIN>
-   <PIN pinname="Transform In" visible="1">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="RotationXYZW" dstnodeid="2" dstpinname="Quaternion XYZW" linkstyle="PolyLine">
-   </LINK>
-   <LINK srcnodeid="3" srcpinname="Transform Out" dstnodeid="2" dstpinname="Transform In">
-   </LINK>
-   <LINK srcnodeid="6" srcpinname="Duration" dstnodeid="5" dstpinname="Duration" linkstyle="PolyLine">
-   </LINK>
-   <NODE systemname="SetJoint (Skeleton)" filename="%VVVV%\packs\other\nodes\plugins\SkeletonNodes.dll" nodename="SetJoint (Skeleton)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="5535" top="5325" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Parent Name" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Animation Transform" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Skeleton" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Joint Name" visible="1">
-   </PIN>
-   <PIN pinname="Base Transform" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="Node Name" dstnodeid="1" dstpinname="Joint Name" linkstyle="PolyLine">
-   </LINK>
-   <LINK srcnodeid="2" srcpinname="Transform Out" dstnodeid="1" dstpinname="Base Transform" linkstyle="PolyLine">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
    <BOUNDS type="Box" left="5520" top="2160" width="795" height="240">
    </BOUNDS>
@@ -107,6 +19,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Root">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="9" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="570" top="480" width="795" height="240">
@@ -120,8 +34,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="6" dstpinname="Scene">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8115" top="1545" width="795" height="240">
    </BOUNDS>
@@ -135,9 +47,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Time">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Time">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="11" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="5610" top="6030" width="795" height="240">
    </BOUNDS>
@@ -145,9 +57,9 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Skeleton">
    </PIN>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Skeleton" dstnodeid="11" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1335" top="3540" width="100" height="100">
    </BOUNDS>
@@ -179,8 +91,6 @@
    <LINK srcnodeid="14" srcpinname="Bone Names" dstnodeid="13" dstpinname="Joint Name" linkstyle="PolyLine">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="14" dstpinname="Scene">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Skeleton" dstnodeid="13" dstpinname="Skeleton">
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="15" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="6090" top="8235" width="1050" height="240">
@@ -313,13 +223,11 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Y Input Value">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="PositionXYZ">
    </PIN>
    </NODE>
-   <LINK srcnodeid="5" srcpinname="PositionXYZ" dstnodeid="23" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="9165" top="4815" width="795" height="960">
    </BOUNDS>
@@ -333,13 +241,11 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Y Input Value">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,0,0,0">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="RotationXYZW">
    </PIN>
    </NODE>
-   <LINK srcnodeid="5" srcpinname="RotationXYZW" dstnodeid="24" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="25" systemname="IOBox (String)">
    <BOUNDS type="Box" left="1530" top="9060" width="795" height="240">
    </BOUNDS>
@@ -358,22 +264,42 @@
    </LINK>
    <LINK srcnodeid="14" srcpinname="Bone Matrices" dstnodeid="13" dstpinname="Inverse Bind Pose">
    </LINK>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <NODE systemname="Skeleton (Skeleton Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Skeleton (Skeleton Assimp)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="4725" top="3780" width="100" height="100">
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="SkeletonSimple (Assimp)" filename="SkeletonSimple (Assimp).v4p" componentmode="Hidden" id="26" nodename="SkeletonSimple (Assimp).v4p">
+   <BOUNDS type="Node" left="5040" top="3225" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5040" top="3225" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="16935" top="4110" width="9000" height="6000">
    </BOUNDS>
    <PIN pinname="Scene" visible="1">
    </PIN>
-   <PIN pinname="Root">
+   <PIN pinname="Root" visible="1">
+   </PIN>
+   <PIN pinname="Time" visible="1">
    </PIN>
    <PIN pinname="Skeleton" visible="1">
    </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="RotationXYZW" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Skeleton" dstnodeid="1" dstpinname="Skeleton" linkstyle="PolyLine">
+   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="26" dstpinname="Scene">
    </LINK>
-   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="7" dstpinname="Root">
+   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="26" dstpinname="Root">
    </LINK>
-   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="7" dstpinname="Scene">
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="26" dstpinname="Time">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Skeleton" dstnodeid="11" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="PositionXYZ" dstnodeid="23" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="RotationXYZW" dstnodeid="24" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Skeleton" dstnodeid="13" dstpinname="Skeleton">
    </LINK>
    </PATCH>
