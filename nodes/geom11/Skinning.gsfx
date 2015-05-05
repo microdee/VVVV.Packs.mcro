@@ -14,6 +14,7 @@
 StructuredBuffer<float4x4> SkinningMatrices;
 StructuredBuffer<float4x4> PrevSkinningMatrices;
 float BoneCount = 60;
+float PrevPosMul = 1;
 float4x4 PreTr;
 
 GSin VS(VSin input)
@@ -42,7 +43,7 @@ GSin VS(VSin input)
 	#endif
 	// input.cpoint+
     output.cpoint = pos;
-	output.PrevPos = ppos;
+	output.PrevPos = pos - (pos-ppos)*PrevPosMul;
 	//output.cpoint = float4(input.cpoint,1);
 	output.norm = normalize(norm);
 
