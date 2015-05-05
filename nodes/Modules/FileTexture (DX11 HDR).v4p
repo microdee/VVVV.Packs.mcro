@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="795">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="3315">
    <BOUNDS type="Window" left="8235" top="5295" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -495,5 +495,21 @@
    <LINK srcnodeid="20" srcpinname="OnChange" dstnodeid="21" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="21" srcpinname="Output" dstnodeid="18" dstpinname="Set">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6315" top="5835" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6315" top="5835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Mip Levels|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Whole Part" dstnodeid="22" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
