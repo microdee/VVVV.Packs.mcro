@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="0" scrolly="1080">
    <BOUNDS type="Window" left="19605" top="5460" width="9000" height="8550">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -315,5 +315,21 @@
    <LINK srcnodeid="7" srcpinname="Transform Out" dstnodeid="23" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="23" srcpinname="Output" dstnodeid="6" dstpinname="Base Transform">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="3825" top="6480" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3825" top="6480" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Node Name|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Node Name" dstnodeid="24" dstpinname="Input String">
    </LINK>
    </PATCH>
