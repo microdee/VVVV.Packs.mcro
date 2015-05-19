@@ -18,7 +18,7 @@ GSin VS(VSin input)
 		output.BlendWeight = input.BlendWeight;
 	#endif
 	#if defined(GEOMVELOCITY_IN) && defined(GEOMVELOCITY_OUT)
-		output.velocity = input.velocity;
+		output.PrevPos = input.velocity;
 	#endif
 	
     return output;
