@@ -1,0 +1,167 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="105" scrolly="150" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
+   <BOUNDS type="Window" left="1485" top="6375" width="8865" height="7020">
+   </BOUNDS>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="4">
+   <BOUNDS type="Node" left="1170" top="3405" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1170" top="3405" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15120" top="5475" width="12420" height="8595">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="5" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="825" top="1185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Layer Out" dstnodeid="4" dstpinname="Layers" hiddenwhenlocked="1">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX11)" filename="..\nodes\modules\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="6" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1500" top="630" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="5" dstpinname="Layer In" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2895" top="1740" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2895" top="1740" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4740" top="1380" width="540" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4740" top="1380" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6165" top="2085" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6165" top="2085" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Camera (Transform microdee Sequencable)" filename="..\nodes\modules\Camera (Transform microdee Sequencable).v4p" nodename="Camera (Transform microdee Sequencable)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="6030" top="4005" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Camera (Transform VOOCAM)" filename="..\nodes\modules\Camera (Transform VOOCAM).v4p" nodename="Camera (Transform VOOCAM)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2430" top="2235" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3390" top="1320" width="19170" height="10635">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Reset" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="PivotDistance" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="View" dstnodeid="4" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Projection" dstnodeid="4" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Mouse State" dstnodeid="3" dstpinname="Mouse" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Keyboard State" dstnodeid="3" dstpinname="Keyboard" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="3" dstpinname="PivotDistance">
+   </LINK>
+   <NODE systemname="MouseKeyboard (VOOCAM)" filename="..\nodes\modules\MouseKeyboard (VOOCAM).v4p" componentmode="Hidden" id="1" nodename="MouseKeyboard (VOOCAM)">
+   <BOUNDS type="Node" left="4410" top="2475" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4410" top="2475" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="6060" top="1740" width="23175" height="13170">
+   </BOUNDS>
+   <PIN pinname="Camera In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Camera Thru" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Camera Out" dstnodeid="1" dstpinname="Camera In">
+   </LINK>
+   <NODE systemname="XBox360Controller (VOOCAM)" filename="..\nodes\modules\XBox360Controller (VOOCAM).v4p" componentmode="Hidden" id="12" nodename="XBox360Controller (VOOCAM)">
+   <BOUNDS type="Node" left="4410" top="3135" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4410" top="3135" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15750" top="4710" width="18195" height="10890">
+   </BOUNDS>
+   <PIN pinname="Camera In" visible="1">
+   </PIN>
+   <PIN pinname="Rotation Speed" slicecount="1" values="0.8">
+   </PIN>
+   <PIN pinname="Refresh" visible="1">
+   </PIN>
+   <PIN pinname="Device" slicecount="1" values="|XBOX 360 Controller Player One #0|">
+   </PIN>
+   <PIN pinname="Dual Transition Mode" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Refresh">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Dual Transition Mode">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Camera Thru" dstnodeid="12" dstpinname="Camera In">
+   </LINK>
+   </PATCH>
