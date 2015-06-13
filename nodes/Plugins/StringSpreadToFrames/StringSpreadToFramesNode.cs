@@ -12,19 +12,24 @@ using VVVV.Core.Logging;
 
 namespace VVVV.Nodes
 {
-	#region PluginInfo
-	[PluginInfo(Name = "SpreadToFrames", Category = "String", Help = "Basic template with one value in/out", Tags = "")]
-	#endregion PluginInfo
-	public class StringSpreadToFramesNode : IPluginEvaluate, IPartImportsSatisfiedNotification
+	[PluginInfo(Name = "SpreadToFrames", Category = "Spreads")]
+	public class SpreadsSpreadToFramesNode : SpreadToFrames<double> { }
+	
+	[PluginInfo(Name = "SpreadToFrames", Category = "String")]
+	public class StringSpreadToFramesNode : SpreadToFrames<string> { }
+	
+	public abstract class SpreadToFrames<T> : IPluginEvaluate, IPartImportsSatisfiedNotification
 	{
 		#region fields & pins
 		[Input("Input")]
-		public ISpread<string> FInput;
-		[Input("Roll", IsSingle=true, IsBang=true)]
-		public ISpread<bool> FRoll;
+		public ISpread<T> FInput;
+		[Input("Add", IsSingle=true, DefaultBoolean=true)]
+		public ISpread<bool> FAdd;
+		[Input("Delete", IsSingle=true, DefaultBoolean=true)]
+		public ISpread<bool> FDelete;
 
 		[Output("Output")]
-		public ISpread<string> FOutput;
+		public ISpread<T> FOutput;
 
 		[Import()]
 		public ILogger FLogger;
@@ -38,9 +43,9 @@ namespace VVVV.Nodes
 		//called when data for any output pin is requested
 		public void Evaluate(int SpreadMax)
 		{
-			if(FOutput.SliceCount > 0)
+			if(FDelete[0] && FOutput.SliceCount > 0)
 				FOutput.RemoveAt(0);
-			if(FRoll[0])
+			if(FAdd[0])
 			{
 				for (int i = 0; i < FInput.SliceCount; i++)
 				{
