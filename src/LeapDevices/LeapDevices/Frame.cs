@@ -53,6 +53,9 @@ namespace VVVV.Nodes
 
         [Output("Hands")]
         public ISpread<ISpread<Hand>> FHand;
+    	
+		[Output("Tools")]
+        public ISpread<ISpread<Tool>> FTool;
         [Output("Gestures")]
         public ISpread<ISpread<Gesture>> FGesture;
 
@@ -64,6 +67,7 @@ namespace VVVV.Nodes
                 FTimestamp.SliceCount = 0;
                 FInteractBox.SliceCount = 0;
                 FHand.SliceCount = 0;
+            	FTool.SliceCount = 0;
                 FGesture.SliceCount = 0;
             }
             else
@@ -72,6 +76,7 @@ namespace VVVV.Nodes
                 FTimestamp.SliceCount = FFrame.SliceCount;
                 FInteractBox.SliceCount = FFrame.SliceCount;
                 FHand.SliceCount = FFrame.SliceCount;
+				FTool.SliceCount = FFrame.SliceCount;
                 FGesture.SliceCount = FFrame.SliceCount;
 
                 for (int i = 0; i < FFrame.SliceCount; i++)
@@ -84,6 +89,9 @@ namespace VVVV.Nodes
                     FGesture[i].SliceCount = 0;
                     foreach (Hand h in FFrame[i].Hands) FHand[i].Add(h);
 
+                	FTool[i].SliceCount = 0;
+                    foreach (Tool t in FFrame[i].Tools) FTool[i].Add(t);
+                	
                     GestureList gests = FFrame[i].Gestures();
                     foreach (Gesture g in gests) FGesture[i].Add(g);
                 }
