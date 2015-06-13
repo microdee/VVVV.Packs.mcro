@@ -1,6 +1,6 @@
 //Sprite size and color
-#include "ColorSpace.fxh"
-#include "pows.fxh"
+#include "../fxh/ColorSpace.fxh"
+#include "../fxh/pows.fxh"
 float spritesize <string uiname="Sprite Size";> = 0.01f;
 float4 spritecolor <string uiname="Sprite Color"; bool color=true;> = 1;
 
@@ -10,6 +10,7 @@ Texture2D tex2 <string uiname="Halo";>;
 float2 R = 1;
 float3 power = 1;
 float lerpuv = 0;
+float alphatest = 0;
 
 //Camera transforms
 float4x4 tVP : VIEWPROJECTION;
@@ -140,7 +141,10 @@ void GS(point gsIn input[1], inout TriangleStream<psIn> SpriteStream)
         output.pos = mul( float4(position,1.0), tVP );
         output.uv = g_texcoords[i];
     	output.col = input[0].col;
-        SpriteStream.Append(output);
+    	
+    	bool draw = true;
+    	if(output.col.a < alphatest) draw = false;
+        if(draw) SpriteStream.Append(output);
     }
     SpriteStream.RestartStrip();
 }
