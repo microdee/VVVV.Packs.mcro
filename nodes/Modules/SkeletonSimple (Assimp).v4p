@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="0" scrolly="1080">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="255" scrolly="2925">
    <BOUNDS type="Window" left="19605" top="5460" width="9000" height="8550">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -189,6 +189,8 @@
    <NODE systemname="Skeleton (Skeleton Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Skeleton (Skeleton Assimp)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1245" top="3690" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Skeleton" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="Skeleton" dstnodeid="6" dstpinname="Skeleton" linkstyle="PolyLine">
    </LINK>
