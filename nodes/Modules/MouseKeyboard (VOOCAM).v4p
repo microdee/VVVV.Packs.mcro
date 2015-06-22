@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\MouseKeyboard (ModularCam).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="19245" scrolly="1605">
-   <BOUNDS type="Window" left="6060" top="1740" width="23175" height="13170">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="29250" top="1695" width="23175" height="13170">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -549,7 +549,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="12060" top="2385" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.08">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.03">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1391,7 +1391,7 @@
    </PIN>
    </NODE>
    <NODE systemname="EQ (String)" nodename="EQ (String)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="8295" top="3075" width="100" height="100">
+   <BOUNDS type="Node" left="8340" top="3045" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Case Sensitive" slicecount="1" values="0">
    </PIN>
@@ -1401,11 +1401,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="59" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="8625" top="2700" width="795" height="240">
+   <BOUNDS type="Box" left="8910" top="1350" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="8625" top="2700" width="0" height="0">
+   <BOUNDS type="Node" left="8910" top="1350" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values="Menu">
+   <PIN pinname="Input String" slicecount="2" values="Menu,Space">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -1415,10 +1415,14 @@
    </PIN>
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ignore Keys|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
    </NODE>
    <LINK srcnodeid="59" srcpinname="Output String" dstnodeid="60" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="60" srcpinname="Inverse Output" dstnodeid="61" dstpinname="Select">
    </LINK>
    <LINK srcnodeid="61" srcpinname="Output" dstnodeid="207" dstpinname="Input">
    </LINK>
@@ -1689,7 +1693,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="13365" top="4425" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="30">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="10">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1987,8 +1991,6 @@
    <LINK srcnodeid="213" srcpinname="MickiesXYZ" dstnodeid="174" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="213" srcpinname="Keys" dstnodeid="61" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="213" srcpinname="Keys" dstnodeid="60" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="213" srcpinname="MouseButtons" dstnodeid="200" dstpinname="Input">
    </LINK>
@@ -2725,7 +2727,7 @@
    <NODE systemname="Info (VObjectCollection)" filename="..\..\..\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Info (VObjectCollection)" componentmode="Hidden" id="270">
    <BOUNDS type="Node" left="2340" top="6360" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="270" dstpinname="Input">
@@ -2789,5 +2791,47 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="272" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Query Save">
+   </LINK>
+   <NODE systemname="Count (String)" nodename="Count (String)" componentmode="Hidden" id="274">
+   <BOUNDS type="Node" left="8175" top="2220" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="Output String" dstnodeid="274" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" id="275">
+   <BOUNDS type="Node" left="7605" top="2610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="213" srcpinname="Keys" dstnodeid="275" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="274" srcpinname="Count" dstnodeid="275" dstpinname="Select">
+   </LINK>
+   <LINK srcnodeid="275" srcpinname="Output" dstnodeid="60" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="AND (Boolean Spectral)" nodename="AND (Boolean Spectral)" componentmode="Hidden" id="276">
+   <BOUNDS type="Node" left="8925" top="3330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="274" srcpinname="Count" dstnodeid="276" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Inverse Output" dstnodeid="276" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="276" srcpinname="Output" dstnodeid="61" dstpinname="Select">
    </LINK>
    </PATCH>

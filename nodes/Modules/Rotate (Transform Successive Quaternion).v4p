@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\vvvv\sandbox\mre1\Rotate (Transform Successive Quaternion).v4p" systemname="Rotate (Transform Successive Quaternion)" filename="D:\vvvv\sandbox\leap\Rotate (Transform Successive Quaternion).v4p">
-   <BOUNDS height="6000" left="7410" top="5100" type="Window" width="9000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Rotate (Transform Successive Quaternion).v4p" systemname="Rotate (Transform Successive Quaternion)" filename="D:\vvvv\sandbox\leap\Rotate (Transform Successive Quaternion).v4p" scrollx="900" scrolly="600">
+   <BOUNDS height="6000" left="6225" top="3855" type="Window" width="9000">
    </BOUNDS>
    <INFO author="vvvv group" description="A successively rotating Coordinate System." tags="roll, quaternion, animation, feedback, iterative">
    </INFO>
@@ -26,7 +26,7 @@
    <PIN pinname="Quaternion XYZW" visible="1">
    </PIN>
    </NODE>
-   <NODE id="24" nodename="FrameDelay (Animation)" systemname="FrameDelay (Animation)">
+   <NODE id="24" nodename="FrameDelay (Animation)" systemname="FrameDelay (Animation Legacy)">
    <BOUNDS height="0" left="3105" top="5295" type="Node" width="0">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
@@ -378,4 +378,8 @@
    </NODE>
    <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Switch">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>

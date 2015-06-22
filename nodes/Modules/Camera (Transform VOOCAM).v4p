@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (ModularCam).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="3390" top="1320" width="19170" height="10635">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -17,7 +17,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="TranslationXYZ" visible="1">
+   <PIN pinname="TranslationXYZ" visible="1" slicecount="3" values="0,-1.8,0">
    </PIN>
    <PIN pinname="RotationXYZW" visible="1">
    </PIN>
@@ -171,7 +171,7 @@
    </PIN>
    <PIN pinname="Definition" slicecount="1" values="|Vector3D Translation, Vector4D Rotation, double PivotDistance, double FOV, float Near, float Far|">
    </PIN>
-   <PIN pinname="TranslationXYZ" visible="1">
+   <PIN pinname="TranslationXYZ" visible="1" slicecount="3" values="0,-1.8,0">
    </PIN>
    <PIN pinname="RotationXYZW" visible="1" slicecount="4" values="0,0,0,0">
    </PIN>
@@ -206,8 +206,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="1" dstpinname="TranslationXYZ">
-   </LINK>
    <NODE systemname="Euler (Quaternion Set Vector)" nodename="Euler (Quaternion Set Vector)" componentmode="Hidden" id="15">
    <BOUNDS type="Node" left="1500" top="2025" width="100" height="100">
    </BOUNDS>
@@ -245,7 +243,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3510" top="765" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -311,8 +309,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Far" hiddenwhenlocked="0">
-   </LINK>
-   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="13" dstpinname="TranslationXYZ">
    </LINK>
    <LINK srcnodeid="15" srcpinname="Quaternion XYZW" dstnodeid="13" dstpinname="RotationXYZW" hiddenwhenlocked="0">
    </LINK>
@@ -449,7 +445,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="TranslationXYZ" visible="1">
+   <PIN pinname="TranslationXYZ" visible="1" slicecount="3" values="0,-1.8,0">
    </PIN>
    <PIN pinname="RotationXYZW" visible="1">
    </PIN>
@@ -469,8 +465,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Bang" dstnodeid="37" dstpinname="Construct">
-   </LINK>
-   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="37" dstpinname="TranslationXYZ">
    </LINK>
    <LINK srcnodeid="15" srcpinname="Quaternion XYZW" dstnodeid="37" dstpinname="RotationXYZW">
    </LINK>
@@ -1321,9 +1315,9 @@
    <LINK srcnodeid="104" srcpinname="Transform Out" dstnodeid="103" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="106" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1545" top="9090" width="795" height="240">
+   <BOUNDS type="Box" left="180" top="9120" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1545" top="9090" width="0" height="0">
+   <BOUNDS type="Node" left="180" top="9120" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -1335,9 +1329,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="105" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1815" top="9675" width="795" height="240">
+   <BOUNDS type="Box" left="450" top="9705" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1815" top="9675" width="0" height="0">
+   <BOUNDS type="Node" left="450" top="9705" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -1611,5 +1605,21 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="123" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Query Save">
+   </LINK>
+   <NODE systemname="Subtract (Value)" nodename="Subtract (Value)" componentmode="Hidden" id="124">
+   <BOUNDS type="Node" left="1230" top="1590" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="124" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="124" srcpinname="Output" dstnodeid="1" dstpinname="TranslationXYZ">
+   </LINK>
+   <LINK srcnodeid="124" srcpinname="Output" dstnodeid="37" dstpinname="TranslationXYZ">
+   </LINK>
+   <LINK srcnodeid="124" srcpinname="Output" dstnodeid="13" dstpinname="TranslationXYZ">
    </LINK>
    </PATCH>

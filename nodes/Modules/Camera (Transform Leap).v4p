@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform Leap).v4p" systemname="Camera (Transform Leap)" filename="D:\vvvv\sandbox\Camera (Transform Leap).v4p" scrollx="0" scrolly="10080">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform Leap).v4p" systemname="Camera (Transform Leap)" filename="D:\vvvv\sandbox\Camera (Transform Leap).v4p" scrollx="0" scrolly="7020">
    <BOUNDS type="Window" left="10695" top="375" width="17340" height="15600">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="27" systemname="IOBox (Node)">
@@ -1936,7 +1936,7 @@
    </NODE>
    <LINK srcnodeid="261" srcpinname="Output Node" dstnodeid="260" dstpinname="Frame" linkstyle="PolyLine">
    </LINK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="Hand (Leap)" filename="..\plugins\Leap\x64\LeapDevices.dll" nodename="Hand (Leap)" componentmode="Hidden" id="262">
    <BOUNDS type="Node" left="4560" top="6090" width="100" height="100">
@@ -2210,4 +2210,6 @@
    </LINK>
    <LINK srcnodeid="273" srcpinname="Quaternion XYZW" dstnodeid="63" dstpinname="Initial XYZW" hiddenwhenlocked="1">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>
