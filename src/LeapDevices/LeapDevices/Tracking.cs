@@ -316,7 +316,7 @@ namespace VVVV.Nodes
             FType.SliceCount = FPointable.SliceCount;
             for (int i = 0; i < FPointable.SliceCount; i++)
             {
-                FType[i] = FPointable[i].Type().ToString();
+                FType[i] = FPointable[i].Type.ToString();
 
                 FBone[i].SliceCount = 0;
                 foreach (Bone.BoneType boneType in (Bone.BoneType[])Enum.GetValues(typeof(Bone.BoneType)))

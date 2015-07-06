@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Plugins\Leap\Player (Leap).v4p" systemname="Player (Leap)" filename="C:\vvvv\libs\mcropack\nodes\Plugins\Leap\Player (Leap).v4p" scrollx="930" scrolly="-360">
-   <BOUNDS type="Window" left="32610" top="5610" width="9000" height="12465">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Plugins\Leap\Player (Leap).v4p" systemname="Player (Leap)" filename="C:\vvvv\libs\mcropack\nodes\Plugins\Leap\Player (Leap).v4p" scrollx="0" scrolly="735">
+   <BOUNDS type="Window" left="2490" top="1590" width="9000" height="12465">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="1" systemname="IOBox (String)">
    <BOUNDS type="Box" left="1335" top="1050" width="795" height="240">
@@ -121,7 +121,7 @@
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="29" dstpinname="Input">
    </LINK>
    <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="30">
-   <BOUNDS type="Node" left="1725" top="6375" width="100" height="100">
+   <BOUNDS type="Node" left="2085" top="6315" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -241,7 +241,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" values="6.2">
    </PIN>
    </NODE>
    <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="53">
@@ -422,22 +422,6 @@
    </LINK>
    <LINK srcnodeid="72" srcpinname="Output" dstnodeid="34" dstpinname="Simulate">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="76" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2385" top="5520" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2385" top="5520" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="304">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="77" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="3480" top="2655" width="930" height="240">
    </BOUNDS>
@@ -556,4 +540,6 @@
    </LINK>
    <LINK srcnodeid="66" srcpinname="Output" dstnodeid="84" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>
