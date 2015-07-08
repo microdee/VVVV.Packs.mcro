@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="3315">
-   <BOUNDS type="Window" left="8235" top="5295" width="9000" height="6000">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="2955">
+   <BOUNDS type="Window" left="34035" top="5370" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -497,7 +497,7 @@
    <LINK srcnodeid="21" srcpinname="Output" dstnodeid="18" dstpinname="Set">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6315" top="5835" width="795" height="240">
+   <BOUNDS type="Box" left="6315" top="5835" width="1815" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="6315" top="5835" width="0" height="0">
    </BOUNDS>
@@ -511,5 +511,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Whole Part" dstnodeid="22" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="23" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4875" top="3870" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4875" top="3870" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="R32G32B32A32_Float">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Target Format|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output Enum" dstnodeid="7" dstpinname="Target Format">
    </LINK>
    </PATCH>
