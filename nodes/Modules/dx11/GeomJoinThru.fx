@@ -36,6 +36,7 @@ struct GSin
 };
 
 float ID = 0;
+float BlendIDOffset = 0;
 
 GSin VS(VSin input)
 {
@@ -50,7 +51,7 @@ GSin VS(VSin input)
 		output.Binormal = input.Binormal;
 	#endif
 	#if defined(BLENDWEIGHTS_IN) && defined(BLENDWEIGHTS_OUT)
-		output.BlendId = input.BlendId;
+		output.BlendId = input.BlendId + BlendIDOffset;
 		output.BlendWeight = input.BlendWeight;
 	#endif
 	output.PrevPos = float4(input.cpoint.xyz, ID);

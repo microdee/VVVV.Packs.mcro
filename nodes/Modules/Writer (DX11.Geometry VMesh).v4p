@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Writer (DX11.Geometry VMesh).v4p" systemname="Writer (DX11.Geometry vmesh)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Writer (DX11.Geometry vmesh).v4p" scrollx="330" scrolly="1800">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\Writer (DX11.Geometry VMesh).v4p" systemname="Writer (DX11.Geometry vmesh)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Writer (DX11.Geometry vmesh).v4p" scrollx="750" scrolly="120">
    <BOUNDS type="Window" left="2145" top="1935" width="11250" height="12300">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -215,6 +215,12 @@
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
+   <PIN pinname="Evaluate" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Blend Indices Offset" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="15" dstpinname="Geometry">
    </LINK>
@@ -225,8 +231,6 @@
    <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Tangent Vectors">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Skinning">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="15" dstpinname="Evaluate">
    </LINK>
    <LINK srcnodeid="15" srcpinname="Geometry Out" dstnodeid="12" dstpinname="Geometry In">
    </LINK>
@@ -352,14 +356,14 @@
    </LINK>
    <LINK srcnodeid="27" srcpinname="Output" dstnodeid="21" dstpinname="Filename">
    </LINK>
-   <NODE systemname="VMeshWriter" filename="VMeshSubPatches\VMeshWriter.v4p" componentmode="Hidden" id="29" nodename="VMeshSubPatches\VMeshWriter.v4p">
+   <NODE systemname="MeshWriter (Raw DX11)" filename="%VVVV%\packs\mcropack\nodes\Modules\MeshWriter (Raw DX11).v4p" componentmode="Hidden" id="29" nodename="%VVVV%\packs\mcropack\nodes\Modules\MeshWriter (Raw DX11).v4p">
    <BOUNDS type="Node" left="2385" top="7785" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="2385" top="7785" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="19545" top="8025" width="9000" height="6000">
    </BOUNDS>
-   <PIN pinname="Rawbuffer" visible="1">
+   <PIN pinname="Rawbuffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Filename" visible="1">
    </PIN>
@@ -375,8 +379,6 @@
    <LINK srcnodeid="15" srcpinname="Buffer Out" dstnodeid="29" dstpinname="Rawbuffer">
    </LINK>
    <LINK srcnodeid="22" srcpinname="Output String" dstnodeid="29" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="29" dstpinname="Evaluate">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7320" top="1455" width="480" height="480">
@@ -461,7 +463,7 @@
    </BOUNDS>
    <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Switch" visible="1">
    </PIN>
@@ -638,14 +640,14 @@
    </NODE>
    <LINK srcnodeid="49" srcpinname="Error" dstnodeid="107" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="ParseFormat" filename="VMeshSubPatches\ParseFormat.v4p" componentmode="Hidden" id="109" nodename="VMeshSubPatches\ParseFormat.v4p">
+   <NODE systemname="ParseFormat (String DX11)" filename="%VVVV%\packs\mcropack\nodes\Modules\ParseFormat (String DX11).v4p" componentmode="Hidden" id="109" nodename="%VVVV%\packs\mcropack\nodes\Modules\ParseFormat (String DX11).v4p">
    <BOUNDS type="Node" left="4740" top="5445" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="4740" top="5445" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="14640" top="3045" width="9000" height="6000">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Size" visible="1">
    </PIN>
@@ -669,7 +671,7 @@
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="111">
    <BOUNDS type="Node" left="6555" top="6120" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="4" values="12,12,8,16">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -691,7 +693,7 @@
    </PIN>
    <PIN pinname="Format" visible="1">
    </PIN>
-   <PIN pinname="Size" visible="1">
+   <PIN pinname="Size" visible="1" slicecount="4" values="12,12,8,16">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -717,5 +719,29 @@
    <LINK srcnodeid="110" srcpinname="Output String" dstnodeid="108" dstpinname="Topic">
    </LINK>
    <LINK srcnodeid="85" srcpinname="Down Edge" dstnodeid="108" dstpinname="New">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="29" dstpinname="Evaluate">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="113" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3885" top="1905" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3885" top="1905" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Blend Indices Offset|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Blend Indices Offset">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="15" dstpinname="Evaluate">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="15" dstpinname="Enabled">
    </LINK>
    </PATCH>

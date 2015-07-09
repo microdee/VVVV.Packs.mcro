@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="0" scrolly="-360">
    <BOUNDS type="Window" left="960" top="1980" width="10005" height="8115">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -29,11 +29,13 @@
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
+   <PIN pinname="BlendIDOffset" visible="1" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="2" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2280" top="1500" width="795" height="240">
+   <BOUNDS type="Box" left="1530" top="1455" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2280" top="1500" width="0" height="0">
+   <BOUNDS type="Node" left="1530" top="1455" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -45,7 +47,7 @@
    <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="1" dstpinname="Geometry">
    </LINK>
    <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="1980" top="2655" width="100" height="100">
+   <BOUNDS type="Node" left="1230" top="2610" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
    </PIN>
@@ -55,7 +57,7 @@
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="1" dstpinname="Render State">
    </LINK>
    <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="2805" top="2535" width="100" height="100">
+   <BOUNDS type="Node" left="2055" top="2490" width="100" height="100">
    </BOUNDS>
    <PIN pinname=".. To [" visible="1">
    </PIN>
@@ -63,7 +65,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Count (Node)" nodename="Count (Node)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="3000" top="2115" width="100" height="100">
+   <BOUNDS type="Node" left="2250" top="2070" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -437,5 +439,23 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Strides" dstnodeid="35" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="37" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2880" top="1560" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2880" top="1560" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Blend Indices Offset|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="1" dstpinname="BlendIDOffset">
    </LINK>
    </PATCH>
