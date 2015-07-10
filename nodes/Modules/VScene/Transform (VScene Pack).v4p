@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Transform (VScene Pack).v4p" systemname="Transform (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" scrollx="345" scrolly="0">
-   <BOUNDS type="Window" left="5625" top="1050" width="7695" height="7275">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" systemname="Transform (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" scrollx="345" scrolly="0">
+   <BOUNDS type="Window" left="33030" top="5205" width="7695" height="7275">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -92,12 +92,12 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="18" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="InAWindow" id="18" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
    <BOUNDS type="Node" left="1335" top="3375" width="1290" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="1335" top="3375" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Window" left="3000" top="3000" width="11535" height="7350">
+   <BOUNDS type="Window" left="7485" top="705" width="11535" height="7350">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -137,5 +137,21 @@
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="18" dstpinname="Ready">
    </LINK>
    <LINK srcnodeid="18" srcpinname="Output" dstnodeid="17" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4965" top="3870" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4965" top="3870" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Working" dstnodeid="21" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\girlpower\VScene.v4p" systemname="callmenames" filename="C:\vvvv\app\vvvv_45beta33.7_x64\callmenames.v4p" scrollx="210" scrolly="1875">
-   <BOUNDS type="Window" left="3810" top="6180" width="21615" height="8715">
+   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="callmenames" filename="C:\vvvv\app\vvvv_45beta33.7_x64\callmenames.v4p" scrollx="0" scrolly="1170">
+   <BOUNDS type="Window" left="0" top="6885" width="21615" height="8715">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -12,52 +12,20 @@
    <BOUNDS type="Window" left="2145" top="1935" width="11250" height="12300">
    </BOUNDS>
    </NODE>
-   <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="InAWindow" id="1" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
-   <BOUNDS type="Node" left="3375" top="4875" width="900" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3375" top="4875" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10155" top="3075" width="16575" height="10605">
-   </BOUNDS>
-   <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Objects" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Aux Data" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Name" visible="1" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="Objects Bin Size" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
    <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="2">
    <BOUNDS type="Node" left="3900" top="990" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <NODE systemname="Mesh (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" componentmode="Hidden" id="3" nodename="Mesh (VScene Pack).v4p">
-   <BOUNDS type="Node" left="4005" top="3810" width="100" height="100">
+   <NODE systemname="Mesh (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" componentmode="InAWindow" id="3" nodename="Mesh (VScene Pack).v4p">
+   <BOUNDS type="Node" left="3705" top="3885" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4005" top="3810" width="4800" height="3600">
+   <BOUNDS type="Box" left="3705" top="3885" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="8415" top="1530" width="19095" height="11325">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   </NODE>
-   <NODE systemname="Transform (VScene Pack)" filename="..\nodes\Modules\VScene\Transform (VScene Pack).v4p" componentmode="Hidden" id="4" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p">
-   <BOUNDS type="Node" left="3660" top="3090" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3660" top="3090" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="5625" top="1050" width="7695" height="7275">
-   </BOUNDS>
-   <PIN pinname="Compress" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output" visible="1" slicecount="1" values="||">
+   <PIN pinname="Compress" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="Timing (Debug)" nodename="Timing (Debug)" componentmode="Hidden" id="5">
@@ -80,40 +48,6 @@
    </NODE>
    <LINK srcnodeid="5" srcpinname="frames per second" dstnodeid="6" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="Hidden" id="8" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
-   <BOUNDS type="Node" left="7290" top="4275" width="900" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="7290" top="4275" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
-   </BOUNDS>
-   <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Name" visible="1">
-   </PIN>
-   <PIN pinname="Objects Bin Size" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Aux Data" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="16" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="8700" top="4035" width="1635" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="8700" top="4035" width="1635" height="270">
-   </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|&quot;auxparam&quot; : &quot;foobar&quot;|">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="MultiLine">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="18" systemname="IOBox (String)">
    <BOUNDS type="Box" left="7275" top="2730" width="1725" height="765">
    </BOUNDS>
@@ -132,8 +66,6 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <LINK srcnodeid="18" srcpinname="Output String" dstnodeid="8" dstpinname="Name">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="19" systemname="IOBox (String)">
    <BOUNDS type="Box" left="1170" top="3000" width="1725" height="765">
    </BOUNDS>
@@ -165,9 +97,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="38" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="5595" top="7875" width="6780" height="5685">
+   <BOUNDS type="Box" left="2955" top="7110" width="5325" height="8640">
    </BOUNDS>
-   <BOUNDS type="Node" left="5595" top="7875" width="0" height="0">
+   <BOUNDS type="Node" left="2955" top="7110" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -207,7 +139,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2940" top="6435" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="11805" top="3750" width="13515" height="10890">
+   <BOUNDS type="Window" left="38370" top="2865" width="15165" height="10890">
    </BOUNDS>
    <PIN pinname="Objects" visible="1" slicecount="1" values="||">
    </PIN>
@@ -216,6 +148,8 @@
    <PIN pinname="Meta" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Materials" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Begin Write" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="34" srcpinname="Output" dstnodeid="38" dstpinname="Input String">
@@ -226,6 +160,86 @@
    </PACK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="34" dstpinname="Meta">
    </LINK>
-   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="34" dstpinname="Objects">
+   <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="InAWindow" id="42" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
+   <BOUNDS type="Node" left="3375" top="4875" width="900" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3375" top="4875" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12060" top="0" width="16575" height="10605">
+   </BOUNDS>
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Objects" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="34" dstpinname="Objects">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4800" top="5490" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4800" top="5490" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="34" dstpinname="Begin Write">
+   </LINK>
+   <NODE systemname="Transform (VScene Pack)" filename="..\nodes\Modules\VScene\Transform (VScene Pack).v4p" componentmode="InAWindow" id="44" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p">
+   <BOUNDS type="Node" left="3540" top="3165" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3540" top="3165" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="33030" top="5205" width="7695" height="7275">
+   </BOUNDS>
+   <PIN pinname="Compress" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="Output" dstnodeid="42" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4620" top="2745" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4620" top="2745" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="44" dstpinname="Compress">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="42" dstpinname="Mesh">
+   </LINK>
+   <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="InAWindow" id="46" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
+   <BOUNDS type="Node" left="7290" top="4275" width="900" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7290" top="4275" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Output String" dstnodeid="46" dstpinname="Name">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="42" dstpinname="Objects">
    </LINK>
    </PATCH>

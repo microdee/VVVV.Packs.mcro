@@ -95,7 +95,7 @@
    </PIN>
    <PIN pinname="Name" visible="1">
    </PIN>
-   <PIN pinname="Manage Existing Object" slicecount="1" values="Ignore" visible="1">
+   <PIN pinname="Manage Existing Object" slicecount="1" visible="1" values="Ignore">
    </PIN>
    <PIN pinname="Source" visible="1" slicecount="1" values="||">
    </PIN>

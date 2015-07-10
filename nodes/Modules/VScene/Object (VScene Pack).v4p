@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="1335" scrolly="4320">
-   <BOUNDS type="Window" left="10155" top="3075" width="16575" height="10605">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -548,7 +548,7 @@
    </LINK>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="103" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="InAWindow" id="103" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
    <BOUNDS type="Node" left="6330" top="13575" width="1290" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="6330" top="13575" width="0" height="0">
@@ -803,5 +803,21 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="58" srcpinname="Output" dstnodeid="110" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="111" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7380" top="14100" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7380" top="14100" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="103" srcpinname="Begin Write" dstnodeid="111" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
