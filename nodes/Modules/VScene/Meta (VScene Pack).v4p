@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" systemname="Meta (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" scrollx="0" scrolly="1005">
-   <BOUNDS type="Window" left="1185" top="4905" width="11340" height="9405">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Meta (VScene Pack).v4p" systemname="Meta (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" scrollx="45" scrolly="2160">
+   <BOUNDS type="Window" left="1080" top="900" width="11340" height="9405">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -11,7 +11,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="615" top="2295" width="2340" height="2130">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" pintype="Input" values="|{&cr;&lf;&quot;Authors&quot; : [&amp;auth;],&cr;&lf;&quot;Project&quot; : &quot;&amp;proj;&quot;,&cr;&lf;&quot;Date&quot; : &quot;&amp;date;&quot;,&cr;&lf;&quot;DateFormat&quot; : &quot;&amp;datef;&quot;,&cr;&lf;&quot;AuthoringTool&quot; : &quot;&amp;at;&quot;,&cr;&lf;&quot;VsceneVersion&quot; : &quot;&amp;vscn;&quot;,&cr;&lf;&quot;LicenseType&quot; : &quot;&amp;lt;&quot;,&cr;&lf;&quot;LicenseUrl&quot; : &quot;&amp;lurl;&quot;|">
+   <PIN pinname="Input String" slicecount="1" visible="0" pintype="Input" values="|{&cr;&lf;&quot;Authors&quot; : [&amp;auth;],&cr;&lf;&quot;Project&quot; : &quot;&amp;proj;&quot;,&cr;&lf;&quot;Date&quot; : &quot;&amp;date;&quot;,&cr;&lf;&quot;AuthoringTool&quot; : &quot;&amp;at;&quot;,&cr;&lf;&quot;VsceneVersion&quot; : &quot;&amp;vscn;&quot;,&cr;&lf;&quot;LicenseType&quot; : &quot;&amp;lt;&quot;,&cr;&lf;&quot;LicenseUrl&quot; : &quot;&amp;lurl;&quot;|">
    </PIN>
    <PIN pinname="Output String" visible="1" pintype="Output">
    </PIN>
@@ -83,27 +83,27 @@
    <LINK srcnodeid="1" srcpinname="Match 1" dstnodeid="3" dstpinname="From">
    </LINK>
    <NODE systemname="Zip (String)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (String)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="4860" top="5490" width="100" height="100">
+   <BOUNDS type="Node" left="4860" top="5940" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input Count" slicecount="1" values="8">
+   <PIN pinname="Input Count" slicecount="1" values="7">
    </PIN>
    <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 4" visible="1">
+   <PIN pinname="Input 4" visible="1" slicecount="1" values="yyyy&apos;/&apos;MM&apos;/&apos;dd-H:mm">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 5" visible="1">
+   <PIN pinname="Input 5" visible="1" slicecount="1" values="|vvvv 45beta33.7 x64 |">
    </PIN>
-   <PIN pinname="Input 6" visible="1">
+   <PIN pinname="Input 6" visible="1" slicecount="1" values="0.0">
    </PIN>
-   <PIN pinname="Input 7" visible="1">
+   <PIN pinname="Input 7" visible="1" slicecount="1" values="Internal">
    </PIN>
-   <PIN pinname="Input 8" visible="1">
+   <PIN pinname="Input 8" visible="1" slicecount="1" values="none">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="5" systemname="IOBox (String)">
@@ -200,46 +200,6 @@
    </NODE>
    <LINK srcnodeid="11" srcpinname="Output String" dstnodeid="4" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="CurrentTime (Time)" nodename="CurrentTime (Time)" componentmode="Hidden" id="12" filename="%VVVV%\packs\vvvv-Time\nodes\plugins\VVVV.Packs.Time.Nodes.dll">
-   <BOUNDS type="Node" left="5190" top="4140" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Time" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="AsString (Time)" filename="%VVVV%\packs\vvvv-Time\nodes\plugins\VVVV.Packs.Time.Nodes.dll" nodename="AsString (Time)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="5205" top="4575" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Time" visible="1">
-   </PIN>
-   <PIN pinname="Format" visible="1">
-   </PIN>
-   <PIN pinname="Timestring" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="12" srcpinname="Time" dstnodeid="13" dstpinname="Time">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="14" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="5820" top="3525" width="2010" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5820" top="3525" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="yyyy&apos;/&apos;MM&apos;/&apos;dd-H:mm">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="yyyy&apos;/&apos;MM&apos;/&apos;dd-H:mm:ss">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="14" srcpinname="Output String" dstnodeid="13" dstpinname="Format">
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Timestring" dstnodeid="4" dstpinname="Input 3">
-   </LINK>
-   <LINK srcnodeid="14" srcpinname="Output String" dstnodeid="4" dstpinname="Input 4">
-   </LINK>
    <LINK srcnodeid="4" srcpinname="Output" dstnodeid="3" dstpinname="To">
    </LINK>
    <NODE systemname="About (VVVV)" nodename="About (VVVV)" componentmode="Hidden" id="15">
@@ -328,8 +288,6 @@
    </NODE>
    <LINK srcnodeid="23" srcpinname="Output String" dstnodeid="19" dstpinname="Input 4">
    </LINK>
-   <LINK srcnodeid="19" srcpinname="Output" dstnodeid="4" dstpinname="Input 5">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
    <BOUNDS type="Box" left="9555" top="2685" width="1020" height="735">
    </BOUNDS>
@@ -345,9 +303,9 @@
    </PIN>
    <PIN pinname="Size" slicecount="1" values="24">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Output String" dstnodeid="4" dstpinname="Input 6">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="25" systemname="IOBox (String)">
    <BOUNDS type="Node" left="9540" top="2355" width="1215" height="270">
    </BOUNDS>
@@ -377,9 +335,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|License Type|">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="26" srcpinname="Output String" dstnodeid="4" dstpinname="Input 7">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="27" systemname="IOBox (String)">
    <BOUNDS type="Box" left="7410" top="4860" width="795" height="240">
    </BOUNDS>
@@ -395,9 +353,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|License Url|">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="27" srcpinname="Output String" dstnodeid="4" dstpinname="Input 8">
-   </LINK>
    <NODE systemname="Add (String Spectral)" nodename="Add (String Spectral)" componentmode="Hidden" id="29">
    <BOUNDS type="Node" left="1830" top="7800" width="600" height="270">
    </BOUNDS>
@@ -430,54 +388,12 @@
    </NODE>
    <LINK srcnodeid="28" srcpinname="Output String" dstnodeid="29" dstpinname="Intersperse String">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="32" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="8850" top="5565" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="8850" top="5565" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Aux Data|">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="EQ (String)" nodename="EQ (String)" componentmode="Hidden" id="31">
-   <BOUNDS type="Node" left="9315" top="6030" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Inverse Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" id="30">
-   <BOUNDS type="Node" left="8865" top="6450" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="|&quot;Mesh&quot; : |">
-   </PIN>
-   <PIN pinname="Select" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="31" srcpinname="Inverse Output" dstnodeid="30" dstpinname="Select">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Output String" dstnodeid="30" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Output String" dstnodeid="31" dstpinname="Input 1">
-   </LINK>
    <NODE systemname="Zip (String Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (String Bin)" componentmode="Hidden" id="33">
    <BOUNDS type="Node" left="1815" top="6990" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   <PIN pinname="Input 2" visible="1">
    </PIN>
    <PIN pinname="Allow Empty Spreads" slicecount="1" values="1">
    </PIN>
@@ -486,26 +402,8 @@
    </NODE>
    <LINK srcnodeid="3" srcpinname="Output" dstnodeid="33" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="33" dstpinname="Input 2">
-   </LINK>
    <LINK srcnodeid="33" srcpinname="Output" dstnodeid="29" dstpinname="Input">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="34" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1845" top="9120" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1845" top="9120" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
-   </PIN>
-   <PIN pinname="Input String" visible="1" slicecount="1" values="|{&cr;&lf;&quot;Authors&quot; : [],&cr;&lf;&quot;Project&quot; : &quot;&quot;,&cr;&lf;&quot;Date&quot; : &quot;2015/07/09-3:18&quot;,&cr;&lf;&quot;DateFormat&quot; : &quot;yyyy&apos;/&apos;MM&apos;/&apos;dd-H:mm&quot;,&cr;&lf;&quot;AuthoringTool&quot; : &quot;vvvv 45beta33.7 x64 &quot;,&cr;&lf;&quot;VsceneVersion&quot; : &quot;0.0&quot;,&cr;&lf;&quot;LicenseType&quot; : &quot;Internal&quot;,&cr;&lf;&quot;LicenseUrl&quot; : &quot;none&quot;|">
-   </PIN>
-   </NODE>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="35">
    <BOUNDS type="Node" left="2070" top="8415" width="100" height="100">
    </BOUNDS>
@@ -520,6 +418,182 @@
    </NODE>
    <LINK srcnodeid="29" srcpinname="Output" dstnodeid="35" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="35" srcpinname="Output" dstnodeid="34" dstpinname="Input String">
+   <LINK srcnodeid="19" srcpinname="Output" dstnodeid="4" dstpinname="Input 4">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Output String" dstnodeid="4" dstpinname="Input 5">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output String" dstnodeid="4" dstpinname="Input 6">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Output String" dstnodeid="4" dstpinname="Input 7">
+   </LINK>
+   <NODE systemname="UnixTimeStamp (Gregorian)" filename="%VVVV%\packs\mcropack\nodes\Modules\UnixTimeStamp (Gregorian).v4p" componentmode="Hidden" id="43" nodename="%VVVV%\packs\mcropack\nodes\Modules\UnixTimeStamp (Gregorian).v4p">
+   <BOUNDS type="Node" left="5325" top="3825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5325" top="3825" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="18105" top="6270" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CurrentTime (Astronomy)" nodename="CurrentTime (Astronomy)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="5310" top="3345" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="GMT" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="GMT" dstnodeid="43" dstpinname="Input">
+   </LINK>
+   <NODE systemname="FormatValue (String)" nodename="FormatValue (String)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="5325" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="1436498156.778">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" id="46">
+   <BOUNDS type="Node" left="5340" top="4260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Whole Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Output" dstnodeid="46" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Whole Part" dstnodeid="45" dstpinname="Input">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="48" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <BOUNDS type="Node" left="2040" top="9150" width="1290" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2040" top="9150" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3000" top="3000" width="11535" height="7350">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Ready" visible="1">
+   </PIN>
+   <PIN pinname="Notifier" visible="1">
+   </PIN>
+   <PIN pinname="Begin Write" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="47" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3285" top="8535" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3285" top="8535" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Ready">
+   </LINK>
+   <LINK srcnodeid="35" srcpinname="Output" dstnodeid="48" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="34" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2040" top="9945" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2040" top="9945" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
+   </PIN>
+   <PIN pinname="Input String" visible="1" slicecount="1" values="|{&cr;&lf;&quot;Authors&quot; : [],&cr;&lf;&quot;Project&quot; : &quot;&quot;,&cr;&lf;&quot;Date&quot; : &quot;2015/07/09-3:18&quot;,&cr;&lf;&quot;DateFormat&quot; : &quot;yyyy&apos;/&apos;MM&apos;/&apos;dd-H:mm&quot;,&cr;&lf;&quot;AuthoringTool&quot; : &quot;vvvv 45beta33.7 x64 &quot;,&cr;&lf;&quot;VsceneVersion&quot; : &quot;0.0&quot;,&cr;&lf;&quot;LicenseType&quot; : &quot;Internal&quot;,&cr;&lf;&quot;LicenseUrl&quot; : &quot;none&quot;|">
+   </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="34" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="TokenToString (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\TokenToString (VScene Pack).v4p" nodename="TokenToString (VScene Pack)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="9135" top="5565" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Notifier Collection" visible="1">
+   </PIN>
+   <PIN pinname="Add" visible="1">
+   </PIN>
+   <PIN pinname="Source" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Token" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Notifier" dstnodeid="49" dstpinname="Notifier Collection" linkstyle="Bezier">
+   <LINKPOINT x="5205" y="11535">
+   </LINKPOINT>
+   <LINKPOINT x="14445" y="3480">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Begin Write" dstnodeid="49" dstpinname="Add" linkstyle="Bezier">
+   <LINKPOINT x="7215" y="11340">
+   </LINKPOINT>
+   <LINKPOINT x="14145" y="4140">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="32" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="9135" top="5085" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9135" top="5085" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Aux Data|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Output Node" dstnodeid="49" dstpinname="Source">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Token" dstnodeid="33" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="6675" top="6855" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Begin Write" dstnodeid="51" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="S+H (String)" nodename="S+H (String)" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="5280" top="5220" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Output" dstnodeid="52" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Output 1" dstnodeid="52" dstpinname="Set">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Output" dstnodeid="4" dstpinname="Input 3">
    </LINK>
    </PATCH>

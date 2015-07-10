@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="callmenames" filename="C:\vvvv\app\vvvv_45beta33.7_x64\callmenames.v4p" scrollx="0" scrolly="2415">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\girlpower\VScene.v4p" systemname="callmenames" filename="C:\vvvv\app\vvvv_45beta33.7_x64\callmenames.v4p" scrollx="210" scrolly="1875">
    <BOUNDS type="Window" left="3810" top="6180" width="21615" height="8715">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -13,15 +13,15 @@
    </BOUNDS>
    </NODE>
    <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="InAWindow" id="1" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
-   <BOUNDS type="Node" left="3495" top="4740" width="900" height="270">
+   <BOUNDS type="Node" left="3375" top="4875" width="900" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="3495" top="4740" width="4800" height="3600">
+   <BOUNDS type="Box" left="3375" top="4875" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="1080" top="4245" width="16575" height="10605">
+   <BOUNDS type="Window" left="10155" top="3075" width="16575" height="10605">
    </BOUNDS>
    <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform" visible="1" slicecount="1" values="|{&quot;LZMA&quot; : &quot;false&quot;, &quot;Data&quot; : &quot;AACAPwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPw==&quot;}|">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Objects" visible="1" slicecount="1" values="||">
    </PIN>
@@ -53,11 +53,11 @@
    </BOUNDS>
    <BOUNDS type="Box" left="3660" top="3090" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="5625" top="1050" width="5505" height="5055">
+   <BOUNDS type="Window" left="5625" top="1050" width="7695" height="7275">
    </BOUNDS>
    <PIN pinname="Compress" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Output" visible="1">
+   <PIN pinname="Output" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Timing (Debug)" nodename="Timing (Debug)" componentmode="Hidden" id="5">
@@ -155,17 +155,17 @@
    </PIN>
    </NODE>
    <NODE systemname="Meta (VScene Pack)" filename="..\nodes\Modules\VScene\Meta (VScene Pack).v4p" componentmode="Hidden" id="36" nodename="..\nodes\Modules\VScene\Meta (VScene Pack).v4p">
-   <BOUNDS type="Node" left="2190" top="4875" width="100" height="100">
+   <BOUNDS type="Node" left="2340" top="4860" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2190" top="4875" width="4800" height="3600">
+   <BOUNDS type="Box" left="2340" top="4860" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="1185" top="4905" width="11340" height="9405">
+   <BOUNDS type="Window" left="1080" top="900" width="11340" height="9405">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="38" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="5595" top="7875" width="1620" height="900">
+   <BOUNDS type="Box" left="5595" top="7875" width="6780" height="5685">
    </BOUNDS>
    <BOUNDS type="Node" left="5595" top="7875" width="0" height="0">
    </BOUNDS>
@@ -215,9 +215,17 @@
    </PIN>
    <PIN pinname="Meta" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Materials" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="34" srcpinname="Output" dstnodeid="38" dstpinname="Input String">
    </LINK>
    <LINK srcnodeid="34" srcpinname="Output" dstnodeid="40" dstpinname="Input">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <LINK srcnodeid="36" srcpinname="Output" dstnodeid="34" dstpinname="Meta">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="34" dstpinname="Objects">
    </LINK>
    </PATCH>

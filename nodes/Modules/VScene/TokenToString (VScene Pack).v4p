@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\TokenToString (VScene Pack).v4p" systemname="TokenToString (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\TokenToString (VScene Pack).v4p">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\TokenToString (VScene Pack).v4p" systemname="TokenToString (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\TokenToString (VScene Pack).v4p">
    <BOUNDS type="Window" left="10380" top="3960" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -95,7 +95,7 @@
    </PIN>
    <PIN pinname="Name" visible="1">
    </PIN>
-   <PIN pinname="Manage Existing Object" slicecount="1" values="Ignore">
+   <PIN pinname="Manage Existing Object" slicecount="1" values="Ignore" visible="1">
    </PIN>
    <PIN pinname="Source" visible="1" slicecount="1" values="||">
    </PIN>
@@ -149,5 +149,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="11" srcpinname="Output Node" dstnodeid="8" dstpinname="Source">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="12" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5190" top="1770" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5190" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Overwrite">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Output Enum" dstnodeid="8" dstpinname="Manage Existing Object">
    </LINK>
    </PATCH>

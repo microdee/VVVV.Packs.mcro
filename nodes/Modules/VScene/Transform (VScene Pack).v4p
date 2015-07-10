@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" systemname="Transform (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" scrollx="345" scrolly="0">
-   <BOUNDS type="Window" left="5625" top="1050" width="5505" height="5055">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Transform (VScene Pack).v4p" systemname="Transform (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p" scrollx="345" scrolly="0">
+   <BOUNDS type="Window" left="5625" top="1050" width="7695" height="7275">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -67,21 +67,75 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1350" top="2025" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="19515" top="6930" width="9000" height="6000">
+   <BOUNDS type="Window" left="13890" top="3840" width="12990" height="9165">
    </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Do Compress" visible="1">
+   </PIN>
+   <PIN pinname="Working" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="16" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Compress">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="17" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1350" top="2820" width="1320" height="240">
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="17" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1335" top="4095" width="1320" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1350" top="2820" width="0" height="0">
+   <BOUNDS type="Node" left="1335" top="4095" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Output">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="17" dstpinname="Input String">
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="18" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <BOUNDS type="Node" left="1335" top="3375" width="1290" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1335" top="3375" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3000" top="3000" width="11535" height="7350">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Ready" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Notifier" visible="1">
+   </PIN>
+   <PIN pinname="Begin Write" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="18" dstpinname="Input">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="2940" top="3570" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Begin Write" dstnodeid="19" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Output 1" dstnodeid="16" dstpinname="Do Compress">
+   </LINK>
+   <NODE systemname="NOT (Boolean)" nodename="NOT (Boolean)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="2565" top="2640" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Working" dstnodeid="20" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="18" dstpinname="Ready">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Output" dstnodeid="17" dstpinname="Input Node">
    </LINK>
    </PATCH>
