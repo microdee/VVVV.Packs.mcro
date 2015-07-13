@@ -26,6 +26,8 @@ namespace VVVV.Nodes
 		public ISpread<ISpread<double>> FValue;
 		[Input("Color", IsPinGroup = true)]
 		public ISpread<ISpread<RGBAColor>> FColor;
+		[Input("Enumeration", IsPinGroup = true)]
+		public ISpread<ISpread<EnumEntry>> FEnum;
 
 		[Output("Output")]
 		public ISpread<double> FOutput;
@@ -46,6 +48,8 @@ namespace VVVV.Nodes
 			foreach(ISpread<double> s in FValue)
 				FOutput[0] = Math.Max(FOutput[0], s.SliceCount);
 			foreach(ISpread<RGBAColor> s in FColor)
+				FOutput[0] = Math.Max(FOutput[0], s.SliceCount);
+			foreach(ISpread<EnumEntry> s in FEnum)
 				FOutput[0] = Math.Max(FOutput[0], s.SliceCount);
 		}
 	}

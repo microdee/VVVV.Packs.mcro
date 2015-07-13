@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Meta (VScene Pack).v4p" systemname="Meta (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" scrollx="45" scrolly="2160">
-   <BOUNDS type="Window" left="1080" top="900" width="11340" height="9405">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" systemname="Meta (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Meta (VScene Pack).v4p" scrollx="720" scrolly="1575">
+   <BOUNDS type="Window" left="13860" top="1875" width="11340" height="9405">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>

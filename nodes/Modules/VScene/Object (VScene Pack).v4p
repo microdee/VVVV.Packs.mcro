@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="240" scrolly="6735">
    <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -548,7 +548,7 @@
    </LINK>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="InAWindow" id="103" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="103" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
    <BOUNDS type="Node" left="6330" top="13575" width="1290" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="6330" top="13575" width="0" height="0">
@@ -789,20 +789,6 @@
    <LINK srcnodeid="109" srcpinname="Token" dstnodeid="69" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="109" srcpinname="Token" dstnodeid="70" dstpinname="Input 1">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="110" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="3720" top="12885" width="2310" height="1785">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3720" top="12885" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="58" srcpinname="Output" dstnodeid="110" dstpinname="Input String">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="111" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7380" top="14100" width="480" height="480">

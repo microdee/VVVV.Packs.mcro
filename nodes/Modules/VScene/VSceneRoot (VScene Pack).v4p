@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p" scrollx="7110" scrolly="0" systemname="VSceneRoot (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p">
-   <BOUNDS type="Window" left="38370" top="2865" width="15165" height="10890">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p" scrollx="2685" scrolly="2460" systemname="VSceneRoot (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p">
+   <BOUNDS type="Window" left="3705" top="2940" width="15165" height="10890">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -731,7 +731,7 @@
    <LINK srcnodeid="109" srcpinname="Output String" dstnodeid="110" dstpinname="Formular Name">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="108" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="11175" top="12675" width="2535" height="240">
+   <BOUNDS type="Box" left="11175" top="12675" width="2640" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="11175" top="12675" width="0" height="0">
    </BOUNDS>

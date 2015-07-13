@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="3345" scrolly="5175">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="0" scrolly="2520">
    <BOUNDS type="Window" left="3000" top="3000" width="11535" height="7350">
    </BOUNDS>
    <PACK Name="dx11" Version="33.0">
@@ -203,15 +203,15 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="28" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1920" top="6510" width="795" height="240">
+   <BOUNDS type="Box" left="2550" top="6975" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1920" top="6510" width="0" height="0">
+   <BOUNDS type="Node" left="2550" top="6975" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Output">
    </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="28" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="Sift (VObjectCollection)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Sift (VObjectCollection)" componentmode="Hidden" id="29">
    <BOUNDS type="Node" left="5160" top="5280" width="100" height="100">
    </BOUNDS>
@@ -369,7 +369,7 @@
    <LINK srcnodeid="40" srcpinname="Output String" dstnodeid="39" dstpinname="Input 2">
    </LINK>
    <NODE systemname="PrimitiveObject (VObject Construct)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="PrimitiveObject (VObject Construct)" componentmode="Hidden" id="41">
-   <BOUNDS type="Node" left="9090" top="8430" width="100" height="100">
+   <BOUNDS type="Node" left="9060" top="8670" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Formular" slicecount="1" values="ReadyNotification">
    </PIN>
@@ -377,9 +377,9 @@
    </PIN>
    <PIN pinname="Ready" visible="1">
    </PIN>
-   <PIN pinname="Set" visible="1" slicecount="1" values="0">
+   <PIN pinname="Set" visible="1">
    </PIN>
-   <PIN pinname="Construct" visible="1" slicecount="1" values="0">
+   <PIN pinname="Construct" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -450,8 +450,6 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Count" dstnodeid="46" dstpinname="Count">
    </LINK>
-   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="41" dstpinname="Set">
-   </LINK>
    <NODE systemname="GetSpread (Spreads)" nodename="GetSpread (Spreads)" componentmode="Hidden" id="47">
    <BOUNDS type="Node" left="8580" top="7770" width="100" height="100">
    </BOUNDS>
@@ -464,13 +462,9 @@
    </NODE>
    <LINK srcnodeid="17" srcpinname="Count" dstnodeid="47" dstpinname="Count">
    </LINK>
-   <LINK srcnodeid="47" srcpinname="Output" dstnodeid="41" dstpinname="Construct">
-   </LINK>
    <LINK srcnodeid="39" srcpinname="Output" dstnodeid="45" dstpinname="Name">
    </LINK>
    <LINK srcnodeid="47" srcpinname="Output" dstnodeid="45" dstpinname="Add">
-   </LINK>
-   <LINK srcnodeid="3" srcpinname="OnChange" dstnodeid="24" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="22" srcpinname="Bang" dstnodeid="24" dstpinname="Construct">
    </LINK>
@@ -541,5 +535,67 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="33" srcpinname="BeginWrite" dstnodeid="53" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="54">
+   <BOUNDS type="Node" left="9600" top="8205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="54" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="54" srcpinname="Output" dstnodeid="41" dstpinname="Set">
+   </LINK>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="55">
+   <BOUNDS type="Node" left="8520" top="8265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Output" dstnodeid="55" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="55" srcpinname="Output" dstnodeid="41" dstpinname="Construct">
+   </LINK>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="1485" top="3750" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="OnChange" dstnodeid="56" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output" dstnodeid="24" dstpinname="Set">
+   </LINK>
+   <NODE systemname="Select (Node)" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" nodename="Select (Node)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="2565" top="6345" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="57" dstpinname="Input">
+   </LINK>
+   <NODE systemname="EQ (Value)" nodename="EQ (Value)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="7110" top="4725" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Inverse Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Count" dstnodeid="58" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Inverse Output" dstnodeid="57" dstpinname="Select">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="28" dstpinname="Input Node">
    </LINK>
    </PATCH>

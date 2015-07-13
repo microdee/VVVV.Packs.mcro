@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" systemname="Mesh (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Mesh (VScene Pack).v4p" scrollx="4845" scrolly="9360">
+   <PATCH nodename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" systemname="Mesh (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Mesh (VScene Pack).v4p" scrollx="8025" scrolly="4275">
    <BOUNDS type="Window" left="8415" top="1530" width="19095" height="11325">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -1009,7 +1009,7 @@
    <NODE systemname="Base64Data (VScene Encode)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Base64Data (VScene Encode).v4p" nodename="Base64Data (VScene Encode)" componentmode="Hidden" id="102">
    <BOUNDS type="Node" left="8925" top="11460" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Compress" visible="1">
    </PIN>
@@ -1020,8 +1020,6 @@
    <PIN pinname="Working" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="102" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="102" dstpinname="Compress">
    </LINK>
    <LINK srcnodeid="102" srcpinname="Output" dstnodeid="0" dstpinname="Input 6">
@@ -1300,18 +1298,10 @@
    </NODE>
    <LINK srcnodeid="119" srcpinname="Begin Write" dstnodeid="122" dstpinname="Input 1">
    </LINK>
-   <NODE systemname="NOT (Boolean)" nodename="NOT (Boolean)" componentmode="Hidden" id="123">
-   <BOUNDS type="Node" left="8640" top="12705" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="102" srcpinname="Working" dstnodeid="123" dstpinname="Input">
-   </LINK>
    <NODE systemname="MonoFlop (Animation Framebased)" filename="%VVVV%\addonpack\lib\nodes\plugins\MonoFlop.dll" nodename="MonoFlop (Animation Framebased)" componentmode="Hidden" id="124">
    <BOUNDS type="Node" left="8775" top="3045" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Frames" slicecount="1" values="3" visible="1">
+   <PIN pinname="Frames" slicecount="1" visible="1" values="3">
    </PIN>
    <PIN pinname="Set" visible="1">
    </PIN>
@@ -1475,5 +1465,17 @@
    <LINK srcnodeid="133" srcpinname="Token" dstnodeid="53" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="133" srcpinname="Token" dstnodeid="56" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="AvoidNIL (Node)" filename="%VVVV%\lib\nodes\modules\Node\AvoidNIL (Node).v4p" nodename="AvoidNIL (Node)" componentmode="Hidden" id="135">
+   <BOUNDS type="Node" left="8940" top="10500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="135" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="135" srcpinname="Output" dstnodeid="102" dstpinname="Input">
    </LINK>
    </PATCH>

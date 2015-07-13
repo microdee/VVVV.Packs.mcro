@@ -157,7 +157,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5190" top="1770" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Overwrite">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Ignore">
    </PIN>
    </NODE>
    <LINK srcnodeid="12" srcpinname="Output Enum" dstnodeid="8" dstpinname="Manage Existing Object">

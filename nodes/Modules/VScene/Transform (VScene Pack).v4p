@@ -92,7 +92,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="InAWindow" id="18" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
+   <NODE systemname="StringToToken (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" componentmode="Hidden" id="18" nodename="%VVVV%\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p">
    <BOUNDS type="Node" left="1335" top="3375" width="1290" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="1335" top="3375" width="0" height="0">

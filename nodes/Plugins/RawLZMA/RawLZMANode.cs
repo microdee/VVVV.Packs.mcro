@@ -49,7 +49,7 @@ namespace VVVV.Nodes
 
 		//when dealing with byte streams (what we call Raw in the GUI) it's always
 		//good to have a byte buffer around. we'll use it when copying the data.
-		readonly byte[] FBuffer = new byte[1024];
+		//readonly byte[] FBuffer = new byte[1024];
 		
 		private void CompressAsync(object io)
 		{
@@ -75,6 +75,7 @@ namespace VVVV.Nodes
 			FStreamOut.ResizeAndDispose(spreadMax, () => new MemoryStream());
 			Tasks.SliceCount = spreadMax;
 			IOs.SliceCount = spreadMax;
+			FWorking.SliceCount = spreadMax;
 			FError.SliceCount = spreadMax;
 			for (int i = 0; i < spreadMax; i++)
 			{
@@ -147,7 +148,7 @@ namespace VVVV.Nodes
 
 		//when dealing with byte streams (what we call Raw in the GUI) it's always
 		//good to have a byte buffer around. we'll use it when copying the data.
-		readonly byte[] FBuffer = new byte[1024];
+		//readonly byte[] FBuffer = new byte[1024];
 		
 		private void DecompressAsync(object io)
 		{
@@ -173,6 +174,7 @@ namespace VVVV.Nodes
 			FStreamOut.ResizeAndDispose(spreadMax, () => new MemoryStream());
 			Tasks.SliceCount = spreadMax;
 			IOs.SliceCount = spreadMax;
+			FWorking.SliceCount = spreadMax;
 			FError.SliceCount = spreadMax;
 			for (int i = 0; i < spreadMax; i++)
 			{
