@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="0" scrolly="2520">
-   <BOUNDS type="Window" left="3000" top="3000" width="11535" height="7350">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\app\vvvv_50alpha33.9_x64\packs\mcropack\nodes\modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="0" scrolly="3045">
+   <BOUNDS type="Window" left="43950" top="2220" width="12825" height="8430">
    </BOUNDS>
    <PACK Name="dx11" Version="33.0">
    </PACK>
@@ -123,7 +123,7 @@
    <LINK srcnodeid="18" srcpinname="Output" dstnodeid="15" dstpinname="Input 3">
    </LINK>
    <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="3180" top="2730" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="2385" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -135,17 +135,15 @@
    <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="22">
    <BOUNDS type="Node" left="3180" top="3360" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Simulate" visible="1">
+   <PIN pinname="Simulate" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Bang" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="21" srcpinname="OnChange" dstnodeid="22" dstpinname="Simulate">
-   </LINK>
    <LINK srcnodeid="22" srcpinname="Bang" dstnodeid="2" dstpinname="Construct">
    </LINK>
    <NODE systemname="PrimitiveObject (VObject Construct)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="PrimitiveObject (VObject Construct)" componentmode="Hidden" id="24">
-   <BOUNDS type="Node" left="1845" top="4875" width="100" height="100">
+   <BOUNDS type="Node" left="3375" top="5175" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Formular" slicecount="1" values="Token">
    </PIN>
@@ -153,15 +151,13 @@
    </PIN>
    <PIN pinname="Set" visible="1" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Token" visible="1">
+   <PIN pinname="Token" visible="1" slicecount="1" values="|{&cr;&lf;&quot;VertexSize&quot; : &quot;0&quot;,&cr;&lf;&quot;TotalVertexCount&quot; : &quot;0&quot;,&cr;&lf;&quot;SubsetVertexCount&quot; : [&quot;0&quot;],&cr;&lf;&quot;SubsetName&quot; : [&quot;callmenames&quot;],&cr;&lf;&quot;InputLayout&quot; : [&cr;&lf;&cr;&lf;],&cr;&lf;&quot;Vertices&quot; : {&quot;LZMA&quot; : &quot;true&quot;, &quot;Data&quot; : &quot;AA==&quot;}&cr;&lf;}|">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Construct" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="4" srcpinname="Output String" dstnodeid="24" dstpinname="Token">
-   </LINK>
    <NODE systemname="Add (VObjectCollection)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Add (VObjectCollection)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="3000" top="5865" width="100" height="100">
    </BOUNDS>
@@ -466,10 +462,6 @@
    </LINK>
    <LINK srcnodeid="47" srcpinname="Output" dstnodeid="45" dstpinname="Add">
    </LINK>
-   <LINK srcnodeid="22" srcpinname="Bang" dstnodeid="24" dstpinname="Construct">
-   </LINK>
-   <LINK srcnodeid="22" srcpinname="Bang" dstnodeid="25" dstpinname="Add">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="49" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="5160" top="8325" width="795" height="240">
    </BOUNDS>
@@ -511,14 +503,6 @@
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <LINK srcnodeid="50" srcpinname="Up Edge" dstnodeid="47" dstpinname="Input">
-   </LINK>
-   <NODE systemname="Info (PrimitiveObject)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Info (PrimitiveObject)" componentmode="Hidden" id="52">
-   <BOUNDS type="Node" left="5745" top="7725" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="52" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5625" top="9015" width="480" height="480">
@@ -597,5 +581,45 @@
    <LINK srcnodeid="58" srcpinname="Inverse Output" dstnodeid="57" dstpinname="Select">
    </LINK>
    <LINK srcnodeid="57" srcpinname="Output" dstnodeid="28" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="MonoFlop (Animation Framebased)" filename="%VVVV%\addonpack\lib\nodes\plugins\MonoFlop.dll" nodename="MonoFlop (Animation Framebased)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="4095" top="3870" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Frames" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Bang" dstnodeid="60" dstpinname="Set">
+   </LINK>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="3255" top="2865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="OnChange" dstnodeid="61" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="22" dstpinname="Simulate">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output String" dstnodeid="24" dstpinname="Token">
+   </LINK>
+   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="4095" top="4380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Down Edge" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="65" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Down Edge" dstnodeid="25" dstpinname="Add">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Down Edge" dstnodeid="24" dstpinname="Construct">
    </LINK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\EmesheMaterial (VScene Pack).v4p" systemname="EmesheMaterial (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\EmesheMaterial (VScene Pack).v4p" scrollx="0" scrolly="12015">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\EmesheMaterial (VScene Pack).v4p" systemname="EmesheMaterial (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\EmesheMaterial (VScene Pack).v4p" scrollx="870" scrolly="2520">
    <BOUNDS type="Window" left="885" top="945" width="22635" height="14655">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -1026,34 +1026,6 @@
    </LINK>
    <LINK srcnodeid="80" srcpinname="Output" dstnodeid="104" dstpinname="Input 1">
    </LINK>
-   <NODE systemname="Add (String Spectral)" nodename="Add (String Spectral)" componentmode="Hidden" id="115">
-   <BOUNDS type="Node" left="10500" top="12240" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="Bin Size" visible="1" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Intersperse String" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="114" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="11820" top="11520" width="195" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="11820" top="11520" width="285" height="525">
-   </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|,&cr;&lf;|">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="MultiLine">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="114" srcpinname="Output String" dstnodeid="115" dstpinname="Intersperse String">
-   </LINK>
    <NODE systemname="Quote (String)" nodename="Quote (String)" componentmode="Hidden" id="113">
    <BOUNDS type="Node" left="10680" top="13380" width="100" height="100">
    </BOUNDS>
@@ -1085,8 +1057,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="111" srcpinname="Output" dstnodeid="113" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="102" srcpinname="Output" dstnodeid="115" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="13" srcpinname="Begin Write" dstnodeid="3" dstpinname="Add" hiddenwhenlocked="1">
    </LINK>

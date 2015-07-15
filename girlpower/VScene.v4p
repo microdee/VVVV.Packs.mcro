@@ -1,10 +1,12 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="callmenames" filename="C:\vvvv\app\vvvv_45beta33.7_x64\callmenames.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="0" top="3555" width="21615" height="8715">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="VScene" filename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" scrollx="0" scrolly="2040">
+   <BOUNDS type="Window" left="285" top="0" width="24075" height="15600">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <PACK Name="dx11" Version="33.0">
    </PACK>
    <NODE systemname="Writer (DX11.Geometry VMesh)" filename="%VVVV%\packs\mcropack\nodes\modules\Writer (DX11.Geometry VMesh).v4p" nodename="Writer (DX11.Geometry VMesh)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="915" top="1575" width="100" height="100">
@@ -16,16 +18,20 @@
    <BOUNDS type="Node" left="3900" top="990" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <NODE systemname="Mesh (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" componentmode="Hidden" id="3" nodename="Mesh (VScene Pack).v4p">
+   <NODE systemname="Mesh (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" componentmode="InAWindow" id="3" nodename="Mesh (VScene Pack).v4p">
    <BOUNDS type="Node" left="3705" top="3885" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="3705" top="3885" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="8415" top="1530" width="19095" height="11325">
+   <BOUNDS type="Window" left="29685" top="3030" width="19095" height="11325">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Compress" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Bone Paths" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Timing (Debug)" nodename="Timing (Debug)" componentmode="Hidden" id="5">
@@ -96,18 +102,10 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Length (String)" nodename="Length (String)" componentmode="Hidden" id="40">
-   <BOUNDS type="Node" left="1455" top="6660" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="|{&cr;&lf;  &quot;Objects&quot;: []&cr;&lf;}|">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="41" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1560" top="7290" width="795" height="240">
+   <BOUNDS type="Box" left="3150" top="12390" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1560" top="7290" width="0" height="0">
+   <BOUNDS type="Node" left="3150" top="12390" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -115,15 +113,15 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1438">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="40" srcpinname="Count" dstnodeid="41" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="VSceneRoot (VScene Pack)" filename="..\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p" componentmode="Hidden" id="34" nodename="..\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p">
-   <BOUNDS type="Node" left="2940" top="6435" width="100" height="100">
+   <NODE systemname="VSceneRoot (VScene Pack)" filename="..\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p" componentmode="InAWindow" id="34" nodename="..\nodes\Modules\VScene\VSceneRoot (VScene Pack).v4p">
+   <BOUNDS type="Node" left="2955" top="8130" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2940" top="6435" width="4800" height="3600">
+   <BOUNDS type="Box" left="2955" top="8130" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="3705" top="2940" width="15165" height="10890">
+   <BOUNDS type="Window" left="14730" top="2520" width="15165" height="10890">
    </BOUNDS>
    <PIN pinname="Objects" visible="1" slicecount="1" values="||">
    </PIN>
@@ -135,13 +133,9 @@
    </PIN>
    <PIN pinname="Begin Write" visible="1">
    </PIN>
+   <PIN pinname="Sequences" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="40" dstpinname="Input">
-   </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
-   <LINK srcnodeid="36" srcpinname="Output" dstnodeid="34" dstpinname="Meta">
-   </LINK>
    <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="Hidden" id="42" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
    <BOUNDS type="Node" left="3375" top="4875" width="900" height="270">
    </BOUNDS>
@@ -151,17 +145,17 @@
    </BOUNDS>
    <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Mesh" visible="1">
+   <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Objects" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="34" dstpinname="Objects">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4800" top="5490" width="480" height="480">
+   <BOUNDS type="Box" left="4485" top="7470" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="4800" top="5490" width="0" height="0">
+   <BOUNDS type="Node" left="4485" top="7470" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -210,8 +204,6 @@
    </NODE>
    <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="44" dstpinname="Compress">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="42" dstpinname="Mesh">
-   </LINK>
    <NODE systemname="Object (VScene Pack)" filename="..\nodes\Modules\VScene\Object (VScene Pack).v4p" componentmode="Hidden" id="46" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p">
    <BOUNDS type="Node" left="6960" top="3405" width="900" height="270">
    </BOUNDS>
@@ -219,13 +211,13 @@
    </BOUNDS>
    <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
    </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Output String" dstnodeid="46" dstpinname="Name">
    </LINK>
-   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="42" dstpinname="Objects">
-   </LINK>
    <NODE systemname="MaterialBuffer (DX11 MRE)" filename="%VVVV%\packs\Emeshe\nodes\modules\Materials\MaterialBuffer (DX11 MRE).v4p" nodename="MaterialBuffer (DX11 MRE)" componentmode="Hidden" id="48">
-   <BOUNDS type="Node" left="13335" top="2895" width="100" height="100">
+   <BOUNDS type="Node" left="15120" top="2085" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Material Dictionary" visible="1">
    </PIN>
@@ -235,7 +227,7 @@
    </PIN>
    </NODE>
    <NODE systemname="MaterialManager (MRE)" filename="%VVVV%\packs\Emeshe\nodes\modules\Materials\MaterialManager (MRE).v4p" nodename="MaterialManager (MRE)" componentmode="Hidden" id="49">
-   <BOUNDS type="Node" left="14520" top="3510" width="100" height="100">
+   <BOUNDS type="Node" left="16305" top="2700" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Material Dictionary" visible="1">
    </PIN>
@@ -251,7 +243,7 @@
    </BOUNDS>
    <BOUNDS type="Window" left="885" top="945" width="22635" height="14655">
    </BOUNDS>
-   <PIN pinname="Material Dictionary" visible="1">
+   <PIN pinname="Material Dictionary" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Textures" visible="1" slicecount="1" values="||">
    </PIN>
@@ -261,27 +253,31 @@
    </PIN>
    </NODE>
    <NODE systemname="EmesheForwardParams (VScene Pack)" filename="..\nodes\Modules\VScene\EmesheForwardParams (VScene Pack).v4p" componentmode="Hidden" id="54" nodename="..\nodes\Modules\VScene\EmesheForwardParams (VScene Pack).v4p">
-   <BOUNDS type="Node" left="9240" top="3150" width="1950" height="270">
+   <BOUNDS type="Node" left="10020" top="4320" width="1950" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="9240" top="3150" width="4800" height="3600">
+   <BOUNDS type="Box" left="10020" top="4320" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="32220" top="5910" width="21780" height="8985">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Diffuse Texture" visible="1">
    </PIN>
+   <PIN pinname="Sampler" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Sampler (VScene Pack)" filename="%VVVV%\packs\mcropack\nodes\modules\VScene\Sampler (VScene Pack).v4p" nodename="Sampler (VScene Pack)" componentmode="Hidden" id="56">
-   <BOUNDS type="Node" left="12165" top="2835" width="100" height="100">
+   <BOUNDS type="Node" left="10875" top="2805" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="48" srcpinname="Material Dictionary" dstnodeid="49" dstpinname="Material Dictionary">
    </LINK>
    <NODE systemname="AddCookTorrance (MRE.Materials)" filename="%VVVV%\packs\Emeshe\nodes\modules\Materials\AddCookTorrance (MRE.Materials).v4p" nodename="AddCookTorrance (MRE.Materials)" componentmode="Hidden" id="50">
-   <BOUNDS type="Node" left="14505" top="4155" width="100" height="100">
+   <BOUNDS type="Node" left="16290" top="3345" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Material" visible="1">
    </PIN>
@@ -293,7 +289,7 @@
    <LINK srcnodeid="49" srcpinname="Material Out" dstnodeid="50" dstpinname="Material">
    </LINK>
    <NODE systemname="AddFakeRimLight (MRE.Materials)" filename="%VVVV%\packs\Emeshe\nodes\modules\Materials\AddFakeRimLight (MRE.Materials).v4p" nodename="AddFakeRimLight (MRE.Materials)" componentmode="Hidden" id="57">
-   <BOUNDS type="Node" left="14520" top="4695" width="100" height="100">
+   <BOUNDS type="Node" left="16305" top="3885" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Material" visible="1">
    </PIN>
@@ -307,7 +303,7 @@
    <LINK srcnodeid="50" srcpinname="Material Thru" dstnodeid="57" dstpinname="Material">
    </LINK>
    <NODE systemname="AddReflection (MRE.Materials Bundle)" filename="%VVVV%\packs\Emeshe\nodes\modules\Materials\AddReflection (MRE.Materials Bundle).v4p" nodename="AddReflection (MRE.Materials Bundle)" componentmode="Hidden" id="58">
-   <BOUNDS type="Node" left="14505" top="5265" width="100" height="100">
+   <BOUNDS type="Node" left="16290" top="4455" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Add" slicecount="1" values="0">
    </PIN>
@@ -317,9 +313,9 @@
    <LINK srcnodeid="57" srcpinname="Material Thru" dstnodeid="58" dstpinname="Material">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="59" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="13920" top="1875" width="480" height="480">
+   <BOUNDS type="Box" left="15705" top="1065" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="13920" top="1875" width="0" height="0">
+   <BOUNDS type="Node" left="15705" top="1065" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -336,14 +332,12 @@
    </NODE>
    <LINK srcnodeid="59" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Global Update">
    </LINK>
-   <LINK srcnodeid="48" srcpinname="Material Dictionary" dstnodeid="51" dstpinname="Material Dictionary">
-   </LINK>
    <LINK srcnodeid="54" srcpinname="Output" dstnodeid="51" dstpinname="Forward Params">
    </LINK>
    <NODE systemname="Transform (VScene Pack)" filename="..\nodes\Modules\VScene\Transform (VScene Pack).v4p" componentmode="Hidden" id="60" nodename="..\..\libs\mcropack\nodes\Modules\VScene\Transform (VScene Pack).v4p">
-   <BOUNDS type="Node" left="9705" top="1695" width="100" height="100">
+   <BOUNDS type="Node" left="9765" top="2805" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="9705" top="1695" width="4800" height="3600">
+   <BOUNDS type="Box" left="9765" top="2805" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="33030" top="5205" width="7695" height="7275">
    </BOUNDS>
@@ -352,12 +346,10 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="54" dstpinname="Transform">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="61" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="14940" top="2835" width="480" height="480">
+   <BOUNDS type="Box" left="16725" top="2025" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="14940" top="2835" width="0" height="0">
+   <BOUNDS type="Node" left="16725" top="2025" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -375,9 +367,9 @@
    <LINK srcnodeid="61" srcpinname="Y Output Value" dstnodeid="49" dstpinname="Construct">
    </LINK>
    <NODE systemname="FileTexture (VScene Pack)" filename="..\nodes\Modules\VScene\FileTexture (VScene Pack).v4p" componentmode="Hidden" id="62" nodename="..\nodes\Modules\VScene\FileTexture (VScene Pack).v4p">
-   <BOUNDS type="Node" left="10650" top="2430" width="100" height="100">
+   <BOUNDS type="Node" left="11430" top="3600" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="10650" top="2430" width="4800" height="3600">
+   <BOUNDS type="Box" left="11430" top="3600" width="4800" height="3600">
    </BOUNDS>
    <BOUNDS type="Window" left="37725" top="4035" width="14550" height="11790">
    </BOUNDS>
@@ -399,6 +391,8 @@
    </PIN>
    <PIN pinname="Bin Size" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Aux Data" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="FileTexture (VScene Pack)" filename="..\nodes\Modules\VScene\FileTexture (VScene Pack).v4p" componentmode="Hidden" id="65" nodename="..\nodes\Modules\VScene\FileTexture (VScene Pack).v4p">
    <BOUNDS type="Node" left="10305" top="5175" width="100" height="100">
@@ -415,11 +409,11 @@
    <LINK srcnodeid="63" srcpinname="Aux Data" dstnodeid="65" dstpinname="Aux Data">
    </LINK>
    <NODE systemname="Material (VScene Pack)" filename="..\nodes\Modules\VScene\Material (VScene Pack).v4p" componentmode="Hidden" id="66" nodename="..\nodes\Modules\VScene\Material (VScene Pack).v4p">
-   <BOUNDS type="Node" left="9630" top="6345" width="100" height="100">
+   <BOUNDS type="Node" left="9615" top="7785" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="9630" top="6345" width="4800" height="3600">
+   <BOUNDS type="Box" left="9615" top="7785" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="39705" top="4065" width="16125" height="11340">
+   <BOUNDS type="Window" left="9165" top="2775" width="16125" height="11340">
    </BOUNDS>
    <PIN pinname="Material Implementations" visible="1" slicecount="1" values="||">
    </PIN>
@@ -428,8 +422,384 @@
    </NODE>
    <LINK srcnodeid="65" srcpinname="Output" dstnodeid="51" dstpinname="Textures">
    </LINK>
+   <LINK srcnodeid="48" srcpinname="Material Dictionary" dstnodeid="51" dstpinname="Material Dictionary">
+   </LINK>
+   <NODE systemname="Subtract (String)" nodename="Subtract (String)" componentmode="Hidden" id="67">
+   <BOUNDS type="Node" left="2970" top="8595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Operand 2" slicecount="1" values="| |">
+   </PIN>
+   <PIN pinname="Operand 1" visible="1">
+   </PIN>
+   <PIN pinname="Occurence Mode" slicecount="1" values="All">
+   </PIN>
+   <PIN pinname="Result" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="67" dstpinname="Operand 1">
+   </LINK>
+   <NODE systemname="Subtract (String)" nodename="Subtract (String)" componentmode="Hidden" id="68">
+   <BOUNDS type="Node" left="3045" top="9645" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Operand 2" visible="1">
+   </PIN>
+   <PIN pinname="Occurence Mode" slicecount="1" values="All">
+   </PIN>
+   <PIN pinname="Operand 1" visible="1">
+   </PIN>
+   <PIN pinname="Result" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="69">
+   <BOUNDS type="Node" left="3255" top="9150" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Intersperse" slicecount="1" values="CarriageReturn">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="69" srcpinname="Output" dstnodeid="68" dstpinname="Operand 2">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Result" dstnodeid="68" dstpinname="Operand 1">
+   </LINK>
+   <NODE systemname="Subtract (String)" nodename="Subtract (String)" componentmode="Hidden" id="71">
+   <BOUNDS type="Node" left="3180" top="10485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Operand 2" visible="1">
+   </PIN>
+   <PIN pinname="Occurence Mode" slicecount="1" values="All">
+   </PIN>
+   <PIN pinname="Operand 1" visible="1" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="Result" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="70">
+   <BOUNDS type="Node" left="3390" top="9990" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Intersperse" slicecount="1" values="LineFeed">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="70" srcpinname="Output" dstnodeid="71" dstpinname="Operand 2">
+   </LINK>
+   <LINK srcnodeid="68" srcpinname="Result" dstnodeid="71" dstpinname="Operand 1">
+   </LINK>
+   <NODE systemname="AsRaw (String)" nodename="AsRaw (String)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="4875" top="11355" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Encoding" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Result" dstnodeid="72" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="73" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5490" top="10860" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5490" top="10860" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="|System Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Output Enum" dstnodeid="72" dstpinname="Encoding">
+   </LINK>
+   <NODE systemname="LZMA (Raw Compress)" filename="%VVVV%\packs\mcropack\nodes\plugins\RawLZMA\RawLZMA.csproj" nodename="LZMA (Raw Compress)" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="4905" top="11970" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Async" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Working" visible="1">
+   </PIN>
+   <PIN pinname="Compress" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="74" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Length (Raw)" nodename="Length (Raw)" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="4245" top="12780" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="74" srcpinname="Output" dstnodeid="75" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="76" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4080" top="13335" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4080" top="13335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="75" srcpinname="Count" dstnodeid="76" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="77" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5265" top="12570" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5265" top="12570" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="74" srcpinname="Working" dstnodeid="77" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="78" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6195" top="11190" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6195" top="11190" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="78" srcpinname="Y Output Value" dstnodeid="74" dstpinname="Compress">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output" dstnodeid="54" dstpinname="Sampler">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="79" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1740" top="12555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1740" top="12555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="2547">
+   </PIN>
+   </NODE>
+   <NODE systemname="Length (String)" nodename="Length (String)" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="1635" top="11925" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Count" dstnodeid="79" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="82" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Length (String)" nodename="Length (String)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="3045" top="11760" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="83" srcpinname="Count" dstnodeid="41" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="71" srcpinname="Result" dstnodeid="83" dstpinname="Input">
+   </LINK>
+   <NODE systemname="JoinTokens (VScene Pack)" filename="..\nodes\Modules\VScene\JoinTokens (VScene Pack).v4p" componentmode="Hidden" id="85" nodename="..\nodes\Modules\VScene\JoinTokens (VScene Pack).v4p">
+   <BOUNDS type="Node" left="10020" top="7305" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10020" top="7305" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17670" top="6855" width="5505" height="7035">
+   </BOUNDS>
+   <PIN pinname="Tokens" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cons (VObject)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Cons (VObject)" componentmode="Hidden" id="86">
+   <BOUNDS type="Node" left="10020" top="6360" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cast (To VObjectCollection)" filename="%VVVV%\packs\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="Cast (To VObjectCollection)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="10020" top="6780" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Valid" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Output" dstnodeid="87" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="87" srcpinname="Output" dstnodeid="85" dstpinname="Tokens">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Output" dstnodeid="86" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Sequence (VScene Pack)" filename="..\nodes\Modules\VScene\Sequence (VScene Pack).v4p" componentmode="InAWindow" id="90" nodename="..\nodes\Modules\VScene\Sequence (VScene Pack).v4p">
+   <BOUNDS type="Node" left="3615" top="6720" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3615" top="6720" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13575" top="5130" width="13320" height="8745">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Channels" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="91" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="7905" top="10305" width="13755" height="29430">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7905" top="10305" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="91" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="ValueChannel (VScene Pack)" filename="..\nodes\Modules\VScene\ValueChannel (VScene Pack).v4p" componentmode="Hidden" id="92" nodename="ValueChannel (VScene Pack)">
+   <BOUNDS type="Node" left="7170" top="6990" width="1800" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7170" top="6990" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="36225" top="2505" width="15930" height="10710">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
+   <PIN pinname="Keyframe Mode" visible="1">
+   </PIN>
+   <PIN pinname="Paths" visible="1" slicecount="1" values="|Materials[?(@.Name = &quot;Callmenames&quot;)].EmesheMaterial.DiffuseColor|">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="93">
+   <BOUNDS type="Node" left="8325" top="5895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname=".. To [" slicecount="1" values="16">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="93" srcpinname="Output" dstnodeid="92" dstpinname="Data">
+   </LINK>
+   <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="94">
+   <BOUNDS type="Node" left="8550" top="6345" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname=".. To [" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="94" srcpinname="Output" dstnodeid="92" dstpinname="Time">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="95" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8130" top="5295" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8130" top="5295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Keyframe Mode">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="96" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7665" top="6540" width="300" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7665" top="6540" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Vector Size">
+   </LINK>
+   <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="5265" top="5100" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Geometry Out" dstnodeid="3" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Output" dstnodeid="90" dstpinname="Channels">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="42" dstpinname="Mesh">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="101" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="6225" top="4755" width="4965" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6225" top="4755" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="|Materials[?(@.Name == &apos;Callmenames&apos;)].EmesheMaterial.DiffuseColor|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="101" srcpinname="Output String" dstnodeid="92" dstpinname="Paths">
+   </LINK>
    <LINK srcnodeid="51" srcpinname="Output" dstnodeid="66" dstpinname="Material Implementations">
    </LINK>
-   <LINK srcnodeid="66" srcpinname="Output" dstnodeid="34" dstpinname="Materials">
+   <LINK srcnodeid="90" srcpinname="Output" dstnodeid="34" dstpinname="Sequences">
    </LINK>
    </PATCH>

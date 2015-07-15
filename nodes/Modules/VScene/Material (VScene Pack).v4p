@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Material (VScene Pack).v4p" systemname="Material (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Material (VScene Pack).v4p" scrollx="15" scrolly="-360">
-   <BOUNDS type="Window" left="39705" top="4065" width="16125" height="11340">
+   <BOUNDS type="Window" left="9165" top="2775" width="16125" height="11340">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -17,7 +17,7 @@
    </PIN>
    </NODE>
    <NODE systemname="EQ (String)" nodename="EQ (String)" componentmode="Hidden" id="48">
-   <BOUNDS type="Node" left="5145" top="1770" width="100" height="100">
+   <BOUNDS type="Node" left="5130" top="1770" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>

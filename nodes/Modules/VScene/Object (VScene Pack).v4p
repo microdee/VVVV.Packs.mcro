@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="240" scrolly="6735">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" systemname="Object (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Object (VScene Pack).v4p" scrollx="0" scrolly="6840">
    <BOUNDS type="Window" left="2820" top="4350" width="16575" height="10605">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
