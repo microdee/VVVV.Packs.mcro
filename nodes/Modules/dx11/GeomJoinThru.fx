@@ -24,7 +24,6 @@ struct GSin
 	#if defined(TEXCOORD_OUT)
 		float4 TexCd: TEXCOORD0;
 	#endif
-	float4 PrevPos : COLOR0;
 	#if defined(TANGENTS_OUT)
 		float3 Tangent : TANGENT;
 		float3 Binormal : BINORMAL;
@@ -35,26 +34,28 @@ struct GSin
 	#endif
 };
 
-float ID = 0;
-float BlendIDOffset = 0;
+cbuffer cbPerObj : register( b0 )
+{
+	float BlendIDOffset = 0;
+	float4x4 tW : WORLD;
+};
 
 GSin VS(VSin input)
 {
     GSin output;
-    output.cpoint = input.cpoint;
-	output.norm = input.norm;
+    output.cpoint = mul(input.cpoint,tW);
+	output.norm = mul(float4(input.norm,0),tW).xyz;
 	#if defined(TEXCOORD_IN) && defined(TEXCOORD_OUT)
 		output.TexCd = input.TexCd;
 	#endif
 	#if defined(TANGENTS_IN) && defined(TANGENTS_OUT)
-		output.Tangent = input.Tangent;
-		output.Binormal = input.Binormal;
+		output.Tangent = mul(float4(input.Tangent,0),tW).xyz;
+		output.Binormal = mul(float4(input.Binormal,0),tW).xyz;
 	#endif
 	#if defined(BLENDWEIGHTS_IN) && defined(BLENDWEIGHTS_OUT)
 		output.BlendId = input.BlendId + BlendIDOffset;
 		output.BlendWeight = input.BlendWeight;
 	#endif
-	output.PrevPos = float4(input.cpoint.xyz, ID);
 	
     return output;
 }
@@ -62,12 +63,14 @@ GSin VS(VSin input)
 void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 {
 	GSin v = (GSin)0;
+	GSOut.RestartStrip();
 
 	for(uint i=0;i<3;i++)
 	{
 		v=input[i];
 		GSOut.Append(v);
 	}
+	GSOut.RestartStrip();
 }
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
@@ -81,10 +84,9 @@ GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
 		";BINORMAL.xyz"
 	#endif
 	#if defined(BLENDWEIGHTS_OUT)
-		";BLENDINDICES"
-		";BLENDWEIGHT"
+		";BLENDINDICES.xyzw"
+		";BLENDWEIGHT.xyzw"
 	#endif
-	";COLOR0"
 );
 
 technique11 Layout
@@ -93,7 +95,7 @@ technique11 Layout
 	{
 		
 		SetVertexShader( CompileShader( vs_5_0, VS() ) );
-		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+		//SetGeometryShader( CompileShader( gs_5_0, GS() ) );
 	    SetGeometryShader( StreamOutGS );
 
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="VScene" filename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" scrollx="0" scrolly="2040">
+   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" systemname="VScene" filename="C:\vvvv\libs\mcropack\girlpower\VScene.v4p" scrollx="0" scrolly="330">
    <BOUNDS type="Window" left="285" top="0" width="24075" height="15600">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -710,6 +710,8 @@
    <PIN pinname="Paths" visible="1" slicecount="1" values="|Materials[?(@.Name = &quot;Callmenames&quot;)].EmesheMaterial.DiffuseColor|">
    </PIN>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="93">

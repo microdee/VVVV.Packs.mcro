@@ -1,29 +1,15 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="2955">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="3225">
    <BOUNDS type="Window" left="34035" top="5370" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <NODE id="8" systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="3225" top="5625" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" pintype="Input" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Whole Part" pintype="Output" visible="1">
-   </PIN>
-   <PIN pinname="Real Part" pintype="Output" visible="1">
-   </PIN>
-   <PIN pinname="ID" pintype="Output" visible="-1">
-   </PIN>
-   </NODE>
    <NODE id="7" systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="2280" top="6900" width="100" height="100">
+   <BOUNDS type="Node" left="2280" top="7500" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1125" top="3255" width="2400" height="1800">
+   <BOUNDS type="Box" left="1125" top="3855" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
    </BOUNDS>
@@ -39,7 +25,7 @@
    </PIN>
    <PIN pinname="Generate Mip Maps" pintype="Input" visible="1" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Mip Map Levels" pintype="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Mip Map Levels" pintype="Input" visible="1" slicecount="1" values="11">
    </PIN>
    <PIN pinname="Shared Texture" pintype="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -85,7 +71,7 @@
    <NODE id="6" systemname="Log (Value)" nodename="Log (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <PIN pinname="Output" visible="1" pintype="Output">
    </PIN>
-   <BOUNDS type="Node" left="3225" top="5250" width="100" height="100">
+   <BOUNDS type="Node" left="3225" top="5850" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" pintype="Input" slicecount="1" values="1">
    </PIN>
@@ -107,11 +93,13 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input Count" pintype="Configuration" slicecount="1" values="2">
+   <PIN pinname="Input Count" pintype="Configuration" slicecount="1" values="3">
    </PIN>
    <PIN pinname="" pintype="Input" slicecount="1" values="0">
    </PIN>
    <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
    </PIN>
    </NODE>
    <NODE id="4" systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
@@ -326,8 +314,6 @@
    </LINK>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="8" dstpinname="Input">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3045" top="1305" width="480" height="480">
    </BOUNDS>
@@ -349,7 +335,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="3705" top="6255" width="100" height="100">
+   <BOUNDS type="Node" left="3705" top="6855" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -362,12 +348,10 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="Height" dstnodeid="11" dstpinname="Y">
    </LINK>
-   <LINK srcnodeid="8" srcpinname="Whole Part" dstnodeid="7" dstpinname="Mip Map Levels">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2595" top="6195" width="480" height="480">
+   <BOUNDS type="Box" left="2595" top="6795" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="2595" top="6195" width="0" height="0">
+   <BOUNDS type="Node" left="2595" top="6795" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -387,7 +371,7 @@
    <LINK srcnodeid="11" srcpinname="XY" dstnodeid="7" dstpinname="Texture SizeXY">
    </LINK>
    <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="1755" top="5520" width="100" height="100">
+   <BOUNDS type="Node" left="1755" top="6120" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
    </PIN>
@@ -399,9 +383,9 @@
    <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="7" dstpinname="Layer">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="14" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="3465" top="7695" width="795" height="240">
+   <BOUNDS type="Box" left="3465" top="8295" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3465" top="7695" width="0" height="0">
+   <BOUNDS type="Node" left="3465" top="8295" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Buffers">
    </PIN>
@@ -409,9 +393,9 @@
    <LINK srcnodeid="7" srcpinname="Buffers" dstnodeid="14" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5235" top="6465" width="795" height="480">
+   <BOUNDS type="Box" left="5235" top="7065" width="795" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="5235" top="6465" width="0" height="0">
+   <BOUNDS type="Node" left="5235" top="7065" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -497,9 +481,9 @@
    <LINK srcnodeid="21" srcpinname="Output" dstnodeid="18" dstpinname="Set">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6315" top="5835" width="1815" height="240">
+   <BOUNDS type="Box" left="6315" top="6435" width="1815" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6315" top="5835" width="0" height="0">
+   <BOUNDS type="Node" left="6315" top="6435" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -509,9 +493,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Mip Levels|">
    </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="8" srcpinname="Whole Part" dstnodeid="22" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="23" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="4875" top="3870" width="1590" height="270">
    </BOUNDS>
@@ -523,5 +507,29 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="23" srcpinname="Output Enum" dstnodeid="7" dstpinname="Target Format">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3795" top="4830" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3795" top="4830" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Input 3">
+   </LINK>
+   <NODE id="25" systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="3225" top="6225" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="25" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Whole Part" dstnodeid="7" dstpinname="Mip Map Levels">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Whole Part" dstnodeid="22" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

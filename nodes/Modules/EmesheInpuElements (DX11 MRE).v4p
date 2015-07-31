@@ -1,51 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\EmesheInpuElements (DX11 MRE).v4p" systemname="EmesheInpuElements (DX11 MRE)" filename="C:\vvvv\libs\mcropack\nodes\Modules\EmesheInpuElements (DX11 MRE).v4p" scrollx="4395" scrolly="405">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\EmesheInpuElements (DX11 MRE).v4p" systemname="EmesheInpuElements (DX11 MRE)" filename="C:\vvvv\libs\mcropack\nodes\Modules\EmesheInpuElements (DX11 MRE).v4p" scrollx="0" scrolly="225">
    <BOUNDS type="Window" left="14655" top="4710" width="9000" height="7815">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="1725" top="2745" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Element Type" visible="1">
-   </PIN>
-   <PIN pinname="Format" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Auto Index" slicecount="1" visible="1" values="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="1" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="1725" top="495" width="1530" height="1920">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1725" top="495" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="8" visible="1" values="Position,Normal,TextureCoord,Tangent,Binormal,BlendIndices,BlendWeight,Color">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="8">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="1" srcpinname="Output Enum" dstnodeid="0" dstpinname="Element Type">
-   </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="2" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="3390" top="480" width="1860" height="1920">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3390" top="480" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="8" visible="1" values="R32G32B32_Float,R32G32B32_Float,R32G32_Float,R32G32B32_Float,R32G32B32_Float,R32G32B32A32_Float,R32G32B32A32_Float,R32G32B32A32_Float">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="8">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="2" srcpinname="Output Enum" dstnodeid="0" dstpinname="Format">
-   </LINK>
    <NODE systemname="Zip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (Value Bin)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="4215" top="3330" width="100" height="100">
    </BOUNDS>
@@ -170,30 +130,16 @@
    </NODE>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Input 5">
    </LINK>
-   <NODE systemname="Select (Node)" filename="%VVVV%\lib\nodes\modules\Node\Select (Node).v4p" nodename="Select (Node)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="1725" top="3570" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Select" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="8" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="8" dstpinname="Select">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="9" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1710" top="4140" width="795" height="240">
+   <BOUNDS type="Box" left="1785" top="6765" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1710" top="4140" width="0" height="0">
+   <BOUNDS type="Node" left="1785" top="6765" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Input Elements|">
    </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="8" srcpinname="Output" dstnodeid="9" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="22" systemname="IOBox (String)">
    <BOUNDS type="Box" left="9270" top="6570" width="1665" height="240">
    </BOUNDS>
@@ -364,24 +310,6 @@
    </LINK>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Previous Position">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2910" top="2640" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2910" top="2640" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="32" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Auto Index">
-   </LINK>
    <NODE systemname="EmesheGeomFeatures (MRE)" filename="..\..\libs\mcropack\nodes\Modules\EmesheGeomFeatures (MRE).v4p" componentmode="Hidden" id="34" nodename="..\..\libs\mcropack\nodes\Modules\EmesheGeomFeatures (MRE).v4p">
    <BOUNDS type="Node" left="6585" top="5640" width="100" height="100">
    </BOUNDS>
@@ -453,5 +381,155 @@
    <LINK srcnodeid="30" srcpinname="Defines" dstnodeid="37" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="37" srcpinname="Output" dstnodeid="22" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="InputElement (DX11.Geometry Join Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join Advanced)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="1800" top="6105" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Element Type" visible="1" slicecount="1" values="R32G32B32A32_Float">
+   </PIN>
+   <PIN pinname="Name" visible="1">
+   </PIN>
+   <PIN pinname="Offset" visible="1">
+   </PIN>
+   <PIN pinname="Step Rate" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="43" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Box" left="825" top="450" width="1200" height="1950">
+   </BOUNDS>
+   <BOUNDS type="Node" left="825" top="450" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="8" visible="1" pintype="Input" values="POSITION,NORMAL,TEXCOORD,TANGENT,BINORMAL,BLENDINDICES,BLENDWEIGHT,COLOR">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" pintype="Configuration" values="-1">
+   </PIN>
+   <BOUNDS type="Window" left="0" top="0" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Pin Visibility" pintype="Configuration" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Show Grid" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" pintype="Configuration" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output String" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Changed" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="1065" top="4065" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Output String" dstnodeid="44" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="47" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2115" top="435" width="1740" height="1995">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2115" top="435" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="8" visible="1" values="R32G32B32_Float,R32G32B32_Float,R32G32_Float,R32G32B32_Float,R32G32B32_Float,R32G32B32A32_Float,R32G32B32A32_Float,R32G32B32A32_Float">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="String2Enum (Enumerations)" nodename="String2Enum (Enumerations)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="2115" top="4545" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="String Value" visible="1" slicecount="1" values="(nil)">
+   </PIN>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="2130" top="4170" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="44" dstpinname="Select">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="49" dstpinname="Select">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Output String" dstnodeid="49" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="48" dstpinname="String Value">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Output" dstnodeid="38" dstpinname="Name">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Enum" dstnodeid="38" dstpinname="Element Type">
+   </LINK>
+   <NODE systemname="ParseFormat (String DX11)" filename="ParseFormat (String DX11).v4p" nodename="ParseFormat (String DX11)" componentmode="Hidden" id="50">
+   <BOUNDS type="Node" left="2520" top="4950" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Size" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="50" dstpinname="Input">
+   </LINK>
+   <NODE systemname="SequentialAdd (Value)" filename="..\plugins\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="2610" top="5415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Size" dstnodeid="51" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Output" dstnodeid="38" dstpinname="Offset">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="9" dstpinname="Input Node">
    </LINK>
    </PATCH>

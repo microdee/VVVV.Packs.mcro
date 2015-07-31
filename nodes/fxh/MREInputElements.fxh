@@ -31,9 +31,6 @@ struct VSin
 	#if defined(TEXCOORD_IN)
 		float4 TexCd: TEXCOORD0;
 	#endif
-	#if defined(PREVPOS_IN)
-		float4 PrevPos : COLOR0;
-	#endif
 	#if defined(TANGENTS_IN)
 		float3 Tangent : TANGENT;
 		float3 Binormal : BINORMAL;
@@ -41,6 +38,9 @@ struct VSin
 	#if defined(BLENDWEIGHTS_IN)
 		float4 BlendId : BLENDINDICES;
 		float4 BlendWeight : BLENDWEIGHT;
+	#endif
+	#if defined(PREVPOS_IN)
+		float4 PrevPos : COLOR0;
 	#endif
 	uint vid : SV_VertexID;
 	uint iid : SV_InstanceID;
@@ -53,9 +53,6 @@ struct GSin
 	#if defined(TEXCOORD_OUT)
 		float4 TexCd: TEXCOORD0;
 	#endif
-	#if defined(PREVPOS_OUT)
-		float4 PrevPos : COLOR0;
-	#endif
 	#if defined(TANGENTS_OUT)
 		float3 Tangent : TANGENT;
 		float3 Binormal : BINORMAL;
@@ -63,6 +60,9 @@ struct GSin
 	#if defined(BLENDWEIGHTS_OUT)
 		float4 BlendId : BLENDINDICES;
 		float4 BlendWeight : BLENDWEIGHT;
+	#endif
+	#if defined(PREVPOS_OUT)
+		float4 PrevPos : COLOR0;
 	#endif
 };
 

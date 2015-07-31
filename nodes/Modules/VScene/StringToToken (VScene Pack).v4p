@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_50alpha33.9_x64\packs\mcropack\nodes\modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="0" scrolly="3045">
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" systemname="StringToToken (VScene Pack)" filename="C:\vvvv\app\vvvv_45beta33.7_x64\packs\mcropack\nodes\Modules\VScene\StringToToken (VScene Pack).v4p" scrollx="0" scrolly="3045">
    <BOUNDS type="Window" left="43950" top="2220" width="12825" height="8430">
    </BOUNDS>
    <PACK Name="dx11" Version="33.0">

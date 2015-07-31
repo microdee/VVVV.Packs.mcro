@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\TextureRouter (Assimp).v4p" systemname="TextureRouter (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\TextureRouter (Assimp).v4p" scrollx="720" scrolly="-360">
-   <BOUNDS type="Window" left="1785" top="5505" width="9000" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\TextureRouter (Assimp).v4p" systemname="TextureRouter (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\TextureRouter (Assimp).v4p" scrollx="315" scrolly="1245">
+   <BOUNDS type="Window" left="17160" top="4665" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -53,7 +53,7 @@
    <NODE systemname="Length (String)" nodename="Length (String)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="2550" top="5415" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="100" values="C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\lion.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\lion.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\lion_bump.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\background.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\background.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\background_bump.png,,,,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\vase_plant.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_plant.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_plant_mask.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_arch_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_arch_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\spnza_bricks_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\spnza_bricks_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\spnza_bricks_a_diff.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_ceiling_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_ceiling_a_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\chain_texture.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\chain_texture.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\chain_texture_bump.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\chain_texture_mask.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_column_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_a_bump.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_column_b_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_b_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_b_bump.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_column_c_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_c_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_column_c_bump.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_details_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_details_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_fabric_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_fabric_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_curtain_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_curtain_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_fabric_blue_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_fabric_blue_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_fabric_green_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_fabric_green_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_curtain_green_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_curtain_green_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_curtain_blue_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_curtain_blue_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_flagpole_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_flagpole_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_floor_a_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_floor_a_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_thorn_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_thorn_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_thorn_bump.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_thorn_mask.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\sponza_roof_diff.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\sponza_roof_diff.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\vase_dif.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_dif.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_bump.png,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\vase_hanging.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_hanging.png,,,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\vase_round.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_round.png,C:\vvvv\libs\Emeshe\assets\Models\sponza\textures\\vase_round_bump.png,">
+   <PIN pinname="Input" visible="1" slicecount="1" values="text">
    </PIN>
    <PIN pinname="Count" visible="1">
    </PIN>
@@ -159,7 +159,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Output Bin Size|">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="25" values="4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="18" systemname="IOBox (String)">
@@ -233,7 +233,7 @@
    <NODE systemname="FileTexture (DX11 2d.Pooled)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d.Pooled)" componentmode="Hidden" id="26">
    <BOUNDS type="Node" left="3330" top="5715" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Filename" slicecount="100" values="..\..\..\Emeshe\assets\Models\sponza\textures\lion.png,..\..\..\Emeshe\assets\Models\sponza\textures\\lion.png,..\..\..\Emeshe\assets\Models\sponza\textures\\lion_bump.png,,..\..\..\Emeshe\assets\Models\sponza\textures\background.png,..\..\..\Emeshe\assets\Models\sponza\textures\\background.png,..\..\..\Emeshe\assets\Models\sponza\textures\\background_bump.png,,,,,,..\..\..\Emeshe\assets\Models\sponza\textures\vase_plant.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_plant.png,,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_plant_mask.png,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_arch_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_arch_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\spnza_bricks_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\spnza_bricks_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\spnza_bricks_a_diff.png,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_ceiling_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_ceiling_a_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\chain_texture.png,..\..\..\Emeshe\assets\Models\sponza\textures\\chain_texture.png,..\..\..\Emeshe\assets\Models\sponza\textures\\chain_texture_bump.png,..\..\..\Emeshe\assets\Models\sponza\textures\\chain_texture_mask.png,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_column_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_a_bump.png,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_column_b_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_b_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_b_bump.png,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_column_c_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_c_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_column_c_bump.png,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_details_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_details_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_fabric_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_fabric_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_curtain_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_curtain_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_fabric_blue_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_fabric_blue_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_fabric_green_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_fabric_green_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_curtain_green_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_curtain_green_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_curtain_blue_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_curtain_blue_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_flagpole_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_flagpole_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_floor_a_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_floor_a_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_thorn_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_thorn_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_thorn_bump.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_thorn_mask.png,..\..\..\Emeshe\assets\Models\sponza\textures\sponza_roof_diff.png,..\..\..\Emeshe\assets\Models\sponza\textures\\sponza_roof_diff.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\vase_dif.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_dif.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_bump.png,,..\..\..\Emeshe\assets\Models\sponza\textures\vase_hanging.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_hanging.png,,,..\..\..\Emeshe\assets\Models\sponza\textures\vase_round.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_round.png,..\..\..\Emeshe\assets\Models\sponza\textures\\vase_round_bump.png,">
+   <PIN pinname="Filename" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="26" srcpinname="Texture Out" dstnodeid="1" dstpinname="Input 1">
@@ -247,7 +247,7 @@
    </BOUNDS>
    <PIN pinname="Parent Patch" visible="1">
    </PIN>
-   <PIN pinname="Node ID" visible="1" slicecount="1" values="27">
+   <PIN pinname="Node ID" visible="1" slicecount="1" values="42">
    </PIN>
    <PIN pinname="Node Name" visible="1">
    </PIN>
@@ -356,32 +356,6 @@
    </NODE>
    <LINK srcnodeid="38" srcpinname="Output String" dstnodeid="4" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="Router (String)" filename="..\plugins\StringRouter\StringRouter.csproj" nodename="Router (String)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="3315" top="3495" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="ID" visible="1" pintype="Output">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="9" srcpinname="Unique" dstnodeid="27" dstpinname="Unique Type">
-   </LINK>
-   <LINK srcnodeid="11" srcpinname="String Value" dstnodeid="27" dstpinname="Type">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Texture Count" dstnodeid="27" dstpinname="Type Bin Size">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Texture Count" dstnodeid="27" dstpinname="Input Bin Size">
-   </LINK>
-   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="27" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Output" dstnodeid="3" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Output Bin Size" dstnodeid="17" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Output" dstnodeid="21" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Output" dstnodeid="26" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="ID" dstnodeid="29" dstpinname="Node ID">
-   </LINK>
    <NODE systemname="Self (VVVV)" nodename="Self (VVVV)" componentmode="Hidden" id="40">
    <BOUNDS type="Node" left="1245" top="1650" width="100" height="100">
    </BOUNDS>
@@ -423,5 +397,29 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Query Save">
+   </LINK>
+   <NODE systemname="Router (String)" filename="..\plugins\StringRouter\StringRouter.csproj" nodename="Router (String)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="3315" top="3495" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Unique" dstnodeid="42" dstpinname="Unique Type">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="String Value" dstnodeid="42" dstpinname="Type">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Texture Count" dstnodeid="42" dstpinname="Type Bin Size">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Texture Count" dstnodeid="42" dstpinname="Input Bin Size">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="42" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="3" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output Bin Size" dstnodeid="17" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="21" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="26" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="ID" dstnodeid="29" dstpinname="Node ID">
    </LINK>
    </PATCH>

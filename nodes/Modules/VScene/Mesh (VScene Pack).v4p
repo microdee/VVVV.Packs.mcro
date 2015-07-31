@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\app\vvvv_50alpha33.9_x64\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" systemname="Mesh (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Mesh (VScene Pack).v4p" scrollx="330" scrolly="16125">
+   <PATCH nodename="C:\vvvv\app\vvvv_50alpha33.9_x64\packs\mcropack\nodes\modules\VScene\Mesh (VScene Pack).v4p" systemname="Mesh (VScene Pack)" filename="C:\vvvv\libs\mcropack\nodes\Modules\VScene\Mesh (VScene Pack).v4p" scrollx="1380" scrolly="660">
    <BOUNDS type="Window" left="29685" top="3030" width="19095" height="11325">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
