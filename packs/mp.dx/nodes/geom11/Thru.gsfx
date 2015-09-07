@@ -1,0 +1,67 @@
+
+#include "../../../mp.fxh/MREInputElements.fxh"
+
+GSin VS(VSin input)
+{
+    GSin output;
+    output.cpoint = input.cpoint;
+	output.norm = input.norm;
+	#if defined(TEXCOORD_IN) && defined(TEXCOORD_OUT)
+		output.TexCd = input.TexCd;
+	#endif
+	#if defined(TANGENTS_IN) && defined(TANGENTS_OUT)
+		output.Tangent = input.Tangent;
+		output.Binormal = input.Binormal;
+	#endif
+	#if defined(BLENDWEIGHTS_IN) && defined(BLENDWEIGHTS_OUT)
+		output.BlendId = input.BlendId;
+		output.BlendWeight = input.BlendWeight;
+	#endif
+	#if defined(GEOMVELOCITY_IN) && defined(GEOMVELOCITY_OUT)
+		output.PrevPos = input.velocity;
+	#endif
+	
+    return output;
+}
+[maxvertexcount(3)]
+void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
+{
+	GSin v = (GSin)0;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		GSOut.Append(v);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
+	"SV_Position.xyz;"
+	"NORMAL.xyz"
+	#if defined(TEXCOORD_OUT)
+		";TEXCOORD0.xy"
+	#endif
+	#if defined(TANGENTS_OUT)
+		";TANGENT.xyz"
+		";BINORMAL.xyz"
+	#endif
+	#if defined(BLENDWEIGHTS_OUT)
+		";BLENDINDICES"
+		";BLENDWEIGHT"
+	#endif
+	#if defined(PREVPOS_OUT)
+		";COLOR0"
+	#endif
+);
+
+technique11 Layout
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}

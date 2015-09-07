@@ -1,0 +1,28 @@
+{
+	"Name": "mcropack",
+	"Author": "microdee",
+	"Packs": {
+		"mp.dx": "packs/mp.dx/mp.vpack",
+		"mp.essentials": "packs/mp.essentials/mp.vpack",
+		"mp.fxh": "packs/mp.fxh/mp.vpack",
+		"mp.voocam": "packs/mp.voocam/mp.vpack",
+		"mp.voog": "packs/mp.voog/mp.vpack",
+		"mp.vscene": "packs/mp.vscene/mp.vpack"
+	},
+	"Install": [
+		{"InstallChildPack": ["mp.dx"]},
+		{"InstallChildPack": ["mp.essentials"]},
+		{"InstallChildPack": ["mp.fxh"]},
+		{"InstallChildPack": ["mp.voocam"]},
+		{"InstallChildPack": ["mp.voog"]},
+		{"InstallChildPack": ["mp.vscene"]}
+	],
+	"Uninstall": [
+		{"RemovePack": ["mp.dx"]},
+		{"RemovePack": ["mp.essentials"]},
+		{"RemovePack": ["mp.fxh"]},
+		{"RemovePack": ["mp.voocam"]},
+		{"RemovePack": ["mp.voog"]},
+		{"RemovePack": ["mp.vscene"]}
+	]
+}

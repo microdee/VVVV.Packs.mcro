@@ -1,0 +1,25 @@
+{
+	"Name": "md.dx",
+	"Author": "microdee",
+	"VVVVersion": "32",
+	"AddonPack": "true",
+	"Dependencies": [
+		[
+			"../md.essentials/mp.vpack",
+			"http://someurl.com/packages/microdee/mcropack.vpackage 'md.essentials'"
+		],
+		[
+			"../md.fxh/mp.vpack",
+			"http://someurl.com/packages/microdee/mcropack.vpackage 'md.fxh'"
+		],
+		[
+			"http://someurl.com/packages/vux/vvvv-dx11.vpack"
+		]
+	],
+	"Install": [
+		{"CopyThisPack": []}
+	],
+	"Uninstall": [
+		{"RemovePack": []}
+	]
+}
