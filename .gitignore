@@ -4,5 +4,5 @@
 
 # Dynamic plugins .dll
 bin/
-
+packs/*
 !packs/mp.*/

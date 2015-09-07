@@ -1,17 +1,17 @@
 #if !defined(POWS_FXH)
-#include "../fxh/pows.fxh"
+#include "../../../mp.fxh/pows.fxh"
 #endif
 #if !defined(SAFEDIVIDE_FXH)
-#include "../fxh/safedivide.fxh"
+#include "../../../mp.fxh/safedivide.fxh"
 #endif
 #if !defined(MATERIALS_FXH)
-#include "../fxh/Materials.fxh"
+#include "../../../mp.fxh/Materials.fxh"
 #endif
 #if !defined(MRE_FXH)
-#include "../fxh/MRE.fxh"
+#include "../../../mp.fxh/MRE.fxh"
 #endif
 #if !defined(LIGHTUTILS_FXH)
-#include "../fxh/LightUtils.fxh"
+#include "../../../mp.fxh/LightUtils.fxh"
 #endif
 
 

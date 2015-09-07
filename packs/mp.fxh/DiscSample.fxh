@@ -1,10 +1,10 @@
 #define DISCSAMPLE_FXH 1
 
 #if !defined(POISSONDISC_FXH)
-#include "../fxh/PoissonDisc.fxh"
+#include "../../../mp.fxh/PoissonDisc.fxh"
 #endif
 #if !defined(PANOTOOLS_FXH)
-#include "../fxh/PanoTools.fxh"
+#include "../../../mp.fxh/PanoTools.fxh"
 #endif
 
 #if !defined(PI)

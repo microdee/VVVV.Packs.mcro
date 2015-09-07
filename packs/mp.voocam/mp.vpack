@@ -1,8 +1,35 @@
 {
-	"Name": "md.fxh",
+	"Name": "md.voocam",
 	"Author": "microdee",
 	"VVVVersion": "32",
 	"AddonPack": "true",
+	"Dependencies": [
+		{
+			"Name": "md.essentials",
+			"Path": [
+				"../md.essentials/mp.vpack",
+				"http://someurl.com/packages/microdee/mcropack.vpackage 'md.essentials'"
+			]
+		},
+		{
+			"Name": "VObjects",
+			"Path": [
+				"http://someurl.com/packages/microdee/vobjects.vpack"
+			]
+		},
+		{
+			"Name": "LeapPack",
+			"Path": [
+				"http://someurl.com/packages/microdee/leappack.vpack"
+			]
+		},
+		{
+			"Name": "Xbox360Controller",
+			"Path": [
+				"http://someurl.com/packages/alg/Xbox360Controller.vpack"
+			]
+		}
+	],
 	"Install": [
 		{"CopyThisPack": []}
 	],

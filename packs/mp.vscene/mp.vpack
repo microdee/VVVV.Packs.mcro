@@ -1,5 +1,5 @@
 {
-	"Name": "md.dx",
+	"Name": "md.vscene",
 	"Author": "microdee",
 	"VVVVersion": "32",
 	"AddonPack": "true",
@@ -12,16 +12,16 @@
 			]
 		},
 		{
-			"Name": "md.fxh",
+			"Name": "VObjects",
 			"Path": [
-				"../md.fxh/mp.vpack",
-				"http://someurl.com/packages/microdee/mcropack.vpackage 'md.fxh'"
+				"http://someurl.com/packages/microdee/vobjects.vpack"
 			]
 		},
 		{
-			"Name": "vvvv-dx11",
+			"Name": "md.dx",
 			"Path": [
-				"http://someurl.com/packages/vux/vvvv-dx11.vpack"
+				"../md.dx/mp.vpack",
+				"http://someurl.com/packages/microdee/mcropack.vpackage 'md.dx'"
 			]
 		}
 	],
