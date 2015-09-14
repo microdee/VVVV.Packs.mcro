@@ -66,14 +66,14 @@ void GS(point gsIn input[1], inout LineStream<psIn> SpriteStream)
         float2 position = float2(uv0.x*2-1, pos0[i]*2-1);
     	
     	//Project vertex
-        output.pos = float4(position, 0, 1);
+        output.pos = mul(float4(position, 0, 1), tW);
     	output.col = float4(g_colors[i], bright/R.y);
         SpriteStream.Append(output);
     	
         position = float2(uv1.x*2-1, pos1[i]*2-1);
     	
     	//Project vertex
-        output.pos = float4(position, 0, 1);
+        output.pos = mul(float4(position, 0, 1), tW);
     	output.col = float4(g_colors[i], bright/R.y);
         SpriteStream.Append(output);
     	SpriteStream.RestartStrip();

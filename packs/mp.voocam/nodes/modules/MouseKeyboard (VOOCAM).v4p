@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="0" scrolly="9000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="0" scrolly="720">
    <BOUNDS type="Window" left="29250" top="1695" width="23175" height="13170">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1290" top="8055" width="795" height="240">
@@ -786,6 +786,8 @@
    <PIN pinname="Input 2" visible="1" slicecount="1" values="31.136381149292">
    </PIN>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Error Handling Style" slicecount="1" values="Ignore">
    </PIN>
    </NODE>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="154">

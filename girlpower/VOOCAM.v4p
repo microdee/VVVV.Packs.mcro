@@ -1,17 +1,17 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
    <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="0" scrolly="0" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
-   <BOUNDS type="Window" left="2535" top="4710" width="12315" height="9180">
+   <BOUNDS type="Window" left="41895" top="4725" width="12315" height="9180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="4">
    <BOUNDS type="Node" left="1050" top="11310" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1050" top="11310" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="12540" top="3315" width="12420" height="8595">
+   <BOUNDS type="Window" left="30210" top="6240" width="12420" height="8595">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -129,7 +129,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4815" top="4350" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="15750" top="4710" width="18195" height="10890">
+   <BOUNDS type="Window" left="29040" top="2160" width="18195" height="10890">
    </BOUNDS>
    <PIN pinname="Camera In" visible="1">
    </PIN>
