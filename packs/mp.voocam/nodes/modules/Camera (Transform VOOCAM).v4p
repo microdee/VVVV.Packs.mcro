@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="6480">
    <BOUNDS type="Window" left="3390" top="1320" width="19170" height="10635">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="PrimitiveObject (VObject Construct)" filename="..\..\..\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="PrimitiveObject (VObject Construct)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="630" top="3315" width="100" height="100">
@@ -1084,14 +1084,6 @@
    </NODE>
    <LINK srcnodeid="89" srcpinname="Output" dstnodeid="92" dstpinname="Set">
    </LINK>
-   <NODE systemname="HandleFromPoint (Windows)" filename="..\plugins\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="HandleFromPoint (Windows)" componentmode="Hidden" id="88">
-   <BOUNDS type="Node" left="7920" top="13155" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Cursor Pos" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="88" srcpinname="Cursor Pos" dstnodeid="92" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="87" srcpinname="LockMouse" dstnodeid="91" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="87" srcpinname="LockMouse" dstnodeid="89" dstpinname="Input">
@@ -1621,5 +1613,13 @@
    <LINK srcnodeid="124" srcpinname="Output" dstnodeid="37" dstpinname="TranslationXYZ">
    </LINK>
    <LINK srcnodeid="124" srcpinname="Output" dstnodeid="13" dstpinname="TranslationXYZ">
+   </LINK>
+   <NODE systemname="HandleFromPoint (Windows)" filename="..\..\..\mp.essentials\nodes\plugins\windows\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="HandleFromPoint (Windows)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="7920" top="13155" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Cursor Pos" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Cursor Pos" dstnodeid="92" dstpinname="Input">
    </LINK>
    </PATCH>

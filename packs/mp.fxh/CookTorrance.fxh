@@ -44,6 +44,7 @@ void cook_torrance
             in float3 viewer,
             in float3 light,
             in float roughness_value,
+            in float reflectance,
             inout float3 diff,
             inout float3 spec
         )
@@ -76,6 +77,7 @@ void cook_torrance
  
         // Remap the NdotH value to be 0.0-1.0
         // instead of -1.0..+1.0
+		tc.x *= 1 + reflectance;
         tc.x += 1.0f;
         tc.x /= 2.0f;
  
@@ -157,6 +159,7 @@ Components CookTorrancePointSSS(SamplerState s0, float2 uv, float2 sR, float lig
 
     float3 lSpec = GetFloat3(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_SPECULARCOLOR) * SStrength * RoughMap.rgb;
     float rough = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_ROUGHNESS) * RoughMap.a;
+    float reflectance = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_REFLECTANCE);
 
     Components outc = (Components)0;
 
@@ -183,7 +186,7 @@ Components CookTorrancePointSSS(SamplerState s0, float2 uv, float2 sR, float lig
 	        {
 		        diff = lCol;
 		        spec = lSpec * lCol;
-	        	cook_torrance(NormV, V, LightDirV, rough, diff, spec);
+	        	cook_torrance(NormV, V, LightDirV, rough, reflectance, diff, spec);
 	        	
 	        	#if defined(DOSHADOWS)
 	        	if(pointlightprop[i].KnowShadows > 0.5)
@@ -299,6 +302,7 @@ Components CookTorranceSpotSSS(SamplerState s0, float2 uv, float2 sR, float ligh
 
     float3 lSpec = GetFloat3(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_SPECULARCOLOR) * SStrength * RoughMap.rgb;
     float rough = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_ROUGHNESS) * RoughMap.a;
+    float reflectance = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_REFLECTANCE);
 
     Components outc = (Components)0;
 
@@ -344,7 +348,7 @@ Components CookTorranceSpotSSS(SamplerState s0, float2 uv, float2 sR, float ligh
 
 			        float3 diff = color;
 			        float3 spec = lSpec * color;
-		        	cook_torrance(NormV, ViewDirV, lDir, rough, diff, spec);
+		        	cook_torrance(NormV, ViewDirV, lDir, rough, reflectance, diff, spec);
 		        	#if defined(DOSHADOWS)
 		        	if(spotlightprop[i].KnowShadows > 0.5)
 		        	{
@@ -446,6 +450,7 @@ Components CookTorranceSunSSS(SamplerState s0, float2 uv, float2 sR, float light
 
     float3 lSpec = GetFloat3(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_SPECULARCOLOR) * SStrength * RoughMap.rgb;
     float rough = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_ROUGHNESS) * RoughMap.a;
+    float reflectance = GetFloat(matid, MF_LIGHTING_COOKTORRANCE, MF_LIGHTING_COOKTORRANCE_REFLECTANCE);
     
     Components outc = (Components)0;
 
@@ -465,7 +470,7 @@ Components CookTorranceSunSSS(SamplerState s0, float2 uv, float2 sR, float light
 	    	
 	        float3 diff = lCol;
 	        float3 spec = lSpec * lCol;
-        	cook_torrance(NormV, V, LightDirV, rough, diff, spec);
+        	cook_torrance(NormV, V, LightDirV, rough, reflectance, diff, spec);
 	        	
 		    if(KnowFeature(matid, MF_LIGHTING_FAKESSS))
 		    {
