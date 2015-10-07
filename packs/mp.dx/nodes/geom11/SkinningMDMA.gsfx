@@ -79,7 +79,12 @@ GSin VSs(VSin input)
     GSin output;
 	float4 bldw = input.BlendWeight;
 	float4 bldi = input.BlendId;
-	uint ii = input.iid;
+	uint ii = 0;
+	#if defined(SUBSETID_IN)
+		ii = input.SubsetID;
+	#else
+		ii = input.iid;
+	#endif
 	float4 pos = float4(0,0,0,1);
 	float4 ppos = float4(0,0,0,1);
 	float3 norm = 0;
@@ -116,7 +121,10 @@ GSin VSs(VSin input)
 		output.TexCd = input.TexCd;
 	#endif
 	output.BlendId = bldi;
-	output.PrevPos.w = input.iid;
+	
+	#if defined(SUBSETID_OUT)
+		output.SubsetID = ii;
+	#endif
 	output.BlendWeight = bldw;
 	
     return output;
@@ -127,7 +135,12 @@ GSin VSl(VSin input)
     GSin output;
 	float4 bldw = input.BlendWeight;
 	float4 bldi = input.BlendId;
-	uint ii = input.iid;
+	uint ii = 0;
+	#if defined(SUBSETID_IN)
+		ii = input.SubsetID;
+	#else
+		ii = input.iid;
+	#endif
 	float4 pos = float4(0,0,0,1);
 	float4 ppos = float4(0,0,0,1);
 	float3 norm = 0;
@@ -156,9 +169,11 @@ GSin VSl(VSin input)
 		output.TexCd = input.TexCd;
 	#endif
 	output.BlendId = bldi;
-	output.PrevPos.w = input.iid;
 	output.BlendWeight = bldw;
 	
+	#if defined(SUBSETID_OUT)
+		output.SubsetID = ii;
+	#endif
     return output;
 }
 
@@ -191,7 +206,10 @@ GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
 		";BLENDWEIGHT.xyzw"
 	#endif
 	#if defined(PREVPOS_OUT)
-		";COLOR0.xyzw"
+		";PREVPOS.xyz"
+	#endif
+	#if defined(SUBSETID_OUT)
+		";SUBSETID.x"
 	#endif
 );
 

@@ -1,12 +1,12 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="705" scrolly="180">
-   <BOUNDS type="Window" left="19605" top="5460" width="9000" height="8550">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="705" scrolly="180">
+   <BOUNDS type="Window" left="1245" top="6630" width="9000" height="8550">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
-   <NODE systemname="Animation (Assimp)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Animation (Assimp)" componentmode="Hidden" id="11">
+   <NODE systemname="Animation (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Animation (Assimp)" componentmode="Hidden" id="11">
    <BOUNDS type="Node" left="5100" top="2055" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Scene" visible="1" slicecount="1" values="||">
@@ -15,8 +15,10 @@
    </PIN>
    <PIN pinname="Duration" visible="1">
    </PIN>
+   <PIN pinname="Channels Bin Size" visible="1">
+   </PIN>
    </NODE>
-   <NODE systemname="AnimationChannels (Assimp Animation)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="AnimationChannels (Assimp Animation)" componentmode="Hidden" id="10">
+   <NODE systemname="AnimationChannels (Assimp Animation)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="AnimationChannels (Assimp Animation)" componentmode="Hidden" id="10">
    <BOUNDS type="Node" left="4935" top="2865" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Channels" visible="1">
@@ -76,7 +78,7 @@
    </LINK>
    <LINK srcnodeid="11" srcpinname="Duration" dstnodeid="10" dstpinname="Duration" linkstyle="PolyLine">
    </LINK>
-   <NODE systemname="SetJoint (Skeleton)" filename="%VVVV%\packs\other\nodes\plugins\SkeletonNodes.dll" nodename="SetJoint (Skeleton)" componentmode="Hidden" id="6">
+   <NODE systemname="SetJoint (Skeleton)" filename="%VVVV%\addonpack\lib\nodes\plugins\SkeletonNodes.dll" nodename="SetJoint (Skeleton)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="1500" top="6990" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Parent Name" visible="1" slicecount="1" values="||">
@@ -447,5 +449,19 @@
    <LINK srcnodeid="32" srcpinname="Output" dstnodeid="30" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="30" srcpinname="Output" dstnodeid="19" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="35" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6435" top="2415" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6435" top="2415" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Channels Bin Size" dstnodeid="35" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

@@ -19,6 +19,7 @@ cbuffer cbPerObjectPS : register( b2 )
 	float gVelocityGain = 1;
 };
 
+
 interface IAddress
 {
 	float Address(float res);
@@ -47,13 +48,21 @@ class CClamp : IAddress
 		return saturate(res);
 	}
 };
+class CUnlimited : IAddress
+{
+	float Address(float res)
+	{
+		return res;
+	}
+};
 
 CWrap AWrap;
 CMirror AMirror;
 CClamp AClamp;
+CUnlimited Unlimited;
 
-IAddress addressU <string uiname="AddressU"; string linkclass="AWrap,AMirror,AClamp";> = AWrap;
-IAddress addressV <string uiname="AddressV"; string linkclass="AWrap,AMirror,AClamp";> = AWrap;
+IAddress addressU <string uiname="AddressU"; string linkclass="AWrap,AMirror,AClamp,Unlimited";> = AWrap;
+IAddress addressV <string uiname="AddressV"; string linkclass="AWrap,AMirror,AClamp,Unlimited";> = AWrap;
 
 float2 AddressUV(float2 uv)
 {

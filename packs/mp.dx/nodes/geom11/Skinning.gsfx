@@ -5,10 +5,11 @@
 #if !defined(BLENDWEIGHTS_OUT)
 #define BLENDWEIGHTS_OUT 1
 #endif
+/*
 #if !defined(PREVPOS_OUT)
 #define PREVPOS_OUT 1
 #endif
-
+*/
 #include "../../../mp.fxh/MREInputElements.fxh"
 
 StructuredBuffer<float4x4> SkinningMatrices;
@@ -43,7 +44,6 @@ GSin VS(VSin input)
 	#endif
 	// input.cpoint+
     output.cpoint = pos;
-	output.PrevPos = pos - (pos-ppos)*PrevPosMul;
 	//output.cpoint = float4(input.cpoint,1);
 	output.norm = normalize(norm);
 
@@ -51,7 +51,19 @@ GSin VS(VSin input)
 		output.TexCd = input.TexCd;
 	#endif
 	output.BlendId = bldi;
-	output.PrevPos.w = input.iid;
+	#if defined(PREVPOS_OUT)
+		output.PrevPos = pos - (pos-ppos)*PrevPosMul;
+	#endif
+	float sid = 0;
+	#if defined(SUBSETID_IN)
+		sid = input.SubsetID;
+	#else
+		sid = input.iid;
+	#endif
+	
+	#if defined(SUBSETID_OUT)
+		output.SubsetID = sid;
+	#endif
 	output.BlendWeight = bldw;
 	
     return output;
@@ -86,7 +98,10 @@ GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
 		";BLENDWEIGHT.xyzw"
 	#endif
 	#if defined(PREVPOS_OUT)
-		";COLOR0.xyzw"
+		";PREVPOS.xyz"
+	#endif
+	#if defined(SUBSETID_OUT)
+		";SUBSETID.x"
 	#endif
 );
 

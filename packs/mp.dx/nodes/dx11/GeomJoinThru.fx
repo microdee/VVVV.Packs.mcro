@@ -1,3 +1,4 @@
+
 struct VSin
 {
 	float4 cpoint : POSITION;
@@ -32,11 +33,13 @@ struct GSin
 		float4 BlendId : BLENDINDICES;
 		float4 BlendWeight : BLENDWEIGHT;
 	#endif
+	float sID : SUBSETID;
 };
 
 cbuffer cbPerObj : register( b0 )
 {
 	float BlendIDOffset = 0;
+	float SubsetID = 0;
 	float4x4 tW : WORLD;
 };
 
@@ -56,6 +59,7 @@ GSin VS(VSin input)
 		output.BlendId = input.BlendId + BlendIDOffset;
 		output.BlendWeight = input.BlendWeight;
 	#endif
+	output.sID = SubsetID;
 	
     return output;
 }
@@ -87,6 +91,7 @@ GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
 		";BLENDINDICES.xyzw"
 		";BLENDWEIGHT.xyzw"
 	#endif
+	";SUBSETID.x"
 );
 
 technique11 Layout
