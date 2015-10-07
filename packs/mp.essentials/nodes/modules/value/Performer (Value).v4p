@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\Performer (Value).v4p" systemname="Performer (Value)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Performer (Value).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\value\Performer (Value).v4p" systemname="Performer (Value)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Performer (Value).v4p">
    <BOUNDS type="Window" left="16485" top="5490" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -96,4 +96,6 @@
    </NODE>
    <LINK srcnodeid="2" srcpinname="Output" dstnodeid="5" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
    </PATCH>

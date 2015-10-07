@@ -1,0 +1,563 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" systemname="SkeletalMesh (DX11 Assimp)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" scrollx="0" scrolly="720">
+   <BOUNDS type="Window" left="28170" top="4275" width="17625" height="11085">
+   </BOUNDS>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
+   <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="3030" top="1380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Material Index" visible="1">
+   </PIN>
+   <PIN pinname="Bone Names" visible="1">
+   </PIN>
+   <PIN pinname="Bone Matrices Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Bone Matrices" visible="1">
+   </PIN>
+   <PIN pinname="Bone Names Bin Size" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="JoinGeometry (DX11.Geometry)" filename="..\geometry\JoinGeometry (DX11.Geometry).v4p" nodename="JoinGeometry (DX11.Geometry)" componentmode="Hidden" id="29" debug="0">
+   <BOUNDS type="Node" left="2280" top="4635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Blend Indices Offset" visible="1">
+   </PIN>
+   <PIN pinname="Element Count" visible="1">
+   </PIN>
+   <PIN pinname="Tangent Vectors" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Skinning" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Buffer Out" visible="1">
+   </PIN>
+   <PIN pinname="Texture Coordinates" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mesh (Geometry Split Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (Geometry Split Assimp)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="1755" top="1575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mesh Index" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Indices Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="2760" top="3540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="6" values="290976,246594,84588,126588,8580,2058">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="29" dstpinname="Element Count">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="29" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Skinning (DX11.GeomFX)" filename="..\..\geom11\Skinning.gsfx" nodename="Skinning (DX11.GeomFX)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="3360" top="9000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   <PIN pinname="As Auto" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output Layout" visible="1">
+   </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="SkinningMatrices" visible="1">
+   </PIN>
+   <PIN pinname="PrevSkinningMatrices" visible="1">
+   </PIN>
+   <PIN pinname="BoneCount" visible="1" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Technique Valid" visible="1">
+   </PIN>
+   <PIN pinname="Buffer Out" visible="1">
+   </PIN>
+   <PIN pinname="Auto Layout" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="PrevPosMul" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="23" dstpinname="Max Elements">
+   </LINK>
+   <NODE systemname="EmesheGeomLayout (DX11 MRE)" filename="..\geometry\EmesheGeomLayout (DX11 MRE).v4p" componentmode="Hidden" id="22" nodename="..\..\libs\mcropack\packs\mp.dx\nodes\modules\geometry\EmesheGeomLayout (DX11 MRE).v4p">
+   <BOUNDS type="Node" left="5385" top="8415" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5385" top="8415" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17130" top="2370" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Input Elements" visible="1">
+   </PIN>
+   <PIN pinname="Defines" visible="1">
+   </PIN>
+   <PIN pinname="Texture Coordinates Input" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Tangent Vectors Input" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Skinning Input" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Texture Coordinates Output" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Tangent Vectors Output" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Skinning Output" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Previous Position Output" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Previous Position Input" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Subset ID Output" visible="1">
+   </PIN>
+   <PIN pinname="Subset ID Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Input Elements" dstnodeid="23" dstpinname="Output Layout">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Defines" dstnodeid="23" dstpinname="Defines">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="3810" top="7905" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetJointTransform (Skeleton)" filename="%VVVV%\addonpack\lib\nodes\plugins\SkeletonNodes.dll" nodename="GetJointTransform (Skeleton)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="6255" top="6000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Joint Name" visible="1" slicecount="137" values="WhiteBirch_Fall_Med_Bone_19_End,WhiteBirch_Fall_Med_Bone_21_End,WhiteBirch_Fall_Med_Bone_23_End,WhiteBirch_Fall_Med_Bone_24_End,WhiteBirch_Fall_Med_Bone_20_End,WhiteBirch_Fall_Med_Bone_23_Start,WhiteBirch_Fall_Med_Bone_22_Start,WhiteBirch_Fall_Med_Bone_19_Start,WhiteBirch_Fall_Med_Bone_20_Start,WhiteBirch_Fall_Med_Bone_35_End,WhiteBirch_Fall_Med_Bone_17_Start,WhiteBirch_Fall_Med_Bone_16_End,WhiteBirch_Fall_Med_Bone_16_Start,WhiteBirch_Fall_Med_Bone_17_End,WhiteBirch_Fall_Med_Bone_21_Start,WhiteBirch_Fall_Med_Bone_22_End,WhiteBirch_Fall_Med_Bone_24_Start,WhiteBirch_Fall_Med_Bone_6_Start,WhiteBirch_Fall_Med_Bone_10_End,WhiteBirch_Fall_Med_Bone_11_End,WhiteBirch_Fall_Med_Bone_12_End,WhiteBirch_Fall_Med_Bone_13_Start,WhiteBirch_Fall_Med_Bone_7_Start,WhiteBirch_Fall_Med_Bone_7_End,WhiteBirch_Fall_Med_Bone_6_End,WhiteBirch_Fall_Med_Bone_9_End,WhiteBirch_Fall_Med_Bone_9_Start,WhiteBirch_Fall_Med_Bone_10_Start,WhiteBirch_Fall_Med_Bone_8_End,WhiteBirch_Fall_Med_Bone_25_Start,WhiteBirch_Fall_Med_Bone_25_End,WhiteBirch_Fall_Med_Bone_8_Start,WhiteBirch_Fall_Med_Bone_11_Start,WhiteBirch_Fall_Med_Bone_12_Start,WhiteBirch_Fall_Med_Bone_18_End,WhiteBirch_Fall_Med_Bone_36_End,WhiteBirch_Fall_Med_Bone_44_End,WhiteBirch_Fall_Med_Bone_36_Start,WhiteBirch_Fall_Med_Bone_14_Start,WhiteBirch_Fall_Med_Bone_4_End,WhiteBirch_Fall_Med_Bone_5_End,WhiteBirch_Fall_Med_Bone_37_End,WhiteBirch_Fall_Med_Bone_4_Start,WhiteBirch_Fall_Med_Bone_13_End,WhiteBirch_Fall_Med_Bone_15_Start,WhiteBirch_Fall_Med_Bone_18_Start,WhiteBirch_Fall_Med_Bone_14_End,WhiteBirch_Fall_Med_Bone_15_End,WhiteBirch_Fall_Med_Bone_5_Start,WhiteBirch_Fall_Med_Bone_44_Start,WhiteBirch_Fall_Med_Bone_58_Start,WhiteBirch_Fall_Med_Bone_58_End,WhiteBirch_Fall_Med_Bone_54_Start,WhiteBirch_Fall_Med_Bone_46_Start,WhiteBirch_Fall_Med_Bone_53_Start,WhiteBirch_Fall_Med_Bone_53_End,WhiteBirch_Fall_Med_Bone_55_End,WhiteBirch_Fall_Med_Bone_56_Start,WhiteBirch_Fall_Med_Bone_54_End,WhiteBirch_Fall_Med_Bone_45_End,WhiteBirch_Fall_Med_Bone_57_Start,WhiteBirch_Fall_Med_Bone_55_Start,WhiteBirch_Fall_Med_Bone_57_End,WhiteBirch_Fall_Med_Bone_56_End,WhiteBirch_Fall_Med_Bone_49_End,WhiteBirch_Fall_Med_Bone_51_Start,WhiteBirch_Fall_Med_Bone_60_End,WhiteBirch_Fall_Med_Bone_52_End,WhiteBirch_Fall_Med_Bone_51_End,WhiteBirch_Fall_Med_Bone_46_End,WhiteBirch_Fall_Med_Bone_50_Start,WhiteBirch_Fall_Med_Bone_50_End,WhiteBirch_Fall_Med_Bone_48_Start,WhiteBirch_Fall_Med_Bone_47_Start,WhiteBirch_Fall_Med_Bone_48_End,WhiteBirch_Fall_Med_Bone_52_Start,WhiteBirch_Fall_Med_Bone_47_End,WhiteBirch_Fall_Med_Bone_49_Start,WhiteBirch_Fall_Med_Bone_59_Start,WhiteBirch_Fall_Med_Bone_59_End,WhiteBirch_Fall_Med_Bone_63_End,WhiteBirch_Fall_Med_Bone_68_End,WhiteBirch_Fall_Med_Bone_65_Start,WhiteBirch_Fall_Med_Bone_66_Start,WhiteBirch_Fall_Med_Bone_69_End,WhiteBirch_Fall_Med_Bone_61_Start,WhiteBirch_Fall_Med_Bone_62_End,WhiteBirch_Fall_Med_Bone_69_Start,WhiteBirch_Fall_Med_Bone_70_Start,WhiteBirch_Fall_Med_Bone_61_End,WhiteBirch_Fall_Med_Bone_68_Start,WhiteBirch_Fall_Med_Bone_62_Start,WhiteBirch_Fall_Med_Bone_63_Start,WhiteBirch_Fall_Med_Bone_70_End,WhiteBirch_Fall_Med_Bone_64_Start,WhiteBirch_Fall_Med_Bone_64_End,WhiteBirch_Fall_Med_Bone_65_End,WhiteBirch_Fall_Med_Bone_40_Start,WhiteBirch_Fall_Med_Bone_42_Start,WhiteBirch_Fall_Med_Bone_43_Start,WhiteBirch_Fall_Med_Bone_41_Start,WhiteBirch_Fall_Med_Bone_41_End,WhiteBirch_Fall_Med_Bone_66_End,WhiteBirch_Fall_Med_Bone_67_End,WhiteBirch_Fall_Med_Bone_39_End,WhiteBirch_Fall_Med_Bone_67_Start,WhiteBirch_Fall_Med_Bone_39_Start,WhiteBirch_Fall_Med_Bone_40_End,WhiteBirch_Fall_Med_Bone_42_End,WhiteBirch_Fall_Med_Bone_43_End,WhiteBirch_Fall_Med_Bone_29_Start,WhiteBirch_Fall_Med_Bone_0_End,WhiteBirch_Fall_Med_Bone_27_End,WhiteBirch_Fall_Med_Bone_0_Start,WhiteBirch_Fall_Med_Bone_2_End,WhiteBirch_Fall_Med_Bone_26_Start,WhiteBirch_Fall_Med_Bone_26_End,WhiteBirch_Fall_Med_Bone_1_End,WhiteBirch_Fall_Med_Bone_27_Start,WhiteBirch_Fall_Med_Bone_3_End,WhiteBirch_Fall_Med_Bone_28_Start,WhiteBirch_Fall_Med_Bone_28_End,WhiteBirch_Fall_Med_Bone_29_End,WhiteBirch_Fall_Med_Bone_30_End,WhiteBirch_Fall_Med_Bone_34_Start,WhiteBirch_Fall_Med_Bone_34_End,WhiteBirch_Fall_Med_Bone_31_Start,WhiteBirch_Fall_Med_Bone_35_Start,WhiteBirch_Fall_Med_Bone_30_Start,WhiteBirch_Fall_Med_Bone_31_End,WhiteBirch_Fall_Med_Bone_32_Start,WhiteBirch_Fall_Med_Bone_32_End,WhiteBirch_Fall_Med_Bone_33_Start,WhiteBirch_Fall_Med_Bone_33_End,WhiteBirch_Fall_Med_Bone_38_End,WhiteBirch_Fall_Med_Bone_38_Start,WhiteBirch_Fall_Med_Root">
+   </PIN>
+   <PIN pinname="Skeleton" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Inverse Bind Pose" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Bone Names" dstnodeid="18" dstpinname="Joint Name">
+   </LINK>
+   <NODE systemname="FrameDelay (Transform)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Transform)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="5790" top="6765" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Transform" dstnodeid="11" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="5100" top="7245" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Buffer" dstnodeid="23" dstpinname="SkinningMatrices">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Buffer" dstnodeid="23" dstpinname="PrevSkinningMatrices">
+   </LINK>
+   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="3480" top="6465" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Bone Names Bin Size" dstnodeid="9" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Geometry Out" dstnodeid="23" dstpinname="Geometry In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4035" top="420" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4035" top="420" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Reset">
+   </PIN>
+   </NODE>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="3720" top="2265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Simulate" visible="1">
+   </PIN>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Simulate">
+   </LINK>
+   <NODE systemname="Performer (Value)" filename="..\..\..\..\mp.essentials\nodes\modules\value\Performer (Value).v4p" componentmode="Hidden" id="6" nodename="Performer (Value)">
+   <BOUNDS type="Node" left="2775" top="3105" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2775" top="3105" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17055" top="6360" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="759384">
+   </PIN>
+   <PIN pinname="Execute" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Indices Count" dstnodeid="6" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="26" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Output" dstnodeid="23" dstpinname="BoneCount">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Bone Matrices" dstnodeid="18" dstpinname="Inverse Bind Pose">
+   </LINK>
+   <NODE systemname="SequentialAdd (Value)" filename="..\..\..\..\mp.essentials\nodes\modules\value\SequentialAdd (Value).v4p" nodename="SequentialAdd (Value)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="3495" top="3735" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Bone Matrices Bin Size" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="29" dstpinname="Blend Indices Offset">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="39" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2400" top="630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2400" top="630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Scene">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Output Node" dstnodeid="27" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Output Node" dstnodeid="38" dstpinname="Scene">
+   </LINK>
+   <NODE systemname="MonoFlop (Animation Framebased)" nodename="MonoFlop (Animation Framebased)" componentmode="Hidden" id="40" filename="%VVVV%\addonpack\lib\nodes\plugins\MonoFlop.dll">
+   <BOUNDS type="Node" left="5115" top="3930" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Frames" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Bang" dstnodeid="40" dstpinname="Set">
+   </LINK>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="3720" top="2700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10200" top="1995" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10200" top="1995" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|No Caching|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="45" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="5190" top="1365" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5190" top="1365" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Skeleton">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Output Node" dstnodeid="18" dstpinname="Skeleton">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Transform" dstnodeid="21" dstpinname="Data">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output 1" dstnodeid="10" dstpinname="Data">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7620" top="1455" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7620" top="1455" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Tangent Vectors|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Tangent Vectors">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="47" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6645" top="1065" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6645" top="1065" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Coordinates|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Texture Coordinates">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Texture Coordinates Input">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Tangent Vectors Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="48" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4260" top="4800" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4260" top="4800" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Skinning">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Skinning Input">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Skinning Output">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Texture Coordinates Output">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Tangent Vectors Output">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="49" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8115" top="3225" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8115" top="3225" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Previous Position Output|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Previous Position Output">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="50" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5835" top="7650" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5835" top="7650" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Previous Position Input">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="51" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3060" top="9855" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3060" top="9855" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="51" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="52" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3900" top="10485" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3900" top="10485" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Buffer Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Buffer Out" dstnodeid="52" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4440" top="9615" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4440" top="9615" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Technique Valid|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Technique Valid" dstnodeid="53" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="54" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="5970" top="10230" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5970" top="10230" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Query">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Query" dstnodeid="54" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="55" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7650" top="10170" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7650" top="10170" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Subset Vertex Count|">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="55" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Bang" dstnodeid="41" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Output" dstnodeid="6" dstpinname="Execute">
+   </LINK>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="5085" top="4410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output" dstnodeid="56" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output" dstnodeid="29" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="57" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7065" top="7635" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7065" top="7635" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Subset ID Output">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Subset ID Input">
+   </LINK>
+   </PATCH>
