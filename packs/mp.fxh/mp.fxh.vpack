@@ -1,8 +1,8 @@
 {
-	"Name": "md.fxh",
+	"Name": "mp.fxh",
 	"Author": "microdee",
 	"VVVVersion": "32",
-	"AddonPack": "true",
+	"AddonPack": "false",
 	"Install": [
 		{"CopyThisPack": []}
 	],

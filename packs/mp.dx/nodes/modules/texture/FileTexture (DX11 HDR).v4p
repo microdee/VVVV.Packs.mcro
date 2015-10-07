@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="3225">
-   <BOUNDS type="Window" left="34035" top="5370" width="9000" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\texture\FileTexture (DX11 HDR).v4p" systemname="FileTexture (DX11 HDR)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FileTexture (DX11 HDR).v4p" scrollx="0" scrolly="2925">
+   <BOUNDS type="Window" left="9525" top="7500" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE id="7" systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="2280" top="7500" width="100" height="100">
@@ -373,7 +373,7 @@
    <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="13">
    <BOUNDS type="Node" left="1755" top="6120" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>

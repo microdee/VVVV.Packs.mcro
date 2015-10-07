@@ -27,6 +27,8 @@ namespace VVVV.Nodes
 		public ISpread<bool> FAdd;
 		[Input("Delete", IsSingle=true, DefaultBoolean=true)]
 		public ISpread<bool> FDelete;
+		[Input("Maximum", IsSingle=true, DefaultValue=0)]
+		public ISpread<int> FMax;
 
 		[Output("Output")]
 		public ISpread<T> FOutput;
@@ -49,7 +51,8 @@ namespace VVVV.Nodes
 			{
 				for (int i = 0; i < FInput.SliceCount; i++)
 				{
-					FOutput.Add(FInput[i]);
+					if((FMax[0] > FOutput.SliceCount) || (FMax[0] < 0))
+						FOutput.Add(FInput[i]);
 				}
 			}
 
