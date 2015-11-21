@@ -20,6 +20,9 @@ namespace VVVV.Nodes
 	#endregion PluginInfo
 	public class WindowsHandleFromPointNode : IPluginEvaluate
 	{		
+		[Input("Update", DefaultBoolean = true)]
+		ISpread<bool> FUpdate;
+		
 		[Output("Handle Out")]
 		ISpread<int> FParent;
 		[Output("Cursor Pos")]
@@ -43,23 +46,26 @@ namespace VVVV.Nodes
 		//called when data for any output pin is requested
 		public void Evaluate(int SpreadMax)
 		{
-			FParent.SliceCount = 1;
-			FTitle.SliceCount = 1;
-			FCurPos.SliceCount = 2;
-			const int nChars = 256;
-			
-			Point ptCursor = new Point();
-			GetCursorPos(out ptCursor);
-			FCurPos[0] = ptCursor.X;
-			FCurPos[1] = ptCursor.Y;
-			
-			IntPtr Parent = WindowFromPoint(ptCursor);
-			IntPtr Child = ChildWindowFromPoint(Parent, ptCursor);
-			StringBuilder Buff = new StringBuilder(nChars);
-			if(GetWindowText(Parent, Buff, nChars) > 0) FTitle[0] = Buff.ToString();
-			else FTitle[0] = "";
-			
-			FParent[0] = Parent.ToInt32();
+			if(FUpdate[0])
+			{
+				FParent.SliceCount = 1;
+				FTitle.SliceCount = 1;
+				FCurPos.SliceCount = 2;
+				const int nChars = 256;
+				
+				Point ptCursor = new Point();
+				GetCursorPos(out ptCursor);
+				FCurPos[0] = ptCursor.X;
+				FCurPos[1] = ptCursor.Y;
+				
+				IntPtr Parent = WindowFromPoint(ptCursor);
+				IntPtr Child = ChildWindowFromPoint(Parent, ptCursor);
+				StringBuilder Buff = new StringBuilder(nChars);
+				if(GetWindowText(Parent, Buff, nChars) > 0) FTitle[0] = Buff.ToString();
+				else FTitle[0] = "";
+				
+				FParent[0] = Parent.ToInt32();
+			}
 		}
 	}
 	#region PluginInfo

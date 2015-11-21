@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="0" scrolly="720">
-   <BOUNDS type="Window" left="29250" top="1695" width="23175" height="13170">
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="-360" scrolly="720">
+   <BOUNDS type="Window" left="4860" top="2280" width="23175" height="13170">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -688,7 +688,7 @@
    <PIN pinname="Output 6" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="DoubleClick (Animation)" filename="%VVVV%\packs\mcropack\nodes\modules\DoubleClick (Animation).v4p" nodename="DoubleClick (Animation)" componentmode="Hidden" id="163">
+   <NODE systemname="DoubleClick (Animation)" filename="..\..\..\mp.essentials\nodes\modules\boolean\DoubleClick (Animation).v4p" nodename="DoubleClick (Animation)" componentmode="Hidden" id="163">
    <BOUNDS type="Node" left="18765" top="10770" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Set" visible="1">

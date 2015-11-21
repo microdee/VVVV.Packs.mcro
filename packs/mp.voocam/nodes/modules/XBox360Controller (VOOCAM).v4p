@@ -1,12 +1,12 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\XBox360Controller (ModularCam).v4p" systemname="XBox360Controller (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\XBox360Controller (ModularCam).v4p" scrollx="1965" scrolly="4605">
-   <BOUNDS type="Window" left="15750" top="4710" width="18195" height="10890">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\XBox360Controller (VOOCAM).v4p" systemname="XBox360Controller (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\XBox360Controller (ModularCam).v4p" scrollx="510" scrolly="1080">
+   <BOUNDS type="Window" left="5475" top="2955" width="18195" height="11565">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
-   <NODE systemname="Xbox360Controller (Devices 1.0.0)" filename="plugins\Xbox360Controller.dll" nodename="Xbox360Controller (Devices 1.0.0)" componentmode="Hidden" id="0">
+   <NODE systemname="Xbox360Controller (Devices 1.0.0)" filename="..\..\..\..\..\..\app\commonpacks\Misc\nodes\plugins\Xbox360Controller.dll" nodename="Xbox360Controller (Devices 1.0.0)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="6780" top="2565" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Back" visible="1">

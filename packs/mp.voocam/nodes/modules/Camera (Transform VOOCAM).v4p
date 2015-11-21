@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="6480">
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="0" scrolly="2880">
    <BOUNDS type="Window" left="3390" top="1320" width="19170" height="10635">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -279,7 +279,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4740" top="960" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.01">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -756,7 +756,7 @@
    </NODE>
    <LINK srcnodeid="61" srcpinname="Output Node" dstnodeid="60" dstpinname="Mouse">
    </LINK>
-   <NODE systemname="DirectInput (Devices)" filename="..\plugins\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="62">
+   <NODE systemname="DirectInput (Devices)" filename="..\..\..\mp.essentials\nodes\plugins\devices\DevicesDirectInput\DevicesDirectInput.csproj" nodename="DirectInput (Devices)" componentmode="Hidden" id="62">
    <BOUNDS type="Node" left="10590" top="8880" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Reinitialize" visible="1" slicecount="1" values="0">
@@ -1016,8 +1016,6 @@
    </NODE>
    <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="76" dstpinname="MouseButtons Bin Size">
    </LINK>
-   <LINK srcnodeid="10" srcpinname="Bang" dstnodeid="74" dstpinname="Construct">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="11385" top="9315" width="795" height="720">
    </BOUNDS>
@@ -1055,7 +1053,7 @@
    <LINK srcnodeid="74" srcpinname="Output" dstnodeid="87" dstpinname="Primitive Object">
    </LINK>
    <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="92">
-   <BOUNDS type="Node" left="8640" top="14145" width="100" height="100">
+   <BOUNDS type="Node" left="8640" top="14520" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -1064,8 +1062,8 @@
    <PIN pinname="Set" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="SetCursorPos (Windows)" filename="..\plugins\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="SetCursorPos (Windows)" componentmode="Hidden" id="91">
-   <BOUNDS type="Node" left="8625" top="14625" width="100" height="100">
+   <NODE systemname="SetCursorPos (Windows)" filename="..\..\..\mp.essentials\nodes\plugins\windows\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="SetCursorPos (Windows)" componentmode="Hidden" id="91">
+   <BOUNDS type="Node" left="8625" top="15000" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Cursor Pos" visible="1">
    </PIN>
@@ -1075,7 +1073,7 @@
    <LINK srcnodeid="92" srcpinname="Output" dstnodeid="91" dstpinname="Cursor Pos">
    </LINK>
    <NODE systemname="NOT (Boolean)" nodename="NOT (Boolean)" componentmode="Hidden" id="89">
-   <BOUNDS type="Node" left="8970" top="13725" width="100" height="100">
+   <BOUNDS type="Node" left="8970" top="14100" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -1083,10 +1081,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="89" srcpinname="Output" dstnodeid="92" dstpinname="Set">
-   </LINK>
-   <LINK srcnodeid="87" srcpinname="LockMouse" dstnodeid="91" dstpinname="Set">
-   </LINK>
-   <LINK srcnodeid="87" srcpinname="LockMouse" dstnodeid="89" dstpinname="Input">
    </LINK>
    <NODE systemname="PrimitiveObject (VObject Split)" filename="..\..\..\VObjects\nodes\plugins\x64\VVVV.Nodes.VObjects.dll" nodename="PrimitiveObject (VObject Split)" componentmode="Hidden" id="93">
    <BOUNDS type="Node" left="3765" top="8325" width="100" height="100">
@@ -1534,8 +1528,6 @@
    </LINK>
    <LINK srcnodeid="119" srcpinname="Output" dstnodeid="95" dstpinname="Add">
    </LINK>
-   <LINK srcnodeid="119" srcpinname="Output" dstnodeid="80" dstpinname="Add">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="121" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="3795" top="4470" width="1590" height="270">
    </BOUNDS>
@@ -1615,11 +1607,53 @@
    <LINK srcnodeid="124" srcpinname="Output" dstnodeid="13" dstpinname="TranslationXYZ">
    </LINK>
    <NODE systemname="HandleFromPoint (Windows)" filename="..\..\..\mp.essentials\nodes\plugins\windows\WindowsHandleFromPoint\WindowsHandleFromPoint.csproj" nodename="HandleFromPoint (Windows)" componentmode="Hidden" id="88">
-   <BOUNDS type="Node" left="7920" top="13155" width="100" height="100">
+   <BOUNDS type="Node" left="7920" top="13530" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Cursor Pos" visible="1">
    </PIN>
+   <PIN pinname="Update" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="88" srcpinname="Cursor Pos" dstnodeid="92" dstpinname="Input">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="128">
+   <BOUNDS type="Node" left="9000" top="13140" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Output 1" dstnodeid="89" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="128" srcpinname="Output 1" dstnodeid="91" dstpinname="Set">
+   </LINK>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="129">
+   <BOUNDS type="Node" left="6870" top="13290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="LockMouse" dstnodeid="129" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Output" dstnodeid="88" dstpinname="Update">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Output" dstnodeid="128" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="119" srcpinname="Output" dstnodeid="74" dstpinname="Construct">
+   </LINK>
+   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="130">
+   <BOUNDS type="Node" left="6735" top="10050" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Down Edge" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="119" srcpinname="Output" dstnodeid="130" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="130" srcpinname="Down Edge" dstnodeid="80" dstpinname="Add">
    </LINK>
    </PATCH>
