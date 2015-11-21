@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\Rotate (Transform Successive Quaternion).v4p" systemname="Rotate (Transform Successive Quaternion)" filename="D:\vvvv\sandbox\leap\Rotate (Transform Successive Quaternion).v4p" scrollx="900" scrolly="600">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\transform\Rotate (Transform Successive Quaternion).v4p" systemname="Rotate (Transform Successive Quaternion)" filename="D:\vvvv\sandbox\leap\Rotate (Transform Successive Quaternion).v4p" scrollx="1035" scrolly="480">
    <BOUNDS height="6000" left="6225" top="3855" type="Window" width="9000">
    </BOUNDS>
    <INFO author="vvvv group" description="A successively rotating Coordinate System." tags="roll, quaternion, animation, feedback, iterative">
@@ -380,6 +380,6 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    </PATCH>
