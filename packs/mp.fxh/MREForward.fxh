@@ -50,14 +50,17 @@ struct PSin
     float4 PosP: PROJECTEDPOS;
     float4 PosV: VIEWPOS;
 	float4 TexCd: TEXCOORD0;
+	float4 velocity : COLOR0;
     float3 NormV: NORMAL;
     float3 NormW: WORLDNORMAL;
-    nointerpolation float ii: INSTANCEID;
-	float4 velocity : COLOR0;
 	#if defined(HAS_NORMALMAP)
 		float3 Tangent : TANGENT;
 		float3 Binormal : BINORMAL;
 	#endif
+	#if defined(DEBUG) && defined(TESSELLATION)
+		float3 bccoords: BARYCENTRIC;
+	#endif
+    nointerpolation float ii: INSTANCEID;
 };
 
 struct PSinProp

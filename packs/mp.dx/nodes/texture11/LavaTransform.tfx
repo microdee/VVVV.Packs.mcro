@@ -130,7 +130,9 @@ float4 pLava(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
 	//float2 uv = position;
     float lum = length(n);
 	float4 tc = 1.- float4(1.-lum, 1.-lum, 1.-lum, 1-lum);
-	return lerp (ColorA, ColorB, tc);
+	float4 rc = lerp (ColorA, ColorB, tc);
+	rc.a = 1;
+	return rc;
 }
 
 technique10 Lava{

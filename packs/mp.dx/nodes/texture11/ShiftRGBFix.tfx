@@ -15,6 +15,7 @@ cbuffer controls:register(b0){
 	float2 Direction = {1,0};
 	float SampleCenter <float uimin=-1;float uimax=1.0;> = 0;
 	float Hue <float uimin=0.0;float uimax=1.0;> = 0.0;
+	float MaxValue = 10;
 };
 
 float4 pFILTER(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
@@ -28,12 +29,12 @@ float4 hueshift(float2 x,float2 off){
 }
 
 float4 pSHIFTRGB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-    float4 c=saturate(tex0.SampleLevel(s0,x,0));
+    float4 c=saturate(tex0.SampleLevel(s0,x,0)/MaxValue);
     float sh=.1*saturate(tex1.SampleLevel(s0,x,0).x);
     c.r=hueshift(x,sh*( 1+SampleCenter)).r;
     c.g=hueshift(x,sh*( 0+SampleCenter)).g;
     c.b=hueshift(x,sh*(-1+SampleCenter)).b;
-    c.rgb=HSVtoRGB(-float3(Hue,0,0)+RGBtoHSV(c.xyz));
+    c.rgb=max(HSVtoRGB(-float3(Hue,0,0)+RGBtoHSV(c.xyz)),0)*MaxValue;
     //if(Alpha)c=float4(c.rgb*c.a,pa);
 
     return c;

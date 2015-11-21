@@ -2,6 +2,7 @@
 /////////////////////////
 //////// Structs ////////
 /////////////////////////
+float2 R:TARGETSIZE;
 
 struct HSin
 {
@@ -95,8 +96,14 @@ float3 SampleArrayNormal(float3 norm, Texture2DArray disp, sampler sS, float2 uv
 	
 	return DisplacedNormal(norm, float4(n,s,e,w), me, am);
 }
+struct TangentSpace
+{
+	float3 n;
+	float3 t;
+	float3 b;
+};
 
-float3x3 SampleNormalTangents(float3x3 normt, Texture2D disp, sampler sS, float2 uv, float ww, float am, float LOD)
+TangentSpace SampleNormalTangents(TangentSpace normt, Texture2D disp, sampler sS, float2 uv, float ww, float am, float LOD)
 {
 	float me = disp.SampleLevel(sS,uv,LOD).x-.5;
 	float n = disp.SampleLevel(sS,float2(uv.x,uv.y+ww),LOD).x-.5;
@@ -104,13 +111,13 @@ float3x3 SampleNormalTangents(float3x3 normt, Texture2D disp, sampler sS, float2
 	float e = disp.SampleLevel(sS,float2(uv.x+ww,uv.y),LOD).x-.5;
 	float w = disp.SampleLevel(sS,float2(uv.x-ww,uv.y),LOD).x-.5;
 	
-	float3x3 ret = 0;
-	ret[0] = DisplacedNormal(normt[0], float4(n,s,e,w), me, am);
-	ret[1] = DisplacedNormal(normt[1], float4(n,s,e,w), me, am);
-	ret[2] = DisplacedNormal(normt[2], float4(n,s,e,w), me, am);
+	TangentSpace ret = (TangentSpace)0;
+	ret.n = DisplacedNormal(normt.n, float4(n,s,e,w), me, am);
+	ret.t = DisplacedNormal(normt.t, float4(n,s,e,w), me, am);
+	ret.b = DisplacedNormal(normt.b, float4(n,s,e,w), me, am);
 	return ret;
 }
-float3x3 SampleArrayNormalTangents(float3x3 normt, Texture2DArray disp, sampler sS, float2 uv, float i, float ww, float am, float LOD)
+TangentSpace SampleArrayNormalTangents(TangentSpace normt, Texture2DArray disp, sampler sS, float2 uv, float i, float ww, float am, float LOD)
 {
 	float me = disp.SampleLevel(sS,float3(uv, i),LOD).x-.5;
 	float n = disp.SampleLevel(sS,float3(uv.x,uv.y+ww, i),LOD).x-.5;
@@ -118,10 +125,10 @@ float3x3 SampleArrayNormalTangents(float3x3 normt, Texture2DArray disp, sampler 
 	float e = disp.SampleLevel(sS,float3(uv.x+ww,uv.y, i),LOD).x-.5;
 	float w = disp.SampleLevel(sS,float3(uv.x-ww,uv.y, i),LOD).x-.5;
 	
-	float3x3 ret = 0;
-	ret[0] = DisplacedNormal(normt[0], float4(n,s,e,w), me, am);
-	ret[1] = DisplacedNormal(normt[1], float4(n,s,e,w), me, am);
-	ret[2] = DisplacedNormal(normt[2], float4(n,s,e,w), me, am);
+	TangentSpace ret = (TangentSpace)0;
+	ret.n = DisplacedNormal(normt.n, float4(n,s,e,w), me, am);
+	ret.t = DisplacedNormal(normt.t, float4(n,s,e,w), me, am);
+	ret.b = DisplacedNormal(normt.b, float4(n,s,e,w), me, am);
 	return ret;
 }
 
@@ -176,10 +183,37 @@ float3 InterpolatePos(
 
 hsconst HSC( InputPatch<HSin, 3> I )
 {
+	/* FAILED ATTEMPT OF EDGE-LENGTH BASED FACTOR
+	float4 Aipos[3];
+	float3 Appos[3];
+	float ii = I[0].ii;
+	
+    #if defined(INSTANCING)
+        float4x4 w = mul(InstancedParams[ii].tW,tW);
+    #else
+        float4x4 w = tW;
+    #endif
+	
+	[unroll]
+	for(uint i=0; i<3; i++)
+	{
+		Aipos[i] = mul(float4(I[i].PosW.xyz,1), mul(w, tVP));
+		Appos[i] = Aipos[i].xyz/Aipos[i].w;
+		Appos[i].z = 0;
+		//Appos[i].xy = min(Appos[i].xy, 1);
+		//Appos[i].xy = max(Appos[i].xy, -1);
+		Appos[i].xy *= R/20;
+	}
+	
+	float FeU = distance(Appos[0], Appos[1]);
+	float FeV = distance(Appos[1], Appos[2]);
+	float FeW = distance(Appos[2], Appos[0]);
+	*/
+	
     hsconst O = (hsconst)0;
-	O.fTessFactor[0] = Factor;    
-    O.fTessFactor[1] = Factor;    
-    O.fTessFactor[2] = Factor;   
+    O.fTessFactor[0] = Factor;
+	O.fTessFactor[1] = Factor;
+    O.fTessFactor[2] = Factor;
     O.fInsideTessFactor = ( O.fTessFactor[0] + O.fTessFactor[1] + O.fTessFactor[2] ) / 3.0f;  
 		
     float3 f3B003 = I[0].PosW;
@@ -215,7 +249,7 @@ hsconst HSC( InputPatch<HSin, 3> I )
 ////////////////////
 
 [domain("tri")]
-[partitioning("fractional_odd")]
+[partitioning("fractional_even")]
 [outputtopology("triangle_cw")]
 [patchconstantfunc("HSC")]
 [outputcontrolpoints(3)]

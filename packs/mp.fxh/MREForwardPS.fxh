@@ -106,7 +106,8 @@ PSOut PS(PSin In)
     #if defined(HAS_NORMALMAP)
     	float3 normmap = NormalTex.Sample(Sampler, uvb).xyz*2-1;
 		float3 outnorm = normalize(normmap.x * In.Tangent + normmap.y * In.Binormal + normmap.z * In.NormV);
-		Out.normalV = float4(lerp(NormV, outnorm, depth),1);
+		if(length(outnorm) < 0.8) outnorm = In.NormV;
+		Out.normalV = float4(normalize(lerp(NormV, outnorm, depth)),1);
 	#else
 		Out.normalV = float4(NormV,1);
 	#endif
@@ -126,7 +127,11 @@ PSOut PS(PSin In)
 	#else
 		diffcol.rgb *= FDiffColor.rgb * FDiffAmount;
 	#endif
-	Out.color.rgb = diffcol.rgb;
+	#if defined(DEBUG) && defined(TESSELLATION)
+		Out.color.rgb = In.bccoords;
+	#else
+		Out.color.rgb = diffcol.rgb;
+	#endif
 	//Out.color.rgb = HUEtoRGB(ii/10);
 	//Out.color.a = alphat;
 	
