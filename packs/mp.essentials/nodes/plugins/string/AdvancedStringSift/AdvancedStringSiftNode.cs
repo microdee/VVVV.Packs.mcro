@@ -22,6 +22,8 @@ namespace VVVV.Nodes
 		public ISpread<ISpread<string>> FInput;
 		[Input("Filter")]
 		public ISpread<ISpread<string>> FFilter;
+		[Input("Contains")]
+		public ISpread<bool> FContains;
 
 		[Output("Input Index")]
 		public ISpread<ISpread<int>> FInIndex;
@@ -50,7 +52,11 @@ namespace VVVV.Nodes
 				{
 					for(int k=0; k<FFilter[i].SliceCount; k++)
 					{
-						if(FInput[i][j] == FFilter[i][k])
+						bool valid = false;
+						if(FContains[0]) valid = FInput[i][j].Contains(FFilter[i][k]);
+						else valid = FInput[i][j] == FFilter[i][k];
+						
+						if(valid)
 						{
 							FInIndex[i].Add(j);
 							FInAbsIndex[i].Add(ii);
