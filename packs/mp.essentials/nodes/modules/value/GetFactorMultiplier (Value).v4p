@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="C:\vvvv\github\mcropack\nodes\modules\GetFactorMultiplier (Value).v4p" systemname="GetFactorMultiplier (Value)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\GetFactorMultiplier (Value).v4p" scrollx="0" scrolly="2205">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\value\GetFactorMultiplier (Value).v4p" systemname="GetFactorMultiplier (Value)" filename="G:\vvvv\app\vvvv_45alpha31.7_x86\packs\Emeshe\nodes\Modules\GetFactorMultiplier (Value).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="3720" top="9210" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="testPack" Version="0.1.0">
    </PACK>
-   <NODE systemname="SequentialAdd (Value)" filename="..\..\..\..\nodes\plugins\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="2">
+   <NODE systemname="SequentialAdd (Value)" filename="..\..\plugins\value\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="2">
    <BOUNDS type="Node" left="3075" top="3750" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Start" slicecount="1" values="12">
@@ -30,7 +30,7 @@
    </NODE>
    <LINK srcnodeid="1" srcpinname="Output" dstnodeid="2" dstpinname="Input">
    </LINK>
-   <NODE systemname="SequentialAdd (Value)" filename="..\..\..\..\nodes\plugins\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="0">
+   <NODE systemname="SequentialAdd (Value)" filename="..\..\plugins\value\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="3075" top="4215" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Start" slicecount="1" values="1">
@@ -99,7 +99,7 @@
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="3780" top="780" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 2" slicecount="1" values="1">
+   <PIN pinname="Input 2" slicecount="1" values="1" visible="1">
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -186,6 +186,26 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="16" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5025" top="375" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5025" top="375" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Odd">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="8" dstpinname="Input 2">
+   </LINK>
    </PATCH>

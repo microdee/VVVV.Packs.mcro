@@ -9,8 +9,12 @@
 
 StructuredBuffer<float> SubsetTexID;
 Texture2DArray DiffTex;
-Texture2DArray BumpTex;
-Texture2DArray NormalTex;
+#if defined(HAS_NORMALMAP)
+	#if defined(WRITEDEPTH)
+		Texture2DArray BumpTex : FR_BUMPTEX;
+	#endif
+	Texture2DArray NormalTex : FR_NORMALTEX;
+#endif
 
 cbuffer cbPerObjectPS : register( b2 )
 {
@@ -85,10 +89,6 @@ PSOut PS(PSin In)
 	float depth = InstancedParams[ii].BumpAmount;
 	float TexID = SubsetTexID[ii];
 
-	#if defined(WRITEDEPTH) || defined(HAS_NORMALMAP)
-		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID)).r + bumpOffset;
-	#endif
-
     float4 diffcol = DiffTex.Sample(Sampler, float3(uvb, TexID));
 
     #if defined(HAS_NORMALMAP)
@@ -115,6 +115,7 @@ PSOut PS(PSin In)
 	//Out.color.a = alphat;
 	
 	#if defined(WRITEDEPTH)
+		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID)).r + bumpOffset;
 		if(depth!=0) PosV += In.NormV * mdepth * depth * 0.1;
 		if(DepthMode == 1)
 		{
@@ -141,4 +142,8 @@ PSOut PS(PSin In)
 	Out.normalV.a = InstancedParams[ii].ObjID0;
 	
     return Out;
+}
+PSOut PSw(PSin In)
+{
+    return (PSOut)1;
 }

@@ -5,8 +5,12 @@
 // StructuredBuffer<InstanceParams> InstancedParams;
 
 StructuredBuffer<float> SubsetTexID;
-Texture2DArray DiffTex;
-Texture2DArray BumpTex;
+#if defined(ALPHATEST)
+	Texture2DArray DiffTex : FR_DIFFTEX;
+#endif
+#if defined(WRITEDEPTH)
+	Texture2DArray BumpTex : FR_BUMPTEX;
+#endif
 
 cbuffer cbPerDrawPS : register( b2 )
 {

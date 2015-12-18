@@ -28,10 +28,10 @@
 
 struct VSin
 {
-	float4 cpoint : POSITION;
+	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_IN)
-		float4 TexCd: TEXCOORD0;
+		float2 TexCd: TEXCOORD0;
 	#endif
 	#if defined(TANGENTS_IN)
 		float3 Tangent : TANGENT;
@@ -53,10 +53,10 @@ struct VSin
 
 struct GSin
 {
-	float4 cpoint : SV_Position;
+	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_OUT)
-		float4 TexCd: TEXCOORD0;
+		float2 TexCd: TEXCOORD0;
 	#endif
 	#if defined(TANGENTS_OUT)
 		float3 Tangent : TANGENT;
@@ -78,7 +78,7 @@ struct GSin
 /*
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
-	"SV_Position.xyz;"
+	"POSITION.xyz;"
 	"NORMAL.xyz"
 	#if defined(TEXCOORD_OUT)
 		";TEXCOORD0.xy"

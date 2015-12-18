@@ -23,11 +23,11 @@ namespace VVVV.Nodes
 		#region fields & pins
 		[Input("Input")]
 		public ISpread<T> FInput;
-		[Input("Add", IsSingle=true, DefaultBoolean=true)]
+		[Input("Add", IsSingle=true, DefaultBoolean=false)]
 		public ISpread<bool> FAdd;
 		[Input("Delete", IsSingle=true, DefaultBoolean=true)]
 		public ISpread<bool> FDelete;
-		[Input("Maximum", IsSingle=true, DefaultValue=0)]
+		[Input("Maximum", IsSingle=true, DefaultValue=-1)]
 		public ISpread<int> FMax;
 
 		[Output("Output")]

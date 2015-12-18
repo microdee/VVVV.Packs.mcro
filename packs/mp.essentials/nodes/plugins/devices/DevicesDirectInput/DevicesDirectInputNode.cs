@@ -131,45 +131,7 @@ namespace VVVV.Nodes
     			FKeyCode[j] = k.GetHashCode();
     			// formatting for better "compatibility" with Keyboard (System Global)
     			// every key name will be placed in <> brackets except numbers and letters
-        		FKeys[j] = "<" + k.ToString().ToUpper() + ">";
-    			if(FKeyCode[j] == 0x02) FKeys[j] = "1";
-    			if(FKeyCode[j] == 0x03) FKeys[j] = "2";
-    			if(FKeyCode[j] == 0x04) FKeys[j] = "3";
-    			if(FKeyCode[j] == 0x05) FKeys[j] = "4";
-    			if(FKeyCode[j] == 0x06) FKeys[j] = "5";
-    			if(FKeyCode[j] == 0x07) FKeys[j] = "6";
-    			if(FKeyCode[j] == 0x08) FKeys[j] = "7";
-    			if(FKeyCode[j] == 0x09) FKeys[j] = "8";
-    			if(FKeyCode[j] == 0x0a) FKeys[j] = "9";
-    			if(FKeyCode[j] == 0x0b) FKeys[j] = "0";
-    			if(
-    				(FKeyCode[j] == 0x10) ||
-    				(FKeyCode[j] == 0x11) ||
-    				(FKeyCode[j] == 0x12) ||
-    				(FKeyCode[j] == 0x13) ||
-    				(FKeyCode[j] == 0x14) ||
-    				(FKeyCode[j] == 0x15) ||
-    				(FKeyCode[j] == 0x16) ||
-    				(FKeyCode[j] == 0x17) ||
-    				(FKeyCode[j] == 0x18) ||
-    				(FKeyCode[j] == 0x19) ||
-    				(FKeyCode[j] == 0x1e) ||
-    				(FKeyCode[j] == 0x1f) ||
-    				(FKeyCode[j] == 0x20) ||
-    				(FKeyCode[j] == 0x21) ||
-    				(FKeyCode[j] == 0x22) ||
-    				(FKeyCode[j] == 0x23) ||
-    				(FKeyCode[j] == 0x24) ||
-    				(FKeyCode[j] == 0x25) ||
-    				(FKeyCode[j] == 0x26) ||
-    				(FKeyCode[j] == 0x2c) ||
-    				(FKeyCode[j] == 0x2d) ||
-    				(FKeyCode[j] == 0x2e) ||
-    				(FKeyCode[j] == 0x2f) ||
-    				(FKeyCode[j] == 0x30) ||
-    				(FKeyCode[j] == 0x31) ||
-    				(FKeyCode[j] == 0x32)
-    			) FKeys[j] = k.ToString();
+        		FKeys[j] = k.ToString();
     			info += FKeys[j];
     			j++;
     		}

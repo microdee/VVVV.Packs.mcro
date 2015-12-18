@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\TextBlock (DX11).v4p" systemname="TextBlock (DX11)" filename="C:\vvvv\libs\VObjects\nodes\modules\GUI\TextBlock (DX11).v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="5910" top="4695" width="14970" height="10140">
+   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\TextBlock (DX11).v4p" systemname="TextBlock (DX11)" filename="C:\vvvv\libs\VObjects\nodes\modules\GUI\TextBlock (DX11).v4p" scrollx="0" scrolly="7425">
+   <BOUNDS type="Window" left="5625" top="7140" width="14970" height="10140">
    </BOUNDS>
    <PACK Name="addonpack" Version="34.1.0">
    </PACK>
@@ -20,7 +20,7 @@
    <PIN pinname="Color" slicecount="1" visible="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
-   <NODE systemname="GUIPixelBillboard (Transform)" filename="GUIPixelBillboard (Transform).v4p" nodename="GUIPixelBillboard (Transform)" componentmode="Hidden" id="25">
+   <NODE systemname="GUIPixelBillboard (Transform)" filename="..\..\..\..\mp.essentials\nodes\modules\transform\GUIPixelBillboard (Transform).v4p" nodename="GUIPixelBillboard (Transform)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="4245" top="4200" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Receive String" slicecount="1" visible="1" values="Resolution">
@@ -203,7 +203,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5415" top="2145" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Center">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Leading">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Text Alignment|">
    </PIN>
@@ -215,7 +215,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5820" top="2655" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Center">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Near">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Paragraph Alignment|">
    </PIN>
@@ -420,12 +420,12 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <NODE systemname="SuppressDiagonals (DX11.Effect)" filename="..\..\..\..\mcropack\nodes\dx11\SuppressDiagonals.fx" nodename="SuppressDiagonals (DX11.Effect)" componentmode="Hidden" id="41">
+   <NODE systemname="SuppressDiagonals (DX11.Effect)" filename="..\..\dx11\SuppressDiagonals.fx" nodename="SuppressDiagonals (DX11.Effect)" componentmode="Hidden" id="41">
    <BOUNDS type="Node" left="4860" top="11445" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>

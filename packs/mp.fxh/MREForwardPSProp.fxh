@@ -4,8 +4,13 @@
 // declare outside:
 // StructuredBuffer<InstanceParams> InstancedParams;
 
-Texture2D DiffTex;
-Texture2D BumpTex;
+#if defined(ALPHATEST)
+	Texture2D DiffTex : FR_DIFFTEX;
+#endif
+#if defined(WRITEDEPTH)
+	Texture2D BumpTex : FR_BUMPTEX;
+#endif
+
 cbuffer cbPerDrawPS : register( b2 )
 {
 	float3 CamPos : CAM_POSITION;

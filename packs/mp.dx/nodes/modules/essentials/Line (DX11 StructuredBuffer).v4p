@@ -131,7 +131,7 @@
    </PIN>
    <PIN pinname="Buffer" visible="1">
    </PIN>
-   <PIN pinname="Apply" slicecount="1" values="0" visible="1">
+   <PIN pinname="Apply" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="44" srcpinname="XY" dstnodeid="41" dstpinname="DataXY">
@@ -315,7 +315,7 @@
    </PIN>
    <PIN pinname="Query" visible="1">
    </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1" visible="1">
+   <PIN pinname="Enabled" slicecount="1" visible="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="49" srcpinname="Layer" dstnodeid="26" dstpinname="Layer">
@@ -849,7 +849,7 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Execute" slicecount="1" values="0" visible="1">
+   <PIN pinname="Execute" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>

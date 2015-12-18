@@ -5,11 +5,16 @@
 // include MREForward.fxh before including this
 
 // declare outside:
-// StructuredBuffer<InstanceParams> InstancedParams;
+// StructuredBuffer<InstanceParams> InstancedParams : FR_INSTANCEDPARAMS;
 
 Texture2D DiffTex;
-Texture2D BumpTex;
-Texture2D NormalTex;
+
+#if defined(HAS_NORMALMAP)
+	#if defined(WRITEDEPTH)
+		Texture2D BumpTex : FR_BUMPTEX;
+	#endif
+	Texture2D NormalTex : FR_NORMALTEX;
+#endif
 
 cbuffer cbPerObjectPS : register( b2 )
 {
@@ -94,14 +99,10 @@ PSOut PS(PSin In)
 
 	float depth = bmpam;
 	#if defined(TRIPLANAR)
-		float mdepth = TriPlanarSample(BumpTex, Sampler, In.TexCd.xyz, In.NormW, TriPlanarPow).r + bumpOffset;
 		float4 diffcol = TriPlanarSample(DiffTex, Sampler, In.TexCd.xyz, In.NormW, TriPlanarPow);
 	#else
-		float mdepth = BumpTex.Sample(Sampler, uvb).r + bumpOffset;
     	float4 diffcol = DiffTex.Sample( Sampler, uvb);
 	#endif
-	
-	if(depth!=0) PosV += In.NormV * mdepth * depth * 0.1;
 
     #if defined(HAS_NORMALMAP)
     	float3 normmap = NormalTex.Sample(Sampler, uvb).xyz*2-1;
@@ -136,6 +137,15 @@ PSOut PS(PSin In)
 	//Out.color.a = alphat;
 	
 	#if defined(WRITEDEPTH)
+	
+		#if defined(TRIPLANAR)
+			float mdepth = TriPlanarSample(BumpTex, Sampler, In.TexCd.xyz, In.NormW, TriPlanarPow).r + bumpOffset;
+		#else
+			float mdepth = BumpTex.Sample(Sampler, uvb).r + bumpOffset;
+		#endif
+		
+		if(depth!=0) PosV += In.NormV * mdepth * depth * 0.1;
+	
 		if(DepthMode == 1)
 		{
 			float d = length(PosV.xyz);
