@@ -6,3 +6,10 @@
 bin/
 packs/*
 !packs/mp.*/
+
+src/*/packages
+src/*/.vs
+src/*/bin
+src/*/obj
+src/*/*/bin
+src/*/*/obj
