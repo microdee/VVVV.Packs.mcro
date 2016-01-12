@@ -67,7 +67,7 @@ float RayLength(float2 UV, float z, float4x4 tP, float4x4 tPI, float4x4 tVI)
 
 float3 UVDtoVIEW(float2 UV, float d, float3 NearFarPow, float4x4 tP, float4x4 tPI)
 {
-	float dd = pow(d,1/NearFarPow.z) * abs(NearFarPow.y - NearFarPow.x) + NearFarPow.x;
+	float dd = pows(d,1/NearFarPow.z) * abs(NearFarPow.y - NearFarPow.x) + NearFarPow.x;
 	return RayDirectionV(UV, tP, tPI) * dd;
 }
 
