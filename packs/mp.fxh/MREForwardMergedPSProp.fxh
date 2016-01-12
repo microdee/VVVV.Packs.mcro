@@ -4,7 +4,7 @@
 // declare outside:
 // StructuredBuffer<InstanceParams> InstancedParams;
 
-StructuredBuffer<float> SubsetTexID;
+StructuredBuffer<float4> SubsetTexID;
 #if defined(ALPHATEST)
 	Texture2DArray DiffTex : FR_DIFFTEX;
 #endif
@@ -28,11 +28,11 @@ float PS(PSinProp In) : SV_Target
 	float ii = In.ii;
 	
 	float2 uvb = In.TexCd.xy;
-	float TexID = SubsetTexID[ii];
+	float4 TexID = SubsetTexID[ii];
 	
 	#if defined(WRITEDEPTH)
 		float depth = InstancedParams[ii].BumpAmount;
-		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID)).r + bumpOffset;
+		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID.z)).r + bumpOffset;
 		float3 PosW = In.PosW.xyz + In.NormW * mdepth * depth * 0.1;
 	#else
 		float3 PosW = In.PosW.xyz;
@@ -41,7 +41,7 @@ float PS(PSinProp In) : SV_Target
 	#if defined(ALPHATEST)
 		if(alphatest!=0)
 		{
-		    float4 diffcol = DiffTex.Sample( Sampler, float3(uvb, TexID));
+		    float4 diffcol = DiffTex.Sample( Sampler, float3(uvb, TexID.x));
 			float alphat = diffcol.a;
 			alphat = lerp(alphat, (alphat>=alphatest), min(alphatest*10,1));
 			clip(alphat - (1-alphatest));

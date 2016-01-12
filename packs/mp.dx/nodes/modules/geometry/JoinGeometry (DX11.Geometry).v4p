@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\geometry\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\geometry\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="45" scrolly="0">
    <BOUNDS type="Window" left="435" top="4095" width="10155" height="10020">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -503,6 +503,8 @@
    <NODE systemname="GeomJoinThru (DX11.Effect)" filename="..\..\dx11\GeomJoinThru.fx" nodename="GeomJoinThru (DX11.Effect)" componentmode="Hidden" id="50">
    <BOUNDS type="Node" left="1950" top="5100" width="1290" height="270">
    </BOUNDS>
+   <PIN pinname="Query" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="50" dstpinname="Render State">
    </LINK>
@@ -521,5 +523,15 @@
    <LINK srcnodeid="45" srcpinname="Defines" dstnodeid="50" dstpinname="Defines">
    </LINK>
    <LINK srcnodeid="46" srcpinname="Output" dstnodeid="50" dstpinname="SubsetID">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="51" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="9075" top="6675" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9075" top="6675" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Query">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Query" dstnodeid="51" dstpinname="Input Node">
    </LINK>
    </PATCH>

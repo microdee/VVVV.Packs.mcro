@@ -1,21 +1,9 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha33.9.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\modules\TextureRouter (Assimp ToMerged).v4p" systemname="TextureRouter (Assimp ToMerged)" filename="C:\vvvv\libs\mcropack\nodes\Modules\TextureRouter (Assimp ToMerged).v4p" scrollx="75" scrolly="2160">
-   <BOUNDS type="Window" left="15840" top="4890" width="10275" height="9450">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\TextureRouter (Assimp ToMerged).v4p" systemname="TextureRouter (Assimp ToMerged)" filename="C:\vvvv\libs\mcropack\nodes\Modules\TextureRouter (Assimp ToMerged).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="18210" top="4980" width="10275" height="9450">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <NODE systemname="Material (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Material (Assimp)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="2400" top="1680" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Scene" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Texture Path" visible="1">
-   </PIN>
-   <PIN pinname="Texture Type" visible="1">
-   </PIN>
-   <PIN pinname="Texture Count" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Add (String)" filename="" nodename="Add (String)" componentmode="Hidden" id="22">
    <BOUNDS type="Node" left="4395" top="3120" width="100" height="100">
    </BOUNDS>
@@ -27,7 +15,7 @@
    </PIN>
    <PIN pinname="Input Count" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="61" values="textures\sponza_thorn_diff.png,textures\sponza_thorn_diff.png,textures\sponza_thorn_bump.png,textures\sponza_thorn_mask.png,textures\vase_round.png,textures\vase_round.png,textures\vase_round_bump.png,textures\vase_plant.png,textures\vase_plant.png,textures\vase_plant_mask.png,textures\background.png,textures\background.png,textures\background_bump.png,textures\spnza_bricks_a_diff.png,textures\spnza_bricks_a_diff.png,textures\spnza_bricks_a_diff.png,textures\sponza_arch_diff.png,textures\sponza_arch_diff.png,textures\sponza_ceiling_a_diff.png,textures\sponza_ceiling_a_diff.png,textures\sponza_column_a_diff.png,textures\sponza_column_a_diff.png,textures\sponza_column_a_bump.png,textures\sponza_floor_a_diff.png,textures\sponza_floor_a_diff.png,textures\sponza_column_c_diff.png,textures\sponza_column_c_diff.png,textures\sponza_column_c_bump.png,textures\sponza_details_diff.png,textures\sponza_details_diff.png,textures\sponza_column_b_diff.png,textures\sponza_column_b_diff.png,textures\sponza_column_b_bump.png,textures\sponza_flagpole_diff.png,textures\sponza_flagpole_diff.png,textures\sponza_fabric_green_diff.png,textures\sponza_fabric_green_diff.png,textures\sponza_fabric_blue_diff.png,textures\sponza_fabric_blue_diff.png,textures\sponza_fabric_diff.png,textures\sponza_fabric_diff.png,textures\sponza_curtain_blue_diff.png,textures\sponza_curtain_blue_diff.png,textures\sponza_curtain_diff.png,textures\sponza_curtain_diff.png,textures\sponza_curtain_green_diff.png,textures\sponza_curtain_green_diff.png,textures\chain_texture.png,textures\chain_texture.png,textures\chain_texture_bump.png,textures\chain_texture_mask.png,textures\vase_hanging.png,textures\vase_hanging.png,textures\vase_dif.png,textures\vase_dif.png,textures\vase_bump.png,textures\lion.png,textures\lion.png,textures\lion_bump.png,textures\sponza_roof_diff.png,textures\sponza_roof_diff.png">
    </PIN>
    </NODE>
    <NODE systemname="DynamicTexture (DX11.Texture 2d Color)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicTexture (DX11.Texture 2d Color)" componentmode="Hidden" id="19">
@@ -50,8 +38,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="23" dstpinname="Scene">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="17" systemname="IOBox (String)">
    <BOUNDS type="Box" left="6090" top="1470" width="2385" height="240">
    </BOUNDS>
@@ -122,8 +108,6 @@
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="23" srcpinname="Texture Path" dstnodeid="22" dstpinname="Input 3">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
    <BOUNDS type="Box" left="5865" top="870" width="795" height="240">
    </BOUNDS>
@@ -155,7 +139,7 @@
    <NODE systemname="Enum2String (Enumerations)" nodename="Enum2String (Enumerations)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="2790" top="2295" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Enum" visible="1" slicecount="1" values="(nil)">
+   <PIN pinname="Enum" visible="1" slicecount="61" values="Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient,Ambient">
    </PIN>
    <PIN pinname="String Value" visible="1">
    </PIN>
@@ -194,11 +178,9 @@
    </NODE>
    <LINK srcnodeid="10" srcpinname="Output" dstnodeid="7" dstpinname="Select">
    </LINK>
-   <LINK srcnodeid="23" srcpinname="Texture Type" dstnodeid="9" dstpinname="Enum">
-   </LINK>
    <LINK srcnodeid="22" srcpinname="Output" dstnodeid="7" dstpinname="Input">
    </LINK>
-   <NODE systemname="SequentialAdd (Value)" filename="..\plugins\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="6">
+   <NODE systemname="SequentialAdd (Value)" filename="..\..\..\..\mp.essentials\nodes\plugins\value\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="2010" top="5580" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="21" values="0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0,0,1,0,1">
@@ -213,14 +195,12 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
-   <PIN pinname="Bin Size" visible="1">
+   <PIN pinname="Bin Size" visible="1" slicecount="25" values="4,3,3,3,3,2,2,3,2,3,2,3,0,2,2,2,2,2,2,2,4,2,3,3,2">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Output" dstnodeid="5" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Texture Count" dstnodeid="5" dstpinname="Bin Size">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Input">
    </LINK>
@@ -325,14 +305,12 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
-   <PIN pinname="Bin Size" visible="1">
+   <PIN pinname="Bin Size" visible="1" slicecount="25" values="4,3,3,3,3,2,2,3,2,3,2,3,0,2,2,2,2,2,2,2,4,2,3,3,2">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Output" dstnodeid="30" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Texture Count" dstnodeid="30" dstpinname="Bin Size">
    </LINK>
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="31">
    <BOUNDS type="Node" left="2010" top="6045" width="100" height="100">
@@ -348,7 +326,7 @@
    </LINK>
    <LINK srcnodeid="19" srcpinname="Texture Out" dstnodeid="29" dstpinname="Input 1">
    </LINK>
-   <NODE systemname="SetSlice (DX11.Texture2DArray)" filename="..\..\..\..\..\libs\mcropack\nodes\modules\SetSlice (DX11.Texture2DArray).v4p" nodename="SetSlice (DX11.Texture2DArray)" componentmode="Hidden" id="34">
+   <NODE systemname="SetSlice (DX11.Texture2DArray)" filename="..\texture\SetSlice (DX11.Texture2DArray).v4p" nodename="SetSlice (DX11.Texture2DArray)" componentmode="Hidden" id="34">
    <BOUNDS type="Node" left="3885" top="7425" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Target Format" slicecount="1" visible="1" values="R8G8B8A8_UNorm">
@@ -379,7 +357,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4035" top="1035" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="512,512">
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="1024,1024">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -439,9 +417,9 @@
    <LINK srcnodeid="34" srcpinname="Texture Slices Out" dstnodeid="37" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2445" top="7605" width="795" height="240">
+   <BOUNDS type="Box" left="1395" top="7410" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2445" top="7605" width="0" height="0">
+   <BOUNDS type="Node" left="1395" top="7410" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -477,5 +455,21 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Output" dstnodeid="39" dstpinname="Input String">
+   </LINK>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
+   <NODE systemname="Material (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Material (Assimp)" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="2400" top="1680" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="40" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Texture Path" dstnodeid="22" dstpinname="Input 3">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Texture Type" dstnodeid="9" dstpinname="Enum">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Texture Count" dstnodeid="5" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Texture Count" dstnodeid="30" dstpinname="Bin Size">
    </LINK>
    </PATCH>

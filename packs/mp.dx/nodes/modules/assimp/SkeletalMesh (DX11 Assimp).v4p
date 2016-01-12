@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" systemname="SkeletalMesh (DX11 Assimp)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" scrollx="0" scrolly="1230">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" systemname="SkeletalMesh (DX11 Assimp)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" scrollx="0" scrolly="4470">
    <BOUNDS type="Window" left="5310" top="2730" width="17625" height="11085">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -123,7 +123,7 @@
    <LINK srcnodeid="22" srcpinname="Defines" dstnodeid="23" dstpinname="Defines">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="3810" top="11055" width="100" height="100">
+   <BOUNDS type="Node" left="3900" top="11430" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Data" visible="1" slicecount="1" values="||">
    </PIN>
@@ -131,7 +131,7 @@
    </PIN>
    </NODE>
    <NODE systemname="GetJointTransform (Skeleton)" filename="%VVVV%\addonpack\lib\nodes\plugins\SkeletonNodes.dll" nodename="GetJointTransform (Skeleton)" componentmode="Hidden" id="18">
-   <BOUNDS type="Node" left="6255" top="9150" width="100" height="100">
+   <BOUNDS type="Node" left="3840" top="10020" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Joint Name" visible="1">
    </PIN>
@@ -143,7 +143,7 @@
    </PIN>
    </NODE>
    <NODE systemname="FrameDelay (Transform)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Transform)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="5790" top="9915" width="100" height="100">
+   <BOUNDS type="Node" left="4650" top="10485" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -153,7 +153,7 @@
    <LINK srcnodeid="18" srcpinname="Transform" dstnodeid="11" dstpinname="Input 1">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="5100" top="10395" width="100" height="100">
+   <BOUNDS type="Node" left="4635" top="10995" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Data" visible="1" slicecount="1" values="||">
    </PIN>
@@ -165,7 +165,7 @@
    <LINK srcnodeid="10" srcpinname="Buffer" dstnodeid="23" dstpinname="PrevSkinningMatrices">
    </LINK>
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="3810" top="9585" width="100" height="100">
+   <BOUNDS type="Node" left="3315" top="9405" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>

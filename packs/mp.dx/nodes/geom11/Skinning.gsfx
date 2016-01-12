@@ -84,7 +84,7 @@ void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 }
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
-	"SV_Position.xyz;"
+	"POSITION.xyz;"
 	"NORMAL.xyz"
 	#if defined(TEXCOORD_OUT)
 		";TEXCOORD0.xy"

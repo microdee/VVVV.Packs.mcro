@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="0" scrolly="8280" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
-   <BOUNDS type="Window" left="1650" top="5550" width="12315" height="9180">
+   <PATCH nodename="E:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="705" scrolly="-360" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
+   <BOUNDS type="Window" left="1650" top="5550" width="13320" height="9180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -567,17 +567,19 @@
    </PIN>
    </NODE>
    <NODE systemname="SpaceMouse (VOOCAM)" filename="..\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM).v4p" nodename="SpaceMouse (VOOCAM)" componentmode="Hidden" id="70" debug="0">
-   <BOUNDS type="Node" left="7155" top="5865" width="100" height="100">
+   <BOUNDS type="Node" left="7155" top="6165" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="7155" top="5865">
+   <BOUNDS type="Box" left="7155" top="6165">
    </BOUNDS>
    <PIN pinname="Camera Thru" visible="1">
    </PIN>
+   <PIN pinname="Camera In" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="71" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7155" top="5535" width="630" height="270">
+   <BOUNDS type="Node" left="7155" top="5835" width="630" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7155" top="5535" width="630" height="270">
+   <BOUNDS type="Box" left="7155" top="5835" width="630" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|OR use|">
    </PIN>
@@ -589,9 +591,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="72" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7230" top="7365" width="1065" height="270">
+   <BOUNDS type="Node" left="7200" top="7485" width="1065" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7230" top="7365" width="1065" height="270">
+   <BOUNDS type="Box" left="7200" top="7485" width="1065" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|you will need|">
    </PIN>
@@ -603,9 +605,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="73" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7230" top="7680" width="3645" height="270">
+   <BOUNDS type="Node" left="7200" top="7800" width="3645" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7230" top="7680" width="3645" height="270">
+   <BOUNDS type="Box" left="7200" top="7800" width="3645" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="http://vvvv.org/contribution/xbox360controller">
    </PIN>
@@ -751,7 +753,7 @@
    <NODE id="52" componentmode="Hidden" systemname="SpaceMouse (VOOCAM VJoy)" filename="..\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" nodename="SpaceMouse (VOOCAM VJoy)" debug="0">
    <BOUNDS type="Node" left="4830" top="4350" width="1185" height="270">
    </BOUNDS>
-   <BOUNDS type="Window" left="8640" top="3510" width="14565" height="9915">
+   <BOUNDS type="Window" left="270" top="1560" width="14565" height="9915">
    </BOUNDS>
    <PIN pinname="Camera In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -760,8 +762,6 @@
    <PIN pinname="Background" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Camera Thru" dstnodeid="52" dstpinname="Camera In">
-   </LINK>
    <NODE id="17" systemname="Stopwatch (Animation)" nodename="Stopwatch (Animation)" componentmode="Hidden">
    <BOUNDS type="Node" left="6615" top="6615" width="100" height="100">
    </BOUNDS>
@@ -921,5 +921,57 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="86" srcpinname="Failed" dstnodeid="88" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="89" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8955" top="6360" width="3570" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8955" top="6360" width="1260" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="\Sx2vJoyConfig">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Directory">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8550" top="5820" width="6285" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="5820" width="3345" height="480">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|see configuration file which fits this node&apos;s defaults or set up yours editing the module|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Camera Thru" dstnodeid="52" dstpinname="Camera In">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="91" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7140" top="5490" width="3390" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7140" top="5490" width="3390" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|it works without their UX nightmare crapware|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="XBox360Controller (VOOCAM)" filename="..\packs\mp.voocam\nodes\modules\XBox360Controller (VOOCAM).v4p" nodename="XBox360Controller (VOOCAM)" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="4860" top="7410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Camera In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Camera Thru" dstnodeid="92" dstpinname="Camera In">
    </LINK>
    </PATCH>

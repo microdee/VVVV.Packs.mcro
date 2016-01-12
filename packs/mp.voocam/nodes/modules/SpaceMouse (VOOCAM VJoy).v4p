@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" systemname="SpaceMouse (VOOCAM VJoy)" filename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" scrollx="9825" scrolly="1755">
-   <BOUNDS type="Window" left="14205" top="7425" width="12240" height="7680">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" systemname="SpaceMouse (VOOCAM VJoy)" filename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" scrollx="8880" scrolly="30">
+   <BOUNDS type="Window" left="270" top="1560" width="14565" height="9915">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -565,7 +565,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11160" top="2100" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-Z">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="+Y">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Y is|">
    </PIN>
@@ -579,7 +579,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11970" top="2055" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="+Y">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-Z">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Z is|">
    </PIN>
@@ -593,7 +593,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="13335" top="1995" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="+X">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-X">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Pitch is|">
    </PIN>
@@ -607,7 +607,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="14220" top="2025" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-Z">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-Y">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Yaw is|">
    </PIN>
@@ -621,7 +621,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="15030" top="1980" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="+Y">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="-Z">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Roll is|">
    </PIN>

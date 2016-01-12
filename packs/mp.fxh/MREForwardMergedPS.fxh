@@ -7,7 +7,7 @@
 // declare outside:
 // StructuredBuffer<InstanceParams> InstancedParams;
 
-StructuredBuffer<float> SubsetTexID;
+StructuredBuffer<float4> SubsetTexID;
 Texture2DArray DiffTex;
 #if defined(HAS_NORMALMAP)
 	#if defined(WRITEDEPTH)
@@ -87,12 +87,12 @@ PSOut PS(PSin In)
 	float2 uvb = In.TexCd.xy;
 
 	float depth = InstancedParams[ii].BumpAmount;
-	float TexID = SubsetTexID[ii];
+	float4 TexID = SubsetTexID[ii];
 
-    float4 diffcol = DiffTex.Sample(Sampler, float3(uvb, TexID));
+    float4 diffcol = DiffTex.Sample(Sampler, float3(uvb, TexID.x));
 
     #if defined(HAS_NORMALMAP)
-    	float3 normmap = NormalTex.Sample(Sampler, float3(uvb, TexID)).xyz*2-1;
+    	float3 normmap = NormalTex.Sample(Sampler, float3(uvb, TexID.y)).xyz*2-1;
 		float3 outnorm = normalize(normmap.x * In.Tangent + normmap.y * In.Binormal + normmap.z * In.NormV);
 		Out.normalV = float4(lerp(NormV, outnorm, depth),1);
 	#else
@@ -115,7 +115,7 @@ PSOut PS(PSin In)
 	//Out.color.a = alphat;
 	
 	#if defined(WRITEDEPTH)
-		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID)).r + bumpOffset;
+		float mdepth = BumpTex.Sample(Sampler, float3(uvb, TexID.z)).r + bumpOffset;
 		if(depth!=0) PosV += In.NormV * mdepth * depth * 0.1;
 		if(DepthMode == 1)
 		{

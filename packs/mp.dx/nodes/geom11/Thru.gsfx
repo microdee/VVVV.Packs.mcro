@@ -17,8 +17,11 @@ GSin VS(VSin input)
 		output.BlendId = input.BlendId;
 		output.BlendWeight = input.BlendWeight;
 	#endif
-	#if defined(GEOMVELOCITY_IN) && defined(GEOMVELOCITY_OUT)
-		output.PrevPos = input.velocity;
+	#if defined(PREVPOS_IN) && defined(PREVPOS_OUT)
+		output.PrevPos = input.PrevPos;
+	#endif
+	#if defined(SUBSETID_IN) && defined(SUBSETID_OUT)
+		output.SubsetID = input.SubsetID;
 	#endif
 	
     return output;
@@ -36,7 +39,7 @@ void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 }
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
-	"SV_Position.xyz;"
+	"POSITION.xyz;"
 	"NORMAL.xyz"
 	#if defined(TEXCOORD_OUT)
 		";TEXCOORD0.xy"
@@ -46,11 +49,14 @@ GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
 		";BINORMAL.xyz"
 	#endif
 	#if defined(BLENDWEIGHTS_OUT)
-		";BLENDINDICES"
-		";BLENDWEIGHT"
+		";BLENDINDICES.xyzw"
+		";BLENDWEIGHT.xyzw"
 	#endif
 	#if defined(PREVPOS_OUT)
-		";COLOR0"
+		";PREVPOS.xyz"
+	#endif
+	#if defined(SUBSETID_OUT)
+		";SUBSETID.x"
 	#endif
 );
 
