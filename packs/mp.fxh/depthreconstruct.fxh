@@ -1,4 +1,8 @@
 #define DEPTHRECONSTRUCT_FXH 1
+#if !defined(POWS_FXH)
+#include "../../../mp.fxh/pows.fxh"
+#endif
+
 #define IS_ORTHO(P) (round(P._34)==0&&round(P._44)==1)
 
 float2 UVtoSCREEN(float2 UV)

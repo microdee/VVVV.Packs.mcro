@@ -33,8 +33,8 @@ namespace VVVV.DX11.Nodes
         protected IDiffSpread<string> FSemantic;
         [Input("UAV Postfix", Order = 10, DefaultString = "")]
         protected IDiffSpread<string> FUAVPostfix;
-        //[Input("SRV Postfix", Order = 11, DefaultString = "_SRV")]
-        //protected IDiffSpread<string> FSRVPostfix;
+        [Input("SRV Postfix", Order = 11, DefaultString = "_SRV")]
+        protected IDiffSpread<string> FSRVPostfix;
 
         [Input("Allow VertexBuffer", DefaultValue = 0, Order = 12)]
         protected IDiffSpread<bool> FInVBO;
@@ -143,8 +143,6 @@ namespace VVVV.DX11.Nodes
                 this.Update(null, context);
             }
 
-
-
             if (!this.FInLayer.PluginIO.IsConnected) { return; }
 
             if (this.rendereddevices.Contains(context)) { return; }
@@ -189,24 +187,27 @@ namespace VVVV.DX11.Nodes
             {
                 semres.Dispose();
             }
-            rsemantics.Clear();
-            this.DisposeBuffers(context);
-
-            for (int i = 0; i < FOutBuffers.SliceCount; i++)
+            if (reset)
             {
-                if (reset || !this.FOutBuffers[i].Contains(context))
-                {
-                    DX11RawBuffer rb = new DX11RawBuffer(context.Device, this.sizes[i], this.flags[i]);
-                    this.FOutBuffers[i][context] = rb;
+                rsemantics.Clear();
+                this.DisposeBuffers(context);
 
-                    RWBufferRenderSemantic uavbs = new RWBufferRenderSemantic(FSemantic[i] + FUAVPostfix[i], false);
-                    uavbs.Data = this.FOutBuffers[i][context];
-                    rsemantics.Add(uavbs);
-                    /*
-                    BufferRenderSemantic srvbs = new BufferRenderSemantic(FSemantic[i] + FSRVPostfix[i], false);
-                    srvbs.Data = this.FOutBuffers[i][context];
-                    rsemantics.Add(srvbs);
-                    */
+                for (int i = 0; i < FOutBuffers.SliceCount; i++)
+                {
+                    if (reset || !this.FOutBuffers[i].Contains(context))
+                    {
+                        DX11RawBuffer rb = new DX11RawBuffer(context.Device, this.sizes[i], this.flags[i]);
+                        this.FOutBuffers[i][context] = rb;
+
+                        RWBufferRenderSemantic uavbs = new RWBufferRenderSemantic(FSemantic[i] + FUAVPostfix[i], false);
+                        uavbs.Data = this.FOutBuffers[i][context];
+                        rsemantics.Add(uavbs);
+                        
+                        BufferRenderSemantic srvbs = new BufferRenderSemantic(FSemantic[i] + FSRVPostfix[i], false);
+                        srvbs.Data = this.FOutBuffers[i][context];
+                        rsemantics.Add(srvbs);
+                        
+                    }
                 }
             }
 

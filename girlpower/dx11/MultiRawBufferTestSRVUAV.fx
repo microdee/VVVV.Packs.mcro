@@ -1,5 +1,5 @@
 
-RWByteAddressBuffer buf0u : BACKBUFFER0;
+ByteAddressBuffer buf0s : BACKBUFFER0_SRV;
 RWByteAddressBuffer buf1u : BACKBUFFER1;
 
 #if !defined(XTHREADS)
@@ -12,8 +12,6 @@ RWByteAddressBuffer buf1u : BACKBUFFER1;
 #define ZTHREADS 1
 #endif
 
-float4 test = float4(0.1, 0.2, 0.3, 0.4);
-
 struct csin
 {
 	uint3 DTID : SV_DispatchThreadID;
@@ -24,7 +22,7 @@ struct csin
 [numthreads(XTHREADS, YTHREADS, ZTHREADS)]
 void CS(csin input)
 {
-	buf0u.Store4( 0 , asuint(test) );
-	buf1u.Store2( 0 , asuint(test.xy + 1) );
+	float2 test1 = asfloat(buf0s.Load2(0)) + 10;
+	buf1u.Store2( 8 , asuint(test1) );
 }
 technique11 cst { pass P0{SetComputeShader( CompileShader( cs_5_0, CS() ) );} }

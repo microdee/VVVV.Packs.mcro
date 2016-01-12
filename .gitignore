@@ -4,9 +4,12 @@
 
 # Dynamic plugins .dll
 bin/
+
+# Filter non-mcropack packs
 packs/*
 !packs/mp.*/
 
+# Visual Studio Garbage
 src/*/packages
 src/*/.vs
 src/*/bin
