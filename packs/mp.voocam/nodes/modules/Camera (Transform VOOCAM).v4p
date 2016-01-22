@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="1770" scrolly="4785">
-   <BOUNDS type="Window" left="3390" top="1320" width="19170" height="10635">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Camera (Transform VOOCAM).v4p" systemname="Camera (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Camera (ModularCam).v4p" scrollx="1770" scrolly="5685">
+   <BOUNDS type="Window" left="9315" top="1740" width="19170" height="10635">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -233,7 +233,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3705" top="1275" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.2">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1497,7 +1497,7 @@
    <NODE systemname="GetForegroundWindow (Windows)" filename="..\..\..\mp.essentials\nodes\plugins\windows\WindowsGetForegroundWindow\WindowsGetForegroundWindow.csproj" nodename="GetForegroundWindow (Windows)" componentmode="Hidden" id="146">
    <BOUNDS type="Node" left="10260" top="6570" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Update" slicecount="1" values="1" visible="1">
+   <PIN pinname="Update" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Handle Out" visible="1">
    </PIN>
@@ -1679,5 +1679,25 @@
    <LINK srcnodeid="155" srcpinname="Output" dstnodeid="159" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="74" srcpinname="Output Object" dstnodeid="157" dstpinname="Primitive Object">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="160" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11745" top="12240" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11745" top="12240" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,,">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="150" srcpinname="Output" dstnodeid="160" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

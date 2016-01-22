@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="6795" scrolly="5670">
-   <BOUNDS type="Window" left="29250" top="1695" width="23175" height="13170">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\MouseKeyboard (VOOCAM).v4p" systemname="MouseKeyboard (ModularCam)" filename="C:\vvvv\libs\mcropack\nodes\Modules\MouseKeyboard (ModularCam).v4p" scrollx="0" scrolly="720">
+   <BOUNDS type="Window" left="5940" top="1965" width="23175" height="13170">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -2607,7 +2607,7 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input Collection" visible="1">
+   <PIN pinname="Input Collection" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="270" dstpinname="Input">
