@@ -1,4 +1,13 @@
+#if !defined(STDMATH_FXH)
+#include "../../../mp.fxh/stdmath.fxh"
+#endif
+#if !defined(POWS_FXH)
+#include "../../../mp.fxh/pows.fxh"
+#endif
+
+#if !defined(PI)
 #define PI 3.1415926535897932
+#endif
 float4 qmul(float4 q1, float4 q2)
 {
 	return float4(
@@ -15,22 +24,32 @@ float4 qinvert(float4 q)
 
 float4x4 qrot(float4 q)
 {
-    float4x4 res = {
-        1,0,0,0,
-        0,1,0,0,
-        0,0,1,0,
-        0,0,0,1
+    float4x4 m1 = {
+         q.w, q.z,-q.y, q.x,
+        -q.z, q.w, q.x, q.y,
+         q.y,-q.x, q.w, q.z,
+        -q.x,-q.y,-q.z, q.w
     };
-	res[0][0] = 1 - 2*q.y*q.y - 2*q.z*q.z;
-	res[0][1] = 2*q.x*q.y - 2*q.w*q.z;
-	res[0][2] = 2*q.x*q.z + 2*q.w*q.y;
-	res[1][0] = 2*q.x*q.y + 2*q.w*q.z;
-	res[1][1] = 1 - 2*q.x*q.x - 2*q.z*q.z;
-	res[1][2] = 2*q.y*q.z + 2*q.w*q.x;
-	res[2][0] = 2*q.x*q.z - 2*q.w*q.y;
-	res[2][1] = 2*q.y*q.z - 2*q.w*q.x;
-	res[2][2] = 1 - 2*q.x*q.x - 2*q.y*q.y;
-	return res;
+    float4x4 m2 = {
+         q.w, q.z,-q.y,-q.x,
+        -q.z, q.w, q.x,-q.y,
+         q.y,-q.x, q.w,-q.z,
+         q.x, q.y, q.z, q.w
+    };
+	return mul(m1, m2);
+}
+
+float4 m2q(float4x4 m)
+{
+    float4 q = float4(0,0,0,1);
+    q.w = sqrt( max( 0, 1 + m[0][0] + m[1][1] + m[2][2] ) ) / 2;
+    q.x = sqrt( max( 0, 1 + m[0][0] - m[1][1] - m[2][2] ) ) / 2;
+    q.y = sqrt( max( 0, 1 - m[0][0] + m[1][1] - m[2][2] ) ) / 2;
+    q.z = sqrt( max( 0, 1 - m[0][0] - m[1][1] + m[2][2] ) ) / 2;
+    q.x = copysign( q.x, m[1][2] - m[2][1] );
+    q.y = copysign( q.y, m[2][0] - m[0][2] );
+    q.z = copysign( q.z, m[0][1] - m[1][0] );
+    return q;
 }
 
 float4 aa2q(float3 a, float r)
@@ -42,6 +61,20 @@ float4 aa2q(float3 a, float r)
 	res.y = a.y * sinr;
 	res.z = a.z * sinr;
 	res.w = cosr;
+	return res;
+}
+float4 euler(float3 pyr)
+{
+	float4 res = aa2q(float3(0,1,0), pyr.y);
+	res = qmul(res, aa2q(float3(1,0,0), pyr.x));
+	res = qmul(res, aa2q(float3(0,0,1), pyr.z));
+	return res;
+}
+float4 euler(float pp, float yy, float rr)
+{
+	float4 res = aa2q(float3(0,1,0), yy);
+	res = qmul(res, aa2q(float3(1,0,0), pp));
+	res = qmul(res, aa2q(float3(0,0,1), rr));
 	return res;
 }
 
@@ -80,4 +113,21 @@ float4 slerp (float4 a, float4 b, float t )
     float sintheta = sin(halftheta);
 
     return (sin((1.0f - t) * halftheta) * a + sin(t * halftheta) * c) / sin(halftheta);
+}
+float4 qLookAt(float3 d, float3 fwvec)
+{
+	float3 dn = normalize(d);
+	float3 fn = normalize(fwvec);
+    float dfd = pows(dot(dn, fn), 1.5);
+    if(dfd >= 0.9999)
+		return float4(0,0,0,1);
+    if(dfd <= -0.9999)
+		return float4(0,1,0,0);
+
+    float3 dfc = normalize(cross(fn, dn));
+
+    float mangle = dfd * -0.25 + 0.25;
+    float4 rot = aa2q(dfc, mangle);
+    float eangle = clamp(dfd * 0.5, -0.5, 0);
+    return qmul(aa2q(fn, eangle), rot);
 }
