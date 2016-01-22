@@ -42,6 +42,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="VVVV.Core" />
+    <Reference Include="VVVV.Packs.Messaging">
+      <HintPath>dependencies\VVVV.Packs.Messaging.dll</HintPath>
+    </Reference>
     <Reference Include="VVVV.PluginInterfaces" />
     <Reference Include="VVVV.Utils" />
     <Reference Include="VVVV.Utils3rdParty" />

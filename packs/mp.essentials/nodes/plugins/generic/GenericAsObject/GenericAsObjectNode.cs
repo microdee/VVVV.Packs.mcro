@@ -10,6 +10,7 @@ using VVVV.Utils.VColor;
 using VVVV.Utils.VMath;
 
 using VVVV.Core.Logging;
+using VVVV.Packs.Messaging;
 #endregion usings
 
 namespace VVVV.Nodes
@@ -119,4 +120,7 @@ namespace VVVV.Nodes
 	public class StringAsWeakObjectNode : AsWeakObjectNode<string> { }
 	[PluginInfo(Name = "AsStrongObject", Category = "String", Tags = "")]
 	public class StringAsStrongObjectNode : AsStrongObjectNode<string> { }
+	
+	[PluginInfo(Name = "AsStrongObject", Category = "Message", Tags = "")]
+	public class MessageAsStrongObjectNode : AsStrongObjectNode<Message> { }
 }
