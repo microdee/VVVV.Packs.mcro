@@ -1,7 +1,7 @@
 
 struct VSin
 {
-	float4 cpoint : POSITION;
+	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_IN)
 		float4 TexCd: TEXCOORD0;
@@ -20,7 +20,7 @@ struct VSin
 
 struct GSin
 {
-	float4 cpoint : SV_Position;
+	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_OUT)
 		float4 TexCd: TEXCOORD0;
@@ -46,7 +46,7 @@ cbuffer cbPerObj : register( b0 )
 GSin VS(VSin input)
 {
     GSin output;
-    output.cpoint = mul(input.cpoint,tW);
+    output.cpoint = mul(float4(input.cpoint, 1),tW).xyz;
 	output.norm = mul(float4(input.norm,0),tW).xyz;
 	#if defined(TEXCOORD_IN) && defined(TEXCOORD_OUT)
 		output.TexCd = input.TexCd;
@@ -78,7 +78,7 @@ void GS(triangle GSin input[3], inout TriangleStream<GSin>GSOut)
 }
 
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ),
-	"SV_Position.xyz;"
+	"POSITION.xyz;"
 	"NORMAL.xyz"
 	#if defined(TEXCOORD_OUT)
 		";TEXCOORD0.xy"

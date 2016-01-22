@@ -1,5 +1,5 @@
 
-#define USUAL "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy"
+#define USUAL "POSITION.xyz;NORMAL.xyz;TEXCOORD0.xy"
 
 float LineCount = 100;
 
@@ -10,9 +10,9 @@ struct VsInUsual
 };
 struct VsOutUsual
 {
-	float4 cpoint : SV_Position;
+	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
-	float4 TexCd : TEXCOORD0;
+	float2 TexCd : TEXCOORD0;
 };
 VsOutUsual VsUsual(VsInUsual input)
 {
@@ -33,9 +33,9 @@ VsOutUsual VsUsual(VsInUsual input)
 		pos.x = (input.vi%2-.5)*LineCount;
 	}
 	
-    output.cpoint = float4(pos,1);
+    output.cpoint = pos;
 	output.norm = float3(0,0,-1);
-	output.TexCd = float4(pos.xy/LineCount+.5,0,1);
+	output.TexCd = pos.xy/LineCount+.5;
 	
     return output;
 }

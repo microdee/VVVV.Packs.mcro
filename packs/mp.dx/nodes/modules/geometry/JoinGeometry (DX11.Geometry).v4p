@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
    <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\geometry\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="45" scrolly="0">
-   <BOUNDS type="Window" left="435" top="4095" width="10155" height="10020">
+   <BOUNDS type="Window" left="8970" top="2490" width="10155" height="10020">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -129,7 +129,7 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="Input String" slicecount="18" values="OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK,OK">
+   <PIN pinname="Input String" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="GetMaxElement (DX11.Geometry GeomFX)" filename="GetMaxElement (DX11.Geometry GeomFX).v4p" nodename="GetMaxElement (DX11.Geometry GeomFX)" componentmode="Hidden" id="24">
@@ -500,30 +500,6 @@
    </NODE>
    <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="46" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="GeomJoinThru (DX11.Effect)" filename="..\..\dx11\GeomJoinThru.fx" nodename="GeomJoinThru (DX11.Effect)" componentmode="Hidden" id="50">
-   <BOUNDS type="Node" left="1950" top="5100" width="1290" height="270">
-   </BOUNDS>
-   <PIN pinname="Query" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="50" dstpinname="Render State">
-   </LINK>
-   <LINK srcnodeid="50" srcpinname="Layout Message" dstnodeid="21" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="50" srcpinname="Query" dstnodeid="24" dstpinname="Query Source">
-   </LINK>
-   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="50" dstpinname="BlendIDOffset">
-   </LINK>
-   <LINK srcnodeid="39" srcpinname="Output Node" dstnodeid="50" dstpinname="Transform In">
-   </LINK>
-   <LINK srcnodeid="50" srcpinname="Layer" dstnodeid="40" dstpinname="Layer">
-   </LINK>
-   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="50" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="45" srcpinname="Defines" dstnodeid="50" dstpinname="Defines">
-   </LINK>
-   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="50" dstpinname="SubsetID">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="51" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="9075" top="6675" width="795" height="240">
    </BOUNDS>
@@ -531,7 +507,31 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Query">
    </PIN>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="50" srcpinname="Query" dstnodeid="51" dstpinname="Input Node">
+   <NODE systemname="GeomJoinThru (DX11.Effect)" filename="..\..\dx11\GeomJoinThru.fx" nodename="GeomJoinThru (DX11.Effect)" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="1950" top="5100" width="1290" height="270">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="52" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Layout Message" dstnodeid="21" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Query" dstnodeid="24" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="52" dstpinname="BlendIDOffset">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Output Node" dstnodeid="52" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Layer" dstnodeid="40" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="52" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Defines" dstnodeid="52" dstpinname="Defines">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="52" dstpinname="SubsetID">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Query" dstnodeid="51" dstpinname="Input Node">
    </LINK>
    </PATCH>
