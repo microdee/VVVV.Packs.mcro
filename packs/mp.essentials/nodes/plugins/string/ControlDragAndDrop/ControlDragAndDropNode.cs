@@ -29,13 +29,13 @@ namespace VVVV.Nodes
 
 		[Output("Output", AllowFeedback=true)]
 		ISpread<string> FOut;
-		[Output("DragEnter", AllowFeedback=true)]
+		[Output("DragEnter", AllowFeedback=true, IsBang = true)]
 		ISpread<bool> FDragEnter;
 		[Output("DragInside", AllowFeedback=true)]
 		ISpread<bool> FDragInside;
-		[Output("DragLeave", AllowFeedback=true)]
+		[Output("DragLeave", AllowFeedback=true, IsBang = true)]
 		ISpread<bool> FDragLeave;
-		[Output("DragDrop", AllowFeedback=true)]
+		[Output("DragDrop", AllowFeedback=true, IsBang = true)]
 		ISpread<bool> FDragDrop;
 
 		[Import()]
