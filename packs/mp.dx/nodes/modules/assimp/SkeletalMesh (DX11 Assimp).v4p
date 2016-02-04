@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" systemname="SkeletalMesh (DX11 Assimp)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" scrollx="2025" scrolly="5085">
-   <BOUNDS type="Window" left="19935" top="4305" width="17625" height="11085">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" systemname="SkeletalMesh (DX11 Assimp)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletalMesh (DX11 Assimp).v4p" scrollx="0" scrolly="2430">
+   <BOUNDS type="Window" left="9825" top="2070" width="17625" height="11085">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -535,7 +535,7 @@
    <LINK srcnodeid="84" srcpinname="Output" dstnodeid="6" dstpinname="Input">
    </LINK>
    <NODE systemname="Switch (Node Input)" filename="" nodename="Switch (Node Input)" componentmode="Hidden" id="85">
-   <BOUNDS type="Node" left="2040" top="8505" width="100" height="100">
+   <BOUNDS type="Node" left="1065" top="8835" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -603,7 +603,7 @@
    </PIN>
    <PIN pinname="BoneCount" visible="1">
    </PIN>
-   <PIN pinname="Skeleton" visible="1">
+   <PIN pinname="Skeleton" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Inverse Bind Pose" visible="1">
    </PIN>
@@ -628,6 +628,8 @@
    <PIN pinname="Query" visible="1">
    </PIN>
    <PIN pinname="PrevPosMul" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="0" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Geometry Out" dstnodeid="89" dstpinname="Geometry In">
@@ -673,5 +675,25 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="89" dstpinname="PrevPosMul">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="91" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7815" top="11085" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7815" top="11085" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Enabled">
    </LINK>
    </PATCH>

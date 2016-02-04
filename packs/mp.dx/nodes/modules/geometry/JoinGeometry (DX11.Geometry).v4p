@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\geometry\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="45" scrolly="0">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\geometry\JoinGeometry (DX11.Geometry).v4p" systemname="JoinGeometry (DX11.Geometry)" filename="C:\vvvv\libs\mcropack\nodes\Modules\JoinGeometry (DX11.Geometry).v4p" scrollx="45" scrolly="360">
    <BOUNDS type="Window" left="8970" top="2490" width="10155" height="10020">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -53,7 +53,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5130" top="1875" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -334,20 +334,6 @@
    </LINK>
    <LINK srcnodeid="31" srcpinname="Output" dstnodeid="40" dstpinname="Element Count">
    </LINK>
-   <NODE systemname="Topology (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Topology (DX11.Geometry)" componentmode="Hidden" id="41">
-   <BOUNDS type="Node" left="1200" top="2640" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Topology" slicecount="1" values="TriangleList">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="41" dstpinname="Geometry In">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6645" top="4140" width="315" height="375">
    </BOUNDS>
@@ -417,6 +403,8 @@
    </PIN>
    <BOUNDS type="Window" left="7410" top="8685" width="9000" height="6000">
    </BOUNDS>
+   <PIN pinname="Output Strides" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Texture Coordinates Input">
    </LINK>
@@ -439,10 +427,6 @@
    <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Subset ID Output">
    </LINK>
    <LINK srcnodeid="45" srcpinname="Input Elements" dstnodeid="40" dstpinname="Output Layout">
-   </LINK>
-   <LINK srcnodeid="45" srcpinname="Strides" dstnodeid="35" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="45" srcpinname="Strides" dstnodeid="40" dstpinname="Vertex Size">
    </LINK>
    <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="46">
    <BOUNDS type="Node" left="2745" top="4545" width="100" height="100">
@@ -513,6 +497,10 @@
    <NODE systemname="GeomJoinThru (DX11.Effect)" filename="..\..\dx11\GeomJoinThru.fx" nodename="GeomJoinThru (DX11.Effect)" componentmode="Hidden" id="52">
    <BOUNDS type="Node" left="1950" top="5100" width="1290" height="270">
    </BOUNDS>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="52" dstpinname="Render State">
    </LINK>
@@ -526,12 +514,28 @@
    </LINK>
    <LINK srcnodeid="52" srcpinname="Layer" dstnodeid="40" dstpinname="Layer">
    </LINK>
-   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="52" dstpinname="Geometry">
-   </LINK>
    <LINK srcnodeid="45" srcpinname="Defines" dstnodeid="52" dstpinname="Defines">
    </LINK>
    <LINK srcnodeid="46" srcpinname="Output" dstnodeid="52" dstpinname="SubsetID">
    </LINK>
    <LINK srcnodeid="52" srcpinname="Query" dstnodeid="51" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Output Strides" dstnodeid="35" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Output Strides" dstnodeid="40" dstpinname="Vertex Size">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2100" top="6705" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2100" top="6705" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Output" dstnodeid="53" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="52" dstpinname="Geometry">
    </LINK>
    </PATCH>

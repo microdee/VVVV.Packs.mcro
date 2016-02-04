@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="10080">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="7830">
    <BOUNDS type="Window" left="2775" top="1725" width="13680" height="12180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -733,7 +733,9 @@
    </PIN>
    <PIN pinname="ScaleY" visible="1">
    </PIN>
-   <PIN pinname="TranslateX" slicecount="1" values="0">
+   <PIN pinname="TranslateX" slicecount="1" values="0" visible="1">
+   </PIN>
+   <PIN pinname="TranslateY" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="106">
@@ -903,6 +905,8 @@
    </PIN>
    <PIN pinname="X" slicecount="1" visible="1" values="10">
    </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="121" srcpinname="Transform Out" dstnodeid="114" dstpinname="Transform In">
    </LINK>
@@ -982,6 +986,8 @@
    <PIN pinname="X" slicecount="1" visible="1" values="10">
    </PIN>
    <PIN pinname="Y" slicecount="1" visible="1" values="-20">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="124" srcpinname="Transform Out" dstnodeid="127" dstpinname="Transform In">
@@ -1119,6 +1125,8 @@
    </PIN>
    <PIN pinname="Y" slicecount="1" visible="1" values="-20">
    </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="142" srcpinname="Transform Out" dstnodeid="145" dstpinname="Transform In">
    </LINK>
@@ -1182,6 +1190,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
    <LINK srcnodeid="148" srcpinname="Y Output Value" dstnodeid="144" dstpinname="Maximum Width">
@@ -1274,6 +1284,8 @@
    <PIN pinname="X" slicecount="1" visible="1" values="10">
    </PIN>
    <PIN pinname="Y" slicecount="1" visible="1" values="-20">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="154" srcpinname="Transform Out" dstnodeid="157" dstpinname="Transform In">
@@ -1433,5 +1445,79 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="167" srcpinname="Output Node" dstnodeid="166" dstpinname="Layer 1">
+   </LINK>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="169">
+   <BOUNDS type="Node" left="3645" top="9090" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="169" srcpinname="X" dstnodeid="105" dstpinname="TranslateX">
+   </LINK>
+   <LINK srcnodeid="169" srcpinname="Y" dstnodeid="105" dstpinname="TranslateY">
+   </LINK>
+   <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="170">
+   <BOUNDS type="Node" left="11625" top="10395" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="171">
+   <BOUNDS type="Node" left="11535" top="9915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="171" srcpinname="X" dstnodeid="170" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="171" srcpinname="Y" dstnodeid="170" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="121" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="124" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="142" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="154" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="172" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9915" top="7200" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9915" top="7200" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Position">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="172" srcpinname="Y Output Value" dstnodeid="169" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Y Output Value" dstnodeid="171" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="91" dstpinname="Transform In">
    </LINK>
    </PATCH>

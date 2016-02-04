@@ -4,7 +4,7 @@ struct VSin
 	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_IN)
-		float4 TexCd: TEXCOORD0;
+		float2 TexCd: TEXCOORD0;
 	#endif
 	#if defined(TANGENTS_IN)
 		float3 Tangent : TANGENT;
@@ -23,7 +23,7 @@ struct GSin
 	float3 cpoint : POSITION;
 	float3 norm : NORMAL;
 	#if defined(TEXCOORD_OUT)
-		float4 TexCd: TEXCOORD0;
+		float2 TexCd: TEXCOORD0;
 	#endif
 	#if defined(TANGENTS_OUT)
 		float3 Tangent : TANGENT;

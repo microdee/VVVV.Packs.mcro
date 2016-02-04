@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="270" scrolly="-360">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\assimp\SkeletonSimple (Assimp).v4p" systemname="SkeletonSimple (Assimp)" filename="C:\vvvv\libs\mcropack\nodes\Modules\SkeletonSimple (Assimp).v4p" scrollx="1680" scrolly="975">
    <BOUNDS type="Window" left="16935" top="4110" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -37,7 +37,7 @@
    </PIN>
    <PIN pinname="Node Name" visible="1">
    </PIN>
-   <PIN pinname="Absolute Time" slicecount="1" values="0">
+   <PIN pinname="Absolute Time" slicecount="1" visible="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="Translate (Transform Vector)" nodename="Translate (Transform Vector)" componentmode="Hidden" id="9">
@@ -99,7 +99,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2040" top="2070" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values="root">
+   <PIN pinname="Input String" slicecount="1" values="unnamed">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -587,5 +587,25 @@
    <LINK srcnodeid="11" srcpinname="Channels" dstnodeid="42" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="42" srcpinname="Output Node" dstnodeid="41" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8475" top="2610" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8475" top="2610" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Absolute Time|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Absolute Time">
    </LINK>
    </PATCH>
