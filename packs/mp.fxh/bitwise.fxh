@@ -17,6 +17,21 @@ float2 Split(float a)
 	return asfloat(ret);
 }
 
+uint Join(uint a, uint b)
+{
+	uint ab = 0x0000FFFF & a;
+	uint bb = 0xFFFF0000 & (a << 16);
+	return ab | bb;
+}
+
+uint2 Split(uint a)
+{
+	uint2 ret = 0;
+	ret.x = 0x0000FFFF & a;
+	ret.y = 0x0000FFFF & (a >> 16);
+	return ret;
+}
+
 uint JoinHalf(uint a, uint b)
 {
 	uint ab = 0x000000FF & a;
