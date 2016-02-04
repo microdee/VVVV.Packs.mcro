@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" systemname="SpaceMouse (VOOCAM VJoy)" filename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" scrollx="8880" scrolly="30">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" systemname="SpaceMouse (VOOCAM VJoy)" filename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\SpaceMouse (VOOCAM VJoy).v4p" scrollx="570" scrolly="1500">
    <BOUNDS type="Window" left="270" top="1560" width="14565" height="9915">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -347,7 +347,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6960" top="7275" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.5">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.75">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -694,6 +694,8 @@
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="3" values=",,">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Axis XYZ|">
    </PIN>
    </NODE>
    <LINK srcnodeid="123" srcpinname="Axis XYZ" dstnodeid="124" dstpinname="Y Input Value">
@@ -1377,5 +1379,45 @@
    <LINK srcnodeid="196" srcpinname="Interact" dstnodeid="199" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="199" srcpinname="Output" dstnodeid="173" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="200" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12960" top="12780" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12960" top="12780" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values=",,">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="181" srcpinname="Position Out" dstnodeid="200" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="201" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="15690" top="13155" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15690" top="13155" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Angle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Angle" dstnodeid="201" dstpinname="Y Input Value" linkstyle="VHV">
+   <LINKPOINT x="15705" y="12563">
+   </LINKPOINT>
+   <LINKPOINT x="15690" y="12563">
+   </LINKPOINT>
    </LINK>
    </PATCH>

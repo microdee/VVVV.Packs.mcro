@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\nodes\Modules\VOOCAMSequencerRotate.v4p" systemname="VOOCAMSequencerRotate" filename="C:\vvvv\libs\mcropack\nodes\Modules\VOOCAMSequencerRotate.v4p" scrollx="0" scrolly="480">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\VOOCAMSequencerRotate.v4p" systemname="VOOCAMSequencerRotate" filename="C:\vvvv\libs\mcropack\nodes\Modules\VOOCAMSequencerRotate.v4p" scrollx="0" scrolly="855">
    <BOUNDS type="Window" left="1860" top="2130" width="14250" height="10470">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="28">
    <BOUNDS type="Node" left="2460" top="4890" width="100" height="100">
@@ -451,9 +451,9 @@
    <NODE systemname="Multiply (Quaternion)" nodename="Multiply (Quaternion)" componentmode="Hidden" id="33">
    <BOUNDS type="Node" left="3525" top="8685" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Quaternion 2 XYZW" visible="1" slicecount="4" values="0.00538916885852814,0.000501781702041626,-2.74181365966797E-006,0.99998527765274">
+   <PIN pinname="Quaternion 2 XYZW" visible="1" slicecount="4" values="0,0,0,0">
    </PIN>
-   <PIN pinname="Quaternion 1 XYZW" visible="1" slicecount="4" values="0.368139296770096,0.742431223392487,-0.468284279108047,0.305711537599564">
+   <PIN pinname="Quaternion 1 XYZW" visible="1" slicecount="4" values="0.00795275840527029,-0.00100192835081357,-0.0043503008014845,0.999958421195368">
    </PIN>
    <PIN pinname="Quaternion XYZW" visible="1">
    </PIN>
@@ -558,8 +558,8 @@
    </LINK>
    <LINK srcnodeid="41" srcpinname="Output" dstnodeid="18" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Quaternion 2 XYZW">
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Quaternion 1 XYZW">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Output" dstnodeid="33" dstpinname="Quaternion 1 XYZW">
+   <LINK srcnodeid="18" srcpinname="Output" dstnodeid="33" dstpinname="Quaternion 2 XYZW">
    </LINK>
    </PATCH>

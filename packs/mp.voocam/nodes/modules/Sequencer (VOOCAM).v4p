@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Sequencer (VOOCAM).v4p" systemname="Sequencer (VOOCAM)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Sequencer (VOOCAM).v4p" scrollx="15" scrolly="0">
-   <BOUNDS type="Window" left="7305" top="1950" width="18360" height="12240">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.voocam\nodes\modules\Sequencer (VOOCAM).v4p" systemname="Sequencer (VOOCAM)" filename="C:\vvvv\libs\mcropack\nodes\Modules\Sequencer (VOOCAM).v4p" scrollx="15" scrolly="0">
+   <BOUNDS type="Window" left="7005" top="3990" width="18360" height="12240">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -329,7 +329,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7095" top="1905" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -600,7 +600,7 @@
    <PIN pinname="RotationXYZW" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="VOOCAMSequencerRotate" filename="VOOCAMSequencerRotate.v4p" componentmode="Hidden" id="71" nodename="VOOCAMSequencerRotate.v4p">
+   <NODE systemname="VOOCAMSequencerRotate" filename="VOOCAMSequencerRotate.v4p" componentmode="InAWindow" id="71" nodename="VOOCAMSequencerRotate.v4p">
    <BOUNDS type="Node" left="8580" top="8895" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="8580" top="8895" width="4800" height="3600">
