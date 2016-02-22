@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.103.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="5610">
+   <PATCH nodename="F:\vvvv\projects\Uberact\AG-1-HON-GEN\libraries\vvvv_50alpha34.103_x64\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="7740">
    <BOUNDS type="Window" left="2775" top="1725" width="13680" height="12180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -108,7 +108,7 @@
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="SequentialAdd (Value)" filename="..\..\..\..\mp.essentials\nodes\plugins\value\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="50">
+   <NODE systemname="SequentialAdd (Value)" filename="%VVVV%\packs\mp.essentials\nodes\plugins\value\ValueSequentialAdd\ValueSequentialAdd.csproj" nodename="SequentialAdd (Value)" componentmode="Hidden" id="50">
    <BOUNDS type="Node" left="1800" top="2430" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
@@ -461,7 +461,7 @@
    </BOUNDS>
    <PIN pinname="Select" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="9" values="|Windows Mainloop|,|&lf;Timer|,|&lf;Update View|,|&lf;Prepare Graph|,|&lf;Render|,|&lf;Present|,|&lf;Network Sync|,|&lf;Debug|,|&lf;Reset Cache|">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -495,8 +495,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="82" srcpinname="Output String" dstnodeid="83" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="83" srcpinname="Output" dstnodeid="81" dstpinname="Input">
    </LINK>
    <NODE systemname="Bounds (Spectral)" nodename="Bounds (Spectral)" componentmode="Hidden" id="86">
    <BOUNDS type="Node" left="1845" top="5250" width="100" height="100">
@@ -849,7 +847,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Text" visible="1" slicecount="1" values="17">
+   <PIN pinname="Text" visible="1" slicecount="1" values="27">
    </PIN>
    <PIN pinname="Format" visible="1">
    </PIN>
@@ -857,7 +855,7 @@
    <LINK srcnodeid="115" srcpinname="Output" dstnodeid="114" dstpinname="Text Layout">
    </LINK>
    <NODE systemname="FormatValue (String)" nodename="FormatValue (String)" componentmode="Hidden" id="116">
-   <BOUNDS type="Node" left="6720" top="11340" width="100" height="100">
+   <BOUNDS type="Node" left="7785" top="11280" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="66.5">
    </PIN>
@@ -865,7 +863,7 @@
    </PIN>
    </NODE>
    <NODE systemname="FormatValue (String)" nodename="FormatValue (String)" componentmode="Hidden" id="117">
-   <BOUNDS type="Node" left="8010" top="11325" width="100" height="100">
+   <BOUNDS type="Node" left="6690" top="11295" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -889,7 +887,7 @@
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="120">
    <BOUNDS type="Node" left="6705" top="11805" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="29">
    </PIN>
    <PIN pinname="Input 2" slicecount="1" values="FPS">
    </PIN>
@@ -898,10 +896,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="116" srcpinname="Output" dstnodeid="120" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="120" srcpinname="Output" dstnodeid="115" dstpinname="Text">
-   </LINK>
    <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="121">
    <BOUNDS type="Node" left="5355" top="13020" width="100" height="100">
    </BOUNDS>
@@ -959,13 +953,15 @@
    </PIN>
    <PIN pinname="Color" visible="1">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE systemname="TextLayout (DirectWrite)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.DirectWrite.dll" nodename="TextLayout (DirectWrite)" componentmode="Hidden" id="126">
    <BOUNDS type="Node" left="6330" top="13935" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Text" visible="1" slicecount="1" values="|3 FPS|">
+   <PIN pinname="Text" visible="1" slicecount="1" values="26">
    </PIN>
    <PIN pinname="Format" visible="1">
    </PIN>
@@ -1000,14 +996,12 @@
    </LINK>
    <LINK srcnodeid="122" srcpinname="Color Output" dstnodeid="127" dstpinname="Color">
    </LINK>
-   <LINK srcnodeid="117" srcpinname="Output" dstnodeid="126" dstpinname="Text">
-   </LINK>
    <LINK srcnodeid="127" srcpinname="Layer" dstnodeid="123" dstpinname="Layer 2">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="128" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7395" top="12420" width="375" height="240">
+   <BOUNDS type="Box" left="7245" top="12450" width="375" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="7395" top="12420" width="0" height="0">
+   <BOUNDS type="Node" left="7245" top="12450" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-37">
    </PIN>
@@ -1021,9 +1015,9 @@
    <LINK srcnodeid="128" srcpinname="Y Output Value" dstnodeid="124" dstpinname="Y">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="130" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6870" top="12195" width="300" height="240">
+   <BOUNDS type="Box" left="6870" top="12120" width="300" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6870" top="12195" width="0" height="0">
+   <BOUNDS type="Node" left="6870" top="12120" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
    </PIN>
@@ -1255,6 +1249,8 @@
    </PIN>
    <PIN pinname="Color" visible="1">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE systemname="TextLayout (DirectWrite)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.DirectWrite.dll" nodename="TextLayout (DirectWrite)" componentmode="Hidden" id="156">
    <BOUNDS type="Node" left="10560" top="13965" width="100" height="100">
@@ -1264,6 +1260,14 @@
    <PIN pinname="Text" visible="1" slicecount="1" values="214">
    </PIN>
    <PIN pinname="Format" visible="1">
+   </PIN>
+   <PIN pinname="Text Alignment" slicecount="1" values="Leading">
+   </PIN>
+   <PIN pinname="Paragraph Alignment" slicecount="1" values="Near">
+   </PIN>
+   <PIN pinname="Maximum Width" slicecount="1" values="200">
+   </PIN>
+   <PIN pinname="Maximum Height" slicecount="1" values="200">
    </PIN>
    </NODE>
    <LINK srcnodeid="156" srcpinname="Output" dstnodeid="157" dstpinname="Text Layout">
@@ -1550,4 +1554,24 @@
    </LINK>
    <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="104" dstpinname="Enabled">
    </LINK>
+   <NODE systemname="Clean (String)" nodename="Clean (String)" componentmode="Hidden" id="174">
+   <BOUNDS type="Node" left="8355" top="4065" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="83" srcpinname="Output" dstnodeid="174" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="174" srcpinname="Output" dstnodeid="81" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="120" srcpinname="Output" dstnodeid="115" dstpinname="Text">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Output" dstnodeid="120" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="116" srcpinname="Output" dstnodeid="126" dstpinname="Text">
+   </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>
