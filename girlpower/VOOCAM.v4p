@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="705" scrolly="-360" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.103.dtd" >
+   <PATCH nodename="E:\vvvv\libs\mcropack\girlpower\VOOCAM.v4p" scrollx="0" scrolly="6990" systemname="ModularCam" filename="C:\vvvv\libs\mcropack\girlpower\ModularCam.v4p">
    <BOUNDS type="Window" left="1650" top="5550" width="13320" height="9180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3855" top="1575" width="795" height="240">
@@ -338,6 +338,8 @@
    <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Alignment" slicecount="1" values="FitOut">
    </PIN>
    </NODE>
    <NODE systemname="Subtract (Value)" nodename="Subtract (Value)" componentmode="Hidden" id="50">
@@ -717,7 +719,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1050" top="15675" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="14205" top="5895" width="12420" height="8595">
+   <BOUNDS type="Window" left="11400" top="2145" width="15210" height="9795">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>

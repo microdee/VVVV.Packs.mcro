@@ -31,7 +31,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4440" top="1485" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -325,12 +325,12 @@
    </PIN>
    <PIN pinname="Output Layout" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="40" srcpinname="Geometry Out" dstnodeid="20" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="40" srcpinname="Buffer Out" dstnodeid="28" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="31" srcpinname="Output" dstnodeid="40" dstpinname="Element Count">
    </LINK>
@@ -497,7 +497,7 @@
    <NODE systemname="GeomJoinThru (DX11.Effect)" filename="..\..\dx11\GeomJoinThru.fx" nodename="GeomJoinThru (DX11.Effect)" componentmode="Hidden" id="52">
    <BOUNDS type="Node" left="1950" top="5100" width="1290" height="270">
    </BOUNDS>
-   <PIN pinname="Enabled" slicecount="1" values="1">
+   <PIN pinname="Enabled" slicecount="1" values="1" visible="1">
    </PIN>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
@@ -537,5 +537,7 @@
    <LINK srcnodeid="24" srcpinname="Output" dstnodeid="53" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="2" srcpinname="Output Node" dstnodeid="52" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Enabled">
    </LINK>
    </PATCH>

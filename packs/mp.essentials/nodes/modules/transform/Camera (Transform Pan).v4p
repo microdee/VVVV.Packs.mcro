@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\transform\Camera (Transform Pan).v4p" systemname="Camera (Transform Pan)" filename="E:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\transform\Camera (Transform Pan).v4p" scrollx="0" scrolly="5535">
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\transform\Camera (Transform Pan).v4p" systemname="Camera (Transform Pan)" filename="E:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\transform\Camera (Transform Pan).v4p" scrollx="30" scrolly="3255">
    <BOUNDS type="Window" left="-9765" top="735" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -88,26 +88,6 @@
    </LINK>
    <LINK srcnodeid="8" srcpinname="Output" dstnodeid="9" dstpinname="Input 2">
    </LINK>
-   <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="1575" top="2625" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Mouse Buttons" dstnodeid="10" dstpinname="Input">
-   </LINK>
-   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="1575" top="3060" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Up Edge" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="10" srcpinname="Output" dstnodeid="11" dstpinname="Input">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5175" top="4905" width="795" height="240">
    </BOUNDS>
@@ -139,7 +119,7 @@
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1245" top="3735" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 2" slicecount="1" values="120">
+   <PIN pinname="Input 2" slicecount="1" values="-120">
    </PIN>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -169,7 +149,7 @@
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="3285" top="2865" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" slicecount="1" values="1" visible="1">
+   <PIN pinname="Input" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
@@ -216,32 +196,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="25">
-   <BOUNDS type="Node" left="3465" top="3465" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 2" visible="1">
-   </PIN>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="11" srcpinname="Up Edge" dstnodeid="25" dstpinname="Input 2">
-   </LINK>
-   <NODE systemname="EQ (Value)" nodename="EQ (Value)" componentmode="Hidden" id="26">
-   <BOUNDS type="Node" left="2100" top="3810" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Inverse Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="13" srcpinname="Z" dstnodeid="26" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Inverse Output" dstnodeid="25" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="25" srcpinname="Output" dstnodeid="1" dstpinname="Update">
-   </LINK>
    <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="27">
    <BOUNDS type="Node" left="900" top="8130" width="100" height="100">
    </BOUNDS>
@@ -271,13 +225,13 @@
    <NODE systemname="DoubleClick (Animation)" filename="..\boolean\DoubleClick (Animation).v4p" nodename="DoubleClick (Animation)" componentmode="Hidden" id="28">
    <BOUNDS type="Node" left="1890" top="6675" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Set" visible="1">
+   <PIN pinname="Set" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="29">
-   <BOUNDS type="Node" left="1875" top="6210" width="100" height="100">
+   <BOUNDS type="Node" left="1890" top="5580" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -285,8 +239,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="24" srcpinname="Output" dstnodeid="29" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="29" srcpinname="Up Edge" dstnodeid="28" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="28" srcpinname="Output" dstnodeid="23" dstpinname="Reset">
    </LINK>
@@ -297,7 +249,7 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="ScaleXY" slicecount="2" values="1,1" visible="1">
+   <PIN pinname="ScaleXY" slicecount="2" visible="1" values="1,1">
    </PIN>
    <PIN pinname="CenterXY" visible="1">
    </PIN>
@@ -525,5 +477,41 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="42" srcpinname="Output" dstnodeid="50" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="52" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3480" top="3330" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3480" top="3330" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Update">
+   </LINK>
+   <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="53">
+   <BOUNDS type="Node" left="1905" top="6090" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Output 1" dstnodeid="53" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Up Edge" dstnodeid="53" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="53" srcpinname="Output" dstnodeid="28" dstpinname="Set">
    </LINK>
    </PATCH>
