@@ -1,4 +1,4 @@
-#define MUPSWORLD_FXH
+#define MCPSWORLD_FXH
 
 /*
 indicate optional features with:
@@ -40,13 +40,13 @@ KNOW_ROTATION
 #if !defined(PELSIZE)
 #define PELSIZE 24
 #endif
-// total size of mups RawBuffer in bytes (PCOUNT * PELSIZE * 4)
+// total size of mcps RawBuffer in bytes (PCOUNT * PELSIZE * 4)
 #if !defined(BUFSIZE)
 #define BUFSIZE 49152
 #endif
 
-cbuffer mupsUniforms
+cbuffer mcpsUniforms
 {
-    float2 mupsTime : PS_TIME;
+    float2 mcpsTime : PS_TIME;
     float WorldEmitOffset : PS_WORLDEMITTEROFFSET;
 };
