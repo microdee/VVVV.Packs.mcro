@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="7830">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.103.dtd" >
+   <PATCH nodename="E:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2 (DX11.Debug).v4p" systemname="PerfMeter2 (DX11.Debug)" filename="C:\vvvv\libs\mcropack\packs\mp.dx\nodes\modules\essentials\PerfMeter2\PerfMeter2 (DX11.Debug).v4p" scrollx="0" scrolly="5610">
    <BOUNDS type="Window" left="2775" top="1725" width="13680" height="12180">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE id="2" nodename="Timing (Debug)" systemname="Timing (Debug)">
    <BOUNDS height="270" left="3015" top="1605" type="Node" width="2250">
@@ -699,6 +699,8 @@
    </PIN>
    <PIN pinname="Query" visible="1">
    </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="103" srcpinname="Layer Out" dstnodeid="90" dstpinname="Layer In">
    </LINK>
@@ -712,6 +714,8 @@
    <PIN pinname="Render State" visible="1">
    </PIN>
    <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="32" srcpinname="Layer" dstnodeid="103" dstpinname="Layer 2">
@@ -733,7 +737,7 @@
    </PIN>
    <PIN pinname="ScaleY" visible="1">
    </PIN>
-   <PIN pinname="TranslateX" slicecount="1" values="0" visible="1">
+   <PIN pinname="TranslateX" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="TranslateY" visible="1">
    </PIN>
@@ -936,6 +940,8 @@
    <PIN pinname="Layer 4" visible="1">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="114" srcpinname="Layer" dstnodeid="123" dstpinname="Layer 1">
@@ -1355,6 +1361,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="90" dstpinname="Enabled">
    </LINK>
@@ -1519,5 +1527,27 @@
    <LINK srcnodeid="172" srcpinname="Y Output Value" dstnodeid="171" dstpinname="XY">
    </LINK>
    <LINK srcnodeid="170" srcpinname="Transform Out" dstnodeid="91" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="103" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="173" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6810" top="8055" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6810" top="8055" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.06,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="123" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="104" dstpinname="Enabled">
    </LINK>
    </PATCH>
