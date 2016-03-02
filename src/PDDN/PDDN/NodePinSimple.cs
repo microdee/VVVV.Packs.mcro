@@ -79,6 +79,7 @@ namespace VVVV.Nodes.PDDN
         {
             plgh.CreateNodeInput(attr.Name, (TSliceMode)attr.SliceMode, (TPinVisibility)attr.Visibility, out Pin);
             Pin.SetSubType2(null, new Guid[] { }, "Variant");
+            Pin.Order = attr.Order;
         }
     }
 
@@ -97,23 +98,59 @@ namespace VVVV.Nodes.PDDN
 
         private List<int> ConstructBinOffsets()
         {
-            int coffs = 0;
             List<int> res = new List<int>();
-            for (int i = 0; i < BinSizePin.SliceCount; i++)
+            
+            int currslice = 0;
+            int cb = 0;
+            while (currslice < Pin.SliceCount)
             {
-                double temp = 0;
-                BinSizePin.GetValue(i, out temp);
-                if (temp < 0)
+                if ((cb > BinSizePin.SliceCount) && (currslice <= 0))
+                    break;
+                int mcb = cb % BinSizePin.SliceCount;
+                double btemp = 0;
+                BinSizePin.GetValue(mcb, out btemp);
+                int cbin = (int)btemp;
+                if (cbin > 0)
+                {
+                    res.Add(currslice);
+                    currslice += cbin;
+                }
+                if (cbin < 0)
                 {
                     res.Add(0);
                 }
-                else
-                {
-                    res.Add(coffs);
-                    coffs += (int)temp;
-                }
+                cb++;
             }
+            
             return res;
+        }
+
+        public int SliceCount
+        {
+            get
+            {
+                int slicecount = 0;
+                int currslice = 0;
+                int cb = 0;
+                while (currslice < Pin.SliceCount)
+                {
+                    if ((cb > BinSizePin.SliceCount) && (currslice <= 0))
+                        break;
+                    int mcb = cb % BinSizePin.SliceCount;
+                    double btemp = 0;
+                    BinSizePin.GetValue(mcb, out btemp);
+                    int cbin = (int)btemp;
+                    if (cbin > 0)
+                    {
+                        currslice += cbin;
+                        slicecount++;
+                    }
+                    if (cbin < 0)
+                        slicecount++;
+                    cb++;
+                }
+                return slicecount;
+            }
         }
 
         public List<object> this[int i]
@@ -126,7 +163,8 @@ namespace VVVV.Nodes.PDDN
                     double btemp = 0;
                     BinSizePin.GetValue(i, out btemp);
                     int currbin = (int) btemp;
-                    int curroffs = ConstructBinOffsets()[i];
+                    var offsets = ConstructBinOffsets();
+                    int curroffs = offsets[i % offsets.Count];
                     if (currbin < 0)
                     {
                         currbin = BinSizePin.SliceCount;
@@ -144,6 +182,7 @@ namespace VVVV.Nodes.PDDN
                             double t;
                             temp.GetValue(ui, out t);
                             res.Add(t);
+                            break;
                         }
                         if (usi is IColorData)
                         {
@@ -151,6 +190,7 @@ namespace VVVV.Nodes.PDDN
                             RGBAColor t;
                             temp.GetColor(ui, out t);
                             res.Add(t);
+                            break;
                         }
                         if (usi is IStringData)
                         {
@@ -158,6 +198,7 @@ namespace VVVV.Nodes.PDDN
                             string t;
                             temp.GetString(ui, out t);
                             res.Add(t);
+                            break;
                         }
                         if (usi is IRawData)
                         {
@@ -165,11 +206,13 @@ namespace VVVV.Nodes.PDDN
                             IStream t;
                             temp.GetData(ui, out t);
                             res.Add(t);
+                            break;
                         }
                         if (usi is IEnumerable<object>)
                         {
                             var temp = usi as IEnumerable<object>;
                             res.Add(temp.ToArray()[ui]);
+                            break;
                         }
                         res.Add(null);
                     }
@@ -186,11 +229,14 @@ namespace VVVV.Nodes.PDDN
             return usi;
         }
 
-        public GenericBinSizedInput(IPluginHost plgh, IOAttribute attr)
+        public GenericBinSizedInput(IPluginHost plgh, InputAttribute attr)
         {
             plgh.CreateNodeInput(attr.Name, (TSliceMode)attr.SliceMode, (TPinVisibility)attr.Visibility, out Pin);
-            plgh.CreateValueInput(attr.Name + " Bin Size", 1, new[] {"X"}, TSliceMode.Dynamic, (TPinVisibility) attr.Visibility, out BinSizePin);
+            plgh.CreateValueInput(attr.Name + " Bin Size", 1, null, TSliceMode.Dynamic, (TPinVisibility) attr.Visibility, out BinSizePin);
             Pin.SetSubType2(null, new Guid[] { }, "Variant");
+            BinSizePin.SetSubType(-1, double.MaxValue, 1, attr.BinSize, false, false, true);
+            Pin.Order = attr.Order;
+            BinSizePin.Order = attr.BinOrder;
         }
     }
 }
