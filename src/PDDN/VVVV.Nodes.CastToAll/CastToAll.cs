@@ -40,78 +40,104 @@ namespace VVVV.Nodes
     }
 
     [PluginInfo(Name = "Cast", Category = "Node", AutoEvaluate = true)]
-    public class CastToAllInheritedNode : PinDictionaryDynamicNode, IPluginEvaluate, IPartImportsSatisfiedNotification
+    public class CastToAllInheritedNode : IPluginEvaluate, IPartImportsSatisfiedNotification
     {
         [Import]
-        public IPluginHost2 FPluginHost;
+        protected IIOFactory FIOFactory;
 
-        [Input("FullName")]
-        public IDiffSpread<bool> FFull;
-        
+        [Import]
+        public IPluginHost2 FPluginHost;
+        [Import]
+        public IHDEHost FHDEHost;
+
+        [Config("Type", DefaultString = "")]
+        public IDiffSpread<string> FType;
+
         public GenericInput FInput;
+        public PinDictionary PinDictionary;
         
-        private Type OType;
-        private IEnumerable<Type> Types;
-        private readonly List<string> PreservePins = new List<string>();
+        private Type CType;
+        private string CTypeS;
+
+        private bool Initialized = false;
+
+        private Type FindHighestType()
+        {
+            Type type = FInput[0].GetType();
+            if (FInput.Pin.SliceCount > 1)
+            {
+                object po = FInput[0];
+                for (int i = 1; i < FInput.Pin.SliceCount; i++)
+                {
+                    if (!type.IsInstanceOfType(FInput[i]))
+                    {
+                        foreach (var T in FInput[i].GetType().GetTypes())
+                        {
+                            if (T.IsInstanceOfType(po))
+                            {
+                                type = T;
+                                break;
+                            }
+                        }
+                    }
+                    po = FInput[i];
+                }
+            }
+            return type;
+        }
 
         protected void Init()
         {
-            if (FInput[0] == null)
+            if (!Initialized)
             {
-                OType = null;
-                RemoveAllOutput();
-            }
-            else
-            {
-                OType = FInput[0].GetType();
-                Types = OType.GetTypes();
-                PreservePins.Clear();
-                foreach (var T in Types)
+                CType = Type.GetType(FType[0], true);
+
+                if (FInput.Pin.SliceCount != 0)
                 {
-                    if (OutputPins.ContainsKey(T.GetName(FFull[0])))
+                    if (FInput[0] != null)
                     {
-                        if(OutputPins[T.GetName(FFull[0])].Type == T)
-                            PreservePins.Add(T.GetName(FFull[0]));
+                        Type T = FindHighestType();
+                        if (T != CType)
+                        {
+                            PinDictionary.RemoveAllOutput();
+                            PinDictionary.AddOutput(T, new OutputAttribute("Output"));
+                            CType = T;
+                            CTypeS = T.AssemblyQualifiedName;
+                            FType[0] = CTypeS;
+                        }
                     }
                 }
 
-                foreach (var p in OutputPins.Keys)
-                {
-                    if(!PreservePins.Contains(p))
-                        OutputTaggedForRemove.Add(p);
-                }
-                RemoveTaggedOutput();
-
-                foreach (var T in Types)
-                {
-                    if (!OutputPins.ContainsKey(T.GetName(FFull[0])))
-                    {
-                        AddOutput(T, new OutputAttribute(T.GetName(FFull[0])));
-                    }
-                }
+                //RemoveAllOutput();
+                PinDictionary.AddOutput(CType, new OutputAttribute("Output"));
+                if(CType != null)
+                    CTypeS = CType.AssemblyQualifiedName;
+                Initialized = true;
             }
         }
 
         protected void Write()
         {
             int sc = FInput.Pin.SliceCount;
-            foreach (var p in OutputPins.Values)
-            {
-                p.Spread.SliceCount = sc;
-            }
+            PinDictionary.OutputPins["Output"].Spread.SliceCount = sc;
+
             for (int i = 0; i < sc; i++)
             {
-                foreach (var p in OutputPins.Values)
-                {
-                    p.Spread[i] = FInput[i];
-                }
+                PinDictionary.OutputPins["Output"].Spread[i] = FInput[i];
             }
         }
         public void OnImportsSatisfied()
         {
+            PinDictionary = new PinDictionary(FIOFactory);
             FInput = new GenericInput(FPluginHost, new InputAttribute("Input"));
-            Init();
-            Write();
+            FInput.Pin.Order = 0;
+            FType.Changed += OnSavedTypeChanged;
+        }
+
+        private void OnSavedTypeChanged(IDiffSpread<string> spread)
+        {
+            if(FType[0] != "")
+                Init();
         }
 
         public void Evaluate(int SpreadMax)
@@ -120,19 +146,23 @@ namespace VVVV.Nodes
             {
                 if (FInput[0] != null)
                 {
-                    if (FInput[0].GetType() != OType)
+                    Type T = FindHighestType();
+                    if(T != CType)
                     {
-                        Init();
+                        PinDictionary.RemoveAllOutput();
+                        PinDictionary.AddOutput(T, new OutputAttribute("Output"));
+                        CType = T;
+                        CTypeS = T.AssemblyQualifiedName;
+                        FType[0] = CTypeS;
                     }
-                    Write();
+                    if (PinDictionary.OutputPins.ContainsKey("Output"))
+                        Write();
                 }
             }
             else
             {
-                foreach (var p in OutputPins.Values)
-                {
-                    p.Spread.SliceCount = 0;
-                }
+                if(PinDictionary.OutputPins.ContainsKey("Output"))
+                    PinDictionary.OutputPins["Output"].Spread.SliceCount = 0;
             }
         }
     }
