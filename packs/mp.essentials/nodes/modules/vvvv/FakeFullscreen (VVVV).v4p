@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.103.dtd" >
-   <PATCH nodename="E:\vvvv\projects\Uberact\AG-1-HON-GEN\libraries\vvvv_50alpha34.103_x64\packs\mp.essentials\nodes\modules\vvvv\FakeFullscreen (VVVV).v4p" systemname="FakeFullscreen (VVVV)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FakeFullscreen (VVVV).v4p" scrollx="675" scrolly="0">
-   <BOUNDS type="Window" left="34230" top="6135" width="9000" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="F:\vvvv\libs\mcropack\packs\mp.essentials\nodes\modules\vvvv\FakeFullscreen (VVVV).v4p" systemname="FakeFullscreen (VVVV)" filename="C:\vvvv\libs\mcropack\nodes\Modules\FakeFullscreen (VVVV).v4p" scrollx="15" scrolly="3030">
+   <BOUNDS type="Window" left="34230" top="6135" width="16890" height="6000">
    </BOUNDS>
-   <PACK Name="addonpack" Version="34.101.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="ComponentMode (VVVV bounds)" filename="%VVVV%\packs\mp.essentials\nodes\modules\vvvv\ComponentMode (VVVV bounds).v4p" nodename="componentmode (VVVV bounds)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="2055" top="6900" width="100" height="100">
