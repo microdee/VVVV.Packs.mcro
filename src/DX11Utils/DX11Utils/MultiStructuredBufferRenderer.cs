@@ -120,7 +120,7 @@ namespace VVVV.DX11.Nodes
                 for(int i=0; i<FSemantic.SliceCount; i++)
                 {
                     sizes.Add(FInSize[i]);
-                    strides.Add(FInSize[i]);
+                    strides.Add(FInStride[i]);
                     semantics.Add(FSemantic[i]);
                 }
             }
@@ -169,23 +169,21 @@ namespace VVVV.DX11.Nodes
                     settings.RenderHeight = sizes[i];
                     settings.RenderDepth = sizes[i];
 
-                    if (this.FInResetCounter[i])
+                    if (FInResetCounter[i])
                     {
-                        settings.ResetCounter = true;
-                        settings.CounterValue = FInResetCounterValue[i];
+                        int[] resetval = { FInResetCounterValue[i] };
+                        var uavarray = new UnorderedAccessView[1] {FOutBuffers[i][context].UAV};
+                        context.CurrentDeviceContext.ComputeShader.SetUnorderedAccessViews(uavarray, 0, 1, resetval);
                     }
                     else
                     {
                         settings.ResetCounter = false;
                     }
 
-                    this.FInLayer[i][context].Render(this.FInLayer.PluginIO, context, settings);
+                    FInLayer[i][context].Render(FInLayer.PluginIO, context, settings);
                 }
 
-                if (this.EndQuery != null)
-                {
-                    this.EndQuery(context);
-                }
+                EndQuery?.Invoke(context);
             }
         }
 
@@ -206,7 +204,8 @@ namespace VVVV.DX11.Nodes
                 {
                     if (reset || !this.FOutBuffers[i].Contains(context))
                     {
-                        DX11RWStructuredBuffer rb = new DX11RWStructuredBuffer(context.Device, this.sizes[i], strides[i], FInMode[i]);
+                        var mode = FInMode[i];
+                        DX11RWStructuredBuffer rb = new DX11RWStructuredBuffer(context.Device, this.sizes[i], strides[i], mode);
                         this.FOutBuffers[i][context] = rb;
                         
                         RWStructuredBufferRenderSemantic uavbs = new RWStructuredBufferRenderSemantic(FSemantic[i] + FUAVPostfix[i], false);
