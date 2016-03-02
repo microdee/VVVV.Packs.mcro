@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurableDynamicPinNode.cs" />
     <Compile Include="NodePinSimple.cs" />
     <Compile Include="PDDN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
