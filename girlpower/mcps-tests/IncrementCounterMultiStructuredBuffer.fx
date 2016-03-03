@@ -1,7 +1,19 @@
-RWStructuredBuffer<uint> BufOut : BACKBUFFER1;
-StructuredBuffer<float> BufIn;
+RWStructuredBuffer<uint> Buf0 : BUF0;
+RWStructuredBuffer<uint> Buf1 : BUF1;
+#if BUFN > 2
+RWStructuredBuffer<uint> Buf2 : BUF2;
+#endif
+#if BUFN > 3
+RWStructuredBuffer<uint> Buf3 : BUF3;
+#endif
 
-bool apply;
+cbuffer cbuf
+{
+	bool incr0 = false;
+	bool incr1 = false;
+	bool incr2 = false;
+	bool incr3 = false;
+};
 
 struct csin
 {
@@ -11,23 +23,27 @@ struct csin
 };
 
 [numthreads(1, 1, 1)]
-void CS(csin input)
-{
-	if(apply){
-		
-		if (BufIn[input.DTID.x] > 0){
-			BufOut.IncrementCounter();
-		}	
-	}
-}
-
-[numthreads(1, 1, 1)]
 void CS_Count(csin input)
 {
-	if(apply){
-		BufOut[0] =	BufOut.IncrementCounter();
+	if(incr0)
+	{
+		Buf0[0] = Buf0.IncrementCounter();
 	}
+	if(incr1)
+	{
+		Buf1[0] = Buf1.IncrementCounter();
+	}
+#if BUFN > 2
+	if(incr2)
+	{
+		Buf2[0] = Buf2.IncrementCounter();
+	}
+#endif
+#if BUFN > 3
+	if(incr3)
+	{
+		Buf3[0] = Buf3.IncrementCounter();
+	}
+#endif
 }
-
-technique11 main { pass P0{SetComputeShader( CompileShader( cs_5_0, CS() ) );} }
 technique11 count { pass P0{SetComputeShader( CompileShader( cs_5_0, CS_Count() ) );} }

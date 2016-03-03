@@ -163,7 +163,7 @@ namespace VVVV.DX11.Nodes
                 settings.BackBuffer = null;
                 settings.CustomSemantics = rsemantics;
 
-                for (int i = 0; i < this.FInLayer.SliceCount; i++)
+                for (int i = 0; i < FSemantic.SliceCount; i++)
                 {
                     settings.RenderWidth = sizes[i];
                     settings.RenderHeight = sizes[i];
@@ -171,6 +171,7 @@ namespace VVVV.DX11.Nodes
 
                     if (FInResetCounter[i])
                     {
+                        settings.ResetCounter = true;
                         int[] resetval = { FInResetCounterValue[i] };
                         var uavarray = new UnorderedAccessView[1] {FOutBuffers[i][context].UAV};
                         context.CurrentDeviceContext.ComputeShader.SetUnorderedAccessViews(uavarray, 0, 1, resetval);
@@ -179,9 +180,8 @@ namespace VVVV.DX11.Nodes
                     {
                         settings.ResetCounter = false;
                     }
-
-                    FInLayer[i][context].Render(FInLayer.PluginIO, context, settings);
                 }
+                FInLayer[0][context].Render(FInLayer.PluginIO, context, settings);
 
                 EndQuery?.Invoke(context);
             }
