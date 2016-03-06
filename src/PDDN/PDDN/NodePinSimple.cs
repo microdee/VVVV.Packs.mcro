@@ -182,7 +182,7 @@ namespace VVVV.Nodes.PDDN
                             double t;
                             temp.GetValue(ui, out t);
                             res.Add(t);
-                            break;
+                            continue;
                         }
                         if (usi is IColorData)
                         {
@@ -190,7 +190,7 @@ namespace VVVV.Nodes.PDDN
                             RGBAColor t;
                             temp.GetColor(ui, out t);
                             res.Add(t);
-                            break;
+                            continue;
                         }
                         if (usi is IStringData)
                         {
@@ -198,7 +198,7 @@ namespace VVVV.Nodes.PDDN
                             string t;
                             temp.GetString(ui, out t);
                             res.Add(t);
-                            break;
+                            continue;
                         }
                         if (usi is IRawData)
                         {
@@ -206,13 +206,13 @@ namespace VVVV.Nodes.PDDN
                             IStream t;
                             temp.GetData(ui, out t);
                             res.Add(t);
-                            break;
+                            continue;
                         }
                         if (usi is IEnumerable<object>)
                         {
                             var temp = usi as IEnumerable<object>;
                             res.Add(temp.ToArray()[ui]);
-                            break;
+                            continue;
                         }
                         res.Add(null);
                     }
