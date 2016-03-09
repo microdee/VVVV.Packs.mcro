@@ -10,7 +10,6 @@ using VVVV.Utils.VColor;
 using VVVV.Utils.VMath;
 
 using VVVV.Core.Logging;
-using VVVV.Packs.Messaging;
 #endregion usings
 
 namespace VVVV.Nodes
@@ -112,15 +111,17 @@ namespace VVVV.Nodes
 	public class Vector3DAsStrongObjectNode : AsStrongObjectNode<Vector3D> { }
 	
 	[PluginInfo(Name = "AsWeakObject", Category = "4d", Tags = "")]
-	public class Vector4DAsWeakObjectNode : AsWeakObjectNode<Vector2D> { }
+	public class Vector4DAsWeakObjectNode : AsWeakObjectNode<Vector4D> { }
 	[PluginInfo(Name = "AsStrongObject", Category = "4d", Tags = "")]
-	public class Vector4DAsStrongObjectNode : AsStrongObjectNode<Vector2D> { }
+	public class Vector4DAsStrongObjectNode : AsStrongObjectNode<Vector4D> { }
 
+	[PluginInfo(Name = "AsWeakObject", Category = "Transform", Tags = "")]
+	public class TransformAsWeakObjectNode : AsWeakObjectNode<Matrix4x4> { }
+	[PluginInfo(Name = "AsStrongObject", Category = "Transform", Tags = "")]
+	public class TransformAsStrongObjectNode : AsStrongObjectNode<Matrix4x4> { }
+	
 	[PluginInfo(Name = "AsWeakObject", Category = "String", Tags = "")]
 	public class StringAsWeakObjectNode : AsWeakObjectNode<string> { }
 	[PluginInfo(Name = "AsStrongObject", Category = "String", Tags = "")]
 	public class StringAsStrongObjectNode : AsStrongObjectNode<string> { }
-	
-	[PluginInfo(Name = "AsStrongObject", Category = "Message", Tags = "")]
-	public class MessageAsStrongObjectNode : AsStrongObjectNode<Message> { }
 }

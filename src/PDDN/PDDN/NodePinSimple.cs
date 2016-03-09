@@ -134,7 +134,7 @@ namespace VVVV.Nodes.PDDN
                 int cb = 0;
                 while (currslice < Pin.SliceCount)
                 {
-                    if ((cb > BinSizePin.SliceCount) && (currslice <= 0))
+                    if ((cb >= BinSizePin.SliceCount) && (currslice <= 0))
                         break;
                     int mcb = cb % BinSizePin.SliceCount;
                     double btemp = 0;
@@ -167,7 +167,7 @@ namespace VVVV.Nodes.PDDN
                     int curroffs = offsets[i % offsets.Count];
                     if (currbin < 0)
                     {
-                        currbin = BinSizePin.SliceCount;
+                        currbin = Pin.SliceCount;
                         curroffs = 0;
                     }
                     List<object> res = new List<object>();
@@ -218,7 +218,7 @@ namespace VVVV.Nodes.PDDN
                     }
                     return res;
                 }
-                else return null;
+                return null;
             }
         }
 
