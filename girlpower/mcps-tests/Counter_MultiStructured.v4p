@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.103.dtd" >
-   <PATCH nodename="E:\vvvv\libs\mcropack\girlpower\mcps-tests\Counter_MultiStructured.v4p" systemname="test" filename="C:\Users\le_tmp\Desktop\test.v4p" scrollx="60" scrolly="975">
+   <PATCH nodename="F:\vvvv\libs\mcropack\girlpower\mcps-tests\Counter_MultiStructured.v4p" systemname="test" filename="C:\Users\le_tmp\Desktop\test.v4p" scrollx="60" scrolly="975">
    <BOUNDS type="Window" left="7080" top="3000" width="9840" height="11790">
    </BOUNDS>
    <PACK Name="addonpack" Version="34.101.0">
@@ -29,7 +29,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5550" top="5610" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="14">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -80,32 +80,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (DX11 MultiStructuredBuffer)" filename="F:\vvvv\libs\mcropack\packs\mp.dx\nodes\plugins\DX11Utils\x64\DX11Utils.dll" nodename="Renderer (DX11 MultiStructuredBuffer)" componentmode="Hidden" id="47">
-   <BOUNDS type="Node" left="3000" top="6510" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3000" top="6510">
-   </BOUNDS>
-   <PIN pinname="Buffers" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Reset Counter" visible="1" slicecount="4" values="0,0,0,0">
-   </PIN>
-   <PIN pinname="Semantic" visible="1" slicecount="2" values="BUF0,BUF1">
-   </PIN>
-   <PIN pinname="Buffer Mode" slicecount="1" values="Append">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Reset Counter Value" linkstyle="Bezier">
-   <LINKPOINT x="5550" y="6165">
-   </LINKPOINT>
-   <LINKPOINT x="4320" y="6165">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Element Count">
-   </LINK>
-   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Stride">
-   </LINK>
    <NODE systemname="ReadBack (DX11.Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer)" componentmode="Hidden" id="49">
    <BOUNDS type="Node" left="3615" top="8235" width="100" height="100">
    </BOUNDS>
@@ -191,37 +165,31 @@
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="66">
    <BOUNDS type="Node" left="3630" top="6975" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="66" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="67">
    <BOUNDS type="Node" left="3930" top="7275" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Index" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="67" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="68">
    <BOUNDS type="Node" left="4230" top="7575" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Index" slicecount="1" values="2">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="68" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="66" srcpinname="Output Node" dstnodeid="49" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="70" systemname="IOBox (Value Advanced)">
@@ -391,10 +359,10 @@
    </PIN>
    <PIN pinname="incr3" visible="1">
    </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="52" srcpinname="Geometry Out" dstnodeid="81" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="81" srcpinname="Layer" dstnodeid="47" dstpinname="Layer">
    </LINK>
    <LINK srcnodeid="81" srcpinname="Layout Message" dstnodeid="79" dstpinname="Input String">
    </LINK>
@@ -571,11 +539,11 @@
    <LINK srcnodeid="97" srcpinname="Output" dstnodeid="81" dstpinname="Defines">
    </LINK>
    <NODE id="100" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
-   <BOUNDS left="2100" top="4830" width="615" height="915" type="Box">
+   <BOUNDS left="1545" top="3885" width="615" height="915" type="Box">
    </BOUNDS>
    <BOUNDS left="6045" top="6675" width="0" height="750" type="Window">
    </BOUNDS>
-   <BOUNDS left="2100" top="4830" width="0" height="750" type="Node">
+   <BOUNDS left="1545" top="3885" width="0" height="750" type="Node">
    </BOUNDS>
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
@@ -590,20 +558,16 @@
    <PIN pinname="Output String" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="100" srcpinname="Output String" dstnodeid="47" dstpinname="Semantic">
-   </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="102">
    <BOUNDS type="Node" left="4530" top="7875" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Index" slicecount="1" values="3">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="102" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="CopyCounter (DX11.Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="CopyCounter (DX11.Buffer)" componentmode="Hidden" id="105">
    <BOUNDS type="Node" left="3120" top="10035" width="100" height="100">
    </BOUNDS>
@@ -684,12 +648,6 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <LINK srcnodeid="30" srcpinname="Output Enum" dstnodeid="47" dstpinname="Buffer Mode" linkstyle="VHV">
-   <LINKPOINT x="3665" y="6165">
-   </LINKPOINT>
-   <LINKPOINT x="4240" y="6165">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="110">
    <BOUNDS type="Node" left="7080" top="6210" width="100" height="100">
    </BOUNDS>
@@ -701,8 +659,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="110" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="47" dstpinname="Reset Counter">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="111" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7485" top="5430" width="480" height="480">
@@ -723,5 +679,107 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="111" srcpinname="Y Output Value" dstnodeid="110" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="ResetCounter (DX11.Layer Advanced)" filename="..\..\packs\mp.dx\nodes\plugins\DX11Utils\x64\DX11Utils.dll" nodename="ResetCounter (DX11.Layer Advanced)" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="1755" top="5460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Reset Counter" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="RW Buffer Semantic" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Layer" dstnodeid="112" dstpinname="Layer In">
+   </LINK>
+   <NODE id="114" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)">
+   <BOUNDS left="2220" top="3855" width="300" height="990" type="Box">
+   </BOUNDS>
+   <BOUNDS left="7170" top="5745" width="0" height="750" type="Window">
+   </BOUNDS>
+   <BOUNDS left="2220" top="3855" width="0" height="750" type="Node">
+   </BOUNDS>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="4" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0,0,0,0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="Output String" dstnodeid="112" dstpinname="RW Buffer Semantic">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Reset Counter">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="115" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6075" top="8175" width="780" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6075" top="8175" width="780" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="renderer">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 Buffer Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer Advanced)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="3000" top="6510" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3000" top="6510">
+   </BOUNDS>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Reset Counter" visible="1" slicecount="4" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Semantic" visible="1" slicecount="2" values="BUF0,BUF1">
+   </PIN>
+   <PIN pinname="Buffer Mode" slicecount="1" values="Append">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Reset Counter Value" linkstyle="Bezier">
+   <LINKPOINT x="5550" y="6165">
+   </LINKPOINT>
+   <LINKPOINT x="4320" y="6165">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Element Count">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Stride">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="66" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="67" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="68" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="100" srcpinname="Output String" dstnodeid="47" dstpinname="Semantic">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="102" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Output Enum" dstnodeid="47" dstpinname="Buffer Mode" linkstyle="VHV">
+   <LINKPOINT x="3665" y="6165">
+   </LINKPOINT>
+   <LINKPOINT x="4240" y="6165">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="112" srcpinname="Layer Out" dstnodeid="47" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="47" dstpinname="Reset Counter">
    </LINK>
    </PATCH>
