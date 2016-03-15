@@ -150,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvancedResetCounter.cs" />
+    <Compile Include="CopyBuffer.cs" />
+    <Compile Include="CopyCounter.cs" />
+    <Compile Include="DispatchIndirectOnBindedResource.cs" />
     <Compile Include="MultiStructuredBufferRenderer.cs" />
     <Compile Include="MultiRawBufferRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
